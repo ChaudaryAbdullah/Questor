@@ -9,3 +9,5 @@ Data/
 *.temp
 
 node_modules/
+
+.venv/
