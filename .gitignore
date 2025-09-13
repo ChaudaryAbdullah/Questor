@@ -1,0 +1,11 @@
+.env
+
+Data/
+
+.vscode/
+
+*.log
+
+*.temp
+
+node_modules/
