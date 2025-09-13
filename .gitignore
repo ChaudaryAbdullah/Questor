@@ -11,3 +11,6 @@ Data/
 node_modules/
 
 .venv/
+
+Script/data/
+Script/output/
