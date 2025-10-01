@@ -2,3 +2,7 @@ numpy
 scipy
 scikit-learn
 pandas
+joblib
+tqdm
+beautifulsoup4
+sentence-transformers
