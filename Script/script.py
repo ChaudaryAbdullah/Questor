@@ -50,7 +50,7 @@ EMBED_BATCH = 64        # batch size for embedding.encode()
 
 # LLM Settings
 USE_LLM = True         # Set to True if Ollama is installed
-LLM_MODEL = "mistral"  # Your local Ollama model (mistral, phi3, gemma, etc.)
+LLM_MODEL = "phi3"  # Your local Ollama model (mistral, phi3, gemma, etc.)
 OUTPUT_DIR = "output"  # All output files go here
 
 # Performance tuning - ADJUST THESE FOR YOUR NEEDS
