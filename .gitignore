@@ -14,3 +14,5 @@ node_modules/
 
 Script/data/
 Script/output/
+
+__pycache__
