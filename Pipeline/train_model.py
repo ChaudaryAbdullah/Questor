@@ -25,6 +25,10 @@ from tensorflow.keras.layers import LSTM, Conv1D, MaxPooling1D, Flatten
 from tensorflow.keras.models import Model
 from tensorflow.keras import backend as K
 import tensorflow as tf
+from lightgbm import LGBMClassifier, early_stopping
+from catboost import CatBoostClassifier
+from sklearn.svm import OneClassSVM
+from sklearn.neighbors import LocalOutlierFactor
 
 # Load the dataset
 def load_data(file_path):
@@ -628,6 +632,213 @@ def run_cnn(df):
     print(f"CNN Results - Accuracy: {metrics['accuracy']:.4f}, AUC-ROC: {metrics['auc_roc']:.4f}")
     return model
 
+def run_lightgbm(df):
+    X = df.drop('is_fraudulent', axis=1)
+    y = df['is_fraudulent']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+
+    model = LGBMClassifier(
+        n_estimators=1000,
+        learning_rate=0.05,
+        max_depth=8,
+        subsample=0.8,
+        colsample_bytree=0.8,
+        reg_alpha=0.1,
+        reg_lambda=0.1,
+        random_state=42,
+        n_jobs=-1,
+        verbose=-1
+    )
+
+    # NEW CORRECT WAY (LightGBM >= 4.0)
+    model.fit(
+        X_train_scaled, y_train,
+        eval_set=[(X_test_scaled, y_test)],
+        callbacks=[early_stopping(stopping_rounds=50, verbose=True)]
+    )
+
+    y_pred_prob = model.predict_proba(X_test_scaled)[:, 1]
+    y_pred = (y_pred_prob > 0.5).astype(int)
+
+    metrics = {
+        'accuracy': accuracy_score(y_test, y_pred),
+        'precision': precision_score(y_test, y_pred, zero_division=0),
+        'recall': recall_score(y_test, y_pred, zero_division=0),
+        'f1_score': f1_score(y_test, y_pred, zero_division=0),
+        'auc_roc': roc_auc_score(y_test, y_pred_prob)
+    }
+
+    hyperparameters = {
+        'n_estimators': 1000,
+        'learning_rate': 0.05,
+        'max_depth': 8,
+        'early_stopping_rounds': 50
+    }
+
+    folder = create_model_folder('lightgbm')
+    save_model_artifacts(
+        folder, 'LightGBM', metrics, hyperparameters,
+        model, scaler, y_test, y_pred, y_pred_prob
+    )
+    print(f"LightGBM → AUC-ROC: {metrics['auc_roc']:.4f} | Best iteration: {model.best_iteration_}")
+    return model
+
+def run_catboost(df):
+    X = df.drop('is_fraudulent', axis=1)
+    y = df['is_fraudulent']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+
+    model = CatBoostClassifier(
+        iterations=800,
+        learning_rate=0.05,
+        depth=8,
+        l2_leaf_reg=3,
+        border_count=128,
+        random_seed=42,
+        verbose=100,
+        early_stopping_rounds=100,
+        eval_metric='AUC'
+    )
+    model.fit(X_train_scaled, y_train, eval_set=(X_test_scaled, y_test), use_best_model=True)
+
+    y_pred_prob = model.predict_proba(X_test_scaled)[:, 1]
+    y_pred = (y_pred_prob > 0.5).astype(int)
+
+    metrics = {
+        'accuracy': accuracy_score(y_test, y_pred),
+        'precision': precision_score(y_test, y_pred, zero_division=0),
+        'recall': recall_score(y_test, y_pred, zero_division=0),
+        'f1_score': f1_score(y_test, y_pred, zero_division=0),
+        'auc_roc': roc_auc_score(y_test, y_pred_prob)
+    }
+
+    hyperparameters = {
+        'iterations': 800,
+        'learning_rate': 0.05,
+        'depth': 8,
+        'l2_leaf_reg': 3
+    }
+
+    folder = create_model_folder('catboost')
+    save_model_artifacts(
+        folder, 'CatBoost', metrics, hyperparameters,
+        model, scaler, y_test, y_pred, y_pred_prob
+    )
+    print(f"CatBoost → AUC-ROC: {metrics['auc_roc']:.4f}, Recall: {metrics['recall']:.4f}")
+    return model
+
+def run_oneclass_svm(df):
+    # Use only normal (non-fraud) samples for training (true unsupervised)
+    normal_df = df[df['is_fraudulent'] == 0]
+    X_normal = normal_df.drop('is_fraudulent', axis=1)
+
+    scaler = StandardScaler()
+    X_normal_scaled = scaler.fit_transform(X_normal)
+
+    model = OneClassSVM(
+        kernel='rbf',
+        gamma='scale',
+        nu=0.05,           # Expected outlier ratio (tune this!)
+        verbose=False
+    )
+    model.fit(X_normal_scaled)
+
+    # Test on full dataset
+    X_full = df.drop('is_fraudulent', axis=1)
+    X_full_scaled = scaler.transform(X_full)
+    y_true = df['is_fraudulent'].values
+
+    # OneClassSVM: +1 = normal, -1 = anomaly
+    scores = model.decision_function(X_full_scaled)
+    pred_raw = model.predict(X_full_scaled)
+    y_pred = np.where(pred_raw == -1, 1, 0)  # -1 → fraud
+
+    # Convert decision scores to probability-like (higher = more anomalous)
+    prob = -scores
+    prob = (prob - prob.min()) / (prob.max() - prob.min() + 1e-8)
+
+    metrics = {
+        'accuracy': accuracy_score(y_true, y_pred),
+        'precision': precision_score(y_true, y_pred, zero_division=0),
+        'recall': recall_score(y_true, y_pred, zero_division=0),
+        'f1_score': f1_score(y_true, y_pred, zero_division=0),
+        'auc_roc': roc_auc_score(y_true, prob)
+    }
+
+    hyperparameters = {
+        'kernel': 'rbf',
+        'gamma': 'scale',
+        'nu': 0.05
+    }
+
+    folder = create_model_folder('oneclass_svm')
+    save_model_artifacts(
+        folder, 'One-Class SVM', metrics, hyperparameters,
+        model, scaler, y_true, y_pred, prob
+    )
+    print(f"One-Class SVM → AUC-ROC: {metrics['auc_roc']:.4f}, Detected: {y_pred.sum()}/{len(y_pred)}")
+    return model
+
+def run_lof(df):
+    # Train on normal data only
+    normal_df = df[df['is_fraudulent'] == 0]
+    X_normal = normal_df.drop('is_fraudulent', axis=1)
+
+    scaler = StandardScaler()
+    X_normal_scaled = scaler.fit_transform(X_normal)
+
+    model = LocalOutlierFactor(
+        n_neighbors=20,
+        algorithm='auto',
+        leaf_size=30,
+        metric='minkowski',
+        p=2,
+        contamination=0.05,   # Expected fraud rate
+        novelty=True           # Important: allows prediction on new data
+    )
+    model.fit(X_normal_scaled)
+
+    X_full = df.drop('is_fraudulent', axis=1)
+    X_full_scaled = scaler.transform(X_full)
+    y_true = df['is_fraudulent'].values
+
+    # Negative scores = more anomalous
+    scores = model.decision_function(X_full_scaled)
+    pred_raw = model.predict(X_full_scaled)
+    y_pred = np.where(pred_raw == -1, 1, 0)
+
+    prob = -scores
+    prob = (prob - prob.min()) / (prob.max() - prob.min() + 1e-8)
+
+    metrics = {
+        'accuracy': accuracy_score(y_true, y_pred),
+        'precision': precision_score(y_true, y_pred, zero_division=0),
+        'recall': recall_score(y_true, y_pred, zero_division=0),
+        'f1_score': f1_score(y_true, y_pred, zero_division=0),
+        'auc_roc': roc_auc_score(y_true, prob)
+    }
+
+    hyperparameters = {
+        'n_neighbors': 20,
+        'contamination': 0.05,
+        'novelty': True
+    }
+
+    folder = create_model_folder('lof')
+    save_model_artifacts(
+        folder, 'Local Outlier Factor', metrics, hyperparameters,
+        model, scaler, y_true, y_pred, prob
+    )
+    print(f"LOF → AUC-ROC: {metrics['auc_roc']:.4f}, Outliers flagged: {y_pred.sum()}")
+    return model
 
 # Main function
 def main():
@@ -635,20 +846,25 @@ def main():
 
     df = load_data('../Dataset/enhanced_financial_data.csv')
 
-    run_xgboost_flag = True
-    run_isolation_forest_flag = True
-    run_dnn_flag = True
-    run_random_forest_flag = True
-    run_dbscan_flag = True
-    run_autoencoder_flag = True
-    run_logistic_flag = True
-    run_svm_flag = True
-    run_kmeans_flag = True
-    run_gmm_flag = True
-    run_lstm_flag = True
-    run_decision_tree_flag = True
-    run_pca_anomaly_flag = True
-    run_cnn_flag = True
+    run_xgboost_flag = False
+    run_isolation_forest_flag = False
+    run_dnn_flag = False
+    run_random_forest_flag = False
+    run_dbscan_flag = False
+    run_autoencoder_flag = False
+    run_logistic_flag = False
+    run_svm_flag = False
+    run_kmeans_flag = False
+    run_gmm_flag = False
+    run_lstm_flag = False
+    run_decision_tree_flag = False
+    run_pca_anomaly_flag = False
+    run_cnn_flag = False
+    run_lightgbm_flag = True
+    run_catboost_flag = True
+    run_oneclass_svm_flag = True
+    run_lof_flag = True
+    
     
     if run_xgboost_flag:
         run_xgboost(df)
@@ -668,7 +884,22 @@ def main():
     if run_decision_tree_flag: run_decision_tree(df)
     if run_pca_anomaly_flag: run_pca_anomaly(df)
     if run_cnn_flag: run_cnn(df)
-    print("Training and evaluation complete. Check the 'MyModels' folder for results.")
+    if run_lightgbm_flag:
+        print("\n=== Training LightGBM ===")
+        run_lightgbm(df)
+
+    if run_catboost_flag:
+        print("\n=== Training CatBoost ===")
+        run_catboost(df)
+
+    if run_oneclass_svm_flag:
+        print("\n=== Training One-Class SVM (unsupervised) ===")
+        run_oneclass_svm(df)
+
+    if run_lof_flag:
+        print("\n=== Training Local Outlier Factor (LOF) ===")
+        run_lof(df)
+        print("Training and evaluation complete. Check the 'MyModels' folder for results.")
 
 
 if __name__ == "__main__":

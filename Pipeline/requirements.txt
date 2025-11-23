@@ -8,3 +8,5 @@ matplotlib
 joblib
 seaborn
 jinja2
+lightgbm
+catboost
