@@ -8,3 +8,5 @@ beautifulsoup4
 sentence-transformers
 matplotlib
 seaborn
+xgboost
+lxml 

@@ -16,3 +16,5 @@ Script/data/
 Script/output/
 
 __pycache__
+
+bash.exe.*
