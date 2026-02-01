@@ -1,25 +1,67 @@
-
-# File: main.py
+# File: main_optimized.py
 """
-Main entry point for the fraud detection system
+Memory-optimized entry point for the fraud detection system
 """
 import argparse
 from pathlib import Path
+import sys
+import os
 
-from pipelines.unstructured_pipeline import UnstructuredPipeline
-from utils import Config, Logger
+# Add current directory to path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+# Direct imports to avoid __init__.py issues
+from pipelines.unstructured_pipeline import UnstructuredPipelineOptimized
+
+# Check if psutil is available (for memory monitoring)
+try:
+    import psutil
+    PSUTIL_AVAILABLE = True
+except ImportError:
+    PSUTIL_AVAILABLE = False
+    print("Warning: psutil not installed. Memory monitoring disabled.")
+    print("Install with: pip install psutil")
+
+# Import utils
+try:
+    from utils import Config, Logger
+except ImportError:
+    from utils.config import Config
+    from utils.logger import Logger
+
+
+def get_memory_info():
+    """Get current memory usage information"""
+    if not PSUTIL_AVAILABLE:
+        return {'rss_mb': 0, 'vms_mb': 0}
+    
+    try:
+        process = psutil.Process(os.getpid())
+        mem_info = process.memory_info()
+        return {
+            'rss_mb': mem_info.rss / 1024 / 1024,  # Resident Set Size
+            'vms_mb': mem_info.vms / 1024 / 1024,  # Virtual Memory Size
+        }
+    except Exception:
+        return {'rss_mb': 0, 'vms_mb': 0}
 
 
 def main():
     """Main execution function"""
     parser = argparse.ArgumentParser(
-        description='Financial Fraud Detection - Unstructured Data Pipeline'
+        description='Financial Fraud Detection - Memory-Optimized Unstructured Data Pipeline'
     )
     parser.add_argument(
         '--limit',
         type=int,
         default=None,
         help='Limit number of documents to process (default: all)'
+    )
+    parser.add_argument(
+        '--batch-size',
+        type=int,
+        default=10,
+        help='Number of documents to process per batch (default: 10)'
     )
     parser.add_argument(
         '--skip-embeddings',
@@ -46,6 +88,11 @@ def main():
         type=str,
         help='Query the vector database'
     )
+    parser.add_argument(
+        '--memory-monitor',
+        action='store_true',
+        help='Enable memory monitoring'
+    )
     
     args = parser.parse_args()
     
@@ -53,10 +100,15 @@ def main():
     Config.create_directories()
     
     # Initialize logger
-    logger = Logger.get_logger('Main')
+    logger = Logger.get_logger('MainOptimized')
     
-    # Initialize pipeline
-    pipeline = UnstructuredPipeline()
+    # Log initial memory
+    if args.memory_monitor:
+        mem_info = get_memory_info()
+        logger.info(f"Initial memory - RSS: {mem_info['rss_mb']:.2f} MB, VMS: {mem_info['vms_mb']:.2f} MB")
+    
+    # Initialize pipeline with specified batch size
+    pipeline = UnstructuredPipelineOptimized(batch_size=args.batch_size)
     
     try:
         if args.reset:
@@ -80,11 +132,18 @@ def main():
             return
         
         # Run the main pipeline
-        logger.info("Starting pipeline execution...")
+        logger.info("Starting optimized pipeline execution...")
+        logger.info(f"Configuration:")
+        logger.info(f"  - Batch size: {args.batch_size}")
+        logger.info(f"  - Document limit: {args.limit or 'All'}")
+        logger.info(f"  - Skip embeddings: {args.skip_embeddings}")
+        logger.info(f"  - Skip graph: {args.skip_graph}")
+        
         stats = pipeline.run(
             limit=args.limit,
             skip_embeddings=args.skip_embeddings,
-            skip_graph=args.skip_graph
+            skip_graph=args.skip_graph,
+            process_batch_size=args.batch_size
         )
         
         if stats['success']:
@@ -93,19 +152,23 @@ def main():
             logger.info("=" * 80)
             logger.info(f"Documents processed: {stats['documents_processed']}")
             logger.info(f"Chunks created: {stats['chunks_created']}")
+            logger.info(f"Entities extracted: {stats.get('entities_extracted', 0)}")
+            logger.info(f"Graph nodes added: {stats.get('graph_nodes_added', 0)}")
+            logger.info(f"Graph relationships added: {stats.get('graph_relationships_added', 0)}")
             logger.info(f"Elapsed time: {stats['elapsed_time']:.2f} seconds")
             
-            if 'embedding_stats' in stats and stats['embedding_stats'].get('status') != 'skipped':
-                logger.info(f"Embeddings generated: {stats['embedding_stats']['chunks_embedded']}")
-            
-            if 'graph_stats' in stats and stats['graph_stats'].get('status') != 'skipped':
-                logger.info(f"Graph entities: {stats['graph_stats']['entities_added']}")
-                logger.info(f"Graph relationships: {stats['graph_stats']['relationships_added']}")
+            if args.memory_monitor:
+                mem_info = get_memory_info()
+                logger.info(f"Final memory - RSS: {mem_info['rss_mb']:.2f} MB, VMS: {mem_info['vms_mb']:.2f} MB")
         else:
             logger.error(f"Pipeline failed: {stats.get('error', 'Unknown error')}")
     
     finally:
         pipeline.close()
+        
+        if args.memory_monitor:
+            mem_info = get_memory_info()
+            logger.info(f"Cleanup memory - RSS: {mem_info['rss_mb']:.2f} MB, VMS: {mem_info['vms_mb']:.2f} MB")
 
 
 if __name__ == "__main__":

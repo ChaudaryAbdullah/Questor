@@ -1,157 +1,225 @@
-# File: pipelines/unstructured_pipeline.py
+# File: pipelines/unstructured_pipeline_optimized.py
 """
-Main Unstructured Data Processing Pipeline
-This is the complete Pipeline 1 from your dry run document
+Memory-Optimized Unstructured Data Processing Pipeline
+Implements streaming, batching, and proper resource management
 """
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, Iterator
 from pathlib import Path
 from tqdm import tqdm
 import time
+import gc
+import sys
+import os
 
-from databases import VectorDatabase, GraphDatabase
-from pipelines import (
-    DataLoader,
-    TextChunker,
-    EmbeddingGenerator,
-    NERExtractor,
-    GraphBuilder
-)
-from utils import Config, Logger
+# Ensure proper imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Direct imports
+from databases.vector_db import VectorDatabase
+from databases.graph_db import GraphDatabase
+from pipelines.data_loader import DataLoader
+from pipelines.chunking import TextChunker
+from pipelines.embedding import EmbeddingGenerator
+from pipelines.ner_extraction import NERExtractorOptimized
+from pipelines.graph_builder import GraphBuilder
+
+try:
+    from utils.config_optimized import ConfigOptimized as Config
+except ImportError:
+    from utils.config import ConfigOptimized as Config
+
+try:
+    from utils.logger import Logger
+except ImportError:
+    from utils import Logger
 
 
-class UnstructuredPipeline:
+class UnstructuredPipelineOptimized:
     """
-    Complete unstructured data processing pipeline
+    Memory-optimized unstructured data processing pipeline
     
-    This pipeline:
-    1. Loads documents from data/unstructured_data
-    2. Chunks text into manageable pieces
-    3. Generates embeddings for each chunk
-    4. Stores embeddings in vector database (ChromaDB)
-    5. Extracts entities and relationships using NER
-    6. Builds knowledge graph (Neo4j)
+    Key optimizations:
+    1. Streaming document processing (one at a time)
+    2. Batch processing with configurable batch sizes
+    3. Explicit memory cleanup with gc.collect()
+    4. Progressive database writes instead of bulk loading
+    5. Lazy loading of models
     """
     
-    def __init__(self):
-        self.logger = Logger.get_logger(self.__class__.__name__)
+    def __init__(self, batch_size: int = 10):
+        """
+        Initialize pipeline with memory-conscious settings
         
-        # Initialize components
+        Args:
+            batch_size: Number of documents to process before writing to DB
+        """
+        self.logger = Logger.get_logger(self.__class__.__name__)
+        self.batch_size = batch_size
+        
+        # Initialize components (lazy loading where possible)
         self.data_loader = DataLoader()
         self.text_chunker = TextChunker()
-        self.embedding_generator = EmbeddingGenerator()
-        self.ner_extractor = NERExtractor()
-        self.graph_builder = GraphBuilder()
+        
+        # These will be initialized when needed
+        self.embedding_generator = None
+        self.ner_extractor = None  # Will use NERExtractorOptimized
+        self.graph_builder = None
         
         # Initialize databases
         self.vector_db = VectorDatabase()
         self.graph_db = GraphDatabase()
         
-        self.logger.info("Unstructured pipeline initialized")
+        self.logger.info(f"Optimized pipeline initialized with batch_size={batch_size}")
     
     def run(
         self,
         limit: Optional[int] = None,
         skip_embeddings: bool = False,
-        skip_graph: bool = False
+        skip_graph: bool = False,
+        process_batch_size: int = None
     ) -> Dict[str, Any]:
         """
-        Run the complete pipeline
+        Run the complete pipeline with memory optimization
         
         Args:
             limit: Maximum number of documents to process (None for all)
             skip_embeddings: Skip vector embedding generation
             skip_graph: Skip knowledge graph construction
+            process_batch_size: Override default batch size
             
         Returns:
             Dictionary containing pipeline statistics
         """
         start_time = time.time()
+        batch_size = process_batch_size or self.batch_size
         
         self.logger.info("=" * 80)
-        self.logger.info("STARTING UNSTRUCTURED DATA PIPELINE")
+        self.logger.info("STARTING OPTIMIZED UNSTRUCTURED DATA PIPELINE")
+        self.logger.info(f"Batch size: {batch_size}")
         self.logger.info("=" * 80)
+        
+        stats = {
+            'documents_processed': 0,
+            'chunks_created': 0,
+            'entities_extracted': 0,
+            'graph_nodes_added': 0,
+            'graph_relationships_added': 0,
+            'peak_memory_mb': 0
+        }
         
         try:
-            # Step 1: Load documents
-            documents = self._step1_load_documents(limit)
+            # Get file list
+            file_paths = self._get_file_list(limit)
+            total_files = len(file_paths)
             
-            # Step 2: Chunk documents
-            chunks = self._step2_chunk_documents(documents)
+            self.logger.info(f"Processing {total_files} documents in batches of {batch_size}")
             
-            # Step 3: Generate embeddings and store in vector DB
-            if not skip_embeddings:
-                embedding_stats = self._step3_generate_embeddings(chunks)
-            else:
-                embedding_stats = {'status': 'skipped'}
+            # Process in batches
+            for batch_start in range(0, total_files, batch_size):
+                batch_end = min(batch_start + batch_size, total_files)
+                batch_files = file_paths[batch_start:batch_end]
+                
+                self.logger.info(f"\nProcessing batch {batch_start//batch_size + 1}: "
+                               f"documents {batch_start+1} to {batch_end}")
+                
+                # Process this batch
+                batch_stats = self._process_batch(
+                    batch_files,
+                    skip_embeddings=skip_embeddings,
+                    skip_graph=skip_graph
+                )
+                
+                # Update overall stats
+                stats['documents_processed'] += batch_stats['documents_processed']
+                stats['chunks_created'] += batch_stats['chunks_created']
+                stats['entities_extracted'] += batch_stats.get('entities_extracted', 0)
+                stats['graph_nodes_added'] += batch_stats.get('graph_nodes_added', 0)
+                stats['graph_relationships_added'] += batch_stats.get('graph_relationships_added', 0)
+                
+                # Force garbage collection after each batch
+                gc.collect()
+                
+                self.logger.info(f"Batch complete. Total progress: {stats['documents_processed']}/{total_files}")
             
-            # Step 4: Extract entities and relationships
-            documents_with_entities = self._step4_extract_entities(documents)
-            
-            # Step 5: Build knowledge graph
-            if not skip_graph:
-                graph_stats = self._step5_build_knowledge_graph(documents_with_entities)
-            else:
-                graph_stats = {'status': 'skipped'}
-            
-            # Calculate statistics
+            # Calculate final statistics
             elapsed_time = time.time() - start_time
             
-            stats = {
+            final_stats = {
                 'success': True,
                 'elapsed_time': elapsed_time,
-                'documents_processed': len(documents),
-                'chunks_created': len(chunks),
-                'embedding_stats': embedding_stats,
-                'graph_stats': graph_stats
+                **stats,
+                'embeddings_skipped': skip_embeddings,
+                'graph_skipped': skip_graph
             }
             
             self.logger.info("=" * 80)
             self.logger.info("PIPELINE COMPLETED SUCCESSFULLY")
             self.logger.info(f"Total time: {elapsed_time:.2f} seconds")
+            self.logger.info(f"Documents processed: {stats['documents_processed']}")
+            self.logger.info(f"Chunks created: {stats['chunks_created']}")
             self.logger.info("=" * 80)
             
-            return stats
+            return final_stats
             
         except Exception as e:
             self.logger.error(f"Pipeline failed: {str(e)}", exc_info=True)
             return {
                 'success': False,
                 'error': str(e),
-                'elapsed_time': time.time() - start_time
+                'elapsed_time': time.time() - start_time,
+                **stats
             }
+        finally:
+            # Cleanup
+            self._cleanup_models()
     
-    def _step1_load_documents(self, limit: Optional[int]) -> list:
-        """Step 1: Load documents from data directory"""
-        self.logger.info("\n" + "=" * 80)
-        self.logger.info("STEP 1: LOADING DOCUMENTS")
-        self.logger.info("=" * 80)
-        
-        # Get statistics first
-        stats = self.data_loader.get_document_statistics()
-        self.logger.info(f"Data directory: {stats['data_directory']}")
-        self.logger.info(f"Total documents found: {stats['total_documents']}")
-        self.logger.info(f"Fraud labeled: {stats['fraud_labeled']}")
-        self.logger.info(f"Unknown: {stats['unknown']}")
-        
+    def _get_file_list(self, limit: Optional[int]) -> list:
+        """Get list of file paths to process"""
+        files = list(Config.DATA_DIR.glob("*.txt"))
         if limit:
-            self.logger.info(f"Processing limit: {limit} documents")
-        
-        documents = self.data_loader.load_documents(limit=limit)
-        
-        self.logger.info(f"✓ Loaded {len(documents)} documents")
-        return documents
+            files = files[:limit]
+        return files
     
-    def _step2_chunk_documents(self, documents: list) -> list:
-        """Step 2: Chunk documents into smaller pieces"""
-        self.logger.info("\n" + "=" * 80)
-        self.logger.info("STEP 2: CHUNKING DOCUMENTS")
-        self.logger.info("=" * 80)
-        self.logger.info(f"Chunk size: {Config.CHUNK_SIZE} tokens")
-        self.logger.info(f"Chunk overlap: {Config.CHUNK_OVERLAP} tokens")
+    def _process_batch(
+        self,
+        file_paths: list,
+        skip_embeddings: bool = False,
+        skip_graph: bool = False
+    ) -> Dict[str, Any]:
+        """
+        Process a batch of documents
         
+        Args:
+            file_paths: List of file paths in this batch
+            skip_embeddings: Skip embedding generation
+            skip_graph: Skip graph construction
+            
+        Returns:
+            Batch statistics
+        """
+        batch_stats = {
+            'documents_processed': 0,
+            'chunks_created': 0,
+            'entities_extracted': 0,
+            'graph_nodes_added': 0,
+            'graph_relationships_added': 0
+        }
+        
+        # Step 1: Load documents (one batch at a time)
+        documents = []
+        for file_path in file_paths:
+            doc = self.data_loader._load_single_document(file_path)
+            if doc:
+                documents.append(doc)
+        
+        batch_stats['documents_processed'] = len(documents)
+        
+        if not documents:
+            return batch_stats
+        
+        # Step 2: Chunk documents
         all_chunks = []
-        
-        for doc in tqdm(documents, desc="Chunking documents"):
+        for doc in documents:
             chunks = self.text_chunker.chunk_text(
                 text=doc['content'],
                 doc_id=doc['doc_id']
@@ -165,129 +233,137 @@ class UnstructuredPipeline:
             
             all_chunks.extend(chunks)
         
-        self.logger.info(f"✓ Created {len(all_chunks)} chunks from {len(documents)} documents")
-        self.logger.info(f"  Average chunks per document: {len(all_chunks) / len(documents):.2f}")
+        batch_stats['chunks_created'] = len(all_chunks)
         
-        return all_chunks
+        # Step 3: Generate embeddings (if not skipped)
+        if not skip_embeddings and all_chunks:
+            self._process_embeddings_batch(all_chunks)
+        
+        # Clear chunks from memory if not needed for graph
+        if skip_graph:
+            del all_chunks
+            gc.collect()
+        
+        # Step 4: Extract entities (if graph is needed)
+        if not skip_graph:
+            # Initialize NER if needed - use optimized version
+            if self.ner_extractor is None:
+                self.ner_extractor = NERExtractorOptimized()
+            
+            # Process documents one by one for NER (memory intensive)
+            documents_with_entities = []
+            for doc in tqdm(documents, desc="Extracting entities", leave=False):
+                try:
+                    content = doc.get('content', '')
+                    entities = self.ner_extractor.extract_entities(content)
+                    relationships = self.ner_extractor.extract_relationships(content, entities)
+                    
+                    doc['entities'] = entities
+                    doc['relationships'] = relationships
+                    documents_with_entities.append(doc)
+                    
+                    # Count entities
+                    batch_stats['entities_extracted'] += sum(
+                        len(ent_list) for ent_list in entities.values()
+                    )
+                    
+                except Exception as e:
+                    self.logger.warning(f"Failed to extract from doc {doc.get('doc_id')}: {str(e)}")
+                    continue
+            
+            # Step 5: Build knowledge graph
+            if documents_with_entities:
+                if self.graph_builder is None:
+                    self.graph_builder = GraphBuilder()
+                
+                graph_stats = self.graph_builder.build_graph_from_documents(documents_with_entities)
+                batch_stats['graph_nodes_added'] = graph_stats.get('entities_added', 0)
+                batch_stats['graph_relationships_added'] = graph_stats.get('relationships_added', 0)
+            
+            # Clear documents with entities
+            del documents_with_entities
+        
+        # Clear documents from memory
+        del documents
+        gc.collect()
+        
+        return batch_stats
     
-    def _step3_generate_embeddings(self, chunks: list) -> Dict[str, Any]:
-        """Step 3: Generate embeddings and store in vector database"""
-        self.logger.info("\n" + "=" * 80)
-        self.logger.info("STEP 3: GENERATING EMBEDDINGS & POPULATING VECTOR DB")
-        self.logger.info("=" * 80)
-        self.logger.info(f"Embedding model: {Config.EMBEDDING_MODEL}")
-        self.logger.info(f"Batch size: {Config.BATCH_SIZE}")
-        
-        # Extract texts
-        texts = [chunk['text'] for chunk in chunks]
-        
-        # Generate embeddings
-        embeddings = self.embedding_generator.generate_embeddings(
-            texts=texts,
-            batch_size=Config.BATCH_SIZE,
-            show_progress=True
-        )
-        
-        # Prepare metadata for vector DB
-        metadatas = []
-        ids = []
-        
-        for chunk in chunks:
-            metadata = {
-                'doc_id': chunk['doc_id'],
-                'chunk_index': chunk['chunk_index'],
-                'label': chunk.get('label', 'unknown'),
-                'company_id': str(chunk.get('company_id', '')),
-                'date': str(chunk.get('date', '')),
-                'length': chunk['length']
-            }
-            metadatas.append(metadata)
-            ids.append(chunk['chunk_id'])
-        
-        # Store in vector database
-        self.logger.info("Storing embeddings in ChromaDB...")
-        self.vector_db.add_documents(
-            documents=texts,
-            embeddings=embeddings.tolist(),
-            metadatas=metadatas,
-            ids=ids
-        )
-        
-        # Verify storage
-        count = self.vector_db.get_collection_count()
-        
-        stats = {
-            'chunks_embedded': len(chunks),
-            'embedding_dimension': embeddings.shape[1],
-            'vector_db_count': count
-        }
-        
-        self.logger.info(f"✓ Generated and stored {len(chunks)} embeddings")
-        self.logger.info(f"  Embedding dimension: {embeddings.shape[1]}")
-        self.logger.info(f"  Vector DB total count: {count}")
-        
-        return stats
-    
-    def _step4_extract_entities(self, documents: list) -> list:
-        """Step 4: Extract entities and relationships using NER"""
-        self.logger.info("\n" + "=" * 80)
-        self.logger.info("STEP 4: EXTRACTING ENTITIES & RELATIONSHIPS")
-        self.logger.info("=" * 80)
-        self.logger.info(f"NLP model: {Config.SPACY_MODEL}")
-        
-        # Extract entities from all documents
-        documents_with_entities = self.ner_extractor.extract_document_entities(documents)
-        
-        # Calculate statistics
-        total_entities = sum(
-            len(entities)
-            for doc in documents_with_entities
-            for entities in doc.get('entities', {}).values()
-        )
-        
-        total_relationships = sum(
-            len(doc.get('relationships', []))
-            for doc in documents_with_entities
-        )
-        
-        self.logger.info(f"✓ Extracted entities from {len(documents_with_entities)} documents")
-        self.logger.info(f"  Total entities: {total_entities}")
-        self.logger.info(f"  Total relationships: {total_relationships}")
-        
-        return documents_with_entities
-    
-    def _step5_build_knowledge_graph(self, documents: list) -> Dict[str, Any]:
-        """Step 5: Build knowledge graph in Neo4j"""
-        self.logger.info("\n" + "=" * 80)
-        self.logger.info("STEP 5: BUILDING KNOWLEDGE GRAPH")
-        self.logger.info("=" * 80)
-        self.logger.info(f"Graph database: {Config.NEO4J_URI}")
-        
-        # Build graph
-        stats = self.graph_builder.build_graph_from_documents(documents)
-        
-        self.logger.info(f"✓ Knowledge graph constructed")
-        self.logger.info(f"  Documents processed: {stats['documents_processed']}")
-        self.logger.info(f"  Entities added: {stats['entities_added']}")
-        self.logger.info(f"  Relationships added: {stats['relationships_added']}")
-        
-        return stats
-    
-    def query_vector_db(self, query_text: str, n_results: int = 5) -> Dict[str, Any]:
+    def _process_embeddings_batch(self, chunks: list):
         """
-        Query the vector database for similar documents
+        Process embeddings in sub-batches to manage memory
         
         Args:
-            query_text: Query text
-            n_results: Number of results to return
-            
-        Returns:
-            Query results
+            chunks: List of text chunks
         """
-        # Generate query embedding
-        query_embedding = self.embedding_generator.generate_single_embedding(query_text)
+        # Initialize embedding generator if needed
+        if self.embedding_generator is None:
+            self.embedding_generator = EmbeddingGenerator()
         
-        # Query vector DB
+        # Process in smaller sub-batches
+        embedding_batch_size = Config.BATCH_SIZE
+        
+        for i in range(0, len(chunks), embedding_batch_size):
+            batch_chunks = chunks[i:i + embedding_batch_size]
+            
+            # Extract texts
+            texts = [chunk['text'] for chunk in batch_chunks]
+            
+            # Generate embeddings
+            embeddings = self.embedding_generator.generate_embeddings(
+                texts=texts,
+                batch_size=min(embedding_batch_size, 16),  # Smaller internal batch
+                show_progress=False
+            )
+            
+            # Prepare metadata
+            metadatas = []
+            ids = []
+            
+            for chunk in batch_chunks:
+                metadata = {
+                    'doc_id': chunk['doc_id'],
+                    'chunk_index': chunk['chunk_index'],
+                    'label': chunk.get('label', 'unknown'),
+                    'company_id': str(chunk.get('company_id', '')),
+                    'date': str(chunk.get('date', '')),
+                    'length': chunk['length']
+                }
+                metadatas.append(metadata)
+                ids.append(chunk['chunk_id'])
+            
+            # Store in vector database immediately
+            self.vector_db.add_documents(
+                documents=texts,
+                embeddings=embeddings.tolist(),
+                metadatas=metadatas,
+                ids=ids
+            )
+            
+            # Clear embeddings from memory
+            del embeddings
+            del texts
+            gc.collect()
+    
+    def _cleanup_models(self):
+        """Release model resources"""
+        if self.embedding_generator is not None:
+            del self.embedding_generator
+            self.embedding_generator = None
+        
+        if self.ner_extractor is not None:
+            del self.ner_extractor
+            self.ner_extractor = None
+        
+        gc.collect()
+        self.logger.info("Model resources released")
+    
+    def query_vector_db(self, query_text: str, n_results: int = 5) -> Dict[str, Any]:
+        """Query the vector database for similar documents"""
+        if self.embedding_generator is None:
+            self.embedding_generator = EmbeddingGenerator()
+        
+        query_embedding = self.embedding_generator.generate_single_embedding(query_text)
         results = self.vector_db.query(
             query_embeddings=[query_embedding.tolist()],
             n_results=n_results
@@ -296,15 +372,7 @@ class UnstructuredPipeline:
         return results
     
     def query_knowledge_graph(self, cypher_query: str) -> list:
-        """
-        Query the knowledge graph
-        
-        Args:
-            cypher_query: Cypher query string
-            
-        Returns:
-            Query results
-        """
+        """Query the knowledge graph"""
         return self.graph_db.query_graph(cypher_query)
     
     def get_pipeline_status(self) -> Dict[str, Any]:
@@ -312,34 +380,26 @@ class UnstructuredPipeline:
         return {
             'vector_db_count': self.vector_db.get_collection_count(),
             'data_directory': str(Config.DATA_DIR),
+            'batch_size': self.batch_size,
             'vector_db_collection': Config.VECTOR_DB_COLLECTION,
             'embedding_model': Config.EMBEDDING_MODEL,
             'nlp_model': Config.SPACY_MODEL
         }
     
     def reset_pipeline(self, confirm: bool = False):
-        """
-        Reset the entire pipeline (WARNING: deletes all data)
-        
-        Args:
-            confirm: Must be True to actually reset
-        """
+        """Reset the entire pipeline"""
         if not confirm:
             self.logger.warning("Reset not confirmed. Pass confirm=True to reset.")
             return
         
         self.logger.warning("RESETTING PIPELINE - ALL DATA WILL BE DELETED")
-        
-        # Reset vector database
         self.vector_db.reset_database()
-        
-        # Clear graph database
         self.graph_db.clear_database()
-        
         self.logger.warning("Pipeline reset complete")
     
     def close(self):
-        """Close all database connections"""
-        self.graph_builder.close()
+        """Close all database connections and cleanup"""
+        self._cleanup_models()
+        if self.graph_builder:
+            self.graph_builder.close()
         self.logger.info("Pipeline connections closed")
-

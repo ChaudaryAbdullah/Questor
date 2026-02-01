@@ -7,6 +7,10 @@ import pytest
 from pathlib import Path
 import tempfile
 import shutil
+import sys
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from pipelines.unstructured_pipeline import UnstructuredPipeline
 from pipelines import DataLoader, TextChunker, EmbeddingGenerator

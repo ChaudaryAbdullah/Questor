@@ -7,7 +7,7 @@ import logging
 import sys
 from pathlib import Path
 from datetime import datetime
-from .config import Config
+from .config import ConfigOptimized as Config
 
 class Logger:
     """Custom logger for the fraud detection system"""
