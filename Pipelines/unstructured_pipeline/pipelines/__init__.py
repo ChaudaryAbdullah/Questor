@@ -1,7 +1,7 @@
 from .data_loader import DataLoader
 from .chunking import TextChunker
 from .embedding import EmbeddingGenerator
-from .ner_extraction import NERExtractor
+from .ner_extraction import NERExtractorOptimized as NERExtractor
 from .graph_builder import GraphBuilder
 
 __all__ = [

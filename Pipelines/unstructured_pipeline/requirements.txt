@@ -1,4 +1,4 @@
-# File: requirements.txt
+# File: requirements_optimized.txt
 
 # Core Dependencies
 chromadb
@@ -13,18 +13,21 @@ numpy
 pandas
 tqdm
 
+# Memory Management & Monitoring
+psutil>=5.9.0  # For memory monitoring
+memory_profiler>=0.61.0  # For detailed memory profiling
+
 # Utilities
 python-dotenv
 pydantic
-
-# # Optional: Advanced Features
-# langchain
-# openai
 
 # Development
 pytest
 black
 flake8
-requests==2.31.0
-PyYAML==6.0.1
+requests
+PyYAML
 
+# Optional: Use lightweight models
+# --extra-index-url https://download.pytorch.org/whl/cpu
+# torch-cpu  # CPU-only version saves memory
