@@ -23,7 +23,7 @@ warnings.filterwarnings("ignore")
 
 # ------------------------------- CONFIG -------------------------------
 MODELS_DIR = "MyModels"
-INPUT_CSV = "../Dataset/enhanced_financial_data.csv"
+INPUT_CSV = "../../Data/enhanced_financial_data.csv"
 OUTPUT_PREDICTIONS = "ensemble_predictions.csv"
 OUTPUT_REPORT = "model_comparison_report.html"
 INDIVIDUAL_METRICS = "individual_metrics.txt"
