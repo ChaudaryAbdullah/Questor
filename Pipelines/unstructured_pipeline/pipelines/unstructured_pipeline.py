@@ -22,6 +22,8 @@ from pipelines.chunking import TextChunker
 from pipelines.embedding import EmbeddingGenerator
 from pipelines.ner_extraction import NERExtractorOptimized
 from pipelines.graph_builder import GraphBuilder
+from pipelines.risk_scorer import RiskScorer
+from pipelines.output_formatter import OutputFormatter
 
 try:
     from utils.config_optimized import ConfigOptimized as Config
@@ -46,15 +48,19 @@ class UnstructuredPipelineOptimized:
     5. Lazy loading of models
     """
     
-    def __init__(self, batch_size: int = 10):
+    def __init__(self, batch_size: int = 10, enable_risk_scoring: bool = True, enable_output_formatting: bool = True):
         """
         Initialize pipeline with memory-conscious settings
         
         Args:
             batch_size: Number of documents to process before writing to DB
+            enable_risk_scoring: Enable risk scoring functionality
+            enable_output_formatting: Enable output formatting for multiagent system
         """
         self.logger = Logger.get_logger(self.__class__.__name__)
         self.batch_size = batch_size
+        self.enable_risk_scoring = enable_risk_scoring
+        self.enable_output_formatting = enable_output_formatting
         
         # Initialize components (lazy loading where possible)
         self.data_loader = DataLoader()
@@ -65,11 +71,22 @@ class UnstructuredPipelineOptimized:
         self.ner_extractor = None  # Will use NERExtractorOptimized
         self.graph_builder = None
         
+        # Initialize risk scoring and output formatting
+        self.risk_scorer = RiskScorer() if enable_risk_scoring else None
+        self.output_formatter = OutputFormatter() if enable_output_formatting else None
+        
         # Initialize databases
         self.vector_db = VectorDatabase()
         self.graph_db = GraphDatabase()
         
+        # Store formatted outputs for batch processing
+        self.formatted_outputs = []
+        
         self.logger.info(f"Optimized pipeline initialized with batch_size={batch_size}")
+        if enable_risk_scoring:
+            self.logger.info("Risk scoring enabled")
+        if enable_output_formatting:
+            self.logger.info("Output formatting enabled")
     
     def run(
         self,
@@ -279,6 +296,48 @@ class UnstructuredPipelineOptimized:
                 graph_stats = self.graph_builder.build_graph_from_documents(documents_with_entities)
                 batch_stats['graph_nodes_added'] = graph_stats.get('entities_added', 0)
                 batch_stats['graph_relationships_added'] = graph_stats.get('relationships_added', 0)
+                
+                # Step 6: Calculate risk scores (if enabled)
+                if self.enable_risk_scoring and self.risk_scorer:
+                    self.logger.info("Calculating risk scores...")
+                    for doc in tqdm(documents_with_entities, desc="Calculating risk scores", leave=False):
+                        try:
+                            risk_data = self.risk_scorer.calculate_document_risk(
+                                document=doc,
+                                entities=doc.get('entities'),
+                                relationships=doc.get('relationships')
+                            )
+                            doc['risk_data'] = risk_data
+                        except Exception as e:
+                            self.logger.warning(f"Failed to calculate risk for {doc.get('doc_id')}: {str(e)}")
+                            doc['risk_data'] = {
+                                'doc_id': doc.get('doc_id'),
+                                'overall_risk_score': 0.0,
+                                'risk_level': 'UNKNOWN',
+                                'error': str(e)
+                            }
+                
+                # Step 7: Format output for multiagent system (if enabled)
+                if self.enable_output_formatting and self.output_formatter:
+                    self.logger.info("Formatting output for multiagent system...")
+                    for doc in documents_with_entities:
+                        try:
+                            # Get chunks for this document
+                            doc_chunks = [
+                                chunk for chunk in all_chunks
+                                if chunk.get('doc_id') == doc.get('doc_id')
+                            ] if not skip_graph else []
+                            
+                            formatted_output = self.output_formatter.format_for_multiagent(
+                                document=doc,
+                                risk_data=doc.get('risk_data', {}),
+                                entities=doc.get('entities'),
+                                relationships=doc.get('relationships'),
+                                chunks=doc_chunks
+                            )
+                            self.formatted_outputs.append(formatted_output)
+                        except Exception as e:
+                            self.logger.warning(f"Failed to format output for {doc.get('doc_id')}: {str(e)}")
             
             # Clear documents with entities
             del documents_with_entities
@@ -396,6 +455,99 @@ class UnstructuredPipelineOptimized:
         self.vector_db.reset_database()
         self.graph_db.clear_database()
         self.logger.warning("Pipeline reset complete")
+    
+    def export_formatted_outputs(self, batch_name: Optional[str] = None) -> Optional[Path]:
+        """
+        Export formatted outputs for multiagent system
+        
+        Args:
+            batch_name: Optional batch identifier
+            
+        Returns:
+            Path to exported file or None if no outputs
+        """
+        if not self.formatted_outputs:
+            self.logger.warning("No formatted outputs to export")
+            return None
+        
+        if not self.output_formatter:
+            self.logger.error("Output formatter not initialized")
+            return None
+        
+        try:
+            # Create batch output
+            batch_output = self.output_formatter.format_batch_for_multiagent(
+                [{'document': {}, 'risk_data': output.get('risk_assessment', {}),
+                  'entities': output.get('extracted_data', {}).get('entities'),
+                  'relationships': output.get('extracted_data', {}).get('relationships'),
+                  'chunks': []} for output in self.formatted_outputs]
+            )
+            
+            # Override documents with our formatted outputs
+            batch_output['documents'] = self.formatted_outputs
+            
+            # Save to file
+            output_path = self.output_formatter.save_batch_output(batch_output, batch_name)
+            self.logger.info(f"Exported {len(self.formatted_outputs)} formatted outputs to {output_path}")
+            
+            # Generate and save summary report
+            report = self.output_formatter.create_summary_report(batch_output)
+            report_path = self.output_formatter.output_dir / f"{batch_name or 'batch'}_summary.txt"
+            with open(report_path, 'w', encoding='utf-8') as f:
+                f.write(report)
+            self.logger.info(f"Summary report saved to {report_path}")
+            
+            return output_path
+            
+        except Exception as e:
+            self.logger.error(f"Failed to export formatted outputs: {str(e)}")
+            return None
+    
+    def get_risk_summary(self) -> Dict[str, Any]:
+        """
+        Get summary of risk scores from formatted outputs
+        
+        Returns:
+            Dictionary with risk statistics
+        """
+        if not self.formatted_outputs:
+            return {'total_documents': 0, 'message': 'No documents processed'}
+        
+        risk_scores = [
+            doc.get('risk_assessment', {}).get('overall_score', 0)
+            for doc in self.formatted_outputs
+        ]
+        
+        risk_levels = [
+            doc.get('risk_assessment', {}).get('risk_level', 'UNKNOWN')
+            for doc in self.formatted_outputs
+        ]
+        
+        # Count by risk level
+        risk_level_counts = {}
+        for level in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'MINIMAL']:
+            risk_level_counts[level] = risk_levels.count(level)
+        
+        # Get high-risk documents
+        high_risk_docs = [
+            {
+                'doc_id': doc.get('document_id'),
+                'risk_score': doc.get('risk_assessment', {}).get('overall_score', 0),
+                'risk_level': doc.get('risk_assessment', {}).get('risk_level')
+            }
+            for doc in self.formatted_outputs
+            if doc.get('risk_assessment', {}).get('overall_score', 0) >= 60
+        ]
+        
+        return {
+            'total_documents': len(self.formatted_outputs),
+            'average_risk_score': round(sum(risk_scores) / len(risk_scores), 2) if risk_scores else 0,
+            'max_risk_score': max(risk_scores) if risk_scores else 0,
+            'min_risk_score': min(risk_scores) if risk_scores else 0,
+            'risk_level_distribution': risk_level_counts,
+            'high_risk_count': len(high_risk_docs),
+            'high_risk_documents': sorted(high_risk_docs, key=lambda x: x['risk_score'], reverse=True)[:10]
+        }
     
     def close(self):
         """Close all database connections and cleanup"""

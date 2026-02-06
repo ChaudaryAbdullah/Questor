@@ -1,0 +1,11 @@
+Model: SVM
+Timestamp: 2025-11-30_10-54-24
+Performance Metrics:
+  accuracy: 0.9903
+  precision: 0.9783
+  recall: 0.9881
+  f1_score: 0.9832
+  auc_roc: 0.9985
+Hyperparameters:
+  kernel: rbf
+--------------------------------------------------

@@ -1,0 +1,13 @@
+Model: One-Class SVM
+Timestamp: svm_2025-11-30_12-22-11
+Performance Metrics:
+  accuracy: 0.9467
+  precision: 0.1306
+  recall: 0.6610
+  f1_score: 0.2181
+  auc_roc: 0.7798
+Hyperparameters:
+  kernel: rbf
+  gamma: scale
+  nu: 0.05
+--------------------------------------------------

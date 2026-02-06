@@ -93,6 +93,22 @@ def main():
         action='store_true',
         help='Enable memory monitoring'
     )
+    parser.add_argument(
+        '--export-output',
+        type=str,
+        default=None,
+        help='Export formatted output for multiagent system (provide batch name)'
+    )
+    parser.add_argument(
+        '--risk-summary',
+        action='store_true',
+        help='Show risk score summary after processing'
+    )
+    parser.add_argument(
+        '--disable-risk-scoring',
+        action='store_true',
+        help='Disable risk scoring (faster processing)'
+    )
     
     args = parser.parse_args()
     
@@ -107,8 +123,13 @@ def main():
         mem_info = get_memory_info()
         logger.info(f"Initial memory - RSS: {mem_info['rss_mb']:.2f} MB, VMS: {mem_info['vms_mb']:.2f} MB")
     
-    # Initialize pipeline with specified batch size
-    pipeline = UnstructuredPipelineOptimized(batch_size=args.batch_size)
+    # Initialize pipeline with specified batch size and risk scoring
+    enable_risk_scoring = not args.disable_risk_scoring
+    pipeline = UnstructuredPipelineOptimized(
+        batch_size=args.batch_size,
+        enable_risk_scoring=enable_risk_scoring,
+        enable_output_formatting=enable_risk_scoring  # Enable output formatting if risk scoring is enabled
+    )
     
     try:
         if args.reset:
@@ -138,6 +159,7 @@ def main():
         logger.info(f"  - Document limit: {args.limit or 'All'}")
         logger.info(f"  - Skip embeddings: {args.skip_embeddings}")
         logger.info(f"  - Skip graph: {args.skip_graph}")
+        logger.info(f"  - Risk scoring: {'Enabled' if enable_risk_scoring else 'Disabled'}")
         
         stats = pipeline.run(
             limit=args.limit,
@@ -160,9 +182,43 @@ def main():
             if args.memory_monitor:
                 mem_info = get_memory_info()
                 logger.info(f"Final memory - RSS: {mem_info['rss_mb']:.2f} MB, VMS: {mem_info['vms_mb']:.2f} MB")
+            
+            # Show risk summary if requested
+            if args.risk_summary and enable_risk_scoring:
+                logger.info("\n" + "=" * 80)
+                logger.info("RISK SCORE SUMMARY")
+                logger.info("=" * 80)
+                risk_summary = pipeline.get_risk_summary()
+                logger.info(f"Total documents: {risk_summary.get('total_documents', 0)}")
+                logger.info(f"Average risk score: {risk_summary.get('average_risk_score', 0):.2f}")
+                logger.info(f"Max risk score: {risk_summary.get('max_risk_score', 0):.2f}")
+                logger.info(f"Min risk score: {risk_summary.get('min_risk_score', 0):.2f}")
+                logger.info("\nRisk Level Distribution:")
+                for level, count in risk_summary.get('risk_level_distribution', {}).items():
+                    logger.info(f"  {level}: {count}")
+                logger.info(f"\nHigh-risk documents: {risk_summary.get('high_risk_count', 0)}")
+                if risk_summary.get('high_risk_documents'):
+                    logger.info("\nTop 5 High-Risk Documents:")
+                    for i, doc in enumerate(risk_summary['high_risk_documents'][:5], 1):
+                        logger.info(f"  {i}. {doc['doc_id']}: {doc['risk_score']:.2f} ({doc['risk_level']})")
+            
+            # Export formatted output if requested
+            if args.export_output and enable_risk_scoring:
+                logger.info("\n" + "=" * 80)
+                logger.info("EXPORTING FORMATTED OUTPUT")
+                logger.info("=" * 80)
+                output_path = pipeline.export_formatted_outputs(batch_name=args.export_output)
+                if output_path:
+                    logger.info(f"Output exported successfully to: {output_path}")
+                else:
+                    logger.warning("Failed to export output")
         else:
             logger.error(f"Pipeline failed: {stats.get('error', 'Unknown error')}")
     
+    except KeyboardInterrupt:
+        logger.warning("Pipeline interrupted by user")
+    except Exception as e:
+        logger.error(f"Unexpected error: {str(e)}", exc_info=True)
     finally:
         pipeline.close()
         
