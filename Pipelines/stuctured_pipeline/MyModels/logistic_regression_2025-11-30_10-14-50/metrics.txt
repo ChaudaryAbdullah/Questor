@@ -1,0 +1,11 @@
+Model: Logistic Regression
+Timestamp: regression_2025-11-30_10-14-50
+Performance Metrics:
+  accuracy: 0.9618
+  precision: 0.9847
+  recall: 0.8808
+  f1_score: 0.9299
+  auc_roc: 0.9940
+Hyperparameters:
+  max_iter: 1000
+--------------------------------------------------

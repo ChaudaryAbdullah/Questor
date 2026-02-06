@@ -1,0 +1,12 @@
+Model: Isolation Forest
+Timestamp: forest_2025-11-30_13-00-50
+Performance Metrics:
+  accuracy: 0.9020
+  precision: 0.0660
+  recall: 0.5876
+  f1_score: 0.1187
+  auc_roc: 0.8967
+Hyperparameters:
+  n_estimators: 100
+  contamination: 0.1
+--------------------------------------------------
