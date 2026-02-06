@@ -56,27 +56,14 @@ class ExistingDataRiskCalculator:
         """
         self.logger.info("Retrieving documents from Neo4j...")
         
-        # Query to get all documents with their entities and relationships
+        # Query to get all documents (content is NOT stored in Neo4j, only metadata)
         query = """
         MATCH (d:Document)
-        OPTIONAL MATCH (d)-[:HAS_ENTITY]->(e)
-        OPTIONAL MATCH (d)-[:HAS_RELATIONSHIP]->(r)
         RETURN d.doc_id as doc_id,
                d.label as label,
                d.company_id as company_id,
                d.date as date,
-               d.content as content,
-               collect(DISTINCT {
-                   text: e.text,
-                   label: e.label,
-                   type: e.type
-               }) as entities,
-               collect(DISTINCT {
-                   subject: r.subject,
-                   predicate: r.predicate,
-                   object: r.object,
-                   type: r.type
-               }) as relationships
+               d.file_name as file_name
         """
         
         try:
@@ -84,33 +71,59 @@ class ExistingDataRiskCalculator:
             
             documents = []
             for record in results:
+                doc_id = record.get('doc_id', 'unknown')
+                
                 # Reconstruct document structure
                 doc = {
-                    'doc_id': record.get('doc_id', 'unknown'),
+                    'doc_id': doc_id,
                     'label': record.get('label', 'unknown'),
                     'company_id': record.get('company_id'),
                     'date': record.get('date'),
-                    'content': record.get('content', '')
+                    'file_name': record.get('file_name', ''),
+                    'content': '',  # Will be filled from ChromaDB
+                    'entities': {},
+                    'relationships': []
                 }
                 
-                # Group entities by type
-                entities_dict = {}
-                raw_entities = record.get('entities', [])
-                for ent in raw_entities:
-                    if ent and ent.get('text'):  # Filter out null/empty entities
-                        entity_type = ent.get('label') or ent.get('type', 'UNKNOWN')
-                        if entity_type not in entities_dict:
-                            entities_dict[entity_type] = []
-                        entities_dict[entity_type].append(ent)
+                # Get entities using correct MENTIONS relationship
+                entity_query = """
+                MATCH (d:Document {doc_id: $doc_id})-[:MENTIONS]->(e)
+                RETURN e.name as name, e.type as entity_type, labels(e)[0] as label
+                """
                 
-                doc['entities'] = entities_dict
+                try:
+                    entity_results = self.graph_db.query_graph(entity_query, {'doc_id': doc_id})
+                    
+                    # Group entities by type
+                    entities_dict = {}
+                    for ent_record in entity_results:
+                        entity_name = ent_record.get('name', '')
+                        entity_type = ent_record.get('entity_type') or ent_record.get('label', 'UNKNOWN')
+                        
+                        if entity_name:  # Filter out empty entities
+                            if entity_type not in entities_dict:
+                                entities_dict[entity_type] = []
+                            entities_dict[entity_type].append({
+                                'text': entity_name,
+                                'label': entity_type
+                            })
+                    
+                    doc['entities'] = entities_dict
+                except Exception as e:
+                    self.logger.debug(f"No entities found for {doc_id}: {str(e)}")
+                    doc['entities'] = {}
                 
-                # Filter out null relationships
-                relationships = [
-                    rel for rel in record.get('relationships', [])
-                    if rel and rel.get('subject')
-                ]
-                doc['relationships'] = relationships
+                # Get content from ChromaDB
+                try:
+                    content_chunks = self.get_document_chunks_from_vector_db(doc_id)
+                    if content_chunks:
+                        # Combine all chunks into content
+                        doc['content'] = ' '.join([chunk.get('text', '') for chunk in content_chunks])
+                    else:
+                        doc['content'] = 'No content available'
+                except Exception as e:
+                    self.logger.debug(f"No content found in ChromaDB for {doc_id}: {str(e)}")
+                    doc['content'] = 'No content available'
                 
                 documents.append(doc)
             
