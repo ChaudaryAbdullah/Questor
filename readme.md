@@ -1,35 +1,62 @@
-## Setting up Virtual Environment
+# Questor - Fraud Detection System
 
-# For Linux Users:
+A comprehensive fraud detection system combining unstructured text analysis and structured data modeling.
 
-    First create a virtual environment using:
-          python3 -m venv .venv
+## Features
 
-    Then activate it using:
-        source .venv/bin/activate
+- **Dual Pipeline Architecture**
+  - Unstructured Pipeline: Text document analysis with NER and knowledge graphs
+  - Structured Pipeline: Ensemble ML models for tabular data
 
-# For Windows Users:
+- **Risk Scoring**
+  - Comprehensive risk assessment (0-100 scale)
+  - Multi-component risk analysis
+  - Risk level categorization (CRITICAL/HIGH/MEDIUM/LOW/MINIMAL)
 
-    First create a virtual environment using:
-          python -m venv .venv
+- **Multiagent Integration**
+  - Standardized output format
+  - Agent routing recommendations
+  - Priority-based processing
 
-    Then activate it using:
-        source .venv/Scripts/activate
+## Quick Start
 
-## Installing Olama LLM
+### Unstructured Pipeline
+```bash
+cd pipelines/unstructured
+python calculate_risk_fixed.py --limit 100 --export --batch-name test
+```
 
-# For Linux Users:
+### Structured Pipeline
+```bash
+cd pipelines/structured
+python structured_pipeline_with_risk.py --export --batch-name test
+```
 
-    curl -fsSL https://ollama.ai/install.sh | sh
+## Documentation
 
-# For Windows Users
+- [Complete System Summary](COMPLETE_SYSTEM_SUMMARY.md)
+- [Project Restructuring Plan](PROJECT_RESTRUCTURING_PLAN.md)
+- [Unstructured Pipeline Guide](pipelines/unstructured/RISK_SCORING_GUIDE.md)
+- [Structured Pipeline Guide](pipelines/structured/RISK_SCORING_GUIDE.md)
 
-    Download from "https://ollama.ai/download/windows"
+## Architecture
 
-# pull ollama model
+See [PROJECT_RESTRUCTURING_PLAN.md](PROJECT_RESTRUCTURING_PLAN.md) for detailed architecture.
 
-    ollama pull mistral
+## Installation
 
-# test if ollama is working
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
-    ollama run mistral "Hello, are you working?"
+# Set up databases
+docker-compose up -d
+
+# Configure environment
+cp .env.example .env
+# Edit .env with your settings
+```
+
+## License
+
+[Your License Here]
