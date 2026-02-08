@@ -76,7 +76,7 @@ htmlcov/
 .tox/
 
 # Models (if large)
-*.pkl
+#*.pkl
 *.joblib
 *.h5
 *.pb
