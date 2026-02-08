@@ -1,0 +1,30 @@
+======================================================================
+BATCH FRAUD DETECTION ANALYSIS REPORT
+======================================================================
+Generated: 2026-02-08 10:34:42
+Total files processed: 1
+
+Average Risk Score: 0.648767
+Max Risk Score: 0.648767
+Min Risk Score: 0.648767
+
+Risk Level Distribution:
+  CRITICAL     :   0 (  0.0%)
+  HIGH         :   1 (100.0%)
+  MODERATE     :   0 (  0.0%)
+  LOW          :   0 (  0.0%)
+  MINIMAL      :   0 (  0.0%)
+
+Fraud Cases Detected: 1/1 (100.0%)
+
+======================================================================
+INDIVIDUAL FILE RESULTS
+======================================================================
+
+File: 0000050493-2.json
+  Risk Score: 0.648767
+  Risk Level: HIGH
+  Prediction: FRAUD
+  Models Flagging FRAUD: 12/17
+  ---
+

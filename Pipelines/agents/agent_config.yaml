@@ -1,0 +1,26 @@
+# Agent Configuration
+# Weights should sum to desired proportion of overall score
+
+agents:
+  benfords_law:
+    enabled: true
+    weight: 0.15
+    min_samples: 30
+    critical_chi_square: 15.507  # 95% confidence, 8 degrees of freedom
+    
+  beneish_mscore:
+    enabled: true
+    weight: 0.15
+    threshold: -2.22  # Standard M-Score threshold
+
+# Pipeline weights (for final score combination)
+pipelines:
+  structured:
+    weight: 0.50
+  unstructured:
+    weight: 0.20
+  
+# Score combination settings
+combination:
+  normalize_weights: true  # Redistribute weights if agents unavailable
+  min_confidence: 0.3  # Minimum confidence to include in final score
