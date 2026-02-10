@@ -13,7 +13,7 @@ from datetime import datetime
 from inference_pipeline import main as run_single_inference
 
 
-INPUT_DIR = "Input"
+INPUT_DIR = "../Input"  # Use centralized Input folder from Main_Immplementation
 OUTPUT_DIR = "Output"
 
 

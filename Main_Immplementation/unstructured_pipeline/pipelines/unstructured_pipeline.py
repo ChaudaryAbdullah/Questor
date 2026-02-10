@@ -93,7 +93,8 @@ class UnstructuredPipelineOptimized:
         limit: Optional[int] = None,
         skip_embeddings: bool = False,
         skip_graph: bool = False,
-        process_batch_size: int = None
+        process_batch_size: int = None,
+        input_file: Optional[str] = None
     ) -> Dict[str, Any]:
         """
         Run the complete pipeline with memory optimization
@@ -103,6 +104,7 @@ class UnstructuredPipelineOptimized:
             skip_embeddings: Skip vector embedding generation
             skip_graph: Skip knowledge graph construction
             process_batch_size: Override default batch size
+            input_file: Specific file to process (e.g., "full-submission.txt")
             
         Returns:
             Dictionary containing pipeline statistics
@@ -126,7 +128,7 @@ class UnstructuredPipelineOptimized:
         
         try:
             # Get file list
-            file_paths = self._get_file_list(limit)
+            file_paths = self._get_file_list(limit, input_file)
             total_files = len(file_paths)
             
             self.logger.info(f"Processing {total_files} documents in batches of {batch_size}")
@@ -190,12 +192,20 @@ class UnstructuredPipelineOptimized:
             # Cleanup
             self._cleanup_models()
     
-    def _get_file_list(self, limit: Optional[int]) -> list:
+    def _get_file_list(self, limit: Optional[int], specific_file: Optional[str] = None) -> list:
         """Get list of file paths to process"""
-        files = list(Config.DATA_DIR.glob("*.txt"))
-        if limit:
-            files = files[:limit]
-        return files
+        if specific_file:
+            # Load only the specific file
+            file_path = Config.DATA_DIR / specific_file
+            if not file_path.exists():
+                self.logger.error(f"Specific file not found: {file_path}")
+                raise FileNotFoundError(f"File not found: {specific_file}")
+            return [file_path]
+        else:
+            files = list(Config.DATA_DIR.glob("*.txt"))
+            if limit:
+                files = files[:limit]
+            return files
     
     def _process_batch(
         self,

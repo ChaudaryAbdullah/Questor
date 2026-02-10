@@ -251,7 +251,8 @@ class UnifiedPipelineRunner:
         cmd = [
             sys.executable,
             str(script_path),
-            '--export-output', batch_name
+            '--export-output', batch_name,
+            '--input-file', 'full-submission.txt'  # Process only the specific file
         ] + additional_args
         
         self.logger.debug(f"Executing: {' '.join(cmd)}")

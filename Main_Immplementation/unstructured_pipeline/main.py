@@ -109,6 +109,12 @@ def main():
         action='store_true',
         help='Disable risk scoring (faster processing)'
     )
+    parser.add_argument(
+        '--input-file',
+        type=str,
+        default=None,
+        help='Process a specific file (e.g., "full-submission.txt") instead of all files'
+    )
     
     args = parser.parse_args()
     
@@ -152,11 +158,11 @@ def main():
                 logger.info(f"  {i+1}. {doc_id} (distance: {distance:.4f})")
             return
         
-        # Run the main pipeline
         logger.info("Starting optimized pipeline execution...")
         logger.info(f"Configuration:")
         logger.info(f"  - Batch size: {args.batch_size}")
         logger.info(f"  - Document limit: {args.limit or 'All'}")
+        logger.info(f"  - Input file: {args.input_file or 'All matching files'}")
         logger.info(f"  - Skip embeddings: {args.skip_embeddings}")
         logger.info(f"  - Skip graph: {args.skip_graph}")
         logger.info(f"  - Risk scoring: {'Enabled' if enable_risk_scoring else 'Disabled'}")
@@ -165,7 +171,8 @@ def main():
             limit=args.limit,
             skip_embeddings=args.skip_embeddings,
             skip_graph=args.skip_graph,
-            process_batch_size=args.batch_size
+            process_batch_size=args.batch_size,
+            input_file=args.input_file
         )
         
         if stats['success']:

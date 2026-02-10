@@ -13,7 +13,7 @@ class ConfigOptimized:
     
     # Paths
     BASE_DIR = Path(__file__).parent.parent
-    DATA_DIR = BASE_DIR / "data" / "unstructured_data"
+    DATA_DIR = BASE_DIR.parent / "Input"  # Use centralized Input folder from Main_Immplementation
     VECTOR_DB_DIR = BASE_DIR / "databases" / "vector_store"
     LOGS_DIR = BASE_DIR / "logs"
     

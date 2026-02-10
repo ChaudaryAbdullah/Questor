@@ -22,14 +22,16 @@ class DataLoader:
     def load_documents(
         self,
         file_pattern: str = "*.txt",
-        limit: Optional[int] = None
+        limit: Optional[int] = None,
+        specific_file: Optional[str] = None
     ) -> List[Dict[str, Any]]:
         """
-        Load all documents from the data directory
+        Load all documents from the data directory or a specific file
         
         Args:
-            file_pattern: Glob pattern for files to load
+            file_pattern: Glob pattern for files to load (ignored if specific_file is provided)
             limit: Maximum number of files to load (None for all)
+            specific_file: Specific filename to load (e.g., "full-submission.txt")
             
         Returns:
             List of document dictionaries
@@ -38,12 +40,19 @@ class DataLoader:
             self.logger.info(f"Loading documents from {self.data_dir}")
             
             # Get all matching files
-            files = list(self.data_dir.glob(file_pattern))
-            
-            if limit:
-                files = files[:limit]
-            
-            self.logger.info(f"Found {len(files)} documents to process")
+            if specific_file:
+                # Load only the specific file
+                file_path = self.data_dir / specific_file
+                if not file_path.exists():
+                    self.logger.error(f"Specific file not found: {file_path}")
+                    raise DataIngestionError(f"File not found: {specific_file}")
+                files = [file_path]
+                self.logger.info(f"Loading specific file: {specific_file}")
+            else:
+                files = list(self.data_dir.glob(file_pattern))
+                if limit:
+                    files = files[:limit]
+                self.logger.info(f"Found {len(files)} documents to process")
             
             documents = []
             
