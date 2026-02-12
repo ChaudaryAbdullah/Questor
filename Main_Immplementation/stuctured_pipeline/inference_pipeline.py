@@ -446,10 +446,13 @@ def main(json_path: str):
     
     if not models:
         print("❌ No models loaded. Exiting.")
-        return
+        return {'success': False, 'error': 'No models loaded'}
     
     # Run prediction
     result = run_ensemble_prediction(json_path, models, scalers, metadata, weights)
+    
+    # Add success flag
+    result['success'] = True
     
     # Save results
     save_results(result)

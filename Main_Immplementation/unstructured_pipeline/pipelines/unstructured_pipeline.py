@@ -24,6 +24,7 @@ from pipelines.ner_extraction import NERExtractorOptimized
 from pipelines.graph_builder import GraphBuilder
 from pipelines.risk_scorer import RiskScorer
 from pipelines.output_formatter import OutputFormatter
+from pipelines.risk_retriever import RiskRetriever
 
 try:
     from utils.config_optimized import ConfigOptimized as Config
@@ -94,7 +95,9 @@ class UnstructuredPipelineOptimized:
         skip_embeddings: bool = False,
         skip_graph: bool = False,
         process_batch_size: int = None,
-        input_file: Optional[str] = None
+        input_file: Optional[str] = None,
+        use_existing_data: bool = False,
+        cik_list: Optional[list] = None
     ) -> Dict[str, Any]:
         """
         Run the complete pipeline with memory optimization
@@ -105,11 +108,19 @@ class UnstructuredPipelineOptimized:
             skip_graph: Skip knowledge graph construction
             process_batch_size: Override default batch size
             input_file: Specific file to process (e.g., "full-submission.txt")
+            use_existing_data: If True, retrieve existing data by CIK instead of reprocessing
+            cik_list: List of CIK numbers to retrieve (required if use_existing_data=True)
             
         Returns:
             Dictionary containing pipeline statistics
         """
         start_time = time.time()
+        
+        # Check if using retrieval mode
+        if use_existing_data:
+            return self._run_retrieval_mode(cik_list, start_time)
+        
+        # Original processing mode
         batch_size = process_batch_size or self.batch_size
         
         self.logger.info("=" * 80)
@@ -558,6 +569,79 @@ class UnstructuredPipelineOptimized:
             'high_risk_count': len(high_risk_docs),
             'high_risk_documents': sorted(high_risk_docs, key=lambda x: x['risk_score'], reverse=True)[:10]
         }
+    
+    def _run_retrieval_mode(self, cik_list: Optional[list], start_time: float) -> Dict[str, Any]:
+        """
+        Run pipeline in retrieval mode - query existing data by CIK
+        
+        Args:
+            cik_list: List of CIK numbers to retrieve
+            start_time: Pipeline start time
+            
+        Returns:
+            Dictionary with pipeline statistics and results
+        """
+        self.logger.info("=" * 80)
+        self.logger.info("RUNNING UNSTRUCTURED PIPELINE IN RETRIEVAL MODE")
+        self.logger.info(f"CIKs to process: {len(cik_list) if cik_list else 0}")
+        self.logger.info("=" * 80)
+        
+        if not cik_list:
+            self.logger.error("No CIKs provided for retrieval mode")
+            return {
+                'success': False,
+                'error': 'No CIKs provided',
+                'elapsed_time': time.time() - start_time
+            }
+        
+        try:
+            # Initialize risk retriever
+            retriever = RiskRetriever()
+            
+            # Process each CIK
+            all_results = []
+            for cik in cik_list:
+                self.logger.info(f"Processing CIK: {cik}")
+                result = retriever.calculate_risk_for_cik(cik, include_chunks=False)
+                
+                if result.get('success'):
+                    # Format for multiagent system
+                    formatted = retriever.format_for_multiagent(result)
+                    self.formatted_outputs.append(formatted)
+                    all_results.append(result)
+                else:
+                    self.logger.warning(f"Failed to retrieve data for CIK {cik}: {result.get('error')}")
+            
+            # Calculate statistics
+            elapsed_time = time.time() - start_time
+            total_docs = sum(r.get('documents_count', 0) for r in all_results)
+            
+            final_stats = {
+                'success': True,
+                'mode': 'retrieval',
+                'ciks_processed': len(all_results),
+                'documents_retrieved': total_docs,
+                'elapsed_time': elapsed_time,
+                'formatted_outputs_count': len(self.formatted_outputs)
+            }
+            
+            self.logger.info("=" * 80)
+            self.logger.info("RETRIEVAL MODE COMPLETED SUCCESSFULLY")
+            self.logger.info(f"Total time: {elapsed_time:.2f} seconds")
+            self.logger.info(f"CIKs processed: {len(all_results)}")
+            self.logger.info(f"Documents retrieved: {total_docs}")
+            self.logger.info("=" * 80)
+            
+            return final_stats
+            
+        except Exception as e:
+            self.logger.error(f"Retrieval mode failed: {str(e)}", exc_info=True)
+            return {
+                'success': False,
+                'mode': 'retrieval',
+                'error': str(e),
+                'elapsed_time': time.time() - start_time
+            }
     
     def close(self):
         """Close all database connections and cleanup"""

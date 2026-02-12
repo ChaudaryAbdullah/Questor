@@ -1,0 +1,151 @@
+{
+  "input_file": "0001040719.json",
+  "risk_score": 0.083709,
+  "risk_level": "MINIMAL",
+  "overall_prediction": "NORMAL",
+  "models_predicting_fraud": [
+    "Dbscan",
+    "Isolation Forest",
+    "Oneclass Svm"
+  ],
+  "models_predicting_normal": [
+    "Autoencoder",
+    "Catboost",
+    "Cnn",
+    "Decision Tree",
+    "Dnn",
+    "Gmm",
+    "Kmeans",
+    "Lightgbm",
+    "Logistic Regression",
+    "Pca Anomaly",
+    "Random Forest",
+    "Svm",
+    "Xgboost"
+  ],
+  "fraud_model_count": 3,
+  "normal_model_count": 13,
+  "total_models": 17,
+  "individual_model_results": {
+    "autoencoder": {
+      "display_name": "Autoencoder",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.0,
+      "weight": 0.8,
+      "training_auc": 0.9208
+    },
+    "catboost": {
+      "display_name": "Catboost",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.0215,
+      "weight": 0.94,
+      "training_auc": 0.9999
+    },
+    "cnn": {
+      "display_name": "Cnn",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.0,
+      "weight": 0.86,
+      "training_auc": 0.9994
+    },
+    "dbscan": {
+      "display_name": "Dbscan",
+      "prediction": "FRAUD",
+      "fraud_probability": 0.0,
+      "weight": 0.7,
+      "training_auc": 0.5766
+    },
+    "decision_tree": {
+      "display_name": "Decision Tree",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.0,
+      "weight": 0.78,
+      "training_auc": 0.9989
+    },
+    "dnn": {
+      "display_name": "Dnn",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.0,
+      "weight": 0.88,
+      "training_auc": 0.9995
+    },
+    "gmm": {
+      "display_name": "Gmm",
+      "prediction": "NORMAL",
+      "fraud_probability": 1.0,
+      "weight": 0.74,
+      "training_auc": 0.9528
+    },
+    "isolation_forest": {
+      "display_name": "Isolation Forest",
+      "prediction": "FRAUD",
+      "fraud_probability": 0.0,
+      "weight": 0.75,
+      "training_auc": 0.8967
+    },
+    "kmeans": {
+      "display_name": "Kmeans",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.0872,
+      "weight": 0.72,
+      "training_auc": 0.6438
+    },
+    "lightgbm": {
+      "display_name": "Lightgbm",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.0215,
+      "weight": 0.93,
+      "training_auc": 0.9999
+    },
+    "lof": {
+      "display_name": "Lof",
+      "prediction": "ERROR",
+      "fraud_probability": null,
+      "weight": 0.76,
+      "error": "Expected n_neighbors < n_samples_fit, but n_neighbors = 1, n_samples_fit = 1, n_samples = 1"
+    },
+    "logistic_regression": {
+      "display_name": "Logistic Regression",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.0,
+      "weight": 0.82,
+      "training_auc": 0.994
+    },
+    "oneclass_svm": {
+      "display_name": "Oneclass Svm",
+      "prediction": "FRAUD",
+      "fraud_probability": 0.0,
+      "weight": 0.77,
+      "training_auc": 0.7798
+    },
+    "pca_anomaly": {
+      "display_name": "Pca Anomaly",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.0,
+      "weight": 0.73,
+      "training_auc": 0.5426
+    },
+    "random_forest": {
+      "display_name": "Random Forest",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.09,
+      "weight": 0.92,
+      "training_auc": 0.9999
+    },
+    "svm": {
+      "display_name": "Svm",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.0376,
+      "weight": 0.84,
+      "training_auc": 0.9985
+    },
+    "xgboost": {
+      "display_name": "Xgboost",
+      "prediction": "NORMAL",
+      "fraud_probability": 0.1492,
+      "weight": 0.95,
+      "training_auc": 0.9998
+    }
+  },
+  "success": true
+}
