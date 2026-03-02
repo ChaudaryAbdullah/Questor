@@ -71,40 +71,34 @@ Main_Immplementation/
 Input JSON (SEC Filing)
          │
          ├──────────────────────────────────────────┐
-         │                                          │
+         │         [run in parallel]                │
          ▼                                          ▼
 🔷 STRUCTURED PIPELINE                   🔶 UNSTRUCTURED PIPELINE
 17-model ML ensemble                     ChromaDB document retrieval
    • CatBoost, XGBoost, LightGBM         • Keyword-based risk scoring
    • Random Forest, SVM, DNN, CNN        • Entity extraction
    • Isolation Forest, DBSCAN            • Relationship mapping
-   • Autoencoder, GMM, KMeans            • ~2-4s (retrieval mode)
+   • Autoencoder, GMM, KMeans            • ~2–4s (retrieval mode)
    • ~12s processing time
          │                                          │
          └──────────────┬───────────────────────────┘
-                        │
+                        │  [both complete →]
                         ▼
               🤖 AGENT ORCHESTRATOR
               15 specialized fraud agents
-                • Altman Z-Score (bankruptcy risk)
-                • Cash Flow vs. Earnings (accrual manipulation)
-                • Debt Anomaly (leverage extremes)
-                • Expense Padding (inflated expenses)
-                • Tax Rate Anomaly (implausible ETR)
-                • Financing Red Flags (Ponzi funding)
-                • Asset Quality (opaque balance sheet)
-                • EPS Consistency (arithmetic check)
-                • Negative Equity (insolvency signals)
-                • Liquidity Crunch (cash stress)
-                • Depreciation Anomaly (policy manipulation)
-                • Cash Flow Composition (source analysis)
-                • Related Party Transactions
-                • Benford's Law (digit manipulation)
-                • Beneish M-Score (YoY earnings manipulation)
+              (uses structured output + raw input JSON)
+                • Altman Z-Score      • Tax Rate Anomaly
+                • Cash Flow/Earnings  • Financing Red Flags
+                • Debt Anomaly        • Asset Quality
+                • Expense Padding     • EPS Consistency
+                • Related Party       • Negative Equity
+                • Benford's Law       • Liquidity Crunch
+                • Beneish M-Score     • Depreciation Anomaly
+                                      • Cash Flow Composition
                         │
                         ▼
               🔗 SCORE COMBINER
-              Weighted final risk score
+              Weighted final risk score (0–100)
 ```
 
 ---
