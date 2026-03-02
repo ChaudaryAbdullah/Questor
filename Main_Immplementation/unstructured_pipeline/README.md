@@ -1,319 +1,237 @@
-# File: README.md
+# 🔶 Unstructured Pipeline
 
-"""
+Document-level fraud risk analysis using **ChromaDB vector search**, **entity extraction**, and **keyword-based risk scoring**. Operates in **retrieval mode** — searches pre-processed documents stored in ChromaDB by CIK number, avoiding full reprocessing.
 
-# Financial Fraud Detection System - Unstructured Pipeline
+---
 
-A comprehensive AI-powered system for detecting financial fraud in unstructured documents using hybrid retrieval (Vector DB + Knowledge Graph).
-
-## 🏗️ Architecture
-
-```
-fraud-detection-system/
-├── data/
-│   └── unstructured_data/          # Your 1800 .txt files
-├── pipelines/
-│   ├── data_loader.py              # Document loading
-│   ├── chunking.py                 # Text chunking
-│   ├── embedding.py                # Vector embeddings
-│   ├── ner_extraction.py           # Entity extraction
-│   ├── graph_builder.py            # Knowledge graph
-│   └── unstructured_pipeline.py    # Main pipeline
-├── databases/
-│   ├── vector_db.py                # ChromaDB interface
-│   └── graph_db.py                 # Neo4j interface
-├── agents/
-│   ├── nlp_disclosure_agent.py     # NLP analysis agent
-│   └── graph_linkage_agent.py      # Graph query agent
-├── utils/
-│   ├── config.py                   # Configuration
-│   ├── logger.py                   # Logging
-│   └── exceptions.py               # Custom exceptions
-├── tests/
-│   └── test_pipeline.py
-├── requirements.txt
-├── setup.py
-├── .env.example
-└── main.py
-```
-
-## 📋 Prerequisites
-
-- Python 3.9+
-- Neo4j Database (version 5.x)
-- 8GB RAM minimum (16GB recommended)
-- 10GB disk space
-
-## 🚀 Installation
-
-### Step 1: Clone & Setup Environment
+## Quick Start
 
 ```bash
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# On Windows:
-venv\Scripts\activate
-# On Linux/Mac:
+cd Main_Immplementation
 source venv/bin/activate
 
-# Install dependencies
-pip install -r requirements.txt
+# Run retrieval for a specific CIK (fastest)
+python3 unstructured_pipeline/pipelines/risk_retriever.py --cik 1040719
 
-# Download spaCy model
-python -m spacy download en_core_web_sm
+# Via the unified runner (recommended)
+python3 run_unified.py
 ```
 
-### Step 2: Install Neo4j
+---
 
-**Option A: Docker (Recommended)**
+## Folder Structure
 
-```bash
-docker run \
-    --name neo4j-fraud \
-    -p 7474:7474 -p 7687:7687 \
-    -e NEO4J_AUTH=neo4j/your_password \
-    -v $PWD/neo4j/data:/data \
-    neo4j:5.15.0
+```
+unstructured_pipeline/
+│
+├── ── Entry Points ──
+├── main.py                          # Standalone pipeline runner
+├── calculate_risk_from_existing_data.py  # Pure retrieval mode
+│
+├── pipelines/
+│   ├── unstructured_pipeline.py     # 🎯 Main optimized pipeline class
+│   ├── risk_retriever.py            # ChromaDB/Neo4j retrieval by CIK
+│   ├── risk_scorer.py               # Keyword-based risk scoring engine
+│   ├── data_loader.py               # Document ingestion & chunking
+│   ├── entity_extractor.py          # Named entity recognition
+│   ├── output_formatter.py          # Standardized output format
+│   └── document_processor.py       # Text preprocessing
+│
+├── databases/
+│   ├── vector_db.py                 # ChromaDB client (stores embeddings)
+│   └── graph_db.py                  # Neo4j knowledge graph (optional)
+│
+├── utils/
+│   ├── cik_extractor.py             # CIK normalization & file mapping
+│   ├── config.py                    # Pipeline configuration
+│   ├── logger.py                    # Logging setup
+│   └── helpers.py                   # Shared utility functions
+│
+├── data/                            # Raw document storage
+├── examples/                        # Usage examples
+├── tests/                           # Unit tests
+└── docker-compose.yml               # Neo4j docker setup
 ```
 
-**Option B: Local Installation**
+---
 
-- Download from: https://neo4j.com/download/
-- Follow installation instructions
-- Set password and note the bolt URI
+## How It Works
 
-### Step 3: Configure Environment
+### Retrieval Mode (Used by Unified Pipeline)
 
-```bash
-# Copy example environment file
-cp .env.example .env
+Instead of reprocessing documents from scratch, the pipeline queries **pre-ingested data** from ChromaDB:
 
-# Edit .env and set your Neo4j credentials
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=your_password_here
+```
+CIK from input filename (e.g., "0001040719" → "1040719")
+        │
+        ▼
+ChromaDB query: WHERE company_id = "1040719"
+        │
+        ▼
+Retrieved chunks (1000+ document snippets per company)
+        │
+        ▼
+risk_scorer.py: keyword scan + entity extraction + anomaly detection
+        │
+        ▼
+Formatted risk assessment output
 ```
 
-### Step 4: Verify Data Directory
+**Speed**: ~2–4 seconds vs. 600+ seconds for full document processing.
 
-```bash
-# Ensure your data is in the correct location
-ls data/unstructured_data/
+### Full Processing Mode
 
-# Should show your 1800 .txt files
-# NonFraud_1961_20200330_1376.txt
-# Unknown_full-submission_163.txt
-# etc.
+For new documents not yet in ChromaDB:
+
+```
+Input: full-submission.txt (SEC EDGAR full submission)
+        │
+        ▼
+data_loader.py        → Split into chunks (≈512 tokens each)
+        │
+        ▼
+entity_extractor.py   → Extract companies, people, amounts
+        │
+        ▼
+vector_db.py          → Embed chunks with sentence-transformers
+                        → Store in ChromaDB with CIK metadata
+        │
+        ▼
+risk_scorer.py        → Score all chunks
 ```
 
-## 🎯 Usage
+---
 
-### Run Complete Pipeline
+## Risk Scoring Engine (`pipelines/risk_scorer.py`)
 
-Process all 1800 documents:
+Scores documents across **4 weighted components**:
 
-```bash
-python main.py
-```
+| Component | Weight | What It Detects |
+|-----------|--------|----------------|
+| `fraud_indicators` | 35% | High-risk keywords: `material weakness`, `restatement`, `going concern`, `misstatement`, `regulatory action` |
+| `entity_risk` | 25% | Suspicious entities, shell companies, offshore relationships |
+| `financial_anomalies` | 25% | Unusual financial patterns in text |
+| `relationship_risk` | 15% | Suspicious related-party relationships |
 
-Process limited number of documents (for testing):
-
-```bash
-python main.py --limit 100
-```
-
-### Run Specific Steps
-
-Skip embedding generation (if already done):
-
-```bash
-python main.py --skip-embeddings
-```
-
-Skip knowledge graph (faster testing):
-
-```bash
-python main.py --skip-graph
-```
-
-### Query Operations
-
-Query the vector database:
-
-```bash
-python main.py --query "special purpose entity fraud"
-```
-
-Check pipeline status:
-
-```bash
-python main.py --status
-```
-
-Reset pipeline (delete all data):
-
-```bash
-python main.py --reset
-```
-
-## 📊 Pipeline Steps
-
-### Step 1: Data Ingestion
-
-- Loads 1800 text files from `data/unstructured_data`
-- Extracts metadata from filenames
-- Parses fraud labels (NonFraud, Fraud, Unknown)
-
-### Step 2: Text Chunking
-
-- Splits documents into 512-token chunks
-- 50-token overlap for context preservation
-- Preserves document metadata in each chunk
-
-### Step 3: Vector Embeddings
-
-- Generates embeddings using `all-MiniLM-L6-v2`
-- Stores in ChromaDB for similarity search
-- Creates ~5-10 chunks per document
-
-### Step 4: Entity Extraction
-
-- Extracts entities: Companies, People, Money, Dates
-- Identifies financial terms and fraud indicators
-- Extracts relationships between entities
-
-### Step 5: Knowledge Graph
-
-- Builds graph in Neo4j
-- Creates nodes for entities
-- Creates relationships between entities
-- Links entities to source documents
-
-## 🔍 Example Queries
-
-### Vector Database Query (Semantic Search)
+### Risk Keywords (Sample)
 
 ```python
-from pipelines.unstructured_pipeline import UnstructuredPipeline
-
-pipeline = UnstructuredPipeline()
-results = pipeline.query_vector_db(
-    "revenue recognition fraud round-trip transactions",
-    n_results=5
-)
+FRAUD_INDICATORS = {
+    'critical': ['fraud', 'restatement', 'going concern', 'material weakness'],
+    'high':     ['misstatement', 'regulatory action', 'SEC investigation'],
+    'medium':   ['significant doubt', 'internal control deficiency'],
+    'low':      ['risk factor', 'uncertainty', 'litigation']
+}
 ```
 
-### Knowledge Graph Query (Cypher)
+### Output Score Mapping
+
+| Score | Risk Level | Action |
+|-------|-----------|--------|
+| 0–19 | LOW | Routine monitoring |
+| 20–39 | MEDIUM | Flag for review |
+| 40–59 | HIGH | Detailed investigation |
+| 60–100 | CRITICAL | Immediate escalation |
+
+---
+
+## Databases
+
+### ChromaDB (Vector Database)
+
+- **Collection**: `fraud_documents`
+- **Embedding Model**: `sentence-transformers/all-MiniLM-L6-v2`
+- **Metadata Stored**: `company_id` (CIK), `label`, `date`, `chunk_index`
+- **Location**: `unstructured_pipeline/databases/chroma_db/` (auto-created)
+
+Query by CIK:
+```python
+from databases.vector_db import VectorDatabase
+db = VectorDatabase()
+results = db.query_by_cik("1040719", n_results=100)
+```
+
+### Neo4j (Knowledge Graph, Optional)
+
+- **Purpose**: Stores entity relationships (person → company, transaction → entity)
+- **Connection**: `bolt://localhost:7687`
+- **Fallback**: System automatically uses ChromaDB if Neo4j is empty or unavailable
+- **Setup**: `docker-compose up -d` (uses `docker-compose.yml`)
+
+---
+
+## CIK Extractor (`utils/cik_extractor.py`)
+
+Handles CIK normalization across different filename formats:
 
 ```python
-# Find all companies with hidden subsidiaries
-query = """
-MATCH (c:Company)-[:OWNS]->(s:Subsidiary)
-WHERE s.disclosed = false
-RETURN c.name, s.name
-"""
-results = pipeline.query_knowledge_graph(query)
+from utils.cik_extractor import CIKExtractor
+extractor = CIKExtractor()
+
+# Extract from various formats
+extractor.extract_cik("0001040719.json")  # → "1040719"
+extractor.extract_cik("CIK0001040719.txt") # → "1040719"
+
+# Get all CIK→filename mappings in a directory
+mapping = extractor.get_cik_file_mapping(Path("Input/"), "*.json")
+# → {"1040719": "0001040719.json"}
 ```
 
-## 🧪 Testing
+---
 
-Run tests:
+## Output Format
 
-```bash
-pytest tests/
+```json
+{
+  "document_id": "NonFraud_1040719_20140227_711",
+  "cik": "1040719",
+  "risk_assessment": {
+    "overall_score": 24.91,
+    "risk_level": "LOW",
+    "component_scores": {
+      "fraud_indicators": 60.45,
+      "entity_risk": 0.0,
+      "financial_anomalies": 15.0,
+      "relationship_risk": 0.0
+    },
+    "risk_factors": [
+      "High-risk keywords detected: material weakness, restatement, misstatement"
+    ],
+    "requires_investigation": false
+  },
+  "extracted_data": {
+    "entities": {},
+    "relationships": []
+  },
+  "retrieval_references": {
+    "vector_db_chunks": [],
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+  }
+}
 ```
 
-Run with coverage:
+---
 
-```bash
-pytest --cov=pipelines --cov=databases tests/
-```
-
-## 📈 Performance Metrics
-
-Expected processing times (on standard hardware):
-
-- 100 documents: ~5-10 minutes
-- 500 documents: ~20-30 minutes
-- 1800 documents: ~60-90 minutes
-
-Resource usage:
-
-- RAM: 4-8 GB during processing
-- Disk: ~2-3 GB for databases
-- CPU: Multi-threaded embedding generation
-
-## 🔧 Configuration
+## Configuration
 
 Key settings in `utils/config.py`:
 
-- `CHUNK_SIZE`: 512 (tokens per chunk)
-- `CHUNK_OVERLAP`: 50 (overlap tokens)
-- `BATCH_SIZE`: 32 (embedding batch size)
-- `EMBEDDING_MODEL`: sentence-transformers/all-MiniLM-L6-v2
-
-## 📝 Output
-
-The pipeline creates:
-
-1. **Vector Database** (ChromaDB)
-   - Location: `databases/vector_store/`
-   - Contains: Document chunks + embeddings
-2. **Knowledge Graph** (Neo4j)
-
-   - Accessible at: http://localhost:7474
-   - Contains: Entities + relationships
-
-3. **Logs**
-   - Location: `logs/`
-   - Files: `UnstructuredPipeline_YYYYMMDD.log`
-
-## 🚨 Troubleshooting
-
-### Issue: Neo4j Connection Failed
-
-```bash
-# Check if Neo4j is running
-docker ps | grep neo4j
-
-# Restart Neo4j
-docker restart neo4j-fraud
+```python
+CHROMA_COLLECTION    = "fraud_documents"
+EMBEDDING_MODEL      = "sentence-transformers/all-MiniLM-L6-v2"
+CHUNK_SIZE           = 512       # tokens per chunk
+CHUNK_OVERLAP        = 50
+NEO4J_URI            = "bolt://localhost:7687"
+NEO4J_USER           = "neo4j"
 ```
 
-### Issue: Out of Memory
+---
 
-```bash
-# Process in batches
-python main.py --limit 100
-```
+## Troubleshooting
 
-### Issue: ChromaDB Lock Error
-
-```bash
-# Reset the database
-python main.py --reset
-```
-
-## 📚 Next Steps
-
-After running the unstructured pipeline:
-
-1. Build the structured data pipeline (Excel files)
-2. Implement the agent system (NLP Disclosure Agent, Graph Linkage Agent)
-3. Create the hybrid retrieval system
-4. Build the final scoring engine
-
-## 📄 License
-
-MIT License
-
-## 🤝 Contributing
-
-Contributions welcome! Please read CONTRIBUTING.md first.
-
-## 📧 Contact
-
-For questions or support, please open an issue on GitHub.
-"""
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| `0 documents retrieved` | CIK not in ChromaDB | Ingest documents first using `data_loader.py` |
+| `Neo4j connection failed` | Neo4j not running | Expected — auto-falls back to ChromaDB |
+| `overall_score: 0.0` | No relevant chunks found for CIK | Verify CIK format (no leading zeros in DB) |
+| Slow processing | Full processing mode triggered | Use retrieval mode (default in unified runner) |
