@@ -262,18 +262,67 @@ class UnifiedPipelineRunner:
             return {'success': False, 'error': str(e)}
     
     def _run_agents(self, structured_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
-        """Run agent orchestrator"""
+        """Run agent orchestrator.
+
+        Agents need access to the raw financial statements (balance_sheet,
+        income_statement, cash_flow) — NOT just the model prediction results.
+        We load the original input JSON using the 'input_file' field that the
+        structured pipeline embeds in its output, and merge it before passing
+        data to the agents.
+        """
         try:
             if not self.agent_orchestrator:
                 agent_config = load_agent_config()
                 self.agent_orchestrator = AgentOrchestrator(agent_config)
-            
-            # Run agents
-            agent_results = self.agent_orchestrator.run_agents(structured_data)
-            
+
+            # ------------------------------------------------------------------
+            # KEY FIX: enrich agent_data with the raw input JSON so that
+            # financial agents (Altman Z-Score, Cash Flow/Earnings, Debt Anomaly,
+            # Related Party, Expense Padding) have the balance_sheet /
+            # income_statement / cash_flow fields they need.
+            # Without this, agents only see model prediction fields (risk_score,
+            # individual_model_results, etc.) and return "Data not applicable".
+            # ------------------------------------------------------------------
+            agent_data = dict(structured_data)  # start with a copy
+
+            input_filename = structured_data.get('input_file', '')
+            if input_filename:
+                input_candidates = [
+                    self.input_dir / input_filename,
+                    BASE_DIR / 'stuctured_pipeline' / 'Input' / input_filename,
+                    Path(input_filename),
+                ]
+                for candidate in input_candidates:
+                    if candidate.exists():
+                        try:
+                            with open(candidate, 'r') as f:
+                                raw_financial = json.load(f)
+                            agent_data.update(raw_financial)
+                            self.logger.info(
+                                f"  ℹ Agents enriched with raw financial data from: {candidate.name}"
+                            )
+                        except Exception as load_err:
+                            self.logger.warning(
+                                f"  ⚠ Could not load raw input JSON '{candidate}': {load_err}"
+                            )
+                        break
+                else:
+                    self.logger.warning(
+                        f"  ⚠ Raw input JSON '{input_filename}' not found in known locations — "
+                        f"financial agents may report 'Data not applicable'"
+                    )
+            else:
+                self.logger.warning(
+                    "  ⚠ Structured result has no 'input_file' field — "
+                    "financial agents may report 'Data not applicable'"
+                )
+
+            # Run agents on the enriched data dict
+            agent_results = self.agent_orchestrator.run_agents(agent_data)
+
             # Calculate combined score
             combined = self.agent_orchestrator.calculate_combined_score(agent_results)
-            
+
             # Add individual results
             combined['individual_results'] = {
                 name: {
@@ -285,9 +334,9 @@ class UnifiedPipelineRunner:
                 }
                 for name, result in agent_results.items()
             }
-            
+
             return combined
-            
+
         except Exception as e:
             self.logger.error(f"Agent orchestrator error: {str(e)}")
             return None

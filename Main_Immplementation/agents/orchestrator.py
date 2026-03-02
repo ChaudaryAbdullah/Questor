@@ -46,7 +46,111 @@ class AgentOrchestrator:
             self.logger.info("Registered Beneish M-Score agent")
         except Exception as e:
             self.logger.warning(f"Failed to register Beneish M-Score agent: {e}")
-    
+
+        try:
+            from .altman_zscore import AltmanZScoreAgent
+            agent_config = self.config.get('agents', {}).get('altman_zscore', {})
+            self.agents['altman_zscore'] = AltmanZScoreAgent(agent_config)
+            self.logger.info("Registered Altman Z-Score agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Altman Z-Score agent: {e}")
+
+        try:
+            from .cashflow_earnings_agent import CashFlowEarningsAgent
+            agent_config = self.config.get('agents', {}).get('cashflow_earnings', {})
+            self.agents['cashflow_earnings'] = CashFlowEarningsAgent(agent_config)
+            self.logger.info("Registered Cash Flow vs Earnings agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Cash Flow vs Earnings agent: {e}")
+
+        try:
+            from .debt_anomaly_agent import DebtAnomalyAgent
+            agent_config = self.config.get('agents', {}).get('debt_anomaly', {})
+            self.agents['debt_anomaly'] = DebtAnomalyAgent(agent_config)
+            self.logger.info("Registered Debt Anomaly agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Debt Anomaly agent: {e}")
+
+        try:
+            from .related_party_agent import RelatedPartyAgent
+            agent_config = self.config.get('agents', {}).get('related_party', {})
+            self.agents['related_party'] = RelatedPartyAgent(agent_config)
+            self.logger.info("Registered Related Party agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Related Party agent: {e}")
+
+        try:
+            from .expense_padding_agent import ExpensePaddingAgent
+            agent_config = self.config.get('agents', {}).get('expense_padding', {})
+            self.agents['expense_padding'] = ExpensePaddingAgent(agent_config)
+            self.logger.info("Registered Expense Padding agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Expense Padding agent: {e}")
+
+        try:
+            from .tax_rate_anomaly_agent import TaxRateAnomalyAgent
+            agent_config = self.config.get('agents', {}).get('tax_rate_anomaly', {})
+            self.agents['tax_rate_anomaly'] = TaxRateAnomalyAgent(agent_config)
+            self.logger.info("Registered Tax Rate Anomaly agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Tax Rate Anomaly agent: {e}")
+
+        try:
+            from .financing_red_flags_agent import FinancingRedFlagsAgent
+            agent_config = self.config.get('agents', {}).get('financing_red_flags', {})
+            self.agents['financing_red_flags'] = FinancingRedFlagsAgent(agent_config)
+            self.logger.info("Registered Financing Red Flags agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Financing Red Flags agent: {e}")
+
+        try:
+            from .asset_quality_agent import AssetQualityAgent
+            agent_config = self.config.get('agents', {}).get('asset_quality', {})
+            self.agents['asset_quality'] = AssetQualityAgent(agent_config)
+            self.logger.info("Registered Asset Quality agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Asset Quality agent: {e}")
+
+        try:
+            from .eps_consistency_agent import EPSConsistencyAgent
+            agent_config = self.config.get('agents', {}).get('eps_consistency', {})
+            self.agents['eps_consistency'] = EPSConsistencyAgent(agent_config)
+            self.logger.info("Registered EPS Consistency agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register EPS Consistency agent: {e}")
+
+        try:
+            from .negative_equity_agent import NegativeEquityAgent
+            agent_config = self.config.get('agents', {}).get('negative_equity', {})
+            self.agents['negative_equity'] = NegativeEquityAgent(agent_config)
+            self.logger.info("Registered Negative Equity agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Negative Equity agent: {e}")
+
+        try:
+            from .liquidity_crunch_agent import LiquidityCrunchAgent
+            agent_config = self.config.get('agents', {}).get('liquidity_crunch', {})
+            self.agents['liquidity_crunch'] = LiquidityCrunchAgent(agent_config)
+            self.logger.info("Registered Liquidity Crunch agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Liquidity Crunch agent: {e}")
+
+        try:
+            from .depreciation_anomaly_agent import DepreciationAnomalyAgent
+            agent_config = self.config.get('agents', {}).get('depreciation_anomaly', {})
+            self.agents['depreciation_anomaly'] = DepreciationAnomalyAgent(agent_config)
+            self.logger.info("Registered Depreciation Anomaly agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Depreciation Anomaly agent: {e}")
+
+        try:
+            from .cashflow_composition_agent import CashFlowCompositionAgent
+            agent_config = self.config.get('agents', {}).get('cashflow_composition', {})
+            self.agents['cashflow_composition'] = CashFlowCompositionAgent(agent_config)
+            self.logger.info("Registered Cash Flow Composition agent")
+        except Exception as e:
+            self.logger.warning(f"Failed to register Cash Flow Composition agent: {e}")
+
     def run_agents(
         self,
         data: Dict[str, Any],

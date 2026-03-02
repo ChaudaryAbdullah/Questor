@@ -335,50 +335,107 @@ class UnifiedPipelineRunner:
         agent_config_path: Optional[str] = None
     ) -> Optional[Dict[str, Any]]:
         """
-        Run fraud detection agents on structured data
-        
+        Run fraud detection agents.
+
+        Agents receive a merged dict containing:
+          - The structured pipeline's model-prediction results
+          - The original raw financial JSON (balance_sheet, income_statement,
+            cash_flow) looked up via the 'input_file' field in the structured output.
+
+        This is necessary because financial agents (Altman Z-Score, Cash Flow
+        vs Earnings, Debt Anomaly, etc.) need the raw financial statements, not
+        just the model predictions.
+
         Returns:
             Dictionary with agent results and combined score
         """
         try:
             # Load agent config
             agent_config = load_agent_config(agent_config_path)
-            
+
             # Initialize orchestrator
             orchestrator = AgentOrchestrator(agent_config)
-            
-            # Load structured data
+
+            # Load structured pipeline output
             import json
             with open(structured_output, 'r') as f:
                 structured_data = json.load(f)
-            
-            # Run agents
+
+            # ------------------------------------------------------------------
+            # KEY FIX: also load the original raw input JSON so that financial
+            # agents (Altman Z-Score, Cash Flow/Earnings, Debt Anomaly, etc.)
+            # have access to balance_sheet / income_statement / cash_flow data.
+            # The structured pipeline output only contains model predictions and
+            # AUC scores — no raw financial fields.
+            # ------------------------------------------------------------------
+            agent_data = dict(structured_data)  # start with a copy
+
+            input_filename = structured_data.get('input_file', '')
+            if input_filename:
+                # Resolve candidates: Input/ dir inside Main_Immplementation
+                input_candidates = [
+                    self.base_dir / 'Input' / input_filename,
+                    self.base_dir / 'stuctured_pipeline' / 'Input' / input_filename,
+                    Path(input_filename),  # absolute or relative path
+                ]
+                for candidate in input_candidates:
+                    if candidate.exists():
+                        try:
+                            with open(candidate, 'r') as f:
+                                raw_financial = json.load(f)
+                            # Merge raw fields into agent_data (raw fields take
+                            # priority for financial keys; structured fields are
+                            # kept for context)
+                            agent_data.update(raw_financial)
+                            self.logger.info(
+                                f"  ℹ Agent data enriched with raw financial JSON: {candidate.name}"
+                            )
+                        except Exception as load_err:
+                            self.logger.warning(
+                                f"  ⚠ Could not load raw input JSON '{candidate}': {load_err}"
+                            )
+                        break
+                else:
+                    self.logger.warning(
+                        f"  ⚠ Raw input JSON '{input_filename}' not found — "
+                        f"financial agents may report 'Data not applicable'"
+                    )
+            else:
+                self.logger.warning(
+                    "  ⚠ Structured output has no 'input_file' field — "
+                    "financial agents may report 'Data not applicable'"
+                )
+
+            # Run agents on the enriched data
             agent_results = orchestrator.run_agents(
-                structured_data,
+                agent_data,
                 enabled_agents=enabled_agents,
                 disabled_agents=disabled_agents
             )
-            
+
             # Log agent results
             for agent_name, result in agent_results.items():
                 if result.success:
-                    self.logger.info(f"  ✓ {agent_name}: score={result.score:.2f}, confidence={result.confidence:.2f}")
+                    self.logger.info(
+                        f"  ✓ {agent_name}: score={result.score:.2f}, "
+                        f"confidence={result.confidence:.2f}"
+                    )
                     if result.findings:
-                        for finding in result.findings[:2]:  # Show first 2 findings
+                        for finding in result.findings[:2]:
                             self.logger.info(f"    - {finding}")
                 else:
                     self.logger.warning(f"  ✗ {agent_name}: {result.error}")
-            
+
             # Calculate combined agent score
             combined_results = orchestrator.calculate_combined_score(agent_results)
-            
+
             # Add individual results to output
             combined_results['individual_results'] = {
                 name: result.to_dict() for name, result in agent_results.items()
             }
-            
+
             return combined_results
-            
+
         except Exception as e:
             self.logger.error(f"Failed to run agents: {e}", exc_info=True)
             return None
