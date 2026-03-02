@@ -1,0 +1,39 @@
+# Unified Pipeline Configuration
+
+# Pipeline Settings
+pipelines:
+  structured:
+    enabled: true
+    entry_point: stuctured_pipeline/run_inference.py
+    weight: 0.6  # Weight for score combination
+    
+  unstructured:
+    enabled: true
+    entry_point: unstructured_pipeline/main.py
+    weight: 0.4  # Weight for score combination
+
+# Output Directory Configuration
+output:
+  base_dir: output
+  structured_dir: output/structured
+  unstructured_dir: output/unstructured
+  combined_dir: output/combined
+  multiagent_dir: output/multiagent_ready
+
+# Score Combination Settings
+score_combination:
+  method: weighted_average
+  structured_weight: 0.6
+  unstructured_weight: 0.4
+  conflict_threshold: 30  # Flag if scores differ by more than this amount
+  missing_penalty: 0.8    # Reduce score by 20% if only one pipeline has data
+
+# Logging Configuration
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+# Processing Options
+processing:
+  parallel_execution: false  # Run pipelines in parallel (experimental)
+  max_workers: 2  # Number of worker threads if parallel

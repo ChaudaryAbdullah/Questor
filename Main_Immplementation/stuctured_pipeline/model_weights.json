@@ -1,0 +1,20 @@
+{
+    "xgboost": 0.95,
+    "random_forest": 0.92,
+    "dnn": 0.88,
+    "lstm": 0.85,
+    "cnn": 0.86,
+    "logistic_regression": 0.82,
+    "svm": 0.84,
+    "decision_tree": 0.78,
+    "lightgbm": 0.93,
+    "catboost": 0.94,
+    "isolation_forest": 0.75,
+    "autoencoder": 0.80,
+    "dbscan": 0.70,
+    "kmeans": 0.72,
+    "gmm": 0.74,
+    "pca_anomaly": 0.73,
+    "lof": 0.76,
+    "oneclass_svm": 0.77
+}

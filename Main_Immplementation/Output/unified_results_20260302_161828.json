@@ -1,0 +1,588 @@
+{
+  "timestamp": "20260302_161828",
+  "total_files": 1,
+  "results": [
+    {
+      "success": true,
+      "cik": "1040719",
+      "filename": "0001040719.json",
+      "structured": {
+        "input_file": "0001040719.json",
+        "risk_score": 0.083709,
+        "risk_level": "MINIMAL",
+        "overall_prediction": "NORMAL",
+        "models_predicting_fraud": [
+          "Dbscan",
+          "Isolation Forest",
+          "Oneclass Svm"
+        ],
+        "models_predicting_normal": [
+          "Autoencoder",
+          "Catboost",
+          "Cnn",
+          "Decision Tree",
+          "Dnn",
+          "Gmm",
+          "Kmeans",
+          "Lightgbm",
+          "Logistic Regression",
+          "Pca Anomaly",
+          "Random Forest",
+          "Svm",
+          "Xgboost"
+        ],
+        "fraud_model_count": 3,
+        "normal_model_count": 13,
+        "total_models": 17,
+        "individual_model_results": {
+          "autoencoder": {
+            "display_name": "Autoencoder",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.8,
+            "training_auc": 0.9208
+          },
+          "catboost": {
+            "display_name": "Catboost",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0215,
+            "weight": 0.94,
+            "training_auc": 0.9999
+          },
+          "cnn": {
+            "display_name": "Cnn",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.86,
+            "training_auc": 0.9994
+          },
+          "dbscan": {
+            "display_name": "Dbscan",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.0,
+            "weight": 0.7,
+            "training_auc": 0.5766
+          },
+          "decision_tree": {
+            "display_name": "Decision Tree",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.78,
+            "training_auc": 0.9989
+          },
+          "dnn": {
+            "display_name": "Dnn",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.88,
+            "training_auc": 0.9995
+          },
+          "gmm": {
+            "display_name": "Gmm",
+            "prediction": "NORMAL",
+            "fraud_probability": 1.0,
+            "weight": 0.74,
+            "training_auc": 0.9528
+          },
+          "isolation_forest": {
+            "display_name": "Isolation Forest",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.0,
+            "weight": 0.75,
+            "training_auc": 0.8967
+          },
+          "kmeans": {
+            "display_name": "Kmeans",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0872,
+            "weight": 0.72,
+            "training_auc": 0.6438
+          },
+          "lightgbm": {
+            "display_name": "Lightgbm",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0215,
+            "weight": 0.93,
+            "training_auc": 0.9999
+          },
+          "lof": {
+            "display_name": "Lof",
+            "prediction": "ERROR",
+            "fraud_probability": null,
+            "weight": 0.76,
+            "error": "Expected n_neighbors < n_samples_fit, but n_neighbors = 1, n_samples_fit = 1, n_samples = 1"
+          },
+          "logistic_regression": {
+            "display_name": "Logistic Regression",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.82,
+            "training_auc": 0.994
+          },
+          "oneclass_svm": {
+            "display_name": "Oneclass Svm",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.0,
+            "weight": 0.77,
+            "training_auc": 0.7798
+          },
+          "pca_anomaly": {
+            "display_name": "Pca Anomaly",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.73,
+            "training_auc": 0.5426
+          },
+          "random_forest": {
+            "display_name": "Random Forest",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.09,
+            "weight": 0.92,
+            "training_auc": 0.9999
+          },
+          "svm": {
+            "display_name": "Svm",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0376,
+            "weight": 0.84,
+            "training_auc": 0.9985
+          },
+          "xgboost": {
+            "display_name": "Xgboost",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.1492,
+            "weight": 0.95,
+            "training_auc": 0.9998
+          }
+        },
+        "success": true
+      },
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 1.1340057849884033,
+        "formatted_outputs_count": 1,
+        "formatted_output": {
+          "document_id": "NonFraud_1040719_20140227_711",
+          "timestamp": "2026-03-02T16:18:28.863075",
+          "source_file": "",
+          "metadata": {
+            "label": "nonfraud",
+            "company_id": "1040719",
+            "date": "20140227",
+            "content_length": 5200284,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 24.91,
+            "risk_level": "LOW",
+            "component_scores": {
+              "fraud_indicators": 60.45,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0
+            },
+            "risk_factors": [
+              "High-risk keywords detected: material weakness, restatement, misstatement"
+            ],
+            "requires_investigation": false
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "general_analysis_agent"
+            ],
+            "priority": "normal",
+            "processing_hints": []
+          },
+          "cik": "1040719",
+          "documents_analyzed": 1,
+          "average_risk_score": 24.91
+        }
+      },
+      "agents": {
+        "combined_score": 59.84,
+        "confidence": 0.96,
+        "weights_used": {
+          "benfords_law": 0.133,
+          "altman_zscore": 0.267,
+          "cashflow_earnings": 0.267,
+          "debt_anomaly": 0.2,
+          "expense_padding": 0.133
+        },
+        "agents_succeeded": 5,
+        "agents_failed": 2,
+        "individual_results": {
+          "benfords_law": {
+            "success": true,
+            "score": 100.0,
+            "confidence": 0.71,
+            "findings": [
+              "Digit 2: under-represented (observed: 7.0%, expected: 17.6%)",
+              "Digit 4: under-represented (observed: 1.4%, expected: 9.7%)",
+              "Digit 5: under-represented (observed: 2.8%, expected: 7.9%)",
+              "Digit 6: under-represented (observed: 1.4%, expected: 6.7%)",
+              "Digit 7: over-represented (observed: 12.7%, expected: 5.8%)",
+              "Digit 8: over-represented (observed: 12.7%, expected: 5.1%)",
+              "Digit 9: over-represented (observed: 22.5%, expected: 4.6%)"
+            ],
+            "metrics": {
+              "chi_square": 78.648,
+              "sample_count": 71,
+              "observed_frequencies": {
+                "1": 0.296,
+                "2": 0.07,
+                "3": 0.099,
+                "4": 0.014,
+                "5": 0.028,
+                "6": 0.014,
+                "7": 0.127,
+                "8": 0.127,
+                "9": 0.225
+              },
+              "expected_frequencies": {
+                "1": 0.301,
+                "2": 0.176,
+                "3": 0.125,
+                "4": 0.097,
+                "5": 0.079,
+                "6": 0.067,
+                "7": 0.058,
+                "8": 0.051,
+                "9": 0.046
+              },
+              "passes_test": false
+            }
+          },
+          "beneish_mscore": {
+            "success": false,
+            "score": 0.0,
+            "confidence": 0.0,
+            "findings": [
+              "Data not applicable for this agent"
+            ],
+            "metrics": {}
+          },
+          "altman_zscore": {
+            "success": true,
+            "score": 83.61627928339038,
+            "confidence": 1.0,
+            "findings": [
+              "Z-Score (0.24) is in DISTRESS zone (< 1.81) \u2014 high bankruptcy/fraud risk",
+              "Negative working capital: current liabilities exceed current assets",
+              "Negative retained earnings: accumulated deficit detected",
+              "Negative EBIT: company is operating at a loss",
+              "Low equity-to-liabilities ratio: highly leveraged balance sheet"
+            ],
+            "metrics": {
+              "z_score": 0.236,
+              "safe_zone_threshold": 2.99,
+              "grey_zone_threshold": 1.81,
+              "zone": "DISTRESS",
+              "components": {
+                "X1_working_capital_to_assets": -0.0189,
+                "X2_retained_earnings_to_assets": -0.099,
+                "X3_ebit_to_assets": -0.0671,
+                "X4_equity_to_liabilities": 0.4199,
+                "X5_revenue_to_assets": 0.3663
+              },
+              "ratios_available": 5
+            }
+          },
+          "cashflow_earnings": {
+            "success": true,
+            "score": 26.46620022912094,
+            "confidence": 1.0,
+            "findings": [
+              "Net income ($-434,597,000) and operating cash flow ($-174,057,000) are broadly consistent",
+              "Moderate accrual ratio (-0.061): monitor for deterioration"
+            ],
+            "metrics": {
+              "net_income": -434597000.0,
+              "operating_cash_flow": -174057000.0,
+              "accruals": -260540000.0,
+              "accrual_ratio": -0.0608,
+              "quality_of_earnings": 1.0,
+              "total_assets": 4286819000.0,
+              "cash_backing_income": false,
+              "income_cfo_divergence": false
+            }
+          },
+          "debt_anomaly": {
+            "success": true,
+            "score": 55.56413041931558,
+            "confidence": 1.0,
+            "findings": [
+              "CRITICAL: Interest coverage ratio (-2.64) < 1.0 \u2014 company cannot cover interest payments"
+            ],
+            "metrics": {
+              "debt_to_equity": 2.382,
+              "debt_ratio": 0.7043,
+              "interest_coverage_ratio": -2.639,
+              "short_term_debt_concentration": 0.0573,
+              "debt_to_revenue": 1.922,
+              "total_liabilities": 3019101000.0,
+              "total_assets": 4286819000.0,
+              "equity": 1267718000.0,
+              "checks_performed": 5
+            }
+          },
+          "related_party": {
+            "success": false,
+            "score": 0.0,
+            "confidence": 0.0,
+            "findings": [
+              "Data not applicable for this agent"
+            ],
+            "metrics": {}
+          },
+          "expense_padding": {
+            "success": true,
+            "score": 45.29587208074106,
+            "confidence": 1.0,
+            "findings": [
+              "Elevated expense ratio (118.3%): expenses just exceed revenue",
+              "Negative gross margin (-18.3%): operating loss \u2014 expenses padded or revenue understated"
+            ],
+            "metrics": {
+              "total_revenues": 1570443000.0,
+              "total_operating_expenses": 1858048000.0,
+              "expense_to_revenue_ratio": 1.1831,
+              "gross_profit_margin": -0.1831,
+              "gross_profit": -287605000.0,
+              "operating_income": -287605000.0,
+              "salary_to_expense_ratio": 0.0894,
+              "expenses_exceed_revenue": true,
+              "is_deep_loss": true
+            }
+          }
+        }
+      },
+      "combined": {
+        "cik": "1040719",
+        "filename": "0001040719.json",
+        "structured_risk": {
+          "overall_risk_score": 8.37,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "fraud_model_count": 3,
+            "total_models": 17
+          },
+          "risk_factors": [
+            "3 models flagged fraud: Dbscan, Isolation Forest, Oneclass Svm",
+            "Overall prediction: NORMAL"
+          ],
+          "confidence": 1.0
+        },
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "LOW",
+          "component_scores": {
+            "fraud_indicators": 60.45,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0
+          },
+          "risk_factors": [
+            "High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": {
+          "combined_score": 59.84,
+          "confidence": 0.96,
+          "weights_used": {
+            "benfords_law": 0.133,
+            "altman_zscore": 0.267,
+            "cashflow_earnings": 0.267,
+            "debt_anomaly": 0.2,
+            "expense_padding": 0.133
+          },
+          "agents_succeeded": 5,
+          "agents_failed": 2,
+          "individual_results": {
+            "benfords_law": {
+              "success": true,
+              "score": 100.0,
+              "confidence": 0.71,
+              "findings": [
+                "Digit 2: under-represented (observed: 7.0%, expected: 17.6%)",
+                "Digit 4: under-represented (observed: 1.4%, expected: 9.7%)",
+                "Digit 5: under-represented (observed: 2.8%, expected: 7.9%)",
+                "Digit 6: under-represented (observed: 1.4%, expected: 6.7%)",
+                "Digit 7: over-represented (observed: 12.7%, expected: 5.8%)",
+                "Digit 8: over-represented (observed: 12.7%, expected: 5.1%)",
+                "Digit 9: over-represented (observed: 22.5%, expected: 4.6%)"
+              ],
+              "metrics": {
+                "chi_square": 78.648,
+                "sample_count": 71,
+                "observed_frequencies": {
+                  "1": 0.296,
+                  "2": 0.07,
+                  "3": 0.099,
+                  "4": 0.014,
+                  "5": 0.028,
+                  "6": 0.014,
+                  "7": 0.127,
+                  "8": 0.127,
+                  "9": 0.225
+                },
+                "expected_frequencies": {
+                  "1": 0.301,
+                  "2": 0.176,
+                  "3": 0.125,
+                  "4": 0.097,
+                  "5": 0.079,
+                  "6": 0.067,
+                  "7": 0.058,
+                  "8": 0.051,
+                  "9": 0.046
+                },
+                "passes_test": false
+              }
+            },
+            "beneish_mscore": {
+              "success": false,
+              "score": 0.0,
+              "confidence": 0.0,
+              "findings": [
+                "Data not applicable for this agent"
+              ],
+              "metrics": {}
+            },
+            "altman_zscore": {
+              "success": true,
+              "score": 83.61627928339038,
+              "confidence": 1.0,
+              "findings": [
+                "Z-Score (0.24) is in DISTRESS zone (< 1.81) \u2014 high bankruptcy/fraud risk",
+                "Negative working capital: current liabilities exceed current assets",
+                "Negative retained earnings: accumulated deficit detected",
+                "Negative EBIT: company is operating at a loss",
+                "Low equity-to-liabilities ratio: highly leveraged balance sheet"
+              ],
+              "metrics": {
+                "z_score": 0.236,
+                "safe_zone_threshold": 2.99,
+                "grey_zone_threshold": 1.81,
+                "zone": "DISTRESS",
+                "components": {
+                  "X1_working_capital_to_assets": -0.0189,
+                  "X2_retained_earnings_to_assets": -0.099,
+                  "X3_ebit_to_assets": -0.0671,
+                  "X4_equity_to_liabilities": 0.4199,
+                  "X5_revenue_to_assets": 0.3663
+                },
+                "ratios_available": 5
+              }
+            },
+            "cashflow_earnings": {
+              "success": true,
+              "score": 26.46620022912094,
+              "confidence": 1.0,
+              "findings": [
+                "Net income ($-434,597,000) and operating cash flow ($-174,057,000) are broadly consistent",
+                "Moderate accrual ratio (-0.061): monitor for deterioration"
+              ],
+              "metrics": {
+                "net_income": -434597000.0,
+                "operating_cash_flow": -174057000.0,
+                "accruals": -260540000.0,
+                "accrual_ratio": -0.0608,
+                "quality_of_earnings": 1.0,
+                "total_assets": 4286819000.0,
+                "cash_backing_income": false,
+                "income_cfo_divergence": false
+              }
+            },
+            "debt_anomaly": {
+              "success": true,
+              "score": 55.56413041931558,
+              "confidence": 1.0,
+              "findings": [
+                "CRITICAL: Interest coverage ratio (-2.64) < 1.0 \u2014 company cannot cover interest payments"
+              ],
+              "metrics": {
+                "debt_to_equity": 2.382,
+                "debt_ratio": 0.7043,
+                "interest_coverage_ratio": -2.639,
+                "short_term_debt_concentration": 0.0573,
+                "debt_to_revenue": 1.922,
+                "total_liabilities": 3019101000.0,
+                "total_assets": 4286819000.0,
+                "equity": 1267718000.0,
+                "checks_performed": 5
+              }
+            },
+            "related_party": {
+              "success": false,
+              "score": 0.0,
+              "confidence": 0.0,
+              "findings": [
+                "Data not applicable for this agent"
+              ],
+              "metrics": {}
+            },
+            "expense_padding": {
+              "success": true,
+              "score": 45.29587208074106,
+              "confidence": 1.0,
+              "findings": [
+                "Elevated expense ratio (118.3%): expenses just exceed revenue",
+                "Negative gross margin (-18.3%): operating loss \u2014 expenses padded or revenue understated"
+              ],
+              "metrics": {
+                "total_revenues": 1570443000.0,
+                "total_operating_expenses": 1858048000.0,
+                "expense_to_revenue_ratio": 1.1831,
+                "gross_profit_margin": -0.1831,
+                "gross_profit": -287605000.0,
+                "operating_income": -287605000.0,
+                "salary_to_expense_ratio": 0.0894,
+                "expenses_exceed_revenue": true,
+                "is_deep_loss": true
+              }
+            }
+          }
+        },
+        "combined_risk": {
+          "overall_risk_score": 32.43,
+          "risk_level": "LOW",
+          "component_scores": {
+            "structured_score": 8.37,
+            "unstructured_score": 0.0,
+            "weighted_combined": 5.021999999999999,
+            "score_difference": 8.37,
+            "agent_score": 59.84,
+            "agent_confidence": 0.96,
+            "agents_succeeded": 5,
+            "final_combined_score": 32.43
+          },
+          "risk_factors": [
+            "\u2713 5 additional agents analyzed",
+            "[Structured] 3 models flagged fraud: Dbscan, Isolation Forest, Oneclass Svm",
+            "[Structured] Overall prediction: NORMAL",
+            "[Unstructured] High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 0.98
+        }
+      }
+    }
+  ]
+}

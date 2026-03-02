@@ -1,0 +1,398 @@
+{
+  "timestamp": "20260212_092030",
+  "total_files": 1,
+  "results": [
+    {
+      "success": true,
+      "cik": "1040719",
+      "filename": "0001040719.json",
+      "structured": {
+        "input_file": "0001040719.json",
+        "risk_score": 0.083709,
+        "risk_level": "MINIMAL",
+        "overall_prediction": "NORMAL",
+        "models_predicting_fraud": [
+          "Dbscan",
+          "Isolation Forest",
+          "Oneclass Svm"
+        ],
+        "models_predicting_normal": [
+          "Autoencoder",
+          "Catboost",
+          "Cnn",
+          "Decision Tree",
+          "Dnn",
+          "Gmm",
+          "Kmeans",
+          "Lightgbm",
+          "Logistic Regression",
+          "Pca Anomaly",
+          "Random Forest",
+          "Svm",
+          "Xgboost"
+        ],
+        "fraud_model_count": 3,
+        "normal_model_count": 13,
+        "total_models": 17,
+        "individual_model_results": {
+          "autoencoder": {
+            "display_name": "Autoencoder",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.8,
+            "training_auc": 0.9208
+          },
+          "catboost": {
+            "display_name": "Catboost",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0215,
+            "weight": 0.94,
+            "training_auc": 0.9999
+          },
+          "cnn": {
+            "display_name": "Cnn",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.86,
+            "training_auc": 0.9994
+          },
+          "dbscan": {
+            "display_name": "Dbscan",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.0,
+            "weight": 0.7,
+            "training_auc": 0.5766
+          },
+          "decision_tree": {
+            "display_name": "Decision Tree",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.78,
+            "training_auc": 0.9989
+          },
+          "dnn": {
+            "display_name": "Dnn",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.88,
+            "training_auc": 0.9995
+          },
+          "gmm": {
+            "display_name": "Gmm",
+            "prediction": "NORMAL",
+            "fraud_probability": 1.0,
+            "weight": 0.74,
+            "training_auc": 0.9528
+          },
+          "isolation_forest": {
+            "display_name": "Isolation Forest",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.0,
+            "weight": 0.75,
+            "training_auc": 0.8967
+          },
+          "kmeans": {
+            "display_name": "Kmeans",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0872,
+            "weight": 0.72,
+            "training_auc": 0.6438
+          },
+          "lightgbm": {
+            "display_name": "Lightgbm",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0215,
+            "weight": 0.93,
+            "training_auc": 0.9999
+          },
+          "lof": {
+            "display_name": "Lof",
+            "prediction": "ERROR",
+            "fraud_probability": null,
+            "weight": 0.76,
+            "error": "Expected n_neighbors < n_samples_fit, but n_neighbors = 1, n_samples_fit = 1, n_samples = 1"
+          },
+          "logistic_regression": {
+            "display_name": "Logistic Regression",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.82,
+            "training_auc": 0.994
+          },
+          "oneclass_svm": {
+            "display_name": "Oneclass Svm",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.0,
+            "weight": 0.77,
+            "training_auc": 0.7798
+          },
+          "pca_anomaly": {
+            "display_name": "Pca Anomaly",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.73,
+            "training_auc": 0.5426
+          },
+          "random_forest": {
+            "display_name": "Random Forest",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.09,
+            "weight": 0.92,
+            "training_auc": 0.9999
+          },
+          "svm": {
+            "display_name": "Svm",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0376,
+            "weight": 0.84,
+            "training_auc": 0.9985
+          },
+          "xgboost": {
+            "display_name": "Xgboost",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.1492,
+            "weight": 0.95,
+            "training_auc": 0.9998
+          }
+        },
+        "success": true
+      },
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 1.0797266960144043,
+        "formatted_outputs_count": 1,
+        "formatted_output": {
+          "document_id": "NonFraud_1040719_20140227_711",
+          "timestamp": "2026-02-12T09:20:30.608427",
+          "source_file": "",
+          "metadata": {
+            "label": "nonfraud",
+            "company_id": "1040719",
+            "date": "20140227",
+            "content_length": 5200284,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 24.91,
+            "risk_level": "LOW",
+            "component_scores": {
+              "fraud_indicators": 60.45,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0
+            },
+            "risk_factors": [
+              "High-risk keywords detected: material weakness, restatement, misstatement"
+            ],
+            "requires_investigation": false
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "general_analysis_agent"
+            ],
+            "priority": "normal",
+            "processing_hints": []
+          },
+          "cik": "1040719",
+          "documents_analyzed": 1,
+          "average_risk_score": 24.91
+        }
+      },
+      "agents": {
+        "combined_score": 100.0,
+        "confidence": 0.45,
+        "weights_used": {
+          "benfords_law": 1.0
+        },
+        "agents_succeeded": 1,
+        "agents_failed": 1,
+        "individual_results": {
+          "benfords_law": {
+            "success": true,
+            "score": 100.0,
+            "confidence": 0.45,
+            "findings": [
+              "Digit 1: under-represented (observed: 11.1%, expected: 30.1%)",
+              "Digit 2: under-represented (observed: 4.4%, expected: 17.6%)",
+              "Digit 3: under-represented (observed: 4.4%, expected: 12.5%)",
+              "Digit 4: under-represented (observed: 0.0%, expected: 9.7%)",
+              "Digit 5: under-represented (observed: 4.4%, expected: 7.9%)",
+              "Digit 6: under-represented (observed: 2.2%, expected: 6.7%)",
+              "Digit 7: over-represented (observed: 20.0%, expected: 5.8%)",
+              "Digit 8: over-represented (observed: 17.8%, expected: 5.1%)",
+              "Digit 9: over-represented (observed: 35.6%, expected: 4.6%)"
+            ],
+            "metrics": {
+              "chi_square": 142.111,
+              "sample_count": 45,
+              "observed_frequencies": {
+                "1": 0.111,
+                "2": 0.044,
+                "3": 0.044,
+                "4": 0.0,
+                "5": 0.044,
+                "6": 0.022,
+                "7": 0.2,
+                "8": 0.178,
+                "9": 0.356
+              },
+              "expected_frequencies": {
+                "1": 0.301,
+                "2": 0.176,
+                "3": 0.125,
+                "4": 0.097,
+                "5": 0.079,
+                "6": 0.067,
+                "7": 0.058,
+                "8": 0.051,
+                "9": 0.046
+              },
+              "passes_test": false
+            }
+          },
+          "beneish_mscore": {
+            "success": false,
+            "score": 0.0,
+            "confidence": 0.0,
+            "findings": [
+              "Data not applicable for this agent"
+            ],
+            "metrics": {}
+          }
+        }
+      },
+      "combined": {
+        "cik": "1040719",
+        "filename": "0001040719.json",
+        "structured_risk": {
+          "overall_risk_score": 8.37,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "fraud_model_count": 3,
+            "total_models": 17
+          },
+          "risk_factors": [
+            "3 models flagged fraud: Dbscan, Isolation Forest, Oneclass Svm",
+            "Overall prediction: NORMAL"
+          ],
+          "confidence": 1.0
+        },
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "LOW",
+          "component_scores": {
+            "fraud_indicators": 60.45,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0
+          },
+          "risk_factors": [
+            "High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": {
+          "combined_score": 100.0,
+          "confidence": 0.45,
+          "weights_used": {
+            "benfords_law": 1.0
+          },
+          "agents_succeeded": 1,
+          "agents_failed": 1,
+          "individual_results": {
+            "benfords_law": {
+              "success": true,
+              "score": 100.0,
+              "confidence": 0.45,
+              "findings": [
+                "Digit 1: under-represented (observed: 11.1%, expected: 30.1%)",
+                "Digit 2: under-represented (observed: 4.4%, expected: 17.6%)",
+                "Digit 3: under-represented (observed: 4.4%, expected: 12.5%)",
+                "Digit 4: under-represented (observed: 0.0%, expected: 9.7%)",
+                "Digit 5: under-represented (observed: 4.4%, expected: 7.9%)",
+                "Digit 6: under-represented (observed: 2.2%, expected: 6.7%)",
+                "Digit 7: over-represented (observed: 20.0%, expected: 5.8%)",
+                "Digit 8: over-represented (observed: 17.8%, expected: 5.1%)",
+                "Digit 9: over-represented (observed: 35.6%, expected: 4.6%)"
+              ],
+              "metrics": {
+                "chi_square": 142.111,
+                "sample_count": 45,
+                "observed_frequencies": {
+                  "1": 0.111,
+                  "2": 0.044,
+                  "3": 0.044,
+                  "4": 0.0,
+                  "5": 0.044,
+                  "6": 0.022,
+                  "7": 0.2,
+                  "8": 0.178,
+                  "9": 0.356
+                },
+                "expected_frequencies": {
+                  "1": 0.301,
+                  "2": 0.176,
+                  "3": 0.125,
+                  "4": 0.097,
+                  "5": 0.079,
+                  "6": 0.067,
+                  "7": 0.058,
+                  "8": 0.051,
+                  "9": 0.046
+                },
+                "passes_test": false
+              }
+            },
+            "beneish_mscore": {
+              "success": false,
+              "score": 0.0,
+              "confidence": 0.0,
+              "findings": [
+                "Data not applicable for this agent"
+              ],
+              "metrics": {}
+            }
+          }
+        },
+        "combined_risk": {
+          "overall_risk_score": 52.51,
+          "risk_level": "MEDIUM",
+          "component_scores": {
+            "structured_score": 8.37,
+            "unstructured_score": 0.0,
+            "weighted_combined": 5.021999999999999,
+            "score_difference": 8.37,
+            "agent_score": 100.0,
+            "agent_confidence": 0.45,
+            "agents_succeeded": 1,
+            "final_combined_score": 52.51
+          },
+          "risk_factors": [
+            "\u2713 1 additional agents analyzed",
+            "[Structured] 3 models flagged fraud: Dbscan, Isolation Forest, Oneclass Svm",
+            "[Structured] Overall prediction: NORMAL",
+            "[Unstructured] High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 0.72
+        }
+      }
+    }
+  ]
+}
