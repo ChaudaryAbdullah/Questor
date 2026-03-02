@@ -1,166 +1,65 @@
-# 🛡️ Questor - Advanced Multi-Agent Fraud Detection System
+# 🛡️ Questor — Advanced Multi-Agent Fraud Detection System
 
 <div align="center">
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Agents](https://img.shields.io/badge/Agents-15-purple.svg)](#-15-fraud-detection-agents)
+[![Models](https://img.shields.io/badge/ML%20Models-17-orange.svg)](#-structured-pipeline--ml-ensemble)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ChaudaryAbdullah/Questor/graphs/commit-activity)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-**A state-of-the-art fraud detection system combining structured ML models, unstructured text analysis, and specialized detection agents**
+**A state-of-the-art fraud detection system combining 17 ML models, document text analysis, and 15 specialized financial agents into a unified risk score.**
 
-[📖 Documentation](Pipelines/README.md) • [🚀 Quick Start](#-quick-start) • [📊 Examples](#-example-output) • [📄 Research Paper](#-research-paper)
+[🚀 Quick Start](#-quick-start) • [🏗️ Architecture](#️-architecture) • [🤖 Agents](#-15-fraud-detection-agents) • [📊 Output](#-example-output) • [📖 Docs](#-documentation)
 
 </div>
 
 ---
 
-## ✨ Features
+## ✨ What's Inside
 
-### 🎯 Multi-Pipeline Architecture
-- **Structured Pipeline**: Ensemble of 17+ ML models for tabular fraud detection
-  - Random Forest, XGBoost, LightGBM, CatBoost
-  - Neural Networks (DNN, CNN, Autoencoder)
-  - Anomaly Detection (Isolation Forest, DBSCAN, One-Class SVM)
-  - Weighted scoring based on training AUC
+### 🔷 Structured Pipeline — 17-Model ML Ensemble
+Processes structured JSON financial data through a weighted ensemble:
+- **Classification**: CatBoost, XGBoost, LightGBM, Random Forest, SVM, DNN, CNN, Logistic Regression, Decision Tree
+- **Anomaly Detection**: Isolation Forest, One-Class SVM, LOF, DBSCAN, KMeans, GMM, PCA Anomaly, Autoencoder
+- Weights based on training AUC — best models contribute most
+- Output: fraud probability + risk level (MINIMAL → CRITICAL)
 
-- **Unstructured Pipeline**: Advanced NLP processing for document analysis
-  - Named Entity Recognition (NER)
-  - Knowledge Graph construction
-  - Relationship extraction
-  - Text-based risk assessment
+### 🔶 Unstructured Pipeline — Document Analysis
+Retrieves pre-processed SEC filings from ChromaDB by CIK number:
+- Keyword-based fraud indicator scoring (`material weakness`, `restatement`, `going concern`...)
+- Entity extraction and relationship mapping
+- **Retrieval mode**: ~2–4s (vs. 600s+ full reprocessing)
 
-### 🤖 Intelligent Agent System
-- **Benford's Law Agent**: Detects numerical anomalies in financial data
-  - Chi-square statistical testing
-  - Digit distribution analysis
-  - Confidence-based scoring
-
-- **Beneish M-Score Agent**: Identifies earnings manipulation
-  - 8-ratio financial analysis
-  - Manipulation probability calculation
-  - Historical validation
-
-- **Dynamic Weight Adjustment**: Auto-rebalancing when agents unavailable
-- **Modular Design**: Easy to add custom detection agents
-
-### 📊 Comprehensive Risk Scoring
-- **0-100 Risk Scale**: Intuitive scoring system
-- **Multi-Level Classification**: CRITICAL → HIGH → MEDIUM → LOW → MINIMAL
-- **Confidence Tracking**: Transparency in predictions
-- **Component Breakdown**: See individual pipeline contributions
-
-### 🔄 Unified Output Format
-- Standardized JSON schema for multi-agent consumption
-- Agent routing recommendations
-- Priority-based processing hints
-- Full audit trail with timestamps
+### 🤖 Agent System — 15 Specialized Fraud Agents
+Rule-based financial fraud agents, each scoring 0–100:
+- 14 agents work on **single-year data** (no year-over-year needed)
+- Results are weighted, normalized, and combined into one agent score
 
 ---
 
-## 📄 Research Paper
+## 🤖 15 Fraud Detection Agents
 
-This project implements the methodology described in our research paper:
+| # | Agent | What It Detects |
+|---|-------|----------------|
+| 1 | **Altman Z-Score** | Bankruptcy / financial distress (Z < 1.81 = danger zone) |
+| 2 | **Cash Flow vs. Earnings** | Accrual ratio — gap between book income and operational cash |
+| 3 | **Debt Ratio Anomaly** | Extreme leverage, interest coverage collapse |
+| 4 | **Related Party Transactions** | Suspicious related-party balance exposure |
+| 5 | **Expense Padding** | Inflated operating expenses vs. revenue |
+| 6 | **Tax Rate Anomaly** | Near-zero ETR on profitable company; cookie jar reserves |
+| 7 | **Financing Red Flags** | Negative CFO funded by stock issuances / new debt |
+| 8 | **Asset Quality** | Opaque/intangible assets dominating the balance sheet |
+| 9 | **EPS Consistency** | Reported EPS vs. net income ÷ shares arithmetic check |
+| 10 | **Negative Equity** | Technical insolvency; accumulated deficit vs. paid-in capital |
+| 11 | **Liquidity Crunch** | Cash ratio, quick ratio, ending cash vs. burn rate |
+| 12 | **Depreciation Anomaly** | D&A rate implying 50+ year asset life (profit inflation) |
+| 13 | **Cash Flow Composition** | Operations vs. investing vs. financing as cash sources |
+| 14 | **Benford's Law** | First-digit distribution deviation in financial figures |
+| 15 | **Beneish M-Score** | 8-ratio earnings manipulation score *(needs YoY data)* |
 
-**"[Your Paper Title Here]"**  
-*Authors: [Your Name, et al.]*  
-Published in: [Conference/Journal Name]
-
-📖 **[Read the Full Paper](https://your-paper-link-here.com)**
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.9+
-- pip
-- Virtual environment (recommended)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/ChaudaryAbdullah/Questor.git
-cd Questor/Pipelines
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Or use the setup script (Linux/Mac)
-chmod +x setup.sh
-./setup.sh
-```
-
-### Basic Usage
-
-#### Run Both Pipelines with Agents
-```bash
-python unified_runner.py --pipeline both --limit 5
-```
-
-#### Run Only Structured Pipeline
-```bash
-python unified_runner.py --pipeline structured --input Input/
-```
-
-#### Disable All Agents
-```bash
-python unified_runner.py --pipeline both --no-agents
-```
-
-#### Run Specific Agent Only
-```bash
-python unified_runner.py --pipeline both --enable-agents benfords_law
-```
-
----
-
-## 📊 Example Output
-
-### Combined Risk Assessment
-```json
-{
-  "record_id": "transaction_001",
-  "combined_risk": {
-    "overall_risk_score": 75.95,
-    "risk_level": "HIGH",
-    "component_scores": {
-      "structured_score": 64.88,
-      "agent_score": 100.0,
-      "agent_confidence": 0.48
-    }
-  },
-  "agent_analysis": {
-    "combined_score": 100.0,
-    "agents_executed": 1,
-    "individual_agents": {
-      "benfords_law": {
-        "score": 100.0,
-        "confidence": 0.48,
-        "findings": [
-          "Digit 9: over-represented (observed: 47.9%, expected: 4.6%)",
-          "Digit 1: under-represented (observed: 8.3%, expected: 30.1%)"
-        ],
-        "metrics": {
-          "chi_square": 244.315,
-          "sample_count": 48,
-          "passes_test": false
-        }
-      }
-    }
-  }
-}
-```
-
-### Visualization
-![Risk Score Distribution](docs/images/risk_distribution.png)
-![Agent Performance](docs/images/agent_performance.png)
+> 📖 Full agent documentation → [`Main_Immplementation/agents/README.md`](Main_Immplementation/agents/README.md)
 
 ---
 
@@ -168,155 +67,214 @@ python unified_runner.py --pipeline both --enable-agents benfords_law
 
 ```
 Questor/
-├── Pipelines/                 # Main fraud detection pipelines
-│   ├── unified_runner.py      # Unified pipeline orchestrator
-│   ├── score_combiner.py      # Risk score aggregation
-│   ├── agents/                # Fraud detection agents
-│   │   ├── base_agent.py      # Abstract base class
-│   │   ├── orchestrator.py    # Agent coordination
-│   │   ├── benfords_law.py    # Benford's Law analysis
-│   │   └── beneish_mscore.py  # M-Score calculation
-│   ├── stuctured_pipeline/    # ML model ensemble
-│   ├── unstructured_pipeline/ # NLP & graph analysis
-│   ├── shared/                # Common utilities
-│   └── output/                # Results & reports
-├── Scrapper/                  # Data collection tools
-├── Script/                    # Utility scripts
-└── Agent/                     # Legacy agent system
+├── Main_Immplementation/          # 🎯 Production pipeline
+│   ├── run_unified.py             # ENTRY POINT — runs everything
+│   ├── score_combiner.py          # Weighted final risk score
+│   │
+│   ├── stuctured_pipeline/        # 🔷 17-model ML ensemble
+│   │   ├── inference_pipeline.py
+│   │   ├── json_to_features.py    # Feature extraction
+│   │   ├── MyModels/              # Trained model files
+│   │   └── README.md
+│   │
+│   ├── unstructured_pipeline/     # 🔶 ChromaDB document retrieval
+│   │   ├── pipelines/
+│   │   ├── databases/             # ChromaDB + Neo4j
+│   │   ├── utils/                 # CIK extractor
+│   │   └── README.md
+│   │
+│   ├── agents/                    # 🤖 15 fraud detection agents
+│   │   ├── orchestrator.py
+│   │   ├── agent_config.yaml      # Weights + thresholds
+│   │   └── README.md
+│   │
+│   ├── Input/                     # SEC JSON filing inputs
+│   └── Output/                    # Unified results JSON
+│
+├── Scrapper/                      # Data scraping tools
+├── Script/                        # Utility scripts
+└── README.md                      # ← You are here
 ```
 
 ### Data Flow
+
 ```mermaid
 graph LR
-    A[Input Data] --> B[Structured Pipeline]
-    A --> C[Unstructured Pipeline]
-    A --> D[Agent System]
-    B --> E[Score Combiner]
+    A["📄 Input JSON\n(SEC Filing)"] --> B["🔷 Structured Pipeline\n17 ML Models"]
+    A --> C["🔶 Unstructured Pipeline\nChromaDB Retrieval"]
+    A --> D["🤖 15 Agents\nFinancial Rule Analysis"]
+    B --> E["🔗 Score Combiner"]
     C --> E
     D --> E
-    E --> F[Unified Output]
+    E --> F["📊 Unified JSON Output\nRisk Score 0–100"]
 ```
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.9+
+- ChromaDB data (pre-populated with SEC filings)
+- Trained ML models in `Main_Immplementation/stuctured_pipeline/MyModels/`
+
+### Installation
+
+```bash
+git clone https://github.com/ChaudaryAbdullah/Questor.git
+cd Questor/Main_Immplementation
+
+# Create virtual environment and install dependencies
+python -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+bash setup.sh                   # installs all requirements
+```
+
+### Run the Pipeline
+
+```bash
+# Place your SEC JSON filing in Input/
+cp your_filing.json Input/
+
+# Run the full pipeline
+python3 run_unified.py
+
+# Options
+python3 run_unified.py --no-agents       # skip agents (faster)
+python3 run_unified.py --input-dir /path # custom input directory
+python3 run_unified.py --no-save         # don't write output file
+```
+
+Results appear in `Output/unified_results_<timestamp>.json`.
+
+---
+
+## 📊 Example Output
+
+```json
+{
+  "cik": "1040719",
+  "filename": "0001040719.json",
+
+  "structured": {
+    "risk_score": 0.0837,
+    "risk_level": "MINIMAL",
+    "overall_prediction": "NORMAL",
+    "models_predicting_fraud": ["Dbscan", "Isolation Forest", "Oneclass Svm"],
+    "total_models": 17
+  },
+
+  "agents": {
+    "combined_score": 75.4,
+    "agents_succeeded": 13,
+    "individual_results": {
+      "altman_zscore":        { "score": 83.6, "findings": ["Z-Score 0.24 — DISTRESS zone"] },
+      "financing_red_flags":  { "score": 80.0, "findings": ["Stock issuances funding cash burn"] },
+      "cashflow_composition": { "score": 75.0, "findings": ["Core business is cash-negative"] },
+      "debt_anomaly":         { "score": 55.6, "findings": ["ICR -2.64, cannot cover interest"] },
+      "liquidity_crunch":     { "score": 55.0, "findings": ["Cash < burn rate this period"] }
+    }
+  },
+
+  "combined": {
+    "combined_risk": {
+      "overall_risk_score": 52.51,
+      "risk_level": "MEDIUM",
+      "confidence": 0.72
+    }
+  }
+}
+```
+
+### Risk Levels
+
+| Score | Level | Action |
+|-------|-------|--------|
+| 0–19 | **MINIMAL** | Routine processing |
+| 20–39 | **LOW** | Periodic monitoring |
+| 40–59 | **MEDIUM** | Detailed review |
+| 60–79 | **HIGH** | Formal investigation |
+| 80–100 | **CRITICAL** | Immediate escalation |
+
+---
+
+## ⚡ Performance
+
+| Component | Time |
+|-----------|------|
+| ML ensemble (17 models) | ~12s |
+| ChromaDB retrieval | ~2–4s |
+| 15 agents | ~1s |
+| Score combination | <0.1s |
+| **Total end-to-end** | **~15–18s** |
 
 ---
 
 ## 📖 Documentation
 
-- **[Complete Pipeline Guide](Pipelines/UNIFIED_PIPELINE_GUIDE.md)** - Detailed usage instructions
-- **[Setup Guide](Pipelines/SETUP.md)** - Installation and configuration
-- **[Agent Development](Pipelines/agents/README.md)** - Creating custom agents
-- **[API Reference](docs/API.md)** - Code documentation
-- **[Configuration Guide](docs/CONFIG.md)** - System configuration options
+| Document | Contents |
+|----------|----------|
+| [`Main_Immplementation/README.md`](Main_Immplementation/README.md) | Full pipeline guide, config reference, troubleshooting |
+| [`Main_Immplementation/agents/README.md`](Main_Immplementation/agents/README.md) | All 15 agents — design, API, how to add new ones |
+| [`Main_Immplementation/stuctured_pipeline/README.md`](Main_Immplementation/stuctured_pipeline/README.md) | 17 models, feature engineering, output format |
+| [`Main_Immplementation/unstructured_pipeline/README.md`](Main_Immplementation/unstructured_pipeline/README.md) | ChromaDB retrieval, risk scorer, Neo4j setup |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidelines |
 
 ---
 
-## 🛠️ Advanced Usage
+## 🛠️ Advanced Configuration
 
-### Custom Agent Configuration
+### Enable/Disable Agents (`agents/agent_config.yaml`)
+
 ```yaml
-# agents/agent_config.yaml
 agents:
-  benfords_law:
+  altman_zscore:
     enabled: true
-    weight: 0.15
-    min_samples: 30
-    deviation_threshold: 0.3
-  
+    weight: 0.20      # higher = more influence on combined score
+    safe_zone: 2.99
+
+  tax_rate_anomaly:
+    enabled: true
+    weight: 0.08
+
   beneish_mscore:
-    enabled: true
-    weight: 0.15
-    threshold: -2.22
+    enabled: false    # disable if no year-over-year data available
 ```
 
-### Batch Processing
-```bash
-# Process multiple files
-python unified_runner.py \
-  --pipeline both \
-  --input Input/*.json \
-  --batch-name monthly_analysis \
-  --output-dir custom_output/
-```
+### CLI Reference
 
-### CLI Options
-| Flag | Description | Example |
-|------|-------------|---------|
-| `--pipeline` | Pipeline to run (both/structured/unstructured) | `--pipeline both` |
-| `--limit` | Limit number of records processed | `--limit 100` |
-| `--no-agents` | Disable all fraud detection agents | `--no-agents` |
-| `--enable-agents` | Run specific agents only | `--enable-agents benfords_law` |
-| `--disable-agent` | Disable specific agent | `--disable-agent beneish_mscore` |
-| `--agent-config` | Custom agent configuration file | `--agent-config custom.yaml` |
-
----
-
-## 📈 Performance Metrics
-
-| Metric | Value |
-|--------|-------|
-| Average Processing Time | ~16s per batch |
-| Agent Execution Overhead | <0.5s |
-| Structured Pipeline Accuracy | 99.99% AUC |
-| Memory Usage | ~500MB |
-| Supported File Formats | JSON, CSV |
+| Flag | Description |
+|------|-------------|
+| `--input-dir` | Input directory (default: `Input/`) |
+| `--no-agents` | Skip all agents |
+| `--no-save` | Don't write output file |
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+Contributions are welcome — especially new fraud detection agents!
 
-### Development Setup
 ```bash
-# Install development dependencies
-pip install -r requirements-dev.txt
-
-# Run tests
-pytest tests/
-
-# Format code
-black Pipelines/
-isort Pipelines/
-
-# Type checking
-mypy Pipelines/
+# Development setup
+pip install -r requirements.txt
+pytest Main_Immplementation/tests/
 ```
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines.
 
 ---
 
 ## 📝 Citation
 
-If you use this project in your research, please cite our paper:
-
 ```bibtex
-@article{questor2024,
-  title={Questor: Advanced Multi-Agent Fraud Detection System},
-  author={Your Name and Co-Authors},
-  journal={Journal Name},
-  year={2024},
-  volume={XX},
-  pages={XXX-XXX}
+@software{questor2026,
+  title  = {Questor: Advanced Multi-Agent Fraud Detection System},
+  author = {Chaudary, Abdullah},
+  year   = {2026},
+  url    = {https://github.com/ChaudaryAbdullah/Questor}
 }
 ```
-
----
-
-## 🔐 Security
-
-For security concerns, please email security@yourproject.com
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- Research supported by [Institution Name]
-- Built with [Scikit-learn](https://scikit-learn.org/), [XGBoost](https://xgboost.readthedocs.io/), [spaCy](https://spacy.io/)
-- Inspired by the fraud detection research community
 
 ---
 
@@ -324,8 +282,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Author**: Abdullah Chaudary
 - **GitHub**: [@ChaudaryAbdullah](https://github.com/ChaudaryAbdullah)
-- **Email**: your.email@example.com
-- **Project Link**: [https://github.com/ChaudaryAbdullah/Questor](https://github.com/ChaudaryAbdullah/Questor)
+- **Project**: [github.com/ChaudaryAbdullah/Questor](https://github.com/ChaudaryAbdullah/Questor)
+
+---
+
+## 📜 License
+
+MIT License — see [LICENSE](LICENSE)
 
 ---
 
@@ -333,6 +296,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **⭐ Star this repository if you find it helpful!**
 
-Made with ❤️ by the Questor Team
+Made with ❤️ by the Questor Team | Version 3.0 — March 2026
 
 </div>
