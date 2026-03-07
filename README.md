@@ -281,7 +281,7 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines.
 
 ## 📞 Contact
 
-- **Author**: Abdullah Chaudary
+- **Author**: Abdullah Shakir
 - **GitHub**: [@ChaudaryAbdullah](https://github.com/ChaudaryAbdullah)
 - **Project**: [github.com/ChaudaryAbdullah/Questor](https://github.com/ChaudaryAbdullah/Questor)
 
