@@ -1,0 +1,2899 @@
+-----BEGIN PRIVACY-ENHANCED MESSAGE-----
+Proc-Type: 2001,MIC-CLEAR
+Originator-Name: webmaster@www.sec.gov
+Originator-Key-Asymmetric:
+ MFgwCgYEVQgBAQICAf8DSgAwRwJAW2sNKK9AVtBzYZmr6aGjlWyK3XmZv3dTINen
+ TWSM7vrzLADbmYQaionwg5sDW3P6oaM5D3tdezXMm7z1T+B+twIDAQAB
+MIC-Info: RSA-MD5,RSA,
+ WaP95eEd82SkTAejRrQx9nNJH6AK/ms4fOQKCkNBa9/iBsOzoF3k7Aiet3TDqwdx
+ NB0/82co/1SDhqpxCnxpaw==
+
+<SEC-DOCUMENT>0000950131-98-001893.txt : 19980324
+<SEC-HEADER>0000950131-98-001893.hdr.sgml : 19980324
+ACCESSION NUMBER:		0000950131-98-001893
+CONFORMED SUBMISSION TYPE:	10-K
+PUBLIC DOCUMENT COUNT:		6
+CONFORMED PERIOD OF REPORT:	19971227
+FILED AS OF DATE:		19980323
+SROS:			NYSE
+
+FILER:
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			KROGER CO
+		CENTRAL INDEX KEY:			0000056873
+		STANDARD INDUSTRIAL CLASSIFICATION:	RETAIL-GROCERY STORES [5411]
+		IRS NUMBER:				310345740
+		STATE OF INCORPORATION:			OH
+		FISCAL YEAR END:			1228
+
+	FILING VALUES:
+		FORM TYPE:		10-K
+		SEC ACT:		
+		SEC FILE NUMBER:	001-00303
+		FILM NUMBER:		98571075
+
+	BUSINESS ADDRESS:	
+		STREET 1:		1014 VINE ST
+		CITY:			CINCINNATI
+		STATE:			OH
+		ZIP:			452-1
+		BUSINESS PHONE:		5137624000
+</SEC-HEADER>
+<DOCUMENT>
+<TYPE>10-K
+<SEQUENCE>1
+<DESCRIPTION>FORM 10-K
+<TEXT>
+
+<PAGE>
+ 
+                      SECURITIES AND EXCHANGE COMMISSION
+
+                            Washington, D.C. 20549
+
+                                   FORM 10-K
+
+                                 ANNUAL REPORT
+
+                    Pursuant to Section 13 or 15 (d) of the
+                        Securities Exchange Act of 1934
+
+
+For the Fiscal Year Ended                  Commission File No. 1-303
+    December 27, 1997
+
+                                THE KROGER CO.
+
+An Ohio Corporation                      I.R.S. Employer Identification
+                                                 No. 31-0345740
+
+
+Address                                          Telephone Number
+- -------                                          ----------------
+1014 Vine St.                                     (513) 762-4000
+Cincinnati, Ohio   45202
+
+Securities registered pursuant to section 12 (b) of the Act:
+                                                    Name of Exchange on
+Title of Class                                        which Registered
+- --------------                                    -----------------------
+Common $1 par value                               New York Stock Exchange
+255,664,563 shares outstanding on
+ March 17, 1998
+
+Indicate by check mark whether the registrant (1) has filed all reports required
+to be filed by Section 13 or 15 (d) of the Securities Exchange Act of 1934
+during the preceding 12 months (or for such shorter period that the registrant
+was required to file such reports), and (2) has been subject to such filing
+requirements for the past 90 days.
+
+Yes    X       No       
+     -----         -----.                         
+
+Indicate by check mark if disclosure of delinquent filers pursuant to Item 405
+of Regulation S-K is not contained herein, and will not be contained, to the
+best of registrant's knowledge, in definitive proxy or information statements
+incorporated by reference in Part III of this Form 10K or any amendment to this
+Form 10K [_].
+
+The aggregate market value of the voting and non-voting common equity of The
+Kroger Co. held by nonafflilates as of February 27, 1998:   $10,760,140,852
+
+Documents Incorporated by Reference:
+     Proxy Statement to be filed pursuant to Regulation 14A of the Exchange Act
+     on or before April 27, 1998 incorporated by reference into Parts II and III
+     of Form 10-K.
+<PAGE>
+ 
+                                    PART I
+
+ITEM 1.  BUSINESS
+
+The Company was founded in 1883, incorporated in 1902, and maintains its
+principal executive offices in Cincinnati, Ohio. The Company is the nation's
+largest supermarket operator measured by total sales for 1997. The retail food
+business in which the Company is engaged is highly competitive. The Company had
+approximately 212,000 full and part-time employees on December 27, 1997 and
+operated 1,392 supermarkets in 24 states.
+
+At December 27, 1997, the Company had 697 Company owned and directly operated
+convenience stores in 15 states. Additionally the Company had 119 franchised
+convenience stores in 4 states. The Company also operates food processing
+facilities which enable the Company's stores to offer quality, low-cost private
+label perishable and non-perishable products, and a warehouse and distribution
+system which supplies products to its stores.
+
+FOOD OPERATIONS
+
+As of December 27, 1997, the Company operated 1,392 supermarkets, most of which
+are leased. Of this number, 1,132 supermarkets were operated under the Kroger
+name principally in the Midwest, South, Southeast, and Southwest in sixteen
+states (the "Kroger Supermarkets"). Dillon Companies, Inc. ("Dillon"), a wholly-
+owned subsidiary of the Company, operated 260 supermarkets in nine states,
+directly or through wholly-owned subsidiaries ("Dillon Supermarkets"). The
+Dillon Supermarkets are principally located in Colorado, Kansas, Arizona and
+Missouri, and operated under the names "Dillon Food Stores," "King Soopers,"
+"Fry's Food Stores," "Gerbes Supermarkets," "City Market," and "Sav-Mor."
+
+The Kroger and Dillon Supermarkets sell national and regional brand food and
+grocery products as well as private label products. Over one-half of these
+private label items are manufactured by the Company. The remainder are
+manufactured by outside vendors to Kroger specifications. The Dillon
+Supermarkets also offer private label items supplied by Topco Associates (a
+private label buying group) and private label merchandise supplied by local
+wholesalers.
+
+The Company's primary supermarket focus is on the combination food and drug
+store format, which offers a pharmacy plus a variety of service-oriented
+specialty departments in addition to the more traditional presentation of food
+stores. Combining a food store with a pharmacy, a typical combination store
+offers more than 40,000 individual items in a modern format. Specialty
+departments, including floral, service meat, seafood, pharmacy, expanded health
+and beauty care, video rental, book stores, cosmetics, photo finishing, deli,
+bakery, cheese and seasonal nonfood general merchandise, provide shoppers with a
+convenient one-stop shopping opportunity.
+
+The Company's combination stores generally range from 40,000 to 80,000 square
+feet in size with an average size of 54,173 square feet. At December 27, 1997,
+combination stores accounted for 67% of the store base, 79% of supermarket
+square footage, and 80% of food store sales. These figures compare with 48% of
+the store base, 62% of supermarket square footage, and 61% of food store sales
+at year end 1988.
+
+The Company's superstores, which have no pharmacy, limited specialty
+departments, and fewer square feet, continue to be an important component of the
+Company's store mix. At December 27, 1997, superstores represented 25% of the
+store base, 19% of the square footage and 18% of the food store sales.
+Superstores average 33,420 square feet in size.
+
+Conventional stores are the oldest store format and offer few, if any, specialty
+departments. Conventional stores are substantially smaller in total square
+footage, averaging 13,568 square feet, and contributed 2% of total supermarket
+sales in 1997.
+<PAGE>
+ 
+CONVENIENCE STORES
+
+At December 27, 1997, the Company's Dillon convenience store group operated,
+directly or through franchise agreements, 816 convenience stores in 15 states as
+follows:
+<TABLE>
+<CAPTION>
+                              No. Stores
+Chain               Company Owned     Franchise          Sq. Feet          States of Operation
+- -----               -------------     ---------          --------        --------------------------
+<S>                 <C>               <C>                <C>             <C>
+Kwik Shop                165               6              435,000        Iowa, Kansas, Nebraska,
+                                                                         Illinois
+Quik Stop                                113              255,000        California
+Turkey Hill              229                              576,000        Pennsylvania
+Loaf 'N Jug               81                              253,000        Colorado, New Mexico,
+                                                                         Oklahoma
+Mini Mart                110                              273,000        Colorado, Montana, Nebraska,
+                                                                         North Dakota, South Dakota,
+                                                                         Wyoming
+Tom Thumb                112                              303,000        Alabama, Florida
+                         ---             ---            ---------
+                         697             119            2,095,000
+</TABLE>
+Dillon convenience stores averaged 2,567 square feet at December 27, 1997. The
+average store employs six to seven employees, with one or two employees on duty
+at any given time.
+
+Each week, an average of 1,536 transactions occur at a typical Dillon
+convenience store to purchase gasoline and 5,034 transactions occur to purchase
+groceries. Each gasoline transaction averages $11.00 and each inside store
+transaction averages $2.34. The average convenience store carries 3,000 items.
+Approximately 62% of a convenience store's non-gasoline sales are generated by
+five product categories: soft drinks, beer, snacks, candy and tobacco products.
+
+Each convenience store division is independently run and requires little general
+or administrative corporate support. The convenience store group has grown
+primarily by acquisition.
+
+MANUFACTURING OPERATIONS
+
+The Company's 36 food processing facilities supply private label products to the
+Company's supermarkets. The Company's dairy divisions provide private label
+milk, ice cream, cheese, cultured products, bottled water and juice. The
+Company's bakeries provide a wide variety of bread, rolls and sweet goods. The
+Company's grocery products divisions produce deli items, spices, salad
+dressings, jellies, peanut butter, and a host of other grocery items.
+
+ITEM 2.  PROPERTIES
+
+As of December 27, 1997, the Company operated more than 2,200 owned or leased
+supermarkets, convenience stores, distribution warehouses and food processing
+facilities, through divisions, marketing areas, subsidiaries or affiliates.
+These facilities are located principally in the Midwest, South, Southeast and
+Southwest. A majority of the properties used in the conduct of the Company's
+business are leased.
+
+Store equipment, fixtures and leasehold improvements, as well as processing and
+manufacturing equipment, are generally owned by the Company. The total cost of
+the Company's owned assets and capitalized leases at December 27, 1997 was
+$6.183 billion while the accumulated depreciation was $2.887 billion.
+
+Leased premises generally have base terms ranging from ten to twenty-five years
+with renewal options for additional periods. Some options provide the right to
+purchase the property after conclusion of the lease term. Store rentals are
+normally payable monthly at a stated amount or at a guaranteed minimum amount
+plus a percentage of sales over a stated dollar volume. Rentals for the
+distribution,
+<PAGE>
+ 
+processing and miscellaneous facilities generally are payable monthly at stated
+amounts. For additional information on leased premises, see "Leases" in the
+Notes to Consolidated Financial Statements.
+
+ITEM 3.   LEGAL PROCEEDINGS
+
+There are pending against the Company various claims and lawsuits arising in the
+normal course of business, including suits charging violations of certain
+antitrust and civil rights laws. Some of these suits purport or have been
+determined to be class actions and/or seek substantial damages. Any damages that
+may be awarded in antitrust cases will be automatically trebled. Although it is
+not possible at this time to evaluate the merits of these claims and lawsuits,
+nor their likelihood of success, the Company is of the opinion that any
+resulting liability will not have a material adverse effect on the Company's
+financial position.
+
+ITEM 4.   SUBMISSION OF MATTERS TO A VOTE OF SECURITY HOLDERS
+
+None.
+
+                                    PART II
+
+ITEM 5.   MARKET FOR THE REGISTRANT'S COMMON EQUITY AND RELATED STOCKHOLDER
+          MATTERS
+<TABLE>
+<CAPTION>
+                           Common Stock Price Range
+- ---------------------------------------------------------------
+                            1997                   1996
+                      -------------------    ------------------
+Quarter                High        Low         High       Low
+- -------               -------    --------    --------   -------
+<S>                   <C>        <C>         <C>        <C>
+   1st                 28-1/8    22-11/16    19-13/16    16-3/4
+   2nd                 29-1/8    23-13/16          22    18-3/4
+   3rd                31-1/16      27-1/8      22-1/2   18-9/16
+   4th                37-5/16      28-1/2      23-3/4    20-3/8
+</TABLE> 
+Main trading market - New York Stock Exchange (Symbol KR)
+
+Number of shareowners at year-end 1997:        47,268
+Number of shareowners at March 17, 1998        46,960
+          Determined by number of shareholders of record
+
+The Company has not paid dividends on its Common Stock for the past three fiscal
+years. See Quarterly Data Note to Consolidated Financial Statements.
+<PAGE>
+ 
+
+
+
+ITEM 6.   SELECTED FINANCIAL DATA
+
+ 
+                            SELECTED FINANCIAL DATA
+ 
+<TABLE>
+<CAPTION>
+                                               FISCAL YEARS ENDED
+                         -------------------------------------------------------------------
+                         DECEMBER 27,  DECEMBER 28,  DECEMBER 30,  DECEMBER 31,  JANUARY 1,
+                             1997          1996          1995          1994         1994
+                          (52 WEEKS)    (52 WEEKS)    (52 WEEKS)    (52 WEEKS)   (52 WEEKS)
+                         -------------------------------------------------------------------
+                               (IN THOUSANDS OF DOLLARS, EXCEPT PER SHARE AMOUNTS)
+<S>                      <C>           <C>           <C>           <C>           <C>
+Sales................... $26,567,348   $25,170,909   $23,937,795   $22,959,122   $22,384,301
+Earnings before
+ extraordinary loss and
+ cumulative effect of
+ change in accounting...     444,032       352,735       318,866       268,903       170,805
+Extraordinary loss (net
+ of income tax
+ benefit)(A) ...........     (32,376)       (2,862)      (16,053)      (26,707)      (23,832)
+Cumulative effect of
+ change in accounting
+ (net of income tax
+ benefit)(B)............                                                            (159,193)
+Net earnings (loss).....     411,656       349,873       302,813       242,196       (12,220)
+Diluted earnings (loss)
+ per share
+ Earnings before ex-
+  traordinary loss......        1.69          1.36          1.28          1.10           .76
+ Extraordinary loss(A)..        (.12)         (.01)         (.06)         (.10)         (.10)
+ Cumulative effect of
+  change in
+  accounting(B).........                                                                (.65)
+ Net earnings (loss)....        1.57          1.35          1.22          1.00           .01
+Total assets............   6,301,341     5,892,465     5,044,717     4,707,674     4,480,464
+Long-term obligations,
+ including obligations
+ under capital leases...   3,493,075     3,659,491     3,489,728     3,889,194     4,135,013
+Shareowners' deficit....    (784,848)   (1,181,706)   (1,603,013)   (2,153,684)   (2,459,642)
+Cash dividends per com-
+ mon share..............     (C)           (C)           (C)           (C)           (C)
+- ---------------------------------------------------------------------------------------------
+</TABLE>
+(A) See Extraordinary Loss in the Notes to Consolidated Financial Statements.
+(B) See Postretirement Health Care and Life Insurance Benefits in the
+    respective year's Notes to Consolidated Financial Statements.
+(C) The Company is prohibited from paying cash dividends under the terms of its
+    Credit Agreement.
+<PAGE>
+ 
+ITEM 7.  MANAGEMENT'S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS
+                                   OF OPERATIONS
+
+SALES
+
+     Total sales for the fourth quarter of 1997 were $6.5 billion compared to
+$6.2 billion in the fourth quarter of 1996, a 5.0% increase. Total sales and
+food store sales both increased 5.5% for the full year. Food stores sales for
+the fourth quarter 1997 rose 5.2% compared to the fourth quarter 1996. Sales by
+lines of business for the three years ended December 27, 1997, were as follows:
+ 
+<TABLE>
+<CAPTION>
+                                         1997           1996           1995
+                          % OF 1997 -------------- -------------- --------------
+                            SALES   AMOUNT  CHANGE AMOUNT  CHANGE AMOUNT  CHANGE
+                          --------- ------- ------ ------- ------ ------- ------
+                                          (MILLIONS OF DOLLARS)
+<S>                       <C>       <C>     <C>    <C>     <C>    <C>     <C>
+Food Stores..............    93.4%  $24,801 +5.5%  $23,508  +4.5% $22,488 +4.9%
+Convenience Stores.......     3.8%    1,006 +6.0%      948 +11.6%     850 -5.4%
+Other sales..............     2.8%      760 +6.5%      714 +19.0%     600 -3.1%
+                            -----   -------        -------        -------
+Total Sales..............   100.0%  $26,567 +5.5%  $25,170  +5.1% $23,938 +4.3%
+</TABLE>
+ 
+     Sales in identical food stores, which include stores that have been in
+operation and have not been expanded or relocated for five quarters, increased
+ .7% in the fourth quarter and were flat for the full year. Comparable store
+sales, which include identical stores plus expanded and relocated stores,
+increased 3.0% in the fourth quarter. The increase in food store sales
+correlates to the 5.7% square footage growth generated by the Company's capital
+expenditure program. This program enabled the Company to open, relocate or
+expand 96 food stores during 1997. Most of the new and expanded stores feature
+the Company's combination store format. Combination stores are expected to
+generate higher sales per customer by the inclusion of numerous specialty
+departments, such as pharmacies, video rental, floral shops, and book stores.
+This "one-stop shopping" format saves time and travel for customers and is
+adaptable to the demographics of individual markets.
+ 
+     Convenience stores total sales increased 6.0% for the year and 2.3% during
+the fourth quarter of 1997. The lower sales increase during the fourth quarter
+can be attributed to a 4.3% decrease in gasoline retails for the quarter.
+Gasoline sales increased 8.5% for the year on a 7.9% increase in gallons sold.
+In-store sales in identical convenience stores increased 2.7% for the fourth
+quarter and 1.5% for the full year. Gasoline sales at identical convenience
+stores decreased 0.9% in 1997 on a 1.2% decrease in gallons sold.
+ 
+     Other sales primarily consist of sales by the Company's manufacturing
+divisions to non-affiliated entities. Compared to 1996, other sales increased
+0.9% for the fourth quarter and 6.5% for the year. Manufacturing division
+outside sales declined 2.6% in the fourth quarter 1997 and increased 4.7% for
+the full year.
+ 
+     Total food store square footage increased 5.7%, 6.7%, and 4.6% in 1997,
+1996, and 1995, respectively. Convenience store square footage decreased 1.3% in
+1997, increased 1.5% in 1996, and decreased 10.6% in 1995.
+ 
+     Sales per average square foot for the last three years were:
+ 
+<TABLE>
+<CAPTION>
+                                                              TOTAL SALES PER
+                                                            AVERAGE SQUARE FOOT
+                                                            --------------------
+                                                             1997   1996   1995
+                                                            ------ ------ ------
+<S>                                                         <C>    <C>    <C>
+Food Stores................................................   $398   $401   $405
+Convenience Stores.........................................   $548   $519   $475
+</TABLE>
+ 
+     Sales per average square foot for convenience stores exclude stores
+operated by franchisees. The decrease in sales per average square foot for food
+stores can be attributed to Company's substantial new construction program.
+<PAGE>
+ 
+EBITD
+
+     The Company's 364-Day Credit Agreement and Five-Year Credit Agreement
+(collectively, the "Credit Agreement") and the indentures underlying
+approximately $706 million of publicly issued debt contain various restrictive
+covenants. Many covenants are based on earnings before interest, taxes,
+depreciation, LIFO charge, unusual and extraordinary items ("EBITD"). The
+ability to generate EBITD at levels sufficient to satisfy the requirements of
+these agreements is a key measure of the Company's financial strength. The
+presentation of EBITD is not intended to be an alternative to any GAAP measure
+of performance. Rather EBITD results facilitate an understanding of the
+Company's performance compared to its debt covenants. At December 27, 1997 the
+Company was in compliance with all Credit Agreement and indenture covenants.
+The Company believes it has adequate coverage of its debt covenants to continue
+to respond effectively to competitive conditions.
+
+     EBITD increased 13.2% in 1997 to $1.385 billion compared to $1.224 billion
+in 1996. EBITD in 1995 was $1.148 billion. Excluding the effect of strikes in
+the King Soopers and City Market divisions, EBITD would have been approximately
+$1.256 billion in 1996. EBITD growth in 1997 was generated by increased sales at
+higher gross profit and reduced operating, general and administrative expense
+rates as a percent of sales. The Company's capital expenditure program continued
+to produce incremental EBITD increases.
+ 
+MERCHANDISE COSTS
+
+     Merchandise costs include warehousing and transportation expenses and
+charges related to valuing inventory on the Last In First Out method (LIFO). The
+following table shows the relative effect of LIFO charges on merchandising costs
+as a percent of sales:
+ 
+<TABLE>
+<CAPTION>
+                                                             1997   1996   1995
+                                                            ------ ------ ------
+<S>                                                         <C>    <C>    <C>
+Merchandise costs as reported.............................. 75.27% 75.65% 75.60%
+LIFO charge................................................   .03%   .05%   .05%
+                                                            ------ ------ ------
+Merchandise costs as adjusted.............................. 75.24% 75.60% 75.55%
+</TABLE>
+ 
+     The merchandise cost rate for 1996 increased as a result of the work
+stoppages in Colorado.
+ 
+OPERATING, GENERAL AND ADMINISTRATIVE EXPENSES
+
+     Operating, general and administrative expenses as a percent of sales were
+18.30%, 18.34% and 18.41%, in 1997, 1996, and 1995 respectively.
+ 
+     Operating, general and administrative costs declined three basis points in
+the fourth quarter of 1997 and four basis points for the full year. The improved
+results were caused by a combination of factors, including cost reductions
+achieved through enhanced technology, a reduction in employee benefit costs, and
+reduced administrative expenses.
+ 
+INCOME TAXES
+
+     The Company has closed all tax years through 1983 with the Internal Revenue
+Service. The Internal Revenue Service has completed its examination of the
+Company's tax returns for tax years 1984-1992. With one exception, all issues
+have been resolved for tax years 1984-1989. A second issue remains unresolved
+for tax years 1990-1992. Efforts to resolve the issue for tax years 1984-1986
+with the Appeals Division of the Internal Revenue Service were unsuccessful. As
+a result the Company filed a petition with the United States Tax Court in
+Washington, D.C. Litigation was completed in November 1995 and a decision was
+rendered in January 1997 in favor of the Company. The Commissioner of Internal
+Revenue has appealed this case to the United States Court of Appeals for the
+Sixth Circuit. The issue before the court is being held in abeyance for tax
+years 1987-1992 pending the ultimate outcome of this appeal. The other issue
+for tax years 1990-1992 is being temporarily held in abeyance by the Internal
+Revenue Service. The Company has made provisions for these and other tax
+contingencies.
+<PAGE>
+ 
+NET EARNINGS
+
+     Net earnings totaled $411.7 million in 1997 as compared to $349.9 million
+in 1996 and $302.8 million in 1995. Earnings in 1997 compared to 1996 and 1995
+were affected by: (i) an after tax extraordinary loss from the early retirement
+of debt in 1997 of $32.4 million compared to $2.9 million in 1996 and $16.1
+million in 1995, (ii) net interest expense in 1997 of $285.9 million compared to
+$300.0 million in 1996 and $312.7 million in 1995, (iii) depreciation expense in
+1997 of $380.2 million, compared to $343.8 million in 1996 and $311.3 million in
+1995, (iv) and the effect of the work stoppages during 1996 in Colorado.
+ 
+LIQUIDITY AND CAPITAL RESOURCES
+
+  Debt Management and Interest Expense
+
+     During 1997, the Company redeemed $316.2 million of senior subordinated
+debt, repurchased $11.5 million of its senior and senior subordinated debt
+issues, and prepaid $178.0 million of mortgage loans. The redemptions and
+repurchases were financed with the issuance of $200 million of senior debt, bank
+borrowings and excess cash flow from operations.
+ 
+     In 1996, the Company made open market purchases of $49.9 million of its
+senior and subordinated debt and redeemed $134.7 of its subordinated debt. The
+repurchases and redemption were effected with the proceeds from the issuance of
+$240 million of new senior debt, additional bank borrowings and cash generated
+from operations. In 1995 the Company repurchased, on the open market, $283.0
+million of high yield senior and subordinated debt which was financed by cash
+generated from operations and lower cost bank debt.
+
+     The Company has in place a 364-Day Credit Agreement and a Five-Year Credit
+Agreement with a consortium of bank lenders. The 364-Day Credit Agreement is a
+revolving credit facility in the amount of $500 million, that terminates on May
+27, 1998, unless extended as provided in the Credit Agreement. The Five-Year
+Credit Agreement is a revolving credit facility in the amount of $1.5 billion,
+that terminates on May 28, 2002, unless extended or terminated earlier by the
+Company as provided in the Credit Agreement. The average interest rate on the
+Company's bank debt was 6.06% in 1997 compared to 6.16% in 1996. The borrowing
+under the Credit Agreement at year-end 1997 totaled $1.262 billion compared to
+$1.001 billion at year-end 1996. The borrowing rate on the bank debt is
+variable. At December 27, 1997 the Company had $709.6 million available under
+its Credit Agreement to meet short-term liquidity needs.
+
+     Long-term debt, including capital leases and current portion thereof,
+decreased $163.4 million to $3.517 billion at year-end 1997 from $3.681 billion
+at year-end 1996. The Company purchased a portion of the debt issued by the
+lenders of certain structured financings in an effort to further reduce the
+Company's effective interest expense. The Company pre-funded $160 million of
+employee benefit costs at year-end 1997 compared to $110 million at year-end
+1996. Excluding the debt incurred to make these purchases, which are classified
+as investments, and the pre-funding of employee benefits, the Company's long-
+term debt would have been $315.0 million less, or $3.202 billion, at year-end
+1997 compared to $3.418 billion at year-end 1996.
+ 
+  Interest Rate Protection Program
+
+     The Company uses derivatives to limit its exposure to rising interest
+rates. The Company follows these guidelines in using derivatives: (i) use
+average daily bank balance to determine annual debt amounts subject to interest
+rate exposure, (ii) limit the annual amount of floating rate debt to a total of
+$1.0 billion or less, (iii) include no leveraged derivative products, and (iv)
+hedge without regard to profit motive or sensitivity to current mark-to-market
+status. The Company's compliance with these guidelines is reviewed semi-annually
+with the Financial Policy Committee of the Company's Board of Directors.
+<PAGE>
+ 
+     The table below provides information about the Company's interest rate
+derivative and underlying debt portfolio. The amounts per year represent the
+contractual maturities of long-term debt, excluding capital leases, and the
+outstanding notional amount of interest rate derivatives. Interest rates
+reflect the weighted average for the maturing instruments. The variable
+component of each interest rate derivative and the expected interest rate for
+variable rate long-term debt are based on 6 month LIBOR using the forward yield
+curve as of December 27, 1997.
+ 
+<TABLE>
+<CAPTION>
+                                             EXPECTED YEAR OF MATURITY
+                         ------------------------------------------------------------------------
+                                                   (IN THOUSANDS)
+                           1998       1999      2000     2001      2002     THEREAFTER    TOTAL
+                         ---------  ---------  -------  -------  ---------  ----------  ---------
+     LONG-TERM DEBT
+- ------------------------
+<S>                      <C>        <C>        <C>      <C>      <C>        <C>         <C>
+Fixed rate..............    14,304    164,835   10,613   14,274    168,284  1,649,771   2,022,081
+Average interest rate...      8.86%      8.88%    8.81%    8.81%      8.74%      8.75%
+Variable rate...........                                         1,262,058     36,616   1,298,674
+Average interest rate...      6.06%      6.14%    6.28%    6.39%      6.49%      6.19%
+<CAPTION>
+     INTEREST RATE
+      DERIVATIVES
+- ------------------------
+<S>                      <C>        <C>        <C>      <C>      <C>        <C>         <C>
+Variable to fixed....... 1,300,000  1,000,000  675,000  352,500     97,500     65,000   1,400,000
+Average pay rate........      6.86%      7.08%    7.28%    7.20%      6.68%      6.80%       6.92%
+Average receive rate....      5.56%      5.64%    5.78%    5.89%      5.99%      6.05%       5.62%
+Fixed to variable.......   910,000    760,000  605,000  400,000    275,000    150,000   1,135,000
+Average pay rate........      5.56%      5.64%    5.78%    5.82%      5.99%      6.05%       5.62%
+Average receive rate....      6.43%      6.24%    6.26%    6.55%      6.41%      6.03%       6.33%
+</TABLE>
+ 
+     It was not practicable to determine a fair value for $480.1 million of
+fixed rate or any of the variable rate debt. The remaining $1,542.0 million of
+fixed rate debt had an estimated fair value of $1,675.0 million. The variable to
+fixed interest rate derivatives had an estimated fair value of a negative $41.6
+million. The fixed to variable rate interest rate derivatives had an estimated
+fair value of $11.3 million.
+ 
+CAPITAL EXPENDITURES
+
+     Capital expenditures for 1997 totaled $612.2 million, compared to $733.8
+million in 1996, and $726.1 million in 1995, net of reclassification for
+property held for sale. During 1997 the Company opened, acquired or expanded 96
+food stores and 15 convenience stores as compared to 116 food stores and 31
+convenience stores in 1996, and 83 food stores and 19 convenience stores in
+1995. The Company also completed 48 food store and 9 convenience store remodels
+during 1997. During 1997, the Company closed or sold 41 food stores and 30
+convenience stores.
+ 
+CONSOLIDATED STATEMENT OF CASH FLOWS
+
+     During 1997 the Company generated $853.6 million in cash from operating
+activities compared to $499.4 million in 1996 and $810.1 million in 1995. The
+increase over 1996 is primarily due to a decrease in operating assets and
+liabilities that provided $12.9 million of cash in 1997 compared to using
+$226.9 million in 1996. The largest component of the change in operating assets
+and liabilities was a decrease in net owned inventories of $16.6 million
+compared to a decrease of $224.5 million in 1996. Offsetting these net uses of
+cash were increases in net earnings of $61.8 million and non-cash charges for
+depreciation and amortization of $36.5 million.
+
+     Investing activities used $579.4 million of cash in 1997 compared to $856.9
+million in 1996 and $665.6 million in 1995. The decrease in the use of cash was
+caused by decreased purchases of investments of $145.1 million and decreased
+capital expenditures of $121.7 million.
+
+     Cash used by financing activities in 1997 totaled $275.7 million as
+compared to $345.4 million provided in 1996 and $151.4 million used in 1995. The
+increase in the use of cash during 1997 as compared to 1996 was caused by a net
+debt decrease of $169.6 million in 1997 versus a net debt increase of $146.9
+million in 1996. An additional $13.1 million of cash was used for debt
+prepayments and finance charges, and $85.2 million was used to repurchase
+capital stock.
+<PAGE>
+ 
+OTHER ISSUES
+
+     The Company is party to more than 200 collective bargaining agreements with
+local unions representing approximately 162,000 of the Company's employees.
+During 1997 the Company negotiated over 30 labor contracts without any work
+stoppages. Typical agreements are 3 to 5 years in duration and, as agreements
+expire, the Company expects to enter into new collective bargaining agreements.
+There can be no assurance, however, that such agreements will be reached
+without work stoppage. A prolonged work stoppage affecting a substantial number
+of stores could have a material adverse effect on the results of the Company's
+operations. No major union contracts will be negotiated in 1998.
+ 
+OUTLOOK
+
+     The Company's outlook for 1998 is positive. Statements below regarding the
+Company's expectations, hopes, beliefs, intentions or strategies are forward
+looking statements within the meaning of Section 21E of the Securities Exchange
+Act of 1934. While we believe that the statements are accurate, uncertainties
+and other factors could cause actual results to differ materially from those
+statements. In particular:
+
+    . The Company's food store strategy is to invest in existing Kroger
+      markets or in areas adjacent to markets where the Company has a strong
+      franchise and can leverage marketing, distribution, and overhead
+      dollars. The Company expects consistent sales and earnings increases
+      from the existing store base combined with incremental sales and
+      earnings contributions as a result of the capital investment program.
+
+    . Management believes that the combination store format and the Company's
+      geographic diversity are strategic advantages that will allow Kroger to
+      withstand continued competition from other food retailers,
+      supercenters, mass merchandisers, and restaurants.
+
+    . As new stores mature and capital spending levels off, the Company
+      expects to achieve increases in sales per average food store square
+      foot.
+
+    . The Company continues to invest capital in technology to enhance
+      Kroger's distribution network in order to improve store operations,
+      product procurement and distribution practices. These initiatives,
+      combined with increasing private label sales, are expected to have a
+      favorable influence on the gross profit rate.
+
+    . The Company's goal is to further reduce operating, general and
+      administrative expense rates. Increased sales volume combined with
+      investments in new technologies and lower costs, while maintaining or
+      improving customer service, should help achieve this goal.
+
+    . The Company currently expects 1998 net interest expense, estimated
+      using year-end 1997 rates, to total approximately $280 million. A 1%
+      increase in market rates would increase the estimated expense by
+      approximately $6.5 million. A 1% decrease in market rates would reduce
+      the estimated expense by approximately $9.4 million.
+
+    . The Company expects to increase retail food store square footage by
+      approximately 5% in both 1998 and 1999. In 1998, the Company plans to
+      open or expand 90-100 stores compared to 96 in 1997. The Company
+      expects 1998 capital expenditures, including additional Company owned
+      real estate, logistics projects, and continuing technology investments,
+      to total approximately $775 million. The Company also expects to
+      complete within-the-wall remodels of 60 food stores. The increased
+      square footage is planned for existing Company markets where the
+      Company has an established market position and an existing
+      administrative and logistical network.
+
+    . The Company is currently working to resolve the potential impact of the
+      year 2000 on the processing of date-sensitive information by the
+      Company's computerized information systems. The year 2000 problem is
+      the result of computer programs being written using two digits (rather
+      than four) to define the applicable year. Any of the Company's programs
+      that have time-sensitive software may recognize a date using "00" as
+      the year 1900 rather than the year 2000, which could result in
+      miscalculations or system failures. Based on current information, costs
+      of addressing potential problems are not expected to have a material
+      adverse impact on the Company's financial position, results of
+      operations or cash flows in future periods. However, if the Company,
+      its customers or vendors are unable to resolve such processing issues
+      in a timely manner, it could result in a material financial risk.
+      Accordingly, the Company believes it has allocated the resources
+      necessary to resolve all significant year 2000 issues in a timely
+      manner.
+<PAGE>
+ 
+     Inflationary factors, increased competition, construction delays, and labor
+disputes could affect the Company's ability to obtain expected increases in
+sales and earnings. Delays in store maturity, increased competition and
+increased capital spending could adversely affect the anticipated increase in
+sales per square foot. Increases in gross profit rate may not be achieved if
+start up costs are higher than expected or if problems associated with
+integrating new systems occur. Increased operating costs and changes in
+inflationary trends, could prevent the Company from reducing operating, general
+and administrative expenses, while new technologies could fail to achieve the
+desired savings and efficiencies. Net interest expenses could exceed
+expectations due to acquisitions, inflation, or increased competition. The
+Company's ability to achieve its construction goals could be hampered by
+construction delays, labor disputes, increase competition, delays in technology
+projects, and its ability to generate continued EBITD growth. The inherent
+complexity of computer software and reliance on third party software vendors to
+interface with the Company's systems could affect the completion of necessary
+"year 2000" modifications.
+<PAGE>
+
+ITEM 8.  FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA
+ 
+                       REPORT OF INDEPENDENT ACCOUNTANTS
+
+
+To the Shareowners and Board of Directors
+The Kroger Co.
+ 
+     We have audited the accompanying consolidated balance sheet of The Kroger
+Co. as of December 27, 1997 and December 28, 1996, and the related consolidated
+statements of operations and accumulated deficit, and cash flows for the years
+ended December 27, 1997, December 28, 1996, and December 30, 1995. These
+financial statements are the responsibility of the Company's management. Our
+responsibility is to express an opinion on these financial statements based on
+our audits.
+
+     We conducted our audits in accordance with generally accepted auditing
+standards. Those standards require that we plan and perform the audit to obtain
+reasonable assurance about whether the financial statements are free of
+material misstatement. An audit includes examining, on a test basis, evidence
+supporting the amounts and disclosures in the financial statements. An audit
+also includes assessing the accounting principles used and significant
+estimates made by management, as well as evaluating the overall financial
+statement presentation. We believe that our audits provide a reasonable basis
+for our opinion.
+
+     In our opinion, the financial statements referred to above present fairly,
+in all material respects, the consolidated financial position of The Kroger Co.
+as of December 27, 1997 and December 28, 1996, and the consolidated results of
+its operations and its cash flows for the years ended December 27, 1997,
+December 28, 1996, and December 30, 1995, in conformity with generally accepted
+accounting principles.
+ 
+(Coopers & Lybrand L.L.P.)
+
+Coopers & Lybrand L.L.P.
+Cincinnati, Ohio
+January 22, 1998
+<PAGE>
+ 
+                           CONSOLIDATED BALANCE SHEET
+<TABLE>
+<CAPTION>
+                                                       DECEMBER 27,  December 28,
+(In thousands of dollars)                                  1997          1996
+- ---------------------------------------------------------------------------------
+<S>                                                    <C>           <C>
+ASSETS
+Current assets
+ Cash................................................. $    65,484   $    67,052
+ Receivables..........................................     400,529       324,050
+ Inventories:
+  FIFO cost...........................................   2,273,896     2,175,630
+  Less LIFO reserve...................................    (467,931)     (461,689)
+                                                       -----------   -----------
+                                                         1,805,965     1,713,941
+ Property held for sale...............................      39,672        38,333
+ Prepaid and other current assets.....................     328,901       276,440
+                                                       -----------   -----------
+   Total current assets...............................   2,640,551     2,419,816
+Property, plant and equipment, net....................   3,296,599     3,063,534
+Investments and other assets..........................     364,191       409,115
+                                                       -----------   -----------
+   TOTAL ASSETS....................................... $ 6,301,341   $ 5,892,465
+                                                       ===========   ===========
+LIABILITIES
+Current liabilities
+ Current portion of long-term debt.................... $    14,304   $    11,642
+ Current portion of obligations under capital leases..      10,031         9,501
+ Accounts payable.....................................   1,781,527     1,717,308
+ Other current liabilities............................   1,137,654     1,041,521
+                                                       -----------   -----------
+   Total current liabilities..........................   2,943,516     2,779,972
+Long-term debt........................................   3,306,451     3,478,743
+Obligations under capital leases......................     186,624       180,748
+Deferred income taxes.................................     166,013       151,036
+Other long-term liabilities...........................     483,585       483,672
+                                                       -----------   -----------
+   TOTAL LIABILITIES..................................   7,086,189     7,074,171
+                                                       -----------   -----------
+SHAREOWNERS' DEFICIT
+Common capital stock, par $1
+ Authorized: 350,000,000 shares
+ Issued: 1997--277,153,260 shares
+         1996--272,923,042 shares.....................     728,644       658,230
+Accumulated deficit...................................  (1,184,394)   (1,596,050)
+Common stock in treasury, at cost
+         1997--22,182,650 shares
+         1996--19,163,712 shares......................    (329,098)     (243,886)
+                                                       -----------   -----------
+   TOTAL SHAREOWNERS' DEFICIT.........................    (784,848)   (1,181,706)
+                                                       -----------   -----------
+   TOTAL LIABILITIES AND SHAREOWNERS' DEFICIT......... $ 6,301,341   $ 5,892,465
+                                                       ===========   ===========
+- ---------------------------------------------------------------------------------
+</TABLE>
+The accompanying notes are an integral part of the consolidated financial
+statements.
+<PAGE>
+ 
+          CONSOLIDATED STATEMENT OF OPERATIONS AND ACCUMULATED DEFICIT
+
+Years Ended December 27, 1997, December 28, 1996, and December 30, 1995
+ 
+<TABLE>
+<CAPTION>
+                                             1997         1996         1995
+(In thousands, except per share amounts)  (52 WEEKS)   (52 Weeks)   (52 Weeks)
+- --------------------------------------------------------------------------------
+<S>                                       <C>          <C>          <C>
+Sales.................................... $26,567,348  $25,170,909  $23,937,795
+                                          -----------  -----------  -----------
+Costs and expenses
+ Merchandise costs, including warehousing
+  and transportation.....................  19,996,381   19,041,465   18,098,027
+ Operating, general and administrative...   4,861,426    4,616,749    4,406,445
+ Rent....................................     331,012      301,629      299,828
+ Depreciation and amortization...........     380,221      343,769      311,272
+ Net interest expense....................     285,945      299,984      312,685
+                                          -----------  -----------  -----------
+   Total.................................  25,854,985   24,603,596   23,428,257
+                                          -----------  -----------  -----------
+Earnings before tax expense and extraor-
+ dinary loss.............................     712,363      567,313      509,538
+Tax expense..............................     268,331      214,578      190,672
+                                          -----------  -----------  -----------
+Earnings before extraordinary loss.......     444,032      352,735      318,866
+Extraordinary loss, net of income tax
+ benefit.................................     (32,376)      (2,862)     (16,053)
+                                          -----------  -----------  -----------
+   Net earnings.......................... $   411,656  $   349,873  $   302,813
+                                          ===========  ===========  ===========
+Accumulated Deficit
+ Beginning of year....................... $(1,596,050) $(1,945,923) $(2,248,736)
+ Net earnings............................     411,656      349,873      302,813
+                                          -----------  -----------  -----------
+ End of year............................. $(1,184,394) $(1,596,050) $(1,945,923)
+                                          ===========  ===========  ===========
+Basic earnings per Common Share
+ Earnings before extraordinary loss .....      $ 1.75       $ 1.41       $ 1.38
+ Extraordinary loss......................        (.13)        (.01)        (.07)
+                                               ------       ------       ------
+ Net earnings............................      $ 1.62       $ 1.40       $ 1.31
+                                               ======       ======       ======
+Average number of common shares used in
+ basic calculation.......................     254,284      250,979      231,468
+Diluted earnings per Common Share
+ Earnings before extraordinary loss .....      $ 1.69       $ 1.36       $ 1.28
+ Extraordinary loss......................        (.12)        (.01)        (.06)
+                                               ------       ------       ------
+ Net earnings............................      $ 1.57       $ 1.35       $ 1.22
+                                               ======       ======       ======
+Average number of common shares used in
+ diluted calculation.....................     262,860      258,837      251,716
+</TABLE>
+ 
+- --------------------------------------------------------------------------------
+The accompanying notes are an integral part of the consolidated financial
+statements.
+<PAGE>
+ 
+                      CONSOLIDATED STATEMENT OF CASH FLOWS
+
+Years Ended December 27, 1997, December 28, 1996, and December 30, 1995
+<TABLE>
+<CAPTION>
+                                                   1997        1996        1995
+(In thousands of dollars)                       (52 WEEKS)  (52 Weeks)  (52 Weeks)
+- ----------------------------------------------------------------------------------
+<S>                                             <C>         <C>         <C>
+Cash Flows From Operating Activities:
+ Net earnings.................................. $ 411,656   $ 349,873   $ 302,813
+ Adjustments to reconcile net earnings to net
+  cash provided by operating activities:
+  Extraordinary loss...........................    32,376       2,862      16,053
+  Depreciation and amortization................   380,221     343,769     311,272
+  Amortization of deferred financing costs.....    13,907      13,004      13,189
+  Loss (gain) on sale of assets................    (3,142)      4,496        (710)
+  LIFO charge..................................     6,242      12,526      14,103
+  Other changes, net...........................      (527)       (200)     (1,176)
+  Net increase (decrease) in cash from changes
+   in operating assets and liabilities.........    12,857    (226,931)    154,507
+                                                ---------   ---------   ---------
+   Net cash provided by operating activities...   853,590     499,399     810,051
+                                                ---------   ---------   ---------
+Cash Flows From Investing Activities:
+ Capital expenditures..........................  (612,198)   (733,883)   (726,142)
+ Proceeds from sale of assets..................    24,657       9,242      49,530
+ (Increase) decrease in property held for sale.    (4,165)        580       2,942
+ (Increase) decrease in other investments......    12,269    (132,796)      8,106
+                                                ---------   ---------   ---------
+   Net cash used by investing activities.......  (579,437)   (856,857)   (665,564)
+                                                ---------   ---------   ---------
+Cash Flows From Financing Activities:
+ Debt prepayment costs.........................    (8,012)     (4,196)    (22,244)
+ Financing charges incurred....................   (27,210)    (17,927)     (6,716)
+ Principal payments under capital lease
+  obligations..................................    (9,662)     (9,229)     (8,780)
+ Proceeds from issuance of long-term debt......   662,322     382,161     113,246
+ Reductions in long-term debt..................  (831,952)   (235,214)   (304,234)
+ Outstanding checks............................   (17,493)    181,993      38,918
+ Proceeds from issuance of capital stock.......    41,498      48,120      38,602
+ Capital stock reacquired......................   (85,212)       (254)       (217)
+                                                ---------   ---------   ---------
+   Net cash provided (used) by financing
+    activities.................................  (275,721)    345,454    (151,425)
+                                                ---------   ---------   ---------
+Net decrease in cash and temporary cash
+ investments...................................    (1,568)    (12,004)     (6,938)
+Cash and Temporary Cash Investments:
+ Beginning of year.............................    67,052      79,506      86,444
+                                                ---------   ---------   ---------
+ End of year................................... $  65,484   $  67,052   $  79,506
+                                                =========   =========   =========
+Increase (Decrease) In Cash From Changes In
+ Operating Assets And Liabilities:
+ Inventories (FIFO)............................ $ (98,266)  $(140,750)  $  10,396
+ Receivables...................................   (76,478)    (35,983)    (18,207)
+ Prepaid and other current assets..............   (53,476)   (120,641)     (3,992)
+ Accounts payable..............................    81,712     (83,808)     98,681
+ Other current liabilities.....................    51,534      76,423      43,501
+ Deferred income taxes.........................    65,354      45,665     (10,008)
+ Other liabilities.............................    42,477      32,163      34,136
+                                                ---------   ---------   ---------
+                                                $  12,857   $(226,931)  $ 154,507
+                                                =========   =========   =========
+- ----------------------------------------------------------------------------------
+</TABLE>
+
+The accompanying notes are an integral part of the consolidated financial
+statements.
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS
+
+
+All dollar amounts are in thousands except per share amounts.
+ 
+ACCOUNTING POLICIES
+ 
+     The following is a summary of the significant accounting policies followed
+in preparing these financial statements:
+ 
+  Principles of Consolidation
+
+     The consolidated financial statements include the Company and all of its
+subsidiaries. Certain prior year amounts have been restated to conform to
+current year presentation.
+ 
+  Pervasiveness of Estimates
+
+     The preparation of financial statements in conformity with generally
+accepted accounting principles requires management to make estimates and
+assumptions that affect the reported amounts of assets and liabilities.
+Disclosure of contingent assets and liabilities as of the date of the
+consolidated financial statements and the reported amounts of consolidated
+revenues and expenses during the reporting period also is required. Actual
+results could differ from those estimates.
+ 
+  Segments of Business
+
+     The Company operates primarily in one business segment--retail food and
+drug stores, predominately in the Midwest and South as well as Colorado,
+Arizona, and Kansas. This segment represents more than 90% of consolidated
+revenue, operating profit and identifiable assets. The Company also manufactures
+and processes food for sale by its supermarkets and others and operates
+convenience stores.
+ 
+  Inventories
+
+     Inventories are stated at the lower of cost (principally LIFO) or market.
+Approximately 90% of inventories for 1997 and 88% of inventories for 1996 were
+valued using the LIFO method. Cost for the balance of the inventories is
+determined using the FIFO method.
+ 
+  Property Held for Sale
+
+     Property held for sale includes the net book value of property, plant and
+equipment that the Company plans to sell. The property is valued at the lower
+of cost or market on an individual property basis.
+ 
+  Property, Plant and Equipment
+
+     Property, plant and equipment are stated at cost. Depreciation and
+amortization, which includes the amortization of assets recorded under capital
+leases, are computed principally using the straight-line method over the
+estimated useful lives of individual assets, composite group lives or the
+initial or remaining terms of leases. Buildings and land improvements are
+depreciated based on lives varying from ten to 40 years. Equipment depreciation
+is based on lives varying from three to 15 years. Leasehold improvements are
+amortized over their useful lives, which vary from four to 25 years.
+ 
+  Interest Rate Protection Agreements
+
+     The Company uses interest rate swaps and caps to hedge a portion of its
+borrowings against changes in interest rates. The interest differential to be
+paid or received is accrued as interest rates change and is recognized over the
+life of the agreements currently as a component of interest expense. Gains and
+losses from the disposition of hedge agreements are deferred and amortized over
+the term of the related agreements.
+ 
+  Advertising Costs
+
+     The Company's advertising costs are predominately expensed as incurred and
+included in "operating, general and administrative expenses." Advertising
+expenses amounted to $312,000, $302,000, and $281,000 for 1997, 1996, and 1995,
+respectively.
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+ 
+  Deferred Income Taxes
+
+     Deferred income taxes are recorded to reflect the tax consequences of
+differences between the tax bases of assets and liabilities and their financial
+reporting bases. The types of differences that give rise to significant
+portions of deferred income tax liabilities or assets relate to: property,
+plant and equipment; inventories and other charges; and accruals for
+compensation-related costs. Deferred income taxes are classified as a net
+current and noncurrent asset or liability based on the classification of the
+related asset or liability for financial reporting. A deferred tax asset or
+liability that is not related to an asset or liability for financial reporting
+is classified according to the expected reversal date. (See Taxes Based on
+Income footnote.)
+  
+  Consolidated Statement of Cash Flows
+
+     For purposes of the Consolidated Statement of Cash Flows, the Company
+considers all highly liquid debt instruments purchased with a maturity of three
+months or less to be temporary cash investments. Outstanding checks, which are
+included in accounts payable, represent disbursements that are funded as the
+item is presented for payment.
+ 
+     Cash paid during the year for interest and income taxes was as follows:
+ 
+<TABLE>
+<CAPTION>
+                                                        1997     1996     1995
+<S>                                                   <C>      <C>      <C>
+                                                      --------------------------
+Interest............................................. $304,176 $304,240 $322,411
+Income taxes.........................................  154,025  166,732  175,151
+</TABLE>
+ 
+PROPERTY, PLANT AND EQUIPMENT, NET
+ 
+     Property, plant and equipment, net consists of:
+ 
+<TABLE>
+<CAPTION>
+                                                          1997         1996
+<S>                                                    <C>          <C>
+                                                       ------------------------
+Land.................................................. $   352,319  $   308,451
+Buildings and land improvements.......................   1,263,700    1,034,441
+Equipment.............................................   3,106,548    2,895,826
+Leaseholds and leasehold improvements.................     908,948      807,422
+Construction-in-progress..............................     278,821      417,080
+Leased property under capital leases..................     272,911      263,398
+                                                       -----------  -----------
+                                                         6,183,247    5,726,618
+Accumulated depreciation and amortization.............  (2,886,648)  (2,663,084)
+                                                       -----------  -----------
+                                                       $ 3,296,599  $ 3,063,534
+                                                       ===========  ===========
+</TABLE>
+ 
+     Approximately $369,295 and $461,285, original cost, of Property, Plant and
+Equipment collateralizes certain mortgage obligations at 1997 and 1996,
+respectively.
+ 
+INVESTMENTS AND OTHER ASSETS
+ 
+     Investments and other assets consists of:
+ 
+<TABLE>
+<CAPTION>
+                                                                 1997     1996
+<S>                                                            <C>      <C>
+                                                               -----------------
+Deferred financing costs...................................... $ 59,939 $ 90,171
+Goodwill......................................................   39,119   39,745
+Investments in Debt Securities................................  155,141  152,675
+Other.........................................................  109,992  126,524
+                                                               -------- --------
+                                                               $364,191 $409,115
+                                                               ======== ========
+</TABLE>
+ 
+     The Company is amortizing deferred financing costs using the interest
+method. Substantially all goodwill is amortized on the straight-line method over
+40 years.
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+ 
+OTHER CURRENT LIABILITIES
+ 
+     Other current liabilities consists of:
+ 
+<TABLE>
+<CAPTION>
+                                                             1997       1996
+<S>                                                       <C>        <C>
+                                                          ---------------------
+Salaries and wages....................................... $  300,202 $  292,393
+Taxes, other than income taxes...........................    147,905    146,781
+Interest.................................................     36,699     39,202
+Other....................................................    652,848    563,145
+                                                          ---------- ----------
+                                                          $1,137,654 $1,041,521
+                                                          ========== ==========
+</TABLE>
+ 
+TAXES BASED ON INCOME
+ 
+     The provision for taxes based on income consists of:
+ 
+<TABLE>
+<CAPTION>
+                                                     1997      1996      1995
+<S>                                                <C>       <C>       <C>
+                                                   ----------------------------
+Federal
+ Current.......................................... $173,715  $146,296  $178,936
+ Deferred.........................................   65,354    43,638   (10,008)
+                                                   --------  --------  --------
+                                                    239,069   189,934   168,928
+State and local...................................   29,262    24,644    21,744
+                                                   --------  --------  --------
+                                                    268,331   214,578   190,672
+Tax credit from extraordinary loss................  (19,427)   (1,792)  (10,263)
+                                                   --------  --------  --------
+                                                   $248,904  $212,786  $180,409
+                                                   ========  ========  ========
+</TABLE>
+ 
+     Targeted job tax credits reduced the tax provision by $1,206 in 1995.
+ 
+     A reconciliation of the statutory federal rate and the effective rate is as
+follows:
+ 
+<TABLE>
+<CAPTION>
+                                                               1997  1996  1995
+<S>                                                            <C>   <C>   <C>
+                                                               ----------------
+Statutory rate................................................ 35.0% 35.0% 35.0%
+State income taxes, net of federal tax benefit................  2.7   2.8   2.8
+Tax credits...................................................  (.2)  (.2)  (.4)
+Other, net....................................................   .2    .2
+                                                               ----  ----  ----
+                                                               37.7% 37.8% 37.4%
+                                                               ====  ====  ====
+</TABLE>
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+ 
+     The tax effects of significant temporary differences that comprise deferred
+tax balances were as follows:
+ 
+<TABLE>
+<CAPTION>
+                                                            1997       1996
+- -------------------------------------------------------------------------------
+<S>                                                       <C>        <C>
+ Current deferred tax assets:
+  Compensation related costs............................. $  32,772  $  27,873
+  Insurance related costs................................    35,971     33,109
+  Inventory related costs................................    16,257     19,092
+  Other..................................................    18,001     19,844
+                                                          ---------  ---------
+                                                            103,001     99,918
+                                                          ---------  ---------
+ Current deferred tax liabilities:
+  Compensation related costs.............................   (85,913)   (63,691)
+  Lease accounting.......................................    (4,128)    (3,680)
+  Inventory related costs................................   (62,830)   (33,116)
+  Other..................................................    (9,658)    (8,582)
+                                                          ---------  ---------
+                                                           (162,529)  (109,069)
+                                                          ---------  ---------
+ Current deferred taxes, net............................. $ (59,528) $  (9,151)
+                                                          =========  =========
+ Long-term deferred tax assets:
+  Compensation related costs............................. $ 130,825  $ 125,466
+  Insurance related costs................................    37,788     43,492
+  Lease accounting.......................................    25,110     24,214
+  Other..................................................    20,692     15,466
+                                                          ---------  ---------
+                                                            214,415    208,638
+                                                          ---------  ---------
+ Long-term deferred tax liabilities:
+  Depreciation...........................................  (339,951)  (312,546)
+  Compensation related costs.............................   (10,328)   (14,239)
+  Lease accounting.......................................      (740)    (1,863)
+  Deferred charges.......................................    (6,653)    (7,471)
+  Other..................................................   (22,756)   (23,555)
+                                                          ---------  ---------
+                                                           (380,428)  (359,674)
+                                                          ---------  ---------
+ Long-term deferred taxes, net........................... $(166,013) $(151,036)
+                                                          =========  =========
+</TABLE>
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+ 
+DEBT OBLIGATIONS
+ 
+     Long-term debt consists of:
+ 
+<TABLE>
+<CAPTION>
+                                                              1997       1996
+                                                           ---------- ----------
+<S>                                                        <C>        <C>
+Five-Year Credit Agreement...............................  $1,262,058
+Variable Rate Revolving Credit Facility, due 2002........             $1,001,459
+Credit Facility..........................................                110,000
+9 1/4% Senior Secured Debentures, due 2005...............     100,648    107,648
+8 1/2% Senior Secured Debentures, due 2003...............     197,845    200,000
+8.15% Senior Notes due 2006..............................     240,000    240,000
+7.65% Senior Notes due 2007..............................     200,000
+9 3/4% Senior Subordinated Debentures, due 2004..........                 96,008
+9 3/4% Senior Subordinated Debentures, due 2004, Series
+ B.......................................................                 46,050
+9 7/8% Senior Subordinated Debentures, due 2002..........      81,530     83,065
+6 3/4% to 9 5/8% Senior Subordinated Notes, due 1999 to
+ 2009....................................................     171,909    346,064
+10% Senior Subordinated Notes, due 1999..................     123,861    124,703
+10% Mortgage loans, with semi-annual payments due through
+ 2004....................................................     426,219    605,665
+4 9/10% to 8 5/8% Industrial Revenue Bonds, due in vary-
+ ing amounts through 2021................................     201,030    203,785
+7 7/8% to 10 1/4% mortgages, due in varying amounts
+ through 2017............................................     267,368    280,711
+3 1/2% to 10 1/4% notes, due in varying amounts through
+ 2017....................................................      48,287     45,227
+                                                           ---------- ----------
+Total debt...............................................   3,320,755  3,490,385
+Less current portion.....................................      14,304     11,642
+                                                           ---------- ----------
+Total long-term debt.....................................  $3,306,451 $3,478,743
+                                                           ========== ==========
+</TABLE>
+ 
+     The aggregate annual maturities and scheduled payments of long-term debt
+for the five years subsequent to 1997 are:
+ 
+<TABLE>
+<CAPTION>
+        <S>                                                      <C>
+        1998.................................................... $   14,304
+        1999.................................................... $  164,835
+        2000.................................................... $   10,613
+        2001.................................................... $   14,274
+        2002.................................................... $1,430,342
+</TABLE>
+ 
+     The Company has purchased a portion of the debt issued by the lenders of
+certain of its structured financings in an effort to effectively further reduce
+the Company's interest expense. Excluding the debt incurred to make these
+purchases, which are classified as investments, the Company's total debt would
+be $155,141 less or $3,165,614 for 1997 and $152,675 less or $3,337,710 for
+1996.
+ 
+  364-Day Credit Agreement and Five-Year Credit Agreement
+
+     The Company has outstanding a 364-Day Credit Agreement and a Five-Year
+Credit Agreement dated as of May 28, 1997 (collectively the "Credit Agreement").
+The following constitutes only a summary of the principal terms and conditions
+of the Credit Agreement. Reference is directed to the Credit Agreement attached
+as an exhibit to the Company's Current Report on Form 8-K dated June 2, 1997.
+
+     The 364-Day facility is a revolving credit facility in the amount of
+$500,000, that terminates on May 27, 1998, unless extended in accordance with
+its terms. It may be converted into a term loan maturing two years after the
+conversion unless earlier terminated by the Company as provided in the Credit
+Agreement. The Five-Year facility is a revolving credit facility in the amount
+of $1,500,000. It terminates on May 28, 2002, unless extended or earlier
+terminated by the Company as provided in the Credit Agreement.
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+ 
+  Interest Rates
+
+     Borrowings under the Credit Agreement bear interest at the option of the
+Company at a rate equal to either (i) the highest, from time to time, of (A)
+the base rate of Citibank, N.A., (B) 1/2% over a moving average of secondary
+market morning offering rates for three month certificates of deposit adjusted
+for reserve requirements, and (C) 1/2% over the federal funds rate or (ii) an
+adjusted Eurodollar rate based upon the London Interbank Offered Rate
+("Eurodollar Rate") plus an Applicable Margin.
+
+     The Applicable Margin for the 364-Day facility varies from .125% to .200%
+prior to conversion to a term loan facility and thereafter, if exercised by the
+Company, from .175% to .300%. The Applicable Margin for the Five-Year facility
+varies from .105% to .175%. In addition, the Company pays a Facility Fee ranging
+from .050% to .100% on the entire amount of the 364-Day facility and a Facility
+Fee ranging from .070% to .125% on the entire amount of the Five-Year facility.
+Both the Applicable Margin and the Facility Fee vary based on the Company's
+achievement of a financial ratio. As of December 27, 1997, the Applicable Margin
+for the 364-Day facility was .155% and for the Five-Year facility was .135%. The
+Facility Fee for the 364-Day facility was .070% and for the Five-Year facility
+was .090%.
+ 
+  Prepayment
+
+     The Company may prepay the Credit Agreement, in whole or in part, at any
+time, without a prepayment penalty.
+ 
+  Certain Covenants
+
+     The Credit Agreement contains covenants which, among other things, (i)
+restrict dividends; (ii) restrict mergers and consolidations; (iii) restrict
+certain sales of assets; (iv) restrict changes in accounting treatment and
+reporting practices except as permitted under generally accepted accounting
+principles; and (v) require the maintenance of certain financial ratios and
+levels, including fixed charge coverage ratios and leverage ratios.
+ 
+  9 1/4% Senior Secured Debentures
+
+     On January 25, 1993, the Company issued $200,000 of 9 1/4% Senior Secured
+Debentures. This issue was redeemed effective January 2, 1998 at 104.625%.
+ 
+  8 1/2% Senior Secured Debentures
+
+     On July 1, 1993, the Company issued $200,000 of 8 1/2% Senior Secured
+Debentures (the "8 1/2% Senior Secureds"). The 8 1/2% Senior Secureds become
+due on June 15, 2003. The 8 1/2% Senior Secureds are redeemable at any time on
+or after June 15, 1998, in whole or in part at the option of the Company. The
+redemption price commences at 104.250% and is reduced by 1.4165% annually until
+June 15, 2001, when the redemption price is 100%. These debentures were
+originally secured. On April 29, 1996, all collateral was released pursuant to
+the terms of the indenture.
+ 
+
+ Senior Subordinated Indebtedness
+
+     Senior Subordinated Indebtedness consists of the following: (i) $250,000 
+9 7/8% Senior Subordinated Debentures due August 1, 2002, redeemable at any time
+on or after August 1, 1999, in whole or in part at the option of the Company at
+par (the Company has repurchased $168,470 of the 9 7/8% Senior Subordinated
+Debentures in total, $1,535 in 1997); (ii) $355,774 6 3/4% to 9 5/8% Senior
+Subordinated Notes due March 15, 1999 to October 15, 2009, with portions of
+these issues subject to early redemption by the Company at varying times and
+premiums (the Company has repurchased or redeemed $183,865 of the notes in
+total, $174,155 in 1997); (iii) $250,000 10% Senior Subordinated Notes due May
+1, 1999. This issue is not subject to early redemption by the Company (the
+Company has repurchased $126,139 of the 10% Senior Subordinated Notes in total,
+$842 in 1997).
+ 
+  Redemption Event
+
+     Subject to certain conditions (including repayment in full of all
+obligations under the Credit Agreement or obtaining the requisite consents under
+the Credit Agreement), the Company's publicly issued debt will be subject
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+
+
+to redemption, in whole or in part, at the option of the holder upon the
+occurrence of a redemption event, upon not less than five days' notice prior to
+the date of redemption, at a redemption price equal to the default amount, plus
+a specified premium. "Redemption Event" is defined in the indentures as the
+occurrence of (i) any person or group, together with any affiliate thereof,
+beneficially owning 50% or more of the voting power of the Company or (ii) any
+one person or group, or affiliate thereof, succeeding in having a majority of
+its nominees elected to the Company's Board of Directors, in each case, without
+the consent of a majority of the continuing directors of the Company.
+ 
+  Mortgage Financing
+
+     During 1989 the Company completed a $612,475, 10% mortgage financing of 127
+of its retail properties, distribution warehouse facilities, food processing
+facilities and other properties (the "Properties"), with a net book value of
+$325,327 held by 13 newly formed wholly-owned subsidiaries. The wholly-owned
+subsidiaries mortgaged the Properties, which are leased to the Company or
+affiliates of the Company, to a newly formed special purpose corporation,
+Secured Finance Inc.
+
+     The mortgage loans had an original maturity of 15 years. The Properties are
+subject to the liens of Secured Finance Inc. The mortgage loans are subject to
+semi-annual payments of interest and principal on $150,000 of the borrowing
+based on a 30-year payment schedule and interest only on the remaining $462,475
+principal amount. The unpaid principal amount will be due on December 15, 2004.
+
+     During 1997 the Company prepaid 35 mortgages with an original balance of
+$150,347. The mortgage balances at the time of the prepayment totaled $148,315.
+Pursuant to the terms of the mortgages a 20% premium payment was required. The
+premium totaled $29,663 and was applied, on a pro-rata basis, to the 92
+remaining mortgage loans.
+
+     Subsequent to the prepayment the remaining mortgage loans totaled $426,219.
+The remaining mortgage loans are subject to semi-annual payments of interest and
+principal on $99,095 based on the original 30-year payment schedule, adjusted
+for the pre-payment, and interest only on the remaining $327,124 principal
+amount.
+ 
+  Commercial Paper
+
+     Under the Credit Agreement the Company is permitted to issue up to
+$2,000,000 of unrated commercial paper and borrow up to $2,000,000 from the
+lenders under the Credit Agreement on a competitive bid basis. The total of
+unrated commercial paper, $84,000 at December 27, 1997, and competitive bid
+borrowings, $282,000 at December 27, 1997, however, may not exceed $2,000,000.
+All commercial paper and competitive bid borrowings must be supported by
+availability under the Credit Agreement. These borrowings have been classified
+as long-term because the Company expects that during 1998 these borrowings will
+be refinanced using the same type of securities. Additionally, the Company has
+the ability to refinance the short-term borrowings under the Five-Year facility
+of the Credit Agreement which matures May 28, 2002.
+ 
+  Interest Rate Protection Program
+
+     The Company uses derivatives to limit its exposure to rising interest
+rates. The guidelines the Company follows are: (i) use average daily bank
+balance to determine annual debt amounts subject to interest rate exposure, (ii)
+limit the annual amount of debt subject to interest rate reset and the amount of
+floating rate debt to a combined total of $1,000,000 or less, (iii) include no
+leveraged products, and (iv) hedge without regard to profit motive or
+sensitivity to current mark-to-market status. The Company's compliance with
+these guidelines is reviewed semi-annually with the Financial Policy Committee
+of the Company's Board of Directors.
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+
+
+     The table below indicates the types of swaps used, their duration, and
+their respective interest rates. The variable component of each interest rate
+derivative is based on the 6 month LIBOR using the forward yield curve as of
+December 27, 1997.
+ 
+<TABLE>
+<CAPTION>
+                                                            1997        1996
+                                                         ----------  ----------
+<S>                                                      <C>         <C>
+Receive fixed swaps
+ Notional amount........................................ $1,085,000  $1,085,000
+ Duration in years......................................        3.0         4.0
+ Average receive rate...................................       6.33%       6.33%
+ Average pay rate.......................................       5.79%       5.77%
+Receive variable swaps
+ Notional amount........................................ $1,250,000  $1,150,000
+ Duration in years......................................        2.7         3.7
+ Average receive rate...................................       5.83%       5.75%
+ Average pay rate.......................................       6.92%       6.96%
+Interest rate caps
+ Notional amount........................................ $  200,000  $  450,000
+ Duration in years......................................         .9         1.3
+ Average receive rate...................................       5.81%       5.65%
+</TABLE>
+ 
+     In addition, as of December 27, 1997, the Company hedged $200,000 of fixed
+rate debt expected to be issued in 1998 by swapping $100,000 of 7 year variable
+rate debt and $100,000 of 10 year variable rate debt for a 6.75% fixed rate.
+Based on the terms of the agreements the Company expects the hedges to be
+terminated during 1998. Any gain or loss from the hedges will be deferred and
+amortized over the shorter of the life of the fixed rate debt or the terminated
+hedges.
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+
+
+FAIR VALUE OF FINANCIAL INSTRUMENTS
+ 
+     The following methods and assumptions were used to estimate the fair value
+of each class of financial instruments for which it is practicable to estimate
+that value:
+ 
+  Long-term Investments
+
+     The fair values of these investments are estimated based on quoted market
+prices for those or similar investments.
+ 
+  Long-term Debt
+
+     The fair value of the Company's long-term debt, including the current
+portion thereof, is estimated based on the quoted market price for the same or
+similar issues.
+ 
+  Interest Rate Protection Agreements
+
+     The fair value of these agreements is based on the net present value of the
+future cash flows using the forward interest rate yield curve in effect at the
+respective years-end. If the swaps and caps were cancelled as of the respective
+years-end the result would have been a net cash outflow for 1997 and 1996. The
+swaps and caps are linked to the Company's debt portfolio. (See Accounting
+Policies and Debt Obligations footnotes.)
+
+     The estimated fair values of the Company's financial instruments are as
+follows:
+ 
+<TABLE>
+<CAPTION>
+                                         1997                   1996
+                                 ---------------------  ---------------------
+                                            ESTIMATED              ESTIMATED
+                                  CARRYING     FAIR      CARRYING     FAIR
+                                   VALUE      VALUE       VALUE      VALUE
+                                 ---------- ----------  ---------- ----------
+<S>                              <C>        <C>         <C>        <C>
+Long-term investments for which
+ it is
+ Practicable.................... $  167,609 $  168,512  $  154,748 $  154,645
+ Not Practicable................ $   33,605 $      --   $   31,576 $      --
+Long-term debt for which it is
+ Practicable.................... $1,542,012 $1,674,983  $1,849,203 $1,980,925
+ Not Practicable................ $1,778,743 $      --   $1,641,182 $      --
+Interest Rate Protection Agree-
+ ments
+ Receive fixed swaps............ $      --  $   11,307  $      --  $    4,900
+ Receive variable swaps......... $      --  $  (42,016) $      --  $  (37,311)
+ Interest rate caps............. $    1,130 $      434  $    3,854 $    2,807
+                                 ---------- ----------  ---------- ----------
+                                 $    1,130 $  (30,275) $    3,854 $  (29,604)
+                                 ========== ==========  ========== ==========
+</TABLE>
+ 
+     The investments for which it was not practicable to estimate fair value
+relate to equity investments accounted for under the equity method and
+investments in real estate development partnerships for which there is no
+market.
+
+     It was not practicable to estimate the fair value of $1,262,058 of long-
+term debt outstanding under the Company's Credit Agreement. There is no liquid
+market for this debt. The remaining long-term debt that it was not practicable
+to estimate relates to Industrial Revenue Bonds of $201,030, various mortgages
+of $267,368, and other notes of $48,287 for which there is no market.
+ 
+LEASES
+  
+     The Company operates primarily in leased facilities. Lease terms generally
+range from 10 to 25 years with options to renew at varying terms. Certain of
+the leases provide for contingent payments based on a percent of sales.
+Rent expense (under operating leases) consists of:
+ 
+<TABLE>
+<CAPTION>
+                                                        1997     1996     1995
+                                                      -------- -------- --------
+<S>                                                   <C>      <C>      <C>
+Minimum rentals...................................... $321,782 $291,256 $288,961
+Contingent payments..................................    9,230   10,373   10,867
+                                                      -------- -------- --------
+                                                      $331,012 $301,629 $299,828
+                                                      ======== ======== ========
+</TABLE>
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+
+
+     Assets recorded under capital leases consists of:
+ 
+<TABLE>
+<CAPTION>
+                                                              1997      1996
+                                                            --------  ---------
+<S>                                                         <C>       <C>
+Distribution and manufacturing facilities.................. $ 30,382  $  30,381
+Store facilities...........................................  242,529    233,017
+Less accumulated amortization.............................. (123,891)  (118,589)
+                                                            --------  ---------
+                                                            $149,020  $ 144,809
+                                                            ========  =========
+</TABLE>
+ 
+     Minimum annual rentals for the five years subsequent to 1997 and in the
+aggregate are:
+ 
+<TABLE>
+<CAPTION>
+                                                            CAPITAL  OPERATING
+                                                             LEASES    LEASES
+                                                            -------- ----------
+<S>                                                         <C>      <C>
+1998....................................................... $ 33,201 $  311,199
+1999.......................................................   32,912    289,903
+2000.......................................................   31,968    266,225
+2001.......................................................   30,909    246,497
+2002.......................................................   29,848    230,057
+Thereafter.................................................  259,263  1,985,448
+                                                            -------- ----------
+                                                             418,101 $3,329,329
+                                                                     ==========
+Less estimated executory costs included in capital leases..   18,484
+                                                            --------
+Net minimum lease payments under capital leases............  399,617
+Less amount representing interest..........................  202,962
+                                                            --------
+Present value of net minimum lease payments under capital
+ leases.................................................... $196,655
+                                                            ========
+</TABLE>
+ 
+EXTRAORDINARY LOSS
+ 
+     The extraordinary loss in 1997, 1996, and 1995 relates to premiums paid to
+retire certain indebtedness early and the write-off of related deferred
+financing costs.
+ 
+EARNINGS PER COMMON SHARE
+ 
+     Basic earnings per common share equals net earnings divided by the weighted
+average number of common shares outstanding. Diluted earnings per common share
+equals net earnings divided by the weighted average number of common shares
+outstanding after giving effect to dilutive stock options. Diluted earnings per
+common share for 1995 is computed by adjusting both earnings before
+extraordinary loss and shares outstanding as if the September 1995 conversion
+of the 6 3/8% Convertible Junior Subordinated Notes occurred on the first day
+of the year.
+
+     Earnings per share calculations have been made in compliance with Statement
+of Financial Accounting Standards No. 128, "Earnings Per Share" ("SFAS 128").
+SFAS 128 became effective for fourth quarter 1997 calculations. Prior year
+calculations have been restated to reflect the adoption of SFAS 128.
+
+     On March 20, 1997, the Company's Board of Directors declared a 2-for-1
+stock split to shareholders of record at the close of business on April 7, 1997.
+All share amounts prior to this date have been restated to reflect this stock
+split.
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+
+     The following table provides a reconciliation of earnings before
+extraordinary loss and shares used in calculating basic earnings per share to
+those used in calculating diluted earnings per share.
+ 
+<TABLE>
+<CAPTION>
+                             FOR THE YEAR ENDED       FOR THE YEAR ENDED       FOR THE YEAR ENDED
+                             DECEMBER 27, 1997        DECEMBER 28, 1996        DECEMBER 30, 1995
+                          ------------------------ ------------------------ ------------------------
+                           INCOME   SHARES   PER-   INCOME   SHARES   PER-   INCOME   SHARES   PER-
+                          (NUMER-  (DENOMI- SHARE  (NUMER-  (DENOMI- SHARE  (NUMER-  (DENOMI- SHARE
+                           ATOR)    NATOR)  AMOUNT  ATOR)    NATOR)  AMOUNT  ATOR)    NATOR)  AMOUNT
+                          -------- -------- ------ -------- -------- ------ -------- -------- ------
+<S>                       <C>      <C>      <C>    <C>      <C>      <C>    <C>      <C>      <C>
+Basic EPS
+- ---------
+Earnings before extraor-
+ dinary loss............  $444,032 254,284  $1.75  $352,735 250,979  $1.41  $318,866 231,468  $1.38
+                                            =====                    =====                    =====
+Effect of Dilutive Secu-
+ rities
+- ------------------------
+ Stock option awards....             8,576                    7,858                    6,258
+ Convertible debenture..                                                       3,590  13,990
+
+Diluted EPS
+- -----------
+ Income available to
+  shareholders plus       -------- -------         -------- -------         -------- -------
+  assumed conversions...  $444,032 262,860  $1.69  $352,735 258,837  $1.36  $322,456 251,716  $1.28 
+                          ======== =======  =====  ======== =======  =====  ======== =======  =====
+</TABLE>
+ 
+PREFERRED STOCK
+ 
+     The Company has authorized 5,000,000 shares of voting cumulative preferred
+stock; 2,000,000 were available for issuance at December 27, 1997. The stock
+has a par value of $100 and is issuable in series.
+ 
+COMMON STOCK
+ 
+     The Company has authorized 350,000,000 shares of $1 par common stock. The
+main trading market for the Company's common stock is the New York Stock
+Exchange, where it is listed under the symbol KR. For the three years ended
+December 27, 1997, changes in common stock were:
+ 
+<TABLE>
+<CAPTION>
+                                             ISSUED            IN TREASURY
+                                      -------------------- --------------------
+                                        SHARES     AMOUNT    SHARES     AMOUNT
+                                      -----------------------------------------
+<S>                                   <C>         <C>      <C>         <C>
+December 31, 1994...................  241,146,296 $338,568 19,152,462  $243,516
+Exercise of stock options including
+ restricted stock grants............    5,013,334   40,017     16,240       272
+Shares issued on conversion of Con-
+ vertible Junior Subordinated Notes.   21,396,212  196,451    (16,802)     (157)
+Tax benefit from exercise of non-
+ qualified stock options............                11,505
+                                      ----------- -------- ----------  --------
+December 30, 1995...................  267,555,842  586,541 19,151,900   243,631
+Exercise of stock options including
+ restricted stock grants............    5,367,200   50,091     11,812       255
+Tax benefit from exercise of non-
+ qualified stock options............                21,598
+                                      ----------- -------- ----------  --------
+December 28, 1996...................  272,923,042  658,230 19,163,712   243,886
+Exercise of stock options including
+ restricted stock grants............    4,230,218   43,693       (605)      280
+Open market purchases...............                        3,019,543    84,932
+Tax benefit from exercise of non-
+ qualified stock options............                26,721
+                                      ----------- -------- ----------  --------
+December 27, 1997...................  277,153,260 $728,644 22,182,650  $329,098
+                                      =========== ======== ==========  ========
+</TABLE>
+<PAGE>
+ 
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+ 
+
+STOCK OPTION PLANS
+ 
+     The Company grants options for common stock to employees under various
+plans, as well as to its non-employee directors owning a minimum of 1,000 shares
+of common stock of the Company, at an option price equal to the fair market
+value of the stock at the date of grant. In addition to cash payments, the plans
+provide for the exercise of options by exchanging issued shares of stock of the
+Company. At December 27, 1997, 7,997,891 shares of common stock were available
+for future options. Options generally will expire 10 years from the date of
+grant. Options vest in one year to five years or, for 511,000 shares, upon the
+Company's stock reaching certain pre-determined market prices. All grants
+outstanding become immediately exercisable upon certain changes of control of
+the Company.
+
+     Changes in options outstanding under the stock option plans, excluding
+restricted stock grants, were:
+ 
+<TABLE>
+<CAPTION>
+                                                                WEIGHTED AVERAGE
+                                                 SHARES SUBJECT   OF EXERCISE
+                                                   TO OPTION    PRICE OF OPTIONS
+                                                 -------------------------------
+<S>                                              <C>            <C>
+Outstanding, December 31, 1994..................   24,611,764       $  8.72
+Granted.........................................    5,549,300       $ 12.85
+Exercised.......................................   (4,678,780)      $  8.45
+Cancelled or expired............................     (155,230)      $  7.09
+                                                   ----------
+Outstanding, December 30, 1995..................   25,327,054       $  9.68
+Granted.........................................    5,687,020       $ 20.71
+Exercised.......................................   (5,339,416)      $  9.04
+Cancelled or expired............................     (183,518)      $ 16.12
+                                                   ----------
+Outstanding, December 28, 1996..................   25,491,140       $ 12.23
+Granted.........................................    3,110,560       $ 26.67
+Exercised.......................................   (4,229,352)      $  9.89
+Cancelled or expired............................     (210,670)      $ 12.53
+                                                   ----------
+Outstanding, December 27, 1997..................   24,161,678       $ 14.50
+                                                   ==========
+</TABLE>
+
+     The Company applies Accounting Principles Board Opinion No. 25 "Accounting
+for Stock Issued to Employees," and related interpretations in accounting for
+its plans. Accordingly, no compensation expense has been recognized for its
+stock-based compensation plans other than for restricted stock awards. Had
+compensation cost for the Company's stock option plans been determined based
+upon the fair value at the grant date for awards under these plans consistent
+with the methodology prescribed under Statement of Financial Accounting
+Standards No. 123, "Accounting for Stock-Based Compensation," the Company's net
+income and diluted net earnings per share would have been reduced by
+approximately $13,616, or $.05 per share, $12,800, or $.05 per share and $5,200
+or $.04 per share, for 1997, 1996 and 1995, respectively. The weighted average
+fair value of the options granted during 1997, 1996, and 1995 was estimated as
+$10.82, $5.89 and $3.96, respectively, on the date of grant using the Black-
+Scholes option-pricing model with the following weighted average assumptions:
+volatility of 24.0%, 22.7% and 26.6% for 1997, 1996 and 1995, respectively; 
+risk-free interest rate of 5.7%, 6.3% and 6.4% for 1997, 1996 and 1995,
+respectively; and an expected term of approximately 5.4 years for 1997 and 3.3
+years for both 1996 and 1995. A summary of options outstanding and exercisable
+at December 27, 1997 follows:
+ 
+<TABLE>
+<CAPTION>
+                       OPTIONS OUTSTANDING            OPTIONS EXERCISABLE
+               ------------------------------------ ------------------------
+                               WEIGHTED-
+                                AVERAGE   WEIGHTED-                WEIGHTED-
+  RANGE OF         NUMBER      REMAINING   AVERAGE     OPTIONS      AVERAGE
+  EXERCISE      OUTSTANDING   CONTRACTUAL EXERCISE   EXERCISABLE   EXERCISE
+    PRICE      AS OF 12/27/97    LIFE       PRICE   AS OF 12/27/97   PRICE
+- ---------------------------------------------------------------------------
+<S>            <C>            <C>         <C>       <C>            <C>
+$ 2.46-$ 7.85     4,244,086      3.06      $ 6.41      4,244,086    $ 6.41
+$ 8.10-$10.57     2,669,430      4.42        9.34      2,669,430      9.34
+$11.69-$11.69     3,096,529      6.39       11.69      3,096,529     11.69
+$11.72-$12.66     2,130,366      3.48       11.74      2,130,366     11.74
+$12.75-$20.41     4,188,380      7.31       12.75      3,340,949     12.75
+$20.75-$26.13     4,848,391      8.30       20.75      2,637,430     20.75
+$26.88-$36.47     2,984,496      9.39       26.99          8,875     26.88
+                 ----------                           ----------
+                 24,161,678                           18,127,665
+                 ==========                           ==========
+</TABLE>
+<PAGE>
+
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+
+ 
+     At December 28, 1996 and December 30, 1995, options for 16,906,890 shares
+and 17,738,446 shares, respectively, were exercisable at a weighted average
+exercise price of $9.44 and $8.52, respectively.
+
+     Also, the Company may grant restricted stock awards to eligible employee
+participants. In general, a restricted stock award entitles an employee to
+receive a stated number of shares of common stock of the Company subject to
+forfeiture if the employee fails to remain in the continuous employ of the
+Company for a stipulated period. The holder of an award is entitled to the
+rights of a shareowner except that the restricted shares and the related rights
+to vote or receive dividends may not be transferred. The award is charged to
+earnings over the period in which the employee performs services and is based
+upon the market value of common stock at the date of grant for those grants
+without performance contingencies. As of December 27, 1997 and December 28,
+1996, awards related to 354,850 and 357,804 shares, respectively, were
+outstanding. Of the awards outstanding at December 27, 1997 and December 28,
+1996, 200,000 shares are contingent on the attainment of certain performance
+objectives. The charge to earnings for grants with performance-contingent
+vesting includes share appreciation between the grant date and the vesting
+date.
+
+     Incentive shares may be granted under the 1994 plan, which consist of
+shares of common stock issued subject to achievement of performance goals. No
+incentive shares were outstanding as of December 27, 1997 and December 28, 1996.
+ 
+CONTINGENCIES
+ 
+     The Company continuously evaluates contingencies based upon the best
+available evidence.
+
+     Management believes that allowances for loss have been provided to the
+extent necessary and that its assessment of contingencies is reasonable. To the
+extent that resolution of contingencies results in amounts that vary from
+management's estimates, future earnings will be charged or credited. 
+
+     The principal contingencies are described below:
+ 
+     Income Taxes--The Company has closed all tax years through 1983 with the
+Internal Revenue Service. The Internal Revenue Service has completed its
+examination of the Company's tax returns for tax years 1984-1992. With one
+exception, all issues have been resolved for tax years 1984-1989. A second
+issue remains unresolved for tax years 1990-1992. Efforts to resolve the issue
+for tax years 1984-1986 with the Appeals Division of the Internal Revenue
+Service were unsuccessful. As a result the Company filed a petition with the
+United States Tax Court in Washington, D.C. Litigation was completed in
+November 1995 and a decision was rendered in January 1997 in favor of the
+Company. The Commissioner of Internal Revenue has appealed this case to the
+United States Court of Appeals for the Sixth Circuit. The issue before the
+court is being held in abeyance for tax years 1987-1992 pending the ultimate
+outcome of this appeal. The other issue for tax years 1990-1992 is being
+temporarily held in abeyance by the Internal Revenue Service. The Company has
+provided for this and other tax contingencies.
+ 
+     Insurance--The Company's workers' compensation risks are self-insured in
+certain states. In addition, other workers' compensation risks and certain
+levels of insured general liability risks are based on retrospective premium
+plans, deductible plans, and self-insured retention plans. The liability for
+workers' compensation risks is accounted for on a present value basis. Actual
+claim settlements and expenses incident thereto may differ from the provisions
+for loss. Property risks have been underwritten by a subsidiary and are
+reinsured with unrelated insurance companies. Operating divisions and
+subsidiaries have paid premiums, and the insurance subsidiary has provided loss
+allowances, based upon actuarially determined estimates.
+ 
+     Litigation--The Company is involved in various legal actions arising in the
+normal course of business. Management is of the opinion that their outcome will
+not have a material adverse effect on the Company's financial position or
+results of operations.
+<PAGE>
+
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+
+ 
+WARRANT DIVIDEND PLAN
+ 
+     On February 28, 1986, the Company adopted a warrant dividend plan providing
+for preferred stock purchase rights to owners of the Company's common stock. The
+Plan was amended and restated as of April 4, 1997. Each right, when exercisable,
+entitles the holder to purchase from the Company one ten-thousandth of a share
+of Series A Preferred Shares, par value $100 per share, at $87.50 per one ten-
+thousandth of a share. The rights will become exercisable, and separately
+tradeable, ten days after a person or group acquires 10% or more of the
+Company's common stock or ten business days following a tender offer or exchange
+offer resulting in a person or group having beneficial ownership of 10% or more
+of the Company's common stock. In the event the rights become exercisable and
+thereafter the Company is acquired in a merger or other business combination,
+each right will entitle the holder to purchase common stock of the surviving
+corporation, for the exercise price, having a market value of twice the exercise
+price of the right. Under certain other circumstances, including certain
+acquisitions of the Company in a merger or other business combination
+transaction, or if 50% or more of the Company's assets or earning power are sold
+under certain circumstances, each right will entitle the holder to receive upon
+payment of the exercise price, shares of common stock of the acquiring company
+with a market value of two times the exercise price. At the Company's option,
+the rights, prior to becoming exercisable, are redeemable in their entirety at a
+price of $.01 per right. The rights are subject to adjustment and expire March
+19, 2006. This summary description of the Plan is qualified in its entirety by
+the terms of the plan more particularly set forth in the Company's Form 8-A/A
+dated April 4, 1997.
+ 
+PENSION PLANS
+ 
+     The Company administers non-contributory defined benefit retirement plans
+for substantially all non-union employees. Funding for the pension plans is
+based on a review of the specific requirements and on evaluation of the assets
+and liabilities of each plan. Employees are eligible to participate upon the
+attainment of age 21 (25 for participants prior to January 1, 1986) and the
+completion of one year of service, and benefits are based upon final average
+salary and years of service. Vesting is based upon years of service.
+
+     The Company-administered pension benefit obligations and the assets were
+valued as of the end of 1997 and 1996. Substantially all plan assets are
+invested in cash and short-term investments or listed stocks and bonds,
+including $135,274 and $94,229 of common stock of The Kroger Co. at the end of
+1997 and 1996, respectively. The status of the plans at the end of 1997 and 1996
+was:
+ 
+<TABLE>
+<CAPTION>
+                                                                1997      1996
+                                                             -------------------
+<S>                                                          <C>        <C>
+Actuarial present value of benefit obligations:
+ Vested employees........................................... $  768,261 $686,203
+ Non-vested employees.......................................     50,499   40,837
+                                                             ---------- --------
+ Accumulated benefit obligations............................    818,760  727,040
+ Additional amounts related to projected salary increases...    124,696  147,057
+                                                             ---------- --------
+ Projected benefit obligations..............................    943,456  874,097
+Plan assets at fair value...................................  1,095,118  947,725
+                                                             ---------- --------
+Plan assets in excess of projected benefit obligations...... $  151,662 $ 73,628
+                                                             ========== ========
+Consisting of:
+ Unamortized transitional asset............................. $    5,914 $ 14,456
+ Unamortized prior service cost and net gain................    132,369   40,860
+ Adjustment required to recognize minimum liability.........     12,398   13,619
+ Prepaid pension cost in Consolidated Balance Sheet.........        981    4,693
+                                                             ---------- --------
+                                                             $  151,662 $ 73,628
+                                                             ========== ========
+</TABLE>
+<PAGE>
+
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+
+ 
+     The components of net periodic pension expense (income) for 1997, 1996 and
+1995 are as follows:
+ 
+<TABLE>
+<CAPTION>
+                                                 1997       1996       1995
+<S>                                            <C>        <C>        <C>
+                                               -------------------------------
+Service cost.................................. $  26,682  $  25,977  $  20,249
+Interest cost.................................    67,701     61,090     57,218
+Return on assets..............................  (191,755)  (110,819)  (211,942)
+Net amortization and deferral.................   105,055     28,785    131,360
+                                               ---------  ---------  ---------
+Net periodic pension expense (income) for the
+ year......................................... $   7,683  $   5,033  $  (3,115)
+                                               =========  =========  =========
+Assumptions:
+ Discount rate................................      7.25%      7.75%      7.25%
+ Salary Progression rate......................      3.75%      4.75%      4.25%
+ Long-term rate of return on plan assets......       9.5%       9.5%       9.5%
+</TABLE>
+ 
+     1997 and 1996 assumptions represent the rates in effect at the end of the
+fiscal year. These rates were used to calculate the actuarial present value of
+the benefit obligations at December 27, 1997 and December 28, 1996,
+respectively. However, for the calculation of periodic pension expense for 1997
+and 1996 the assumptions in the table above for 1996 and 1995, respectively,
+were used. The 1998 calculation of periodic pension expense will be based on
+the assumptions in the table above for 1997.
+
+     The Company also administers certain defined contribution plans for
+eligible union and non-union employees. The cost of these plans for 1997, 1996
+and 1995 was $22,445, $21,278 and $24,902, respectively.
+
+     The Company participates in various multi-employer plans for substantially
+all union employees. Benefits are generally based on a fixed amount for each
+year of service. Contributions and expense for 1997, 1996 and 1995 were $83,506,
+$88,758 and $90,872, respectively. Information on the actuarial present value of
+accumulated plan benefits and net assets available for benefits relating to the
+multi-employer plans is not available.
+ 
+POSTRETIREMENT HEALTH CARE AND LIFE INSURANCE BENEFITS
+  
+     In addition to providing pension benefits, the Company provides certain
+health care and life insurance benefits for retired employees. The majority of
+the Company's employees may become eligible for these benefits if they reach
+normal retirement age while employed by the Company. Funding of retiree health
+care and life insurance benefits occurs as claims or premiums are paid. For
+1997, 1996, and 1995, the combined payments for these benefits were $13,304,
+$10,634 and $10,025, respectively.
+
+     The following table sets forth the postretirement benefit plans combined
+status at December 27, 1997 and December 28, 1996:
+ 
+<TABLE>
+<CAPTION>
+                                                                1997     1996
+                                                              -------- --------
+<S>                                                           <C>      <C>
+Accumulated postretirement benefit obligation (APBO)
+ Retirees.................................................... $105,678 $ 96,262
+ Fully eligible active participants..........................   40,542   53,387
+ Other active participants...................................   84,522  103,523
+                                                              -------- --------
+                                                               230,742  253,172
+ Unrecognized net gain.......................................   75,389   59,762
+                                                              -------- --------
+ Accrued postretirement benefit cost......................... $306,131 $312,934
+                                                              ======== ========
+</TABLE>
+ 
+     The components of net periodic postretirement benefit costs are as follows:
+ 
+<TABLE>
+<CAPTION>
+                                                       1997     1996     1995
+                                                      -------  -------  -------
+<S>                                                   <C>      <C>      <C>
+Service costs (benefits attributed to employee serv-
+ ices during the year)..............................  $ 9,463  $ 9,557  $ 9,344
+Interest cost on accumulated postretirement benefit
+ obligations........................................   19,608   18,006   20,662
+Net amortization and deferral.......................   (2,586)    (991)    (725)
+                                                      -------  -------  -------
+                                                      $26,485  $26,572  $29,281
+                                                      =======  =======  =======
+</TABLE>
+<PAGE>
+
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED
+
+ 
+     The significant assumptions used in calculating the APBO are as follows:
+ 
+<TABLE>
+<CAPTION>
+                                                        HEALTH CARE TREND RATE
+                                                       -------------------------
+                                              DISCOUNT                  YEARS TO
+                                                RATE   INITIAL ULTIMATE ULTIMATE
+                                              -------- ------- -------- --------
+<S>                                           <C>      <C>     <C>      <C>
+Year-end 1995................................  7.25%    10.0%    5.0%       7
+Year-end 1996................................  7.75%     9.3%    5.0%       6
+Year-end 1997................................  7.25%     5.0%    5.0%     N/A
+</TABLE>
+ 
+     The effect of a one percent increase in the medical trend rate is as
+follows:
+ 
+<TABLE>
+<CAPTION>
+                                                                PERIODIC
+                                                                  COST    APBO
+                                                               -----------------
+<S>                                                             <C>      <C>
+Year-end 1995..................................................  $4,037  $32,209
+Year-end 1996..................................................  $4,114  $23,942
+Year-end 1997..................................................  $2,734  $20,464
+</TABLE>
+ 
+ 
+RECENTLY ISSUED ACCOUNTING STANDARDS
+ 
+     In June 1997, the Financial Accounting Standards Board issued Statement of
+Financial Accounting Standards No. 130 "Reporting Comprehensive Income," and
+No. 131 "Disclosure about Segments of an Enterprise and Related Information".
+The Company has not yet determined what effect, if any, these statements will
+have.
+ 
+QUARTERLY DATA (UNAUDITED)
+ 
+<TABLE>
+<CAPTION>
+                                            QUARTER
+                          ----------------------------------------------     TOTAL
+                            FIRST       SECOND      THIRD       FOURTH       YEAR
+1997                      (12 WEEKS)  (12 WEEKS)  (16 WEEKS)  (12 WEEKS)  (52 WEEKS)
+- -------------------------------------------------------------------------------------
+<S>                       <C>         <C>         <C>         <C>         <C>
+Sales...................  $6,139,413  $6,231,794  $7,686,639  $6,509,502  $26,567,348
+Merchandise costs.......   4,626,389   4,682,365   5,789,948   4,897,679   19,996,381
+Extraordinary loss......      (5,210)     (3,033)       (803)    (23,330)     (32,376)
+Net earnings............      87,050     105,104      95,727     123,775      411,656
+Basic earnings per com-
+ mon share:
+  Earnings before ex-
+   traordinary loss ....         .36         .43         .38         .58         1.75
+  Extraordinary loss....        (.02)       (.01)                   (.09)        (.13)
+                                ----        ----        ----        ----         ----
+Basic net earnings per
+ common share...........         .34         .42         .38         .49         1.62
+Diluted earnings per
+ common share:
+  Earnings before ex-
+   traordinary loss ....         .35         .41         .37         .56         1.69
+  Extraordinary loss....        (.02)       (.01)                   (.09)        (.12)
+                                ----        ----         ---        ----         ----
+Diluted net earnings per
+ common share...........         .33         .40         .37         .47         1.57
+
+1996
+- -------------------------------------------------------------------------------------
+Sales...................  $5,784,254  $5,844,366  $7,343,132  $6,199,157  $25,170,909
+Merchandise costs.......   4,367,967   4,412,202   5,582,032   4,679,264   19,041,465
+Extraordinary loss......      (1,084)       (766)       (928)        (84)      (2,862)
+Net earnings............      75,406      77,612      71,420     125,435      349,873
+Basic earnings per com-
+ mon share:
+  Earnings before ex-
+   traordinary loss ....         .31         .31         .29         .50         1.41
+  Extraordinary loss....                                (.01)                    (.01)
+                                ----        ----        ----        ----         ----
+Basic net earnings per
+ common share...........         .31         .31         .28         .50         1.40
+Diluted earnings per
+ common share:
+  Earnings before ex-
+   traordinary loss ....         .30         .30         .28         .48         1.36
+  Extraordinary loss....                                                         (.01)
+                                ----        ----        ----        ----         ----
+Diluted net earnings per
+ common share...........         .30         .30         .28         .48         1.35
+</TABLE>
+<PAGE>
+
+NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONCLUDED
+
+ 
+  Common Stock Price Range
+ 
+<TABLE>
+<CAPTION>
+                                   1997               1996
+                             ----------------- ------------------
+                QUARTER       HIGH      LOW       HIGH     LOW
+            -----------------------------------------------------
+            <S>              <C>      <C>       <C>       <C>
+            1st............. 28 1/8   22 11/16  19 13/16  16 3/4
+            2nd............. 29 1/8   23 13/16  22        18 3/4
+            3rd............. 31 1/16  27 1/8    22 1/2    18 9/16
+            4th............. 37 5/16  28 1/2    23 3/4    20 3/8
+</TABLE>
+ 
+     The number of shareowners of record of common stock as of March 9, 1998,
+was 46,973.
+ 
+     Under the Company's Credit Agreement dated May 28, 1997, the Company is
+prohibited from paying cash dividends during the term of the Credit Agreement.
+The Company is permitted to pay dividends in the form of stock of the Company.
+<PAGE>
+ 
+ITEM 9.  CHANGES IN AND DISAGREEMENTS WITH ACCOUNTANTS ON ACCOUNTING AND
+         FINANCIAL DISCLOSURE
+
+None.
+
+                                   PART III
+
+ITEM 10.  DIRECTORS AND EXECUTIVE OFFICERS OF THE REGISTRANT
+
+The information required by this item concerning directors is set forth in Item
+No. 1, Election of Directors, of the definitive proxy statement to be filed by
+the Company with the Securities and Exchange Commission and is hereby
+incorporated by reference into this Form 10-K.
+
+            SECTION 16(a) BENEFICIAL OWNERSHIP REPORTING COMPLIANCE
+
+Based solely on its review of the copies of all Section 16(a) forms received by
+the Company, or written representations from certain persons that no Forms 5
+were required for those persons, the Company believes that during fiscal year
+1997 all filing requirements applicable to its officers, directors and ten
+percent beneficial owners were satisfied except that Mr. Ronald R. Rice
+inadvertently filed an amended Form 5, reporting a gift of 600 shares by a trust
+under which he is a trustee and a beneficiary, 24 days late.
+
+                       EXECUTIVE OFFICERS OF THE COMPANY
+
+The following is a list of the names and ages of the executive officers and the
+positions held by each such person as of February 6, 1998.  Except as otherwise
+noted below, each person has held office for at least five years and was elected
+to that office at the 1997 Organizational Meeting of the Board of Directors held
+May 15, 1997.  Each officer will hold office at the discretion of the Board for
+the ensuing year until removed or replaced.
+<TABLE> 
+<CAPTION> 
+                                                Recent
+Name                 Age                  Employment History
+- ----                 ---                  ------------------
+<S>                  <C>      <C> 
+Warren F. Bryant      52      Mr. Bryant was elected President and Chief
+                              Executive Officer of Dillon Companies, Inc.
+                              effective September 1, 1996. Prior to this he was
+                              elected President and Chief Operating Officer of
+                              Dillon Companies, Inc. on June 18, 1995, Senior
+                              Vice President of Dillon Companies, Inc. on May 1,
+                              1993, and Vice President of Dillon Companies, Inc.
+                              on March 1, 1990. Before this Mr. Bryant served as
+                              Vice President of Marketing, Dillon Stores
+                              Division, from June 1988 until March 1990, and in
+                              a number of key management positions with the
+                              Company, including Director of Merchandising for
+                              the Mid-Atlantic Marketing Area and Director of
+                              Operations for the Charleston, West Virginia
+                              division of the Mid-Atlantic Marketing Area. He
+                              joined the Company in 1964.
+
+David B. Dillon       46      Mr. Dillon was elected President and Chief
+                              Operating Officer of Kroger effective June 18,
+                              1995. Prior to this he was elected Executive Vice
+                              President on September 13, 1990, Chairman of the
+                              Board of Dillon Companies, Inc. on September 8,
+                              1992, and President of Dillon Companies, Inc. on
+                              April 22, 1986. Before his election he was
+                              appointed President of Dillon Companies, Inc.
+</TABLE> 
+<PAGE>
+ 
+Paul W. Heldman       46      Mr. Heldman was elected Senior Vice President
+                              effective October 5, 1997, Secretary on May 21,
+                              1992, and Vice President and General Counsel
+                              effective June 18, 1989. Prior to his election he
+                              held various positions in the Company's Law
+                              Department. Mr. Heldman joined the Company in
+                              1982.
+
+Michael S. Heschel    56      Mr. Heschel was elected Executive Vice President
+                              effective June 18, 1995. Prior to this he was
+                              elected Senior Vice President - Information
+                              Systems and Services on February 10, 1994, and
+                              Group Vice President - Management Information
+                              Services on July 18, 1991. Before this Mr. Heschel
+                              served as Chairman and Chief Executive Officer of
+                              Security Pacific Automation Company. From 1985 to
+                              1990 he was Vice President of Baxter
+                              International, Inc.
+
+Lynn Marmer           45      Ms. Marmer was elected Group Vice President
+                              effective January 19, 1998. Prior to her election,
+                              Ms. Marmer was an attorney in the Company's Law
+                              Department. Ms. Marmer joined the Company in 1997.
+                              Before joining the Company she was a partner in
+                              the law firm of Dinsmore & Shohl.
+
+Don W. McGeorge       43      Mr. McGeorge was elected Senior Vice President
+                              effective August 10, 1997. Prior to his election,
+                              Mr. McGeorge was President of the Company's
+                              Columbus Marketing Area effective December 29,
+                              1996; and prior thereto President of the Company's
+                              Michigan Marketing Area effective June 20, 1993.
+                              Before this he served in a number of key
+                              management positions with the Company, including
+                              Vice President of Merchandising of the Company's
+                              Nashville Marketing Area. Mr. McGeorge joined the
+                              Company in 1977.
+
+W. Rodney McMullen    37      Mr. McMullen was elected Senior Vice President
+                              effective October 5, 1997, Group Vice President
+                              and Chief Financial Officer effective June 18,
+                              1995. Prior to this he was appointed Vice
+                              President-Control and Financial Services on March
+                              4, 1993, and Vice President, Planning and Capital
+                              Management effective December 31, 1989. Mr.
+                              McMullen joined the Company in 1978 as a part-time
+                              stock clerk.
+
+Joseph A. Pichler     58      Mr. Pichler was elected Chairman of the Board on
+                              September 13, 1990, and Chief Executive Officer
+                              effective June 17, 1990. Prior to this he was
+                              elected President and Chief Operating Officer on
+                              October 24, 1986, and Executive Vice President on
+                              July 16, 1985. Mr. Pichler joined Dillon
+                              Companies, Inc. in 1980 as Executive Vice
+                              President and was elected President of Dillon
+                              Companies, Inc. in 1982.
+
+Ronald R. Rice        62      Mr. Rice was elected Senior Vice President on
+                              April 21, 1994. Prior to this he was elected Group
+                              Vice President and appointed President,
+                              Manufacturing on April 16, 1992. Mr. Rice has been
+                              with the Company since 1957 and before his
+                              election was appointed President - Dairy/Bakery
+                              Division in 1991, Vice President - Dairy/ Bakery
+                              Division in 1986, and Vice President - Dairy
+                              Division in 1974.
+
+James R. Thorne       51      Mr. Thorne was elected Senior Vice President
+                              effective June 18, 1995. Prior to his election Mr.
+                              Thorne was appointed
+<PAGE>
+ 
+                              President of the Company's Mid-Atlantic Marketing
+                              Area in 1993. Before this Mr. Thorne served in a
+                              number of key management positions in the Mid-
+                              Atlantic Marketing Area, including Advertising
+                              Manager, Zone Manager, Director of Operations, and
+                              Vice President-Merchandising. Mr. Thorne joined
+                              the Company in 1966 as a part-time grocery clerk.
+
+Lawrence M. Turner    50      Mr. Turner was elected Vice President on December
+                              5, 1986. He was elected Treasurer on December 2,
+                              1984. Mr. Turner has been with the Company since
+                              1974.
+
+ITEM 11.  EXECUTIVE COMPENSATION
+
+The information required by this item is set forth in the section entitled
+Compensation of Executive Officers in the definitive proxy statement to be filed
+by the Company with the Securities and Exchange Commission and is hereby
+incorporated by reference into this Form 10-K.
+
+ITEM 12.  SECURITY OWNERSHIP OF CERTAIN BENEFICIAL OWNERS AND MANAGEMENT
+
+The information required by this item is set forth in the tabulation of the
+amount and nature of Beneficial Ownership of the Company's securities in the
+definitive proxy statement to be filed by the Company with the Securities and
+Exchange Commission and is hereby incorporated by reference into this Form 10-K.
+
+ITEM 13.  CERTAIN RELATIONSHIPS AND RELATED TRANSACTIONS
+
+The information required by this item is set forth in the section entitled
+Information Concerning The Board Of Directors - Certain Transactions in the
+definitive proxy statement to be filed by the Company with the Securities and
+Exchange Commission and is hereby incorporated by reference into this Form 10-K.
+<PAGE>
+ 
+                                    PART IV
+
+ITEM 14.  EXHIBITS, FINANCIAL STATEMENT SCHEDULES, AND REPORTS ON FORM 8-K
+
+(a)  Financial Statements:
+
+     Report of Independent Public Accountants
+     Consolidated Balance Sheet as of December 27, 1997 and December 28, 1996
+     Consolidated Statement of Operations and Accumulated Deficit for the years
+      ended December 27, 1997, December 28, 1996, and December 30, 1995
+     Consolidated Statement of Cash Flows for the years ended December 27, 1997,
+      December 28, 1996, and December 30, 1995
+     Notes to Consolidated Financial Statements
+
+     Financial Statement Schedules:
+
+     There are no Financial Statement Schedules included with this filing for
+     the reason that they are not applicable or are not required or the
+     information is included in the financial statements or notes thereto
+
+(b)  Reports on Form 8-K:
+
+     On October 22, 1997, the Company filed a current report on Form 8-K
+     disclosing its unaudited earnings for the third quarter 1997
+<TABLE>
+<CAPTION>
+(c)  Exhibits
+<C>         <S>
+ 
+       3.1  Amended Articles of Incorporation and Regulations of the Company are
+            hereby incorporated by reference to Exhibits 4.1 and 4.2 of the
+            Company's Registration Statement on Form S-3 as filed with the
+            Securities and Exchange Commission on January 28, 1993, and bearing
+            Registration No. 33-57552
+       4.1  Instruments defining the rights of holders of long-term debt of the
+            Company and its subsidiaries are not filed as Exhibits because the
+            amount of debt under each instrument is less than 10% of the
+            consolidated assets of the Company. The Company undertakes to file
+            these instruments with the Commission upon request
+      10.1  Material Contracts - Third Amended and Restated Employment Agreement
+            dated as of July 22, 1993, between the Company and Joseph A. Pichler
+            is hereby incorporated by reference to Exhibit 10.1 to the Company's
+            Form 10-Q for the quarter ended October 9, 1993
+      11.1  Statement Regarding Computation of Per Share Earnings
+      12.1  Statement of Computation of Ratio of Earnings to Fixed Charges
+      21.1  Subsidiaries of the Registrant
+      23.1  Consent of Independent Public Accountants
+      24.1  Powers of Attorney
+      27.1  Financial Data Schedule
+      99.1  Annual Reports on Form 11-K for The Kroger Co. Savings Plan and the
+            Dillon Companies, Inc. Employee Stock Ownership Plan and Trust for
+            the Year 1997 will be filed by amendment on or before April 27, 1998
+</TABLE>
+<PAGE>
+ 
+                                  SIGNATURES
+                                  ----------
+
+Pursuant to the requirements of Section 13 or 15(d) of the Securities Exchange
+Act of 1934, the Company has duly caused this report to be signed on its behalf
+by the undersigned thereunto duly authorized.
+
+<TABLE> 
+<CAPTION> 
+                                  THE KROGER CO.
+<S>                               <C> 
+     Dated:  March 23, 1998       By (*Joseph A. Pichler)
+                                       Joseph A. Pichler, Chairman
+                                       of the Board of Directors and
+                                       Chief Executive Officer
+
+     Dated:  March 23, 1998       By (*W. Rodney McMullen)
+                                       W. Rodney McMullen
+                                       Senior Vice President and
+                                       Chief Financial Officer
+
+     Dated:  March 23, 1998       By (*J. Michael Schlotman)
+                                       J. Michael Schlotman
+                                       Vice President & Corporate Controller
+                                       and Principal Accounting Officer
+</TABLE> 
+Pursuant to the requirements of the Securities Exchange Act of 1934, this report
+has been signed below by the following persons on behalf of the Company and in
+the capacities indicated on the 23th day of March, 1998.
+<TABLE> 
+<CAPTION> 
+<S>                                           <C>  
+(*Reuben V. Anderson)                         Director
+Reuben V. Anderson
+
+(*John L. Clendenin)                          Director
+John L. Clendenin
+
+(*David B. Dillon)                            President, Chief Operating
+David B. Dillon                               Officer, and Director
+
+(*John T. LaMacchia)                          Director
+John T. LaMacchia
+
+(*Edward M. Liddy)                            Director
+Edward M. Liddy
+
+(*Patricia Shontz Longe)                      Director
+Patricia Shontz Longe
+
+(*Clyde R. Moore)                             Director
+Clyde R. Moore
+
+(*T. Ballard Morton, Jr).                     Director
+T. Ballard Morton, Jr.
+</TABLE> 
+<PAGE>
+
+<TABLE> 
+<CAPTION> 
+<S>                                            <C> 
+_______________________                        Director
+Thomas H. O'Leary
+
+(*John D. Ong)                                 Director
+John D. Ong
+
+(Katherine D. Ortega)                          Director
+Katherine D. Ortega
+
+(*Joseph A. Pichler)                           Chairman of the Board of
+Joseph A. Pichler                              Directors, Chief Executive
+                                               Officer, and Director
+
+(*Martha Romayne Seger)                        Director
+Martha Romayne Seger
+
+(*James D. Woods)                              Director
+James D. Woods
+
+
+*By:  (Paul W. Heldman)
+      Paul W. Heldman
+      Attorney-in-fact
+</TABLE> 
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>EX-12.1
+<SEQUENCE>2
+<DESCRIPTION>STATEMENT OF COMP RATIO OF EARNINGS TO FIXED CHARGES
+<TEXT>
+
+<PAGE>
+ 
+                                 Exhibit 12.1
+
+SCHEDULE OF COMPUTATION OF RATIO OF EARNINGS TO FIXED CHARGES OF THE KROGER CO.
+AND CONSOLIDATED SUBSIDIARY COMPANIES AND UNCONSOLIDATED COMPANIES AS IF
+CONSOLIDATED FOR THE FIVE FISCAL YEARS ENDED December 27,1997
+
+<TABLE>
+<CAPTION>
+                                                         Five Years Ended
+                              -----------------------------------------------------------------------
+                              December 27,   December 28,   December 30,   December 31,   January 1,
+                                  1997           1996           1995           1994          1994
+                               (52 Weeks)     (52 Weeks)     (52 Weeks)     (52 Weeks)    (52 Weeks)
+                              -------------  -------------  -------------  -------------  -----------
+                                                     (in thousands of dollars)
+<S>                           <C>            <C>            <C>            <C>            <C>
+Earnings
+  Earnings from continuing
+   operations before tax
+   expense, extraordinary
+   loss and cumulative
+   effect of change
+   in accounting............    $  712,363     $  567,313       $509,538       $421,363     $283,938
+
+
+  Fixed charges.............       482,338        482,680        489,939        500,599      556,008
+  Capitalized interest......        (8,550)       (10,887)        (6,785)        (2,521)         230
+                                ----------     ----------       --------       --------     --------
+                                $1,186,151     $1,039,106       $992,692       $919,441     $840,176
+                                ==========     ==========       ========       ========     ========
+
+Fixed Charges
+  Interest..................    $  294,985     $  311,958       $320,236       $331,097     $391,693
+Portion of rental payments
+   deemed to be interest....       187,353        170,722        169,703        169,502      164,315
+                                ----------     ----------       --------       --------     --------
+                                $  482,338     $  482,280       $489,939       $500,599     $556,008
+                                ==========     ==========       ========       ========     ========
+
+Ratio of Earnings to
+ Fixed Charges..............           2.5            2.2            2.0            1.8          1.5
+</TABLE>
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>EX-21.1
+<SEQUENCE>3
+<DESCRIPTION>SUBSIDIARIES OF REGISTRANT
+<TEXT>
+
+<PAGE>
+
+                                 EXHIBIT 21.1
+                        SUBSIDIARIES OF THE KROGER CO.
+                        ------------------------------
+
+
+            Name                             State of Incorporation/Organization
+            ----                             -----------------------------------
+
+Agri-Products, Inc.                          Arkansas
+Bluefield Beverage Company                   Ohio
+Country Oven, Inc.                           Ohio
+Dillon Companies, Inc.                       Kansas
+ Also Doing Business As:
+ Dillon Food Stores                          N/A*
+ Dillon Stores Division, Inc.                N/A*
+ Gerbes Supermarkets                         N/A*
+ King Soopers, Inc.                          N/A*
+ Sav-Mor                                     N/A*
+ Turkey Hill Dairy, Inc.                     N/A*
+ Turkey Hill Minit Markets                   N/A*
+Drug Distributors, Inc.                      Indiana
+Eight Holdings, Inc.                         Delaware
+Eleven Holdings, Inc.                        Delaware
+Embassy International, Inc.                  Ohio
+Fifteen Holdings, Inc.                       Delaware
+Five Holdings, Inc.                          Delaware
+Four Holdings, Inc.                          Delaware
+Fourteen Holdings, Inc.                      Delaware
+Ft. Wayne Food Stores, Inc.                  Ohio
+Gateway Freightline, Inc.                    Ohio
+ Also Doing Business As:
+ GFL                                         N/A*
+ Illinois Gateway Freightline, Inc.          N/A*
+Henke & Pillot, Inc.                         Texas
+Henpil, Inc.                                 Texas
+ (Subsidiary of Rocket Newco, Inc.)
+Inter-American Foods, Inc.                   Ohio
+J.V. Distributing, Inc.                      Michigan
+Jubilee Products, Inc.                       Ohio
+KRGP Inc.                                    Ohio
+KRLP Inc.                                    Ohio
+The Kroger Co. of Michigan                   Michigan
+ Also Doing Business As:
+ The Apple Orchard Fruit Market              N/A*
+ Bi-Lo Discount Foods                        N/A*
+ Michigan Dairy                              N/A*
+ World of Videos, Movies and Munch More      N/A*
+Kroger Dedicated Logistics Co.               Ohio
+Kroger Limited Partnership I                 Ohio (limited partnership)
+ Also Doing Business As:
+ Kentucky Distribution Center                N/A*
+ Kroger Kare Home Infusion                   N/A*
+ The Pet Food Super Center                   N/A*
+ The Petfood Place                           N/A*
+ Peyton's Southeastern                       N/A*
+ Peyton's Southeastern, Inc.                 N/A*
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>EX-23.1
+<SEQUENCE>4
+<DESCRIPTION>CONSENT OF INDEPENDENT PUBLIC ACCOUNTANTS
+<TEXT>
+
+<PAGE>
+ 
+                                 EXHIBIT 23.1
+
+                      CONSENT OF INDEPENDENT ACCOUNTANTS
+
+We consent to the incorporation by reference in the registration statements of
+The Kroger Co. on Form S-8 (File No. 2-98858), Form S-8 (File No. 33-2056), Form
+S-8 (File No. 33-20734), Form S-8 (File No. 33-29640), Form S-8 (File No. 33-
+25698), Form S-8 (File No. 33-29271), Form S-8 (File No. 33-38121), Form S-8
+(File No. 33-38122), Form S-8 (File No. 33-53747), Form S-8 (File No. 33-55501),
+Form S-8 (File No. 333-11859), Form S-8 (File No. 333-11909), Form S-3 (File No.
+333-06763), Form S-8 (File No. 333-27211) and Form S-3 (File No. 33-61563) of
+our report dated January 22, 1998, on our audits of the consolidated financial
+statements of The Kroger Co. as of December 27, 1997, and December 28, 1996, and
+for the years ended December 27, 1997, December 28, 1996, and December 30, 1995,
+which report is included in this Annual Report on Form 10-K.
+
+
+
+(Coopers & Lybrand L.L.P.)
+Coopers & Lybrand L.L.P.
+Cincinnati, Ohio
+March 13, 1998
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>EX-24.1
+<SEQUENCE>5
+<DESCRIPTION>POWERS OF ATTORNEY
+<TEXT>
+
+<PAGE>
+ 
+                                 EXHIBIT 24.1
+
+                               POWER OF ATTORNEY
+
+
+KNOW ALL PERSONS BY THESE PRESENTS, That each of the undersigned directors of 
+THE KROGER CO. (the "Company") hereby makes, constitutes and appoints Paul W. 
+Heldman and Bruce M. Gack, or either of them, his or her true and lawful 
+attorneys-in-fact to sign and execute for and on his or her behalf the Company's
+annual report on Form 10-K, and any and all amendments thereto, to be filed with
+the Securities and Exchange Commission pursuant to the Securities Exchange Act 
+of 1934, as amended, in such form as they, or either of them, may approve and to
+do any and all other acts which said attorneys-in-fact, or either of them, may 
+deem necessary or desirable to enable The Kroger Co. to comply with said Act or 
+the rules and regulations thereunder.
+
+IN WITNESS WHEREOF, the undersigned directors have hereunto set their hands as 
+of the 20th day of February, 1998.
+
+
+(Reuben V. Anderson)                   (T. Ballard Morton, Jr.)
+Reuben V. Anderson                     T. Ballard Morton, Jr.
+
+(John L. Clendenin)                    ___________________________
+John L. Clendenin                      Thomas H. O'Leary
+
+(David B. Dillon)                      (John D. Ong)
+David B. Dillon                        John D. Ong
+
+(John T. LaMacchia)                    (Katherine D. Ortega)
+John T. LaMacchia                      Katherine D. Ortega
+
+(Edward M. Liddy)                      (Joseph A. Pichler)
+Edward M. Liddy                        Joseph A. Pichler
+
+(Patricia Shontz Longe)                (Martha Romayne Seger)
+Patricia Shontz Longe                  Martha Romayne Seger
+
+(Clyde R. Moore)                       (James D. Woods)
+Clyde R. Moore                         James D. Woods
+<PAGE>
+ 
+                                 EXHIBIT 24.1
+
+                               POWER OF ATTORNEY
+
+
+KNOW ALL PERSONS BY THESE PRESENTS:
+
+     The undersigned officer of THE KROGER CO. (the "Company") does hereby 
+severally make, constitute and appoint Paul W. Heldman and Bruce M. Gack, or 
+either of them, his true and lawful attorneys-in-fact to sign and execute for 
+and on his behalf the Company's annual report on Form 10-K, and any and all 
+amendments thereto, to be filed with the Securities and Exchange Commission 
+pursuant to the Securities Exchange Act of 1934, as amended, in such form as 
+they, or either of them, may approve and to do any and all other acts which said
+attorneys-in-fact, or either of them, may deem necessary or desirable to enable 
+The Kroger Co. to comply with said Act or the rules and regulations thereunder.
+
+
+IN WITNESS WHEREOF, I have hereunto set my hand.
+
+
+(J. Michael Schlotman)                                 February 20, 1998
+J. Michael Schlotman
+Vice President & Corporate Controller
+  and Principal Accounting Officer
+<PAGE>
+ 
+                                 EXHIBIT 24.1
+
+                               POWER OF ATTORNEY
+
+
+KNOW ALL PERSONS BY THESE PRESENTS:
+
+     The undersigned officer of THE KROGER CO. (the "Company") does hereby 
+severally make, constitute and appoint Paul W. Heldman and Bruce M. Gack, or 
+either of them, his true and lawful attorneys-in-fact to sign and execute for 
+and on his behalf the Company's annual report on Form 10-K, and any and all 
+amendments thereto, to be filed with the Securities and Exchange Commission 
+pursuant to the Securities Exchange Act of 1934, as amended, in such form as 
+they, or either of them, may approve and to do any and all other acts which said
+attorneys-in-fact, or either of them, may deem necessary or desirable to enable 
+The Kroger Co. to comply with said Act or the rules and regulations thereunder.
+
+
+IN WITNESS WHEREOF, I have hereunto set my hand.
+
+
+(Joseph A. Pichler)                                 February 20, 1998
+Joseph A. Pichler
+Chief Executive Officer
+and Director
+<PAGE>
+ 
+                                 EXHIBIT 24.1
+
+                               POWER OF ATTORNEY
+
+
+KNOW ALL PERSONS BY THESE PRESENTS:
+
+     The undersigned officer of THE KROGER CO. (the "Company") does hereby 
+severally make, constitute and appoint Paul W. Heldman and Bruce M. Gack, or 
+either of them, his true and lawful attorneys-in-fact to sign and execute for 
+and on his behalf the Company's annual report on Form 10-K, and any and all 
+amendments thereto, to be filed with the Securities and Exchange Commission 
+pursuant to the Securities Exchange Act of 1934, as amended, in such form as 
+they, or either of them, may approve and to do any and all other acts which said
+attorneys-in-fact, or either of them, may deem necessary or desirable to enable 
+The Kroger Co. to comply with said Act or the rules and regulations thereunder.
+
+
+IN WITNESS WHEREOF, I have hereunto set my hand.
+
+
+(W. Rodney McMullen)                                 February 20, 1998
+W. Rodney McMullen
+Senior Vice President 
+ and Chief Financial Officer
+<PAGE>
+ 
+                                 EXHIBIT 24.1
+
+                               POWER OF ATTORNEY
+
+
+KNOW ALL PERSONS BY THESE PRESENTS:
+
+     The undersigned officer of THE KROGER CO. (the "Company") does hereby 
+severally make, constitute and appoint Paul W. Heldman and Bruce M. Gack, or 
+either of them, his true and lawful attorneys-in-fact to sign and execute for 
+and on his behalf the Company's annual report on Form 10-K, and any and all 
+amendments thereto, to be filed with the Securities and Exchange Commission 
+pursuant to the Securities Exchange Act of 1934, as amended, in such form as 
+they, or either of them, may approve and to do any and all other acts which said
+attorneys-in-fact, or either of them, may deem necessary or desirable to enable 
+The Kroger Co. to comply with said Act or the rules and regulations thereunder.
+
+
+IN WITNESS WHEREOF, I have hereunto set my hand.
+
+
+(David B. Dillon)                                   February 20, 1998
+David B. Dillon
+President and
+Chief Operating Officer
+and Director
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>EX-27
+<SEQUENCE>6
+<DESCRIPTION>FINANCIAL DATA SCHEDULE
+<TEXT>
+
+<TABLE> <S> <C>
+
+<PAGE>
+ 
+<ARTICLE> 5
+<LEGEND> This schedule contains summary financial information extracted from 
+the consolidated statement of operations, consolidated balance sheet and
+consolidated statement of cash flows for the year ended December 27, 1997 and is
+qualified in its entirety by reference to such financial statements.
+</LEGEND>
+<MULTIPLIER> 1,000
+       
+<S>                             <C>
+<PERIOD-TYPE>                   YEAR
+<FISCAL-YEAR-END>                         DEC-27-1997
+<PERIOD-END>                              DEC-27-1997
+<CASH>                                         65,484
+<SECURITIES>                                        0         
+<RECEIVABLES>                                 400,529     
+<ALLOWANCES>                                        0
+<INVENTORY>                                 2,273,896
+<CURRENT-ASSETS>                            2,640,551 
+<PP&E>                                      6,183,247
+<DEPRECIATION>                              2,886,647
+<TOTAL-ASSETS>                              6,301,341
+<CURRENT-LIABILITIES>                       2,943,516
+<BONDS>                                     3,517,410
+<PREFERRED-MANDATORY>                               0
+<PREFERRED>                                         0
+<COMMON>                                      728,644
+<OTHER-SE>                                (1,184,394)
+<TOTAL-LIABILITY-AND-EQUITY>                6,301,341    
+<SALES>                                    26,567,348        
+<TOTAL-REVENUES>                           26,567,348
+<CGS>                                      19,996,381         
+<TOTAL-COSTS>                              19,996,381 
+<OTHER-EXPENSES>                            5,858,604
+<LOSS-PROVISION>                                    0
+<INTEREST-EXPENSE>                            285,945
+<INCOME-PRETAX>                               712,363
+<INCOME-TAX>                                  268,331
+<INCOME-CONTINUING>                           444,032
+<DISCONTINUED>                                      0 
+<EXTRAORDINARY>                              (32,375)
+<CHANGES>                                           0 
+<NET-INCOME>                                  411,657
+<EPS-PRIMARY>                                    1.62
+<EPS-DILUTED>                                    1.57
+        
+
+</TABLE>
+</TEXT>
+</DOCUMENT>
+</SEC-DOCUMENT>
+-----END PRIVACY-ENHANCED MESSAGE-----
