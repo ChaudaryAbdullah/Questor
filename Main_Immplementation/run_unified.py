@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Unified Pipeline Runner
-Orchestrates structured pipeline, unstructured pipeline (retrieval mode), and agents
+Orchestrates structured pipeline, unstructured pipeline, and agents
 """
 import sys
 import os
@@ -14,14 +14,24 @@ from datetime import datetime
 # Add paths
 BASE_DIR = Path(__file__).parent
 sys.path.insert(0, str(BASE_DIR))
-sys.path.insert(0, str(BASE_DIR / 'unstructured_pipeline'))
+
+# Add the reworked Unstructured Pipeline directory to path
+UNSTRUCTURED_PIPELINE_DIR = BASE_DIR / 'Unstructured Pipeline'
+sys.path.insert(0, str(UNSTRUCTURED_PIPELINE_DIR))
 
 # Import components
-from unstructured_pipeline.utils.cik_extractor import CIKExtractor
-from unstructured_pipeline.pipelines.unstructured_pipeline import UnstructuredPipelineOptimized
 from agents.orchestrator import AgentOrchestrator, load_agent_config
 from score_combiner import ScoreCombiner
 from shared.utils import setup_logging, ensure_directory
+
+# Import the reworked unstructured pipeline runner
+try:
+    from run_pipeline import run_pipeline as run_unstructured_pipeline_fn
+except ImportError as _e:
+    run_unstructured_pipeline_fn = None
+    logging.getLogger(__name__).warning(
+        f"Could not import run_pipeline from Unstructured Pipeline: {_e}"
+    )
 
 # Import structured pipeline - add to path first
 sys.path.insert(0, str(BASE_DIR / 'stuctured_pipeline'))
@@ -39,8 +49,6 @@ class UnifiedPipelineRunner:
         self.logger = setup_logging(level=self.config.get('logging', {}).get('level', 'INFO'))
         
         # Initialize components
-        self.cik_extractor = CIKExtractor()
-        self.unstructured_pipeline = None
         self.agent_orchestrator = None
         self.score_combiner = ScoreCombiner(config)
         
@@ -74,29 +82,35 @@ class UnifiedPipelineRunner:
         input_dir = input_directory or self.input_dir
         
         try:
-            # Step 1: Extract CIKs from input files
-            self.logger.info("\n[1/5] Extracting CIKs from input files...")
-            cik_mapping = self.cik_extractor.get_cik_file_mapping(input_dir, "*.json")
-            
-            if not cik_mapping:
-                self.logger.error("No valid CIKs found in input directory")
-                return {'success': False, 'error': 'No valid CIKs found'}
-            
-            self.logger.info(f"✓ Found {len(cik_mapping)} files with CIKs")
-            for cik, filename in cik_mapping.items():
-                self.logger.info(f"  - {filename}: CIK {cik}")
-            
-            # Process each file
+            # Step 1: Find JSON files (structured) and txt file (unstructured)
+            self.logger.info("\n[1/4] Scanning input directory...")
+            json_files = list(input_dir.glob("*.json"))
+            txt_files  = list(input_dir.glob("*.txt"))
+
+            if not json_files:
+                self.logger.error("No .json files found in input directory")
+                return {'success': False, 'error': 'No JSON input files found'}
+
+            self.logger.info(f"✓ Found {len(json_files)} JSON file(s) and {len(txt_files)} TXT file(s)")
+
+            # The single txt file used by the unstructured pipeline (if any)
+            txt_file = txt_files[0] if txt_files else None
+            if txt_file:
+                self.logger.info(f"  TXT for unstructured pipeline: {txt_file.name}")
+            else:
+                self.logger.warning("  No .txt file found – unstructured pipeline will be skipped")
+
+            # Process each JSON file (structured + agents + score combination)
             all_results = []
-            
-            for cik, filename in cik_mapping.items():
+
+            for file_path in json_files:
+                filename = file_path.name
                 self.logger.info(f"\n{'=' * 80}")
-                self.logger.info(f"Processing: {filename} (CIK: {cik})")
+                self.logger.info(f"Processing: {filename}")
                 self.logger.info(f"{'=' * 80}")
-                
-                file_path = input_dir / filename
-                result = self._process_single_file(file_path, cik, enable_agents)
-                
+
+                result = self._process_single_file(file_path, txt_file, enable_agents)
+
                 if result.get('success'):
                     all_results.append(result)
                 else:
@@ -111,13 +125,13 @@ class UnifiedPipelineRunner:
             
             self.logger.info("\n" + "=" * 80)
             self.logger.info("UNIFIED PIPELINE COMPLETED")
-            self.logger.info(f"Processed  {len(all_results)}/{len(cik_mapping)} files successfully")
+            self.logger.info(f"Processed  {len(all_results)}/{len(json_files)} files successfully")
             self.logger.info("=" * 80)
             
             return {
                 'success': True,
                 'files_processed': len(all_results),
-                'total_files': len(cik_mapping),
+                'total_files': len(json_files),
                 'output_path': str(output_path) if output_path else None,
                 'results': all_results
             }
@@ -132,56 +146,63 @@ class UnifiedPipelineRunner:
     def _process_single_file(
         self,
         file_path: Path,
-        cik: str,
+        txt_file: Optional[Path],
         enable_agents: bool
     ) -> Dict[str, Any]:
         """
-        Process a single input file through all pipelines
-        
+        Process a single JSON input file through all pipelines.
+
         Args:
-            file_path: Path to input JSON file
-            cik: CIK number for this file
-            enable_agents: Whether to run agents
-            
+            file_path:   Path to input JSON file (structured pipeline)
+            txt_file:    Path to the .txt file for the unstructured pipeline (or None)
+            enable_agents: Whether to run agent orchestrator
+
         Returns:
             Combined results for this file
         """
+        cik = file_path.stem  # Use filename stem as identifier
         try:
             # Step 2: Run structured pipeline
-            self.logger.info("\n[2/5] Running structured pipeline...")
+            self.logger.info("\n[2/4] Running structured pipeline...")
             structured_result = self._run_structured_pipeline(file_path)
-            
+
             if not structured_result.get('success'):
                 self.logger.warning(f"Structured pipeline failed: {structured_result.get('error')}")
                 structured_result = None
             else:
                 self.logger.info(f"✓ Structured risk score: {structured_result.get('risk_score', 0):.4f}")
-            
-            # Step 3: Run unstructured pipeline in retrieval mode
-            self.logger.info("\n[3/5] Running unstructured pipeline (retrieval mode)...")
-            unstructured_result = self._run_unstructured_pipeline([cik])
-            
-            if not unstructured_result.get('success'):
-                self.logger.warning(f"Unstructured pipeline failed: {unstructured_result.get('error')}")
+
+            # Step 3: Run reworked unstructured pipeline on the .txt file
+            self.logger.info("\n[3/4] Running unstructured pipeline...")
+            unstructured_result = self._run_unstructured_pipeline(txt_file)
+
+            if not unstructured_result or not unstructured_result.get('success'):
+                err = unstructured_result.get('error_message') if unstructured_result else 'No .txt file'
+                self.logger.warning(f"Unstructured pipeline failed/skipped: {err}")
                 unstructured_result = None
             else:
-                self.logger.info(f"✓ Retrieved {unstructured_result.get('documents_retrieved', 0)} documents")
-            
+                ra = unstructured_result.get('risk_assessment', {})
+                self.logger.info(
+                    f"✓ Unstructured risk score: {ra.get('overall_risk_score', 0):.1f} "
+                    f"({ra.get('risk_level', 'N/A')})  "
+                    f"| Findings: {unstructured_result.get('fraud_findings_count', 0)}"
+                )
+
             # Step 4: Run agents (if enabled)
             agent_results = None
             if enable_agents and structured_result:
-                self.logger.info("\n[4/5] Running agent orchestrator...")
+                self.logger.info("\n[4/4] Running agent orchestrator...")
                 agent_results = self._run_agents(structured_result)
-                
+
                 if agent_results and agent_results.get('agents_succeeded', 0) > 0:
                     self.logger.info(f"✓ Agents succeeded: {agent_results.get('agents_succeeded', 0)}")
                     self.logger.info(f"  Combined agent score: {agent_results.get('combined_score', 0):.2f}")
                 else:
                     self.logger.warning("No agents succeeded")
                     agent_results = None
-            
-            # Step 5: Combine scores
-            self.logger.info("\n[5/5] Combining scores...")
+
+            # Combine scores
+            self.logger.info("\nCombining scores...")
             combined_result = self._combine_scores(
                 structured_result,
                 unstructured_result,
@@ -189,9 +210,12 @@ class UnifiedPipelineRunner:
                 cik,
                 file_path.name
             )
-            
-            self.logger.info(f"✓ Final combined risk score: {combined_result.get('combined_risk', {}).get('overall_risk_score', 0):.2f}")
-            
+
+            self.logger.info(
+                f"✓ Final combined risk score: "
+                f"{combined_result.get('combined_risk', {}).get('overall_risk_score', 0):.2f}"
+            )
+
             return {
                 'success': True,
                 'cik': cik,
@@ -201,7 +225,7 @@ class UnifiedPipelineRunner:
                 'agents': agent_results,
                 'combined': combined_result
             }
-            
+
         except Exception as e:
             self.logger.error(f"Failed to process file: {str(e)}", exc_info=True)
             return {
@@ -237,29 +261,31 @@ class UnifiedPipelineRunner:
             self.logger.error(f"Structured pipeline error: {str(e)}")
             return {'success': False, 'error': str(e)}
     
-    def _run_unstructured_pipeline(self, cik_list: List[str]) -> Optional[Dict[str, Any]]:
-        """Run unstructured pipeline in retrieval mode"""
+    def _run_unstructured_pipeline(self, txt_file: Optional[Path]) -> Optional[Dict[str, Any]]:
+        """
+        Run the reworked unstructured pipeline on a .txt document.
+
+        Args:
+            txt_file: Path to the .txt file in Main_Immplementation/Input/, or None.
+
+        Returns:
+            Result dict from run_pipeline(), or None if unavailable.
+        """
+        if txt_file is None:
+            self.logger.warning("No .txt file provided – skipping unstructured pipeline")
+            return None
+
+        if run_unstructured_pipeline_fn is None:
+            self.logger.error("run_pipeline could not be imported from Unstructured Pipeline")
+            return {'success': False, 'error_message': 'run_pipeline not importable'}
+
         try:
-            if not self.unstructured_pipeline:
-                self.unstructured_pipeline = UnstructuredPipelineOptimized(
-                    enable_risk_scoring=True,
-                    enable_output_formatting=True
-                )
-            
-            result = self.unstructured_pipeline.run(
-                use_existing_data=True,
-                cik_list=cik_list
-            )
-            
-            # Get formatted outputs
-            if result.get('success') and self.unstructured_pipeline.formatted_outputs:
-                result['formatted_output'] = self.unstructured_pipeline.formatted_outputs[0]
-            
+            self.logger.info(f"  Processing: {txt_file.name}")
+            result = run_unstructured_pipeline_fn(str(txt_file))
             return result
-            
         except Exception as e:
             self.logger.error(f"Unstructured pipeline error: {str(e)}")
-            return {'success': False, 'error': str(e)}
+            return {'success': False, 'error_message': str(e)}
     
     def _run_agents(self, structured_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """Run agent orchestrator.
@@ -361,10 +387,17 @@ class UnifiedPipelineRunner:
             )
         
         unstructured_risk = None
-        if unstructured_result and unstructured_result.get('formatted_output'):
-            unstructured_risk = self.score_combiner._extract_risk_assessment(
-                unstructured_result['formatted_output'], 'unstructured'
-            )
+        if unstructured_result and unstructured_result.get('success'):
+            # The new unstructured pipeline returns a risk_assessment dict directly
+            if unstructured_result.get('risk_assessment'):
+                unstructured_risk = self.score_combiner._extract_risk_assessment(
+                    unstructured_result, 'unstructured'
+                )
+            elif unstructured_result.get('formatted_output'):
+                # Legacy formatted_output path (kept for compatibility)
+                unstructured_risk = self.score_combiner._extract_risk_assessment(
+                    unstructured_result['formatted_output'], 'unstructured'
+                )
         
         # Combine with agents
         combined_risk = self.score_combiner.combine_with_agents(
@@ -398,8 +431,6 @@ class UnifiedPipelineRunner:
     
     def close(self):
         """Close all pipeline connections"""
-        if self.unstructured_pipeline:
-            self.unstructured_pipeline.close()
         self.logger.info("Unified runner closed")
 
 

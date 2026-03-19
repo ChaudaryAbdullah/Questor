@@ -102,7 +102,8 @@ Questor/
 graph LR
     A["📄 Input JSON\n(SEC Filing)"] --> B["🔷 Structured Pipeline\n17 ML Models"]
     A --> C["🔶 Unstructured Pipeline\nChromaDB Retrieval"]
-    A --> D["🤖 15 Agents\nFinancial Rule Analysis"]
+    B -- parallel --> D["🤖 15 Agents\nFinancial Rule Analysis"]
+    C -- parallel --> D
     B --> E["🔗 Score Combiner"]
     C --> E
     D --> E

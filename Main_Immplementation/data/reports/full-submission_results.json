@@ -1,0 +1,535 @@
+{
+  "document_id": "full-submission",
+  "document_path": "/media/cypher/8028336A28335DFA/sibtainV2/Questor/Main_Immplementation/Input/full-submission.txt",
+  "company_name": "SECURITIES AND EXCHANGE COMMISSION",
+  "fiscal_year": null,
+  "preprocessing_time": 0.14257001876831055,
+  "entity_extraction_time": 10.725544214248657,
+  "embedding_time": 23.985097885131836,
+  "graph_construction_time": 23.57466149330139,
+  "fraud_analysis_time": 227.02612948417664,
+  "total_time": 288.1013717651367,
+  "chunks_created": 41,
+  "entities_extracted": 1719,
+  "relationships_extracted": 0,
+  "fraud_findings_count": 0,
+  "fraud_findings": [],
+  "rag_analysis": [
+    {
+      "query": "Find undisclosed related party transactions",
+      "answer": "Undisclosed related party transactions are not explicitly mentioned in the provided context. However, there are some potential red flags and inconsistencies that warrant further investigation.",
+      "sources": [
+        {
+          "text": "ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTANTS ON ACCOUNTING AND FINANCIAL DISCLOSURE None. ITEM 10. DIRECTORS AND EXECUTIVE OFFICERS OF THE REGISTRANT The information required by this item con",
+          "section": null
+        },
+        {
+          "text": "(the Company has repurchased $168,470 of the 9 7/8% Senior Subordinated Debentures in total, $1,535 in 1997); (ii) $355,774 6 3/4% to 9 5/8% Senior Subordinated Notes due March 15, 1999 to October 15,",
+          "section": null
+        },
+        {
+          "text": "Registration No. 33-57552 4.1 Instruments defining the rights of holders of long-term debt of the Company and its subsidiaries are not filed as Exhibits because the amount of debt under each instrumen",
+          "section": null
+        },
+        {
+          "text": "ITEM 3. LEGAL PROCEEDINGS There are pending against the Company various claims and lawsuits arising in the normal course of business, including suits charging violations of certain antitrust and civil",
+          "section": null
+        },
+        {
+          "text": "ITEM 5. MARKET FOR THE REGISTRANT'S COMMON EQUITY AND RELATED STOCKHOLDER MATTERS Common Stock Price Range - - 1997 1996 - - Quarter High Low High Low - - - - - - 1st 28-1/8 22-11/16 19-13/16 16-3/4 2",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Inconsistent employment history for executive officers (e.g., Warren F. Bryant's employment history is not entirely clear)",
+        "Lack of disclosure regarding the terms of the mortgage financing and redemption events",
+        "Potential related party transactions through the wholly-owned subsidiaries and Secured Finance Inc.",
+        "Inadequate disclosure of the redemption event conditions and the impact on publicly issued debt",
+        "Inconsistencies in the reporting of debt repurchases and redemptions"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The Company has repurchased $168,470 of the 9 7/8% Senior Subordinated Debentures in total, $1,535 in 1997; (ii) $355,774 6 3/4% to 9 5/8% Senior Subordinated Notes due March 15, 1999 to October 15, 2009, with portions of these issues subject to early redemption by the Company at varying times and premiums (the Company has repurchased or redeemed $183,865 of the notes in total, $174,155 in 1997); (iii) $250,000 10% Senior Subordinated Notes due May 1, 1999. This issue is not subject to early redemption by the Company (the Company has repurchased $126,139 of the 10% Senior Subordinated Notes in total, $842 in 1997).",
+          "During 1989 the Company completed a $612,475, 10% mortgage financing of 127 of its retail properties, distribution warehouse facilities, food processing facilities and other properties (the \"Properties\")",
+          "The wholly-owned subsidiaries mortgaged the Properties, which are leased to the Company or affiliates of the Company, to a newly formed special purpose corporation, Secured Finance Inc."
+        ],
+        "recommendations": [
+          "Request additional information regarding the terms of the mortgage financing and redemption events",
+          "Investigate the employment history of executive officers, particularly Warren F. Bryant",
+          "Review the financial statements and disclosures for any potential related party transactions or inconsistencies",
+          "Verify the accuracy of the debt repurchases and redemptions reported in the context"
+        ]
+      }
+    },
+    {
+      "query": "Identify contradictions in revenue recognition descriptions",
+      "answer": "The revenue recognition descriptions in the context do not directly mention any contradictions. However, there are some inconsistencies and potential red flags that need to be addressed.",
+      "sources": [
+        {
+          "text": "ITEM 8. FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA REPORT OF INDEPENDENT ACCOUNTANTS To the Shareowners and Board of Directors The Kroger Co. We have audited the accompanying consolidated balance she",
+          "section": null
+        },
+        {
+          "text": "square footage decreased 1.3% in 1997, increased 1.5% in 1996, and decreased 10.6% in 1995. Sales per average square foot for the last three years were: TOTAL SALES PER AVERAGE SQUARE FOOT - 1997 1996",
+          "section": null
+        },
+        {
+          "text": "OF EARNINGS TO FIXED CHARGES OF THE KROGER CO. AND CONSOLIDATED SUBSIDIARY COMPANIES AND UNCONSOLIDATED COMPANIES AS IF CONSOLIDATED FOR THE FIVE FISCAL YEARS ENDED December 27,1997 Five Years Ended -",
+          "section": null
+        },
+        {
+          "text": "51 Mr. Thorne was elected Senior Vice President effective June 18, 1995. Prior to his election Mr. Thorne was appointed President of the Company's Mid-Atlantic Marketing Area in 1993. Before this Mr. ",
+          "section": null
+        },
+        {
+          "text": "TOTAL LIABILITIES AND SHAREOWNERS' DEFICIT. $ 6,301,341 $ 5,892,465 = = - - statements. CONSOLIDATED STATEMENT OF OPERATIONS AND ACCUMULATED DEFICIT Years Ended December 27, 1997, December 28, 1996, a",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "The Company's substantial new construction program is mentioned as a reason for the decrease in sales per average square foot for food stores, but it is unclear how this program affects revenue recognition.",
+        "The presentation of EBITD is not intended to be an alternative to any GAAP measure of performance, but it is used to facilitate an understanding of the Company's performance compared to its debt covenants. This may indicate a lack of transparency in financial reporting.",
+        "The Company has adequate coverage of its debt covenants, but the EBITD growth in 1997 was generated by increased sales at higher gross profit and reduced operating, general and administrative expense rates as a percent of sales. This may indicate aggressive accounting practices.",
+        "The merchandise cost rate for 1996 increased as a result of the work stoppages in Colorado, but the impact of this on revenue recognition is unclear."
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The Company's substantial new construction program is mentioned as a reason for the decrease in sales per average square foot for food stores. (Context: 'The decrease in sales per average square foot for food stores can be attributed to Company's substantial new construction program.')",
+          "The presentation of EBITD is not intended to be an alternative to any GAAP measure of performance. (Context: 'The presentation of EBITD is not intended to be an alternative to any GAAP measure of performance. Rather EBITD results facilitate an understanding of the Company's performance compared to its debt covenants.')",
+          "The Company has adequate coverage of its debt covenants. (Context: 'The Company believes it has adequate coverage of its debt covenants to continue to respond effectively to competitive conditions.')"
+        ],
+        "recommendations": [
+          "Follow up on the impact of the Company's substantial new construction program on revenue recognition.",
+          "Investigate the Company's accounting practices for EBITD and ensure that they are in line with GAAP.",
+          "Review the Company's debt covenants and ensure that they are not being used to mask aggressive accounting practices."
+        ]
+      }
+    },
+    {
+      "query": "Detect changes in risk factors from previous year",
+      "answer": "Changes in risk factors from previous year are identified in the context, primarily related to the year 2000 problem, inflationary factors, increased competition, construction delays, and labor disputes.",
+      "sources": [
+        {
+          "text": "would increase the estimated expense by approximately $6.5 million. A 1% decrease in market rates would reduce the estimated expense by approximately $9.4 million. . The Company expects to increase re",
+          "section": null
+        },
+        {
+          "text": "1998. Any gain or loss from the hedges will be deferred and amortized over the shorter of the life of the fixed rate debt or the terminated hedges. NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUE",
+          "section": null
+        },
+        {
+          "text": "ITEM 6. SELECTED FINANCIAL DATA SELECTED FINANCIAL DATA FISCAL YEARS ENDED - DECEMBER 27, DECEMBER 28, DECEMBER 30, DECEMBER 31, JANUARY 1, 1997 1996 1995 1994 1994 (52 WEEKS) (52 WEEKS) (52 WEEKS) (5",
+          "section": null
+        },
+        {
+          "text": "states. In addition, other workers' compensation risks and certain levels of insured general liability risks are based on retrospective premium plans, deductible plans, and self-insured retention plan",
+          "section": null
+        },
+        {
+          "text": "33-29271), Form S-8 (File No. 33-38121), Form S-8 (File No. 33-38122), Form S-8 (File No. 33-53747), Form S-8 (File No. 33-55501), Form S-8 (File No. 333-11859), Form S-8 (File No. 333-11909), Form S-",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Inconsistency in estimating the fair value of financial instruments, particularly for long-term debt and interest rate protection agreements.",
+        "Lack of disclosure on the impact of the year 2000 problem on the Company's financial position, results of operations, or cash flows.",
+        "Unclear allocation of resources to resolve the year 2000 issues, which could result in a material financial risk.",
+        "Inadequate disclosure on the potential impact of inflationary factors, increased competition, construction delays, and labor disputes on the Company's ability to obtain expected increases in sales and earnings."
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The Company is currently working to resolve the potential impact of the year 2000 on the processing of date-sensitive information by the Company's computerized information systems.",
+          "Any of the Company's programs that have time-sensitive software may recognize a date using '00' as the year 1900 rather than the year 2000, which could result in miscalculations or system failures.",
+          "Inflationary factors, increased competition, construction delays, and labor disputes could affect the Company's ability to obtain expected increases in sales and earnings."
+        ],
+        "recommendations": [
+          "Request additional information on the Company's plans to address the year 2000 problem and the potential impact on its financial position, results of operations, or cash flows.",
+          "Review the Company's financial statements for any potential effects of the year 2000 problem or other risk factors identified in the context.",
+          "Consider requesting an audit or review of the Company's financial statements to ensure compliance with accounting standards and regulatory requirements."
+        ]
+      }
+    },
+    {
+      "query": "Find unusual relationships between executives and suppliers",
+      "answer": "Based on the provided context, there are unusual relationships between executives and suppliers, particularly in the convenience store segment. The Company's Dillon convenience store group operates 816 convenience stores in 15 states, with each store averaging 2,567 square feet and employing six to seven employees. The convenience store group has grown primarily by acquisition, and each division is independently run, requiring little general or administrative corporate support. This suggests a potential lack of oversight and control, which could lead to fraudulent activities.",
+      "sources": [
+        {
+          "text": "ITEM 1. BUSINESS The Company was founded in 1883, incorporated in 1902, and maintains its principal executive offices in Cincinnati, Ohio. The Company is the nation's largest supermarket operator meas",
+          "section": null
+        },
+        {
+          "text": "food store sales at year end 1988. The Company's superstores, which have no pharmacy, limited specialty departments, and fewer square feet, continue to be an important component of the Company's store",
+          "section": null
+        },
+        {
+          "text": "ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS SALES Total sales for the fourth quarter of 1997 were $6.5 billion compared to $6.2 billion in the fourth ",
+          "section": null
+        },
+        {
+          "text": "square footage decreased 1.3% in 1997, increased 1.5% in 1996, and decreased 10.6% in 1995. Sales per average square foot for the last three years were: TOTAL SALES PER AVERAGE SQUARE FOOT - 1997 1996",
+          "section": null
+        },
+        {
+          "text": "ITEM 5. MARKET FOR THE REGISTRANT'S COMMON EQUITY AND RELATED STOCKHOLDER MATTERS Common Stock Price Range - - 1997 1996 - - Quarter High Low High Low - - - - - - 1st 28-1/8 22-11/16 19-13/16 16-3/4 2",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Lack of oversight and control in the convenience store segment",
+        "Independent operation of each convenience store division",
+        "Potential for misappropriation of funds or assets in the convenience store segment",
+        "Unusual relationships between executives and suppliers in the convenience store segment"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "Each convenience store division is independently run and requires little general or administrative corporate support.",
+          "The convenience store group has grown primarily by acquisition.",
+          "The average convenience store carries 3,000 items, and approximately 62% of a convenience store's non-gasoline sales are generated by five product categories: soft drinks, beer, snacks, candy, and tobacco products."
+        ],
+        "recommendations": [
+          "Conduct a thorough review of the convenience store segment's financial statements and operations to identify any potential red flags or concerns.",
+          "Implement additional controls and oversight measures to ensure the integrity of the convenience store segment's operations.",
+          "Investigate any unusual relationships between executives and suppliers in the convenience store segment."
+        ]
+      }
+    },
+    {
+      "query": "Identify subsidiaries mentioned but not in consolidation",
+      "answer": "Based on the provided context, the subsidiaries mentioned but not in consolidation are not explicitly stated. However, we can infer that the Company has subsidiaries as mentioned in the context of the 'Statement of Computation of Ratio of Earnings to Fixed Charges' (Exhibit 12.1) which includes 'consolidated subsidiary companies' and 'unconsolidated companies as if consolidated'.",
+      "sources": [
+        {
+          "text": "Registration No. 33-57552 4.1 Instruments defining the rights of holders of long-term debt of the Company and its subsidiaries are not filed as Exhibits because the amount of debt under each instrumen",
+          "section": null
+        },
+        {
+          "text": "ITEM 5. MARKET FOR THE REGISTRANT'S COMMON EQUITY AND RELATED STOCKHOLDER MATTERS Common Stock Price Range - - 1997 1996 - - Quarter High Low High Low - - - - - - 1st 28-1/8 22-11/16 19-13/16 16-3/4 2",
+          "section": null
+        },
+        {
+          "text": "The increase in the use of cash during 1997 as compared to 1996 was caused by a net debt decrease of $169.6 million in 1997 versus a net debt increase of $146.9 million in 1996. An additional $13.1 mi",
+          "section": null
+        },
+        {
+          "text": "states. In addition, other workers' compensation risks and certain levels of insured general liability risks are based on retrospective premium plans, deductible plans, and self-insured retention plan",
+          "section": null
+        },
+        {
+          "text": "33-29271), Form S-8 (File No. 33-38121), Form S-8 (File No. 33-38122), Form S-8 (File No. 33-53747), Form S-8 (File No. 33-55501), Form S-8 (File No. 333-11859), Form S-8 (File No. 333-11909), Form S-",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Lack of explicit disclosure of subsidiaries not in consolidation",
+        "Inconsistent disclosure of financial information across exhibits",
+        "Potential understatement of debt or liabilities due to omission of certain subsidiaries",
+        "Inadequate disclosure of risks associated with unconsolidated subsidiaries"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The Company undertakes to file instruments defining the rights of holders of long-term debt of the Company and its subsidiaries, but does not provide a list of subsidiaries (Item 4.1)",
+          "The 'Statement of Computation of Ratio of Earnings to Fixed Charges' (Exhibit 12.1) includes consolidated subsidiary companies and unconsolidated companies as if consolidated, but does not provide a clear list of subsidiaries (Item 12.1)",
+          "The Company mentions that it has not paid dividends on its Common Stock for the past three fiscal years, but does not provide a clear explanation of the impact on its financial position (Item 5)"
+        ],
+        "recommendations": [
+          "Request the Company to provide a list of subsidiaries not in consolidation",
+          "Review the Company's financial statements and exhibits for inconsistencies in disclosure",
+          "Inquire about the potential impact of unconsolidated subsidiaries on the Company's financial position and risks"
+        ]
+      }
+    },
+    {
+      "query": "Find circular transaction patterns between entities",
+      "answer": "Circular transaction patterns between entities are identified in the context of the Company's debt repurchases and mortgage financing.",
+      "sources": [
+        {
+          "text": "(the Company has repurchased $168,470 of the 9 7/8% Senior Subordinated Debentures in total, $1,535 in 1997); (ii) $355,774 6 3/4% to 9 5/8% Senior Subordinated Notes due March 15, 1999 to October 15,",
+          "section": null
+        },
+        {
+          "text": "1998. Any gain or loss from the hedges will be deferred and amortized over the shorter of the life of the fixed rate debt or the terminated hedges. NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUE",
+          "section": null
+        },
+        {
+          "text": "ITEM 3. LEGAL PROCEEDINGS There are pending against the Company various claims and lawsuits arising in the normal course of business, including suits charging violations of certain antitrust and civil",
+          "section": null
+        },
+        {
+          "text": "The increase in the use of cash during 1997 as compared to 1996 was caused by a net debt decrease of $169.6 million in 1997 versus a net debt increase of $146.9 million in 1996. An additional $13.1 mi",
+          "section": null
+        },
+        {
+          "text": "- - - - - LONG-TERM DEBT - - Fixed rate. 14,304 164,835 10,613 14,274 168,284 1,649,771 2,022,081 Average interest rate... 8.86% 8.88% 8.81% 8.81% 8.74% 8.75% Variable rate. 1,262,058 36,616 1,298,674",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Multiple debt repurchases in 1997, totaling $168,470, $183,865, and $126,139, respectively",
+        "Potential for circular transactions between the Company and its wholly-owned subsidiaries in the mortgage financing arrangement",
+        "Lack of transparency in the redemption event conditions for the Company's publicly issued debt",
+        "Inconsistent disclosure of the fair value of the Company's long-term debt, including the current portion thereof"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The Company has repurchased $168,470 of the 9 7/8% Senior Subordinated Debentures in total, $1,535 in 1997.",
+          "The Company has repurchased or redeemed $183,865 of the notes in total, $174,155 in 1997.",
+          "The mortgage loans had an original maturity of 15 years, and the Properties are subject to the liens of Secured Finance Inc.",
+          "The fair value of the Company's long-term debt, including the current portion thereof, is estimated based on the quoted market price for the same or similar issues, but the disclosure is inconsistent."
+        ],
+        "recommendations": [
+          "Further investigation into the debt repurchases and mortgage financing arrangement to determine if there are any circular transactions or other potential fraud indicators",
+          "Request additional disclosure on the redemption event conditions for the Company's publicly issued debt",
+          "Review the Company's accounting policies and debt obligations to ensure consistency in the disclosure of the fair value of the Company's long-term debt"
+        ]
+      }
+    },
+    {
+      "query": "Detect sudden changes in accounting policies",
+      "answer": "Based on the provided context, there are potential changes in accounting policies that may indicate a risk of financial misstatement or fraud. The company's management has mentioned a decrease in net debt and an increase in cash usage for debt prepayments and finance charges, which could be indicative of a change in accounting policy for debt management. Additionally, the company's use of cash for capital stock repurchases may also be a potential red flag.",
+      "sources": [
+        {
+          "text": "The increase in the use of cash during 1997 as compared to 1996 was caused by a net debt decrease of $169.6 million in 1997 versus a net debt increase of $146.9 million in 1996. An additional $13.1 mi",
+          "section": null
+        },
+        {
+          "text": "OF EARNINGS TO FIXED CHARGES OF THE KROGER CO. AND CONSOLIDATED SUBSIDIARY COMPANIES AND UNCONSOLIDATED COMPANIES AS IF CONSOLIDATED FOR THE FIVE FISCAL YEARS ENDED December 27,1997 Five Years Ended -",
+          "section": null
+        },
+        {
+          "text": "ITEM 6. SELECTED FINANCIAL DATA SELECTED FINANCIAL DATA FISCAL YEARS ENDED - DECEMBER 27, DECEMBER 28, DECEMBER 30, DECEMBER 31, JANUARY 1, 1997 1996 1995 1994 1994 (52 WEEKS) (52 WEEKS) (52 WEEKS) (5",
+          "section": null
+        },
+        {
+          "text": "pursuant to the Securities Exchange Act of 1934, as amended, in such form as they, or either of them, may approve and to do any and all other acts which said attorneys-in-fact, or either of them, may ",
+          "section": null
+        },
+        {
+          "text": "states. In addition, other workers' compensation risks and certain levels of insured general liability risks are based on retrospective premium plans, deductible plans, and self-insured retention plan",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Change in accounting policy for debt management",
+        "Increase in cash usage for debt prepayments and finance charges",
+        "Use of cash for capital stock repurchases"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The increase in the use of cash during 1997 as compared to 1996 was caused by a net debt decrease of $169.6 million in 1997 versus a net debt increase of $146.9 million in 1996.",
+          "An additional $13.1 million of cash was used for debt prepayments and finance charges, and $85.2 million was used to repurchase capital stock."
+        ],
+        "recommendations": [
+          "Review the company's accounting policies for debt management and capital stock repurchases to ensure compliance with GAAP and internal controls.",
+          "Investigate the reason for the increase in cash usage for debt prepayments and finance charges, and assess whether this is a normal business practice or a potential indicator of financial misstatement.",
+          "Consider conducting a review of the company's internal controls over cash management and capital stock repurchases to ensure that they are adequate and effective."
+        ]
+      }
+    },
+    {
+      "query": "Identify executives with undisclosed business interests",
+      "answer": "Based on the provided context, there are no disclosed business interests for the executives listed. However, it is worth noting that Mr. Ronald R. Rice, a trustee and beneficiary of a trust, inadvertently filed an amended Form 5, reporting a gift of 600 shares 24 days late. This could be a potential red flag, but it is not directly related to undisclosed business interests.",
+      "sources": [
+        {
+          "text": "ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTANTS ON ACCOUNTING AND FINANCIAL DISCLOSURE None. ITEM 10. DIRECTORS AND EXECUTIVE OFFICERS OF THE REGISTRANT The information required by this item con",
+          "section": null
+        },
+        {
+          "text": "ITEM 5. MARKET FOR THE REGISTRANT'S COMMON EQUITY AND RELATED STOCKHOLDER MATTERS Common Stock Price Range - - 1997 1996 - - Quarter High Low High Low - - - - - - 1st 28-1/8 22-11/16 19-13/16 16-3/4 2",
+          "section": null
+        },
+        {
+          "text": "reduction in employee benefit costs, and reduced administrative expenses. INCOME TAXES The Company has closed all tax years through 1983 with the Internal Revenue Service. The Internal Revenue Service",
+          "section": null
+        },
+        {
+          "text": "51 Mr. Thorne was elected Senior Vice President effective June 18, 1995. Prior to his election Mr. Thorne was appointed President of the Company's Mid-Atlantic Marketing Area in 1993. Before this Mr. ",
+          "section": null
+        },
+        {
+          "text": "ITEM 3. LEGAL PROCEEDINGS There are pending against the Company various claims and lawsuits arising in the normal course of business, including suits charging violations of certain antitrust and civil",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Inadvertent filing of amended Form 5 by Mr. Ronald R. Rice",
+        "Potential conflict of interest due to Mr. Rice's role as trustee and beneficiary of a trust",
+        "Lack of transparency regarding executive compensation and potential business interests"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The Company believes that during fiscal year 1997 all filing requirements applicable to its officers, directors and ten percent beneficial owners were satisfied except that Mr. Ronald R. Rice inadvertently filed an amended Form 5, reporting a gift of 600 shares by a trust under which he is a trustee and a beneficiary, 24 days late.",
+          "The Company has not disclosed any business interests for the executives listed, but it is worth noting that Mr. Rice's role as trustee and beneficiary of a trust could potentially create a conflict of interest."
+        ],
+        "recommendations": [
+          "Conduct a thorough review of Mr. Rice's role as trustee and beneficiary of the trust to ensure that there are no potential conflicts of interest",
+          "Request additional information regarding executive compensation and potential business interests",
+          "Consider conducting a more in-depth analysis of the Company's financial statements to identify any potential red flags or inconsistencies"
+        ]
+      }
+    },
+    {
+      "query": "Find shell companies or special purpose entities",
+      "answer": "Based on the context, there are no direct mentions of shell companies or special purpose entities. However, there are some red flags and concerns related to the Company's financial reporting and risk management practices.",
+      "sources": [
+        {
+          "text": "ITEM 1. BUSINESS The Company was founded in 1883, incorporated in 1902, and maintains its principal executive offices in Cincinnati, Ohio. The Company is the nation's largest supermarket operator meas",
+          "section": null
+        },
+        {
+          "text": "ITEM 2. PROPERTIES As of December 27, 1997, the Company operated more than 2,200 owned or leased supermarkets, convenience stores, distribution warehouses and food processing facilities, through divis",
+          "section": null
+        },
+        {
+          "text": "states. In addition, other workers' compensation risks and certain levels of insured general liability risks are based on retrospective premium plans, deductible plans, and self-insured retention plan",
+          "section": null
+        },
+        {
+          "text": "Registration No. 33-57552 4.1 Instruments defining the rights of holders of long-term debt of the Company and its subsidiaries are not filed as Exhibits because the amount of debt under each instrumen",
+          "section": null
+        },
+        {
+          "text": "51 Mr. Thorne was elected Senior Vice President effective June 18, 1995. Prior to his election Mr. Thorne was appointed President of the Company's Mid-Atlantic Marketing Area in 1993. Before this Mr. ",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Lack of transparency in the Company's financial reporting, particularly in the 'Leases' section where it is mentioned that 'For additional information on leased premises, see \"Leases\" in the'",
+        "Unclear accounting treatment for workers' compensation risks and certain levels of insured general liability risks",
+        "Potential for material adverse effect on the Company's financial position or results of operations due to various legal actions",
+        "Unclear terms of the warrant dividend plan and potential for abuse"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The Company's financial reporting is not transparent, particularly in the 'Leases' section where it is mentioned that 'For additional information on leased premises, see \"Leases\" in the'",
+          "The accounting treatment for workers' compensation risks and certain levels of insured general liability risks is unclear",
+          "The Company is involved in various legal actions that could have a material adverse effect on its financial position or results of operations",
+          "The warrant dividend plan has unclear terms and potential for abuse"
+        ],
+        "recommendations": [
+          "Request additional information on the Company's leased premises and accounting treatment for workers' compensation risks and certain levels of insured general liability risks",
+          "Conduct further analysis on the potential impact of the Company's legal actions on its financial position or results of operations",
+          "Review the warrant dividend plan and its terms to ensure compliance with regulatory requirements and prevent potential abuse"
+        ]
+      }
+    },
+    {
+      "query": "Detect auditor changes or qualified opinions",
+      "answer": "Based on the provided context, there are no auditor changes or qualified opinions mentioned in the SEC 10-K filing. However, there are some red flags and concerns that need to be addressed.",
+      "sources": [
+        {
+          "text": "ITEM 8. FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA REPORT OF INDEPENDENT ACCOUNTANTS To the Shareowners and Board of Directors The Kroger Co. We have audited the accompanying consolidated balance she",
+          "section": null
+        },
+        {
+          "text": "ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTANTS ON ACCOUNTING AND FINANCIAL DISCLOSURE None. ITEM 10. DIRECTORS AND EXECUTIVE OFFICERS OF THE REGISTRANT The information required by this item con",
+          "section": null
+        },
+        {
+          "text": "them, may approve and to do any and all other acts which said attorneys-in-fact, or either of them, may deem necessary or desirable to enable The Kroger Co. to comply with said Act or the rules and re",
+          "section": null
+        },
+        {
+          "text": "pursuant to the Securities Exchange Act of 1934, as amended, in such form as they, or either of them, may approve and to do any and all other acts which said attorneys-in-fact, or either of them, may ",
+          "section": null
+        },
+        {
+          "text": "OF EARNINGS TO FIXED CHARGES OF THE KROGER CO. AND CONSOLIDATED SUBSIDIARY COMPANIES AND UNCONSOLIDATED COMPANIES AS IF CONSOLIDATED FOR THE FIVE FISCAL YEARS ENDED December 27,1997 Five Years Ended -",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Inconsistent employment history of executive officers",
+        "Late filing of amended Form 5 by Mr. Ronald R. Rice",
+        "Potential lack of transparency in executive officer employment history",
+        "Power of attorney granted to multiple individuals, which may indicate a lack of control or oversight"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The employment history of executive officers, such as Warren F. Bryant, David B. Dillon, and Paul W. Heldman, is not fully disclosed, which may indicate a lack of transparency.",
+          "Mr. Ronald R. Rice inadvertently filed an amended Form 5, reporting a gift of 600 shares by a trust under which he is a trustee and a beneficiary, 24 days late.",
+          "The power of attorney granted to multiple individuals, including Paul W. Heldman and Bruce M. Gack, may indicate a lack of control or oversight."
+        ],
+        "recommendations": [
+          "Request additional information on the employment history of executive officers",
+          "Verify the accuracy of the amended Form 5 filed by Mr. Ronald R. Rice",
+          "Review the power of attorney granted to multiple individuals and assess the level of control and oversight"
+        ]
+      }
+    },
+    {
+      "query": "Identify hidden liabilities or contingencies",
+      "answer": "Error generating response: Invalid control character at: line 2 column 102 (char 103)",
+      "sources": [],
+      "confidence": 0.0,
+      "fraud_indicators": [],
+      "metadata": {}
+    },
+    {
+      "query": "Find inconsistencies between MD&A and financial statements",
+      "answer": "Based on the provided context, there are inconsistencies between the MD&A and financial statements. The MD&A mentions a decrease in sales per average square foot for convenience stores, but the financial statements do not provide a clear breakdown of sales by store type. Additionally, the MD&A mentions a decrease in square footage, but the financial statements do not provide a clear explanation of how this decrease affects the company's overall financial performance.",
+      "sources": [
+        {
+          "text": "ITEM 8. FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA REPORT OF INDEPENDENT ACCOUNTANTS To the Shareowners and Board of Directors The Kroger Co. We have audited the accompanying consolidated balance she",
+          "section": null
+        },
+        {
+          "text": "33-29271), Form S-8 (File No. 33-38121), Form S-8 (File No. 33-38122), Form S-8 (File No. 33-53747), Form S-8 (File No. 33-55501), Form S-8 (File No. 333-11859), Form S-8 (File No. 333-11909), Form S-",
+          "section": null
+        },
+        {
+          "text": "pursuant to the Securities Exchange Act of 1934, as amended, in such form as they, or either of them, may approve and to do any and all other acts which said attorneys-in-fact, or either of them, may ",
+          "section": null
+        },
+        {
+          "text": "square footage decreased 1.3% in 1997, increased 1.5% in 1996, and decreased 10.6% in 1995. Sales per average square foot for the last three years were: TOTAL SALES PER AVERAGE SQUARE FOOT - 1997 1996",
+          "section": null
+        },
+        {
+          "text": "Registration No. 33-57552 4.1 Instruments defining the rights of holders of long-term debt of the Company and its subsidiaries are not filed as Exhibits because the amount of debt under each instrumen",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Inconsistent disclosure of sales by store type",
+        "Lack of clear explanation of how square footage decrease affects financial performance",
+        "Potential misrepresentation of sales per average square foot"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The MD&A states: 'Sales per average square foot for the last three years were: TOTAL SALES PER AVERAGE SQUARE FOOT - 1997 1996 1995 - - - Food Stores. $398 $401 $405 Convenience Stores. $548 $519 $475'",
+          "The financial statements do not provide a clear breakdown of sales by store type",
+          "The MD&A states: 'square footage decreased 1.3% in 1997, increased 1.5% in 1996, and decreased 10.6% in 1995.'"
+        ],
+        "recommendations": [
+          "Request additional disclosure of sales by store type",
+          "Request clarification on how square footage decrease affects financial performance",
+          "Review company's accounting policies and procedures to ensure consistency and accuracy"
+        ]
+      }
+    }
+  ],
+  "timestamp": "2026-03-19T15:53:53.387513",
+  "success": true,
+  "error_message": null
+}

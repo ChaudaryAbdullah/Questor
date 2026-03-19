@@ -1,0 +1,581 @@
+{
+  "document_id": "1504008_20170228",
+  "document_path": "Input/1504008_20170228.txt",
+  "company_name": "Document",
+  "fiscal_year": "DECEMBER 31, 2016",
+  "preprocessing_time": 6.717502593994141,
+  "entity_extraction_time": 300.7642238140106,
+  "embedding_time": 5.08509087562561,
+  "graph_construction_time": 186.75716376304626,
+  "fraud_analysis_time": 210.58959436416626,
+  "total_time": 711.4422097206116,
+  "chunks_created": 1593,
+  "entities_extracted": 18310,
+  "relationships_extracted": 0,
+  "fraud_findings_count": 0,
+  "fraud_findings": [],
+  "rag_analysis": [
+    {
+      "query": "Find undisclosed related party transactions",
+      "answer": "Based on the provided context, there is no explicit mention of undisclosed related party transactions. However, there are some potential red flags and concerns that need to be addressed.",
+      "sources": [
+        {
+          "text": "non-U.S. financial institutions and non-U.S. customers. Financial institutions must take reasonable steps to conduct enhanced scrutiny of account relationships to guard against money laundering and to",
+          "section": null
+        },
+        {
+          "text": "Relationships and Related Transactions, and Director Independence Information regarding certain related transactions appearing under the captions \"Certain Related Party Relationships\" and information ",
+          "section": null
+        },
+        {
+          "text": "information, including the financial position, cash flows, and the results of operations of the registrant (parent company) as of the same dates or for the same periods for which audited consolidated ",
+          "section": null
+        },
+        {
+          "text": "personal information and any violation of these laws or another incident involving personal, confidential or proprietary information of individuals could damage our reputation and otherwise adversely ",
+          "section": null
+        },
+        {
+          "text": "could have significant consequences. Financial or operational difficulties of a third party vendor could also adversely affect our operations if those difficulties interfere with the vendor's ability ",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Lack of disclosure regarding related party transactions in the 10-K filing",
+        "Incorporation by reference of information from the 2017 Proxy Statement without clear disclosure of related party transactions",
+        "Potential omission of required disclosures related to related party transactions"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The 10-K filing does not explicitly disclose related party transactions, which is a required disclosure under Item 14 of Regulation S-K.",
+          "The incorporation by reference of information from the 2017 Proxy Statement does not provide clear disclosure of related party transactions, which may indicate a lack of transparency.",
+          "The omission of required disclosures related to related party transactions may indicate a potential risk of non-compliance with regulatory requirements."
+        ],
+        "recommendations": [
+          "Request additional information from the company regarding related party transactions and their disclosure in the 10-K filing",
+          "Review the company's proxy statements and other filings to ensure compliance with related party transaction disclosure requirements",
+          "Consider conducting a review of the company's related party transaction policies and procedures to ensure they are adequate and effective"
+        ]
+      }
+    },
+    {
+      "query": "Identify contradictions in revenue recognition descriptions",
+      "answer": "The query is focused on identifying contradictions in revenue recognition descriptions. Based on the context, it appears that the company has not fully adopted the new revenue recognition standard (ASU 2014-09) and is still using the old standard (Topic 605). The company states that substantially all of its revenues have historically been generated from activities that are outside the scope of the ASU, but it also mentions that service charges on deposit accounts, which totaled approximately $13 million for the year ended December 31, 2016, are within the scope of the ASU. However, management does not expect the amount and timing of recognition of such revenue to be materially impacted by adoption. This could be seen as a contradiction, as the company is not fully adopting the new standard, but is still recognizing revenue from activities that are within the scope of the ASU.",
+      "sources": [
+        {
+          "text": "have been reclassified to conform to the current period presentation. Recent Accounting Pronouncements In May 2014, the FASB issued ASU No. 2014-09, Revenue from Contracts with Customers (Topic 606), ",
+          "section": null
+        },
+        {
+          "text": "is recognized in the income statement as a component of income tax expense. /font font style=\"font-family:inherit;font-size:10pt;\" The investments are evaluated for impairment when events or changes i",
+          "section": null
+        },
+        {
+          "text": "as opposed to additional paid-in-capital; b) excess tax benefits be recognized regardless of whether the benefit reduces taxes payable in the current period; c) excess tax benefits and deficiencies be",
+          "section": null
+        },
+        {
+          "text": "570 Non-ACI loans | Home equity loans and lines of credit Financing Receivable Impaired [Line Items] Recorded Investment, With no specific allowance recorded 2,255 1,607 Recorded Investment, With a sp",
+          "section": null
+        },
+        {
+          "text": "Definition Amount of addition (reduction) to the amount at which an asset could be incurred (settled) in a current transaction between willing parties. + References No definition available. + Details ",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Inconsistent application of revenue recognition standards",
+        "Lack of full adoption of new revenue recognition standard (ASU 2014-09)",
+        "Potential misclassification of revenue",
+        "Inadequate disclosure of revenue recognition policies"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The company states that substantially all of its revenues have historically been generated from activities that are outside the scope of the ASU, but also mentions that service charges on deposit accounts are within the scope of the ASU.",
+          "Management does not expect the amount and timing of recognition of such revenue to be materially impacted by adoption, but this could be seen as a contradiction given the company's inconsistent application of revenue recognition standards."
+        ],
+        "recommendations": [
+          "Request additional information on the company's revenue recognition policies and procedures",
+          "Review the company's financial statements for any potential misclassifications of revenue",
+          "Assess the company's internal controls over revenue recognition to ensure they are adequate and effective"
+        ]
+      }
+    },
+    {
+      "query": "Detect changes in risk factors from previous year",
+      "answer": "The risk factors have changed from the previous year, specifically in the acceptable limits for net interest income sensitivity in interest rate shock scenarios.",
+      "sources": [
+        {
+          "text": "Item 1A. Risk Factors 15",
+          "section": null
+        },
+        {
+          "text": "shock scenarios are within specified percentages of forecast net interest income in the most likely rate scenario over the next twelve months and in the second year. The following table illustrates th",
+          "section": null
+        },
+        {
+          "text": "that such limitations will not impact our ability to meet our ongoing near-term cash obligations. We expect that our liquidity requirements will continue to be satisfied over the next 12 months throug",
+          "section": null
+        },
+        {
+          "text": "exposure to such risks, and employ a broad and diversified set of risk monitoring and mitigation techniques in the process, those techniques are inherently limited in their ability to anticipate the e",
+          "section": null
+        },
+        {
+          "text": "analysis of expected pool cash flows incorporates updated pool level expected prepayment rate, default rate, delinquency level and loss severity given default assumptions. Prepayment, delinquency and ",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Inconsistency in acceptable limits for net interest income sensitivity between 2015 and 2016",
+        "Lack of disclosure on the impact of credit risk on the company's financial condition and results of operations",
+        "Unclear explanation of the company's risk management process and its effectiveness",
+        "Inadequate disclosure on the company's exposure to credit risk on non-covered assets"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The acceptable limits for net interest income sensitivity in interest rate shock scenarios have changed from 2015 to 2016, with a decrease in the acceptable limits for down 100 and plus 100 basis point scenarios.",
+          "The company's ALCO policy provides that net interest income sensitivity will be considered acceptable if decreases in forecast net interest income are within specified percentages of forecast net interest income in the most likely rate scenario over the next twelve months and in the second year.",
+          "The company's risk management process is not clearly explained, and the effectiveness of the process is not disclosed.",
+          "The company's exposure to credit risk on non-covered assets is not adequately disclosed, and the potential impact of credit losses on the company's financial condition and results of operations is not clearly explained."
+        ],
+        "recommendations": [
+          "Request additional information on the company's risk management process and its effectiveness",
+          "Obtain more detailed disclosure on the company's exposure to credit risk on non-covered assets and the potential impact of credit losses on the company's financial condition and results of operations",
+          "Review the company's financial statements and notes to ensure that they are consistent with the risk factors disclosed in the 10-K filing",
+          "Consider conducting a site visit or meeting with the company's management to discuss the risk factors and the company's risk management process"
+        ]
+      }
+    },
+    {
+      "query": "Find unusual relationships between executives and suppliers",
+      "answer": "Based on the provided context, there are no explicit relationships between executives and suppliers that indicate unusual relationships. However, there are some red flags and concerns related to the company's management and competition.",
+      "sources": [
+        {
+          "text": "Item 1. Business 1",
+          "section": null
+        },
+        {
+          "text": "conduct in any number of activities, including lending practices, corporate governance and acquisitions and from actions taken by government regulators and community organizations in response to those",
+          "section": null
+        },
+        {
+          "text": "will depend in large part on the skills of our senior management team. We believe our senior management team possesses valuable knowledge about and experience in the banking industry and that their kn",
+          "section": null
+        },
+        {
+          "text": "implement. We may also incur costs as a result of data or security breaches of third parties with whom we do not have a significant direct relationship. As a result of financial entities and technolog",
+          "section": null
+        },
+        {
+          "text": "well as non-banks, including online providers, to offer products and services traditionally provided by banks. Many of our competitors have fewer regulatory constraints and may have lower cost structu",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "The company's reliance on the skills of its senior management team, which may be difficult to replicate.",
+        "The potential for key personnel to leave the company, which could have an adverse effect on the business.",
+        "The high level of competition in the financial services industry, which may make it difficult for the company to market its products and services.",
+        "The company's vulnerability to technological changes and cyber incidents, which could have a material impact on its operations."
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "We believe our senior management team possesses valuable knowledge about and experience in the banking industry and that their knowledge and relationships could be difficult to replicate.",
+          "The loss of service of one or more of our executive officers or key personnel, or the inability to recruit and retain qualified personnel in the future, could have an adverse effect on our business, financial condition or operating results.",
+          "We face significant competition from other financial institutions and financial services providers, which may adversely impact our growth or profitability."
+        ],
+        "recommendations": [
+          "The company should provide more information about its succession planning and talent development strategies to mitigate the risk of key personnel leaving.",
+          "The company should continue to invest in technology and cybersecurity measures to protect its operations and customer data.",
+          "The company should monitor its competitors' activities and adjust its strategies accordingly to remain competitive in the market."
+        ]
+      }
+    },
+    {
+      "query": "Identify subsidiaries mentioned but not in consolidation",
+      "answer": "Based on the provided context, subsidiaries mentioned but not in consolidation are not explicitly identified. However, the context mentions 'included in participating securities above are unvested shares and 3,023,314 dividend equivalent rights outstanding at December 31, 2016 that were issued in conjunction with the IPO of the Company's common stock.' This suggests that there may be subsidiaries involved in the issuance of these dividend equivalent rights, but their consolidation status is unclear.",
+      "sources": [
+        {
+          "text": "subsidiary equity which is not attributable to the parent (noncontrolling interest, minority interest). This excludes temporary equity and is sometimes called permanent equity. + References Reference ",
+          "section": null
+        },
+        {
+          "text": "treatment for intercompany accounts and transactions, noncontrolling interest, and the income statement treatment in consolidation for issuances of stock by a subsidiary. + References Reference 1: htt",
+          "section": null
+        },
+        {
+          "text": "information, including the financial position, cash flows, and the results of operations of the registrant (parent company) as of the same dates or for the same periods for which audited consolidated ",
+          "section": null
+        },
+        {
+          "text": "officers or key personnel; competition; dependence on information technology and third party service providers and the risk of systems failures, interruptions or breaches of security; failure to compl",
+          "section": null
+        },
+        {
+          "text": "210.5-02.31(a)(3)) -URI http://asc.fasb.org/extlink oid=6877327 loc=d3e13212-122682 Reference 2: http://www.xbrl.org/2003/role/presentationRef -Publisher SEC -Name Regulation S-X (SX) -Number 210 -Sec",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Lack of clear disclosure on subsidiaries not in consolidation",
+        "Unclear treatment of intercompany accounts and transactions",
+        "Potential for undisclosed information on subsidiary equity and noncontrolling interest"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The context mentions 'included in participating securities above are unvested shares and 3,023,314 dividend equivalent rights outstanding at December 31, 2016 that were issued in conjunction with the IPO of the Company's common stock.' This suggests potential involvement of subsidiaries in the issuance of these dividend equivalent rights.",
+          "The context also mentions 'treatment for intercompany accounts and transactions, noncontrolling interest, and the income statement treatment in consolidation for issuances of stock by a subsidiary.' This suggests potential complexity in the consolidation process.",
+          "The context does not provide clear disclosure on subsidiaries not in consolidation, which may indicate a lack of transparency."
+        ],
+        "recommendations": [
+          "Request additional information on subsidiaries involved in the issuance of dividend equivalent rights and their consolidation status",
+          "Review the company's accounting policies and procedures for intercompany accounts and transactions, noncontrolling interest, and consolidation",
+          "Verify the accuracy of the company's disclosures on subsidiaries not in consolidation and ensure compliance with relevant accounting standards"
+        ]
+      }
+    },
+    {
+      "query": "Find circular transaction patterns between entities",
+      "answer": "Based on the provided context, there are no direct circular transaction patterns between entities that can be identified. However, there are some red flags and concerns that need to be addressed.",
+      "sources": [
+        {
+          "text": "Payments Due, Next Twelve Months Operating Leases, Future Minimum Payments, Due in Two Years Operating Leases, Future Minimum Payments, Due in Two Years Operating Leases, Future Minimum Payments, Due ",
+          "section": null
+        },
+        {
+          "text": "Text Block] FDIC Asset and Liability FDIC Asset and Liability [Table Text Block] [Table Text Block] for FDIC Asset and Liability [Table] Equity [Abstract] Accumulated Other Comprehensive Income Loss [",
+          "section": null
+        },
+        {
+          "text": "Derivative Contract [Domain] Pay-Fixed interest rate swaps - Borrowings Pay-Fixed Interest Rate Swaps - Borrowings [Member] Interest rate swaps used to hedge interest payments on variable rate borrowi",
+          "section": null
+        },
+        {
+          "text": "non-U.S. financial institutions and non-U.S. customers. Financial institutions must take reasonable steps to conduct enhanced scrutiny of account relationships to guard against money laundering and to",
+          "section": null
+        },
+        {
+          "text": "Balance Type: na Period Type: duration X - Definition Tabular disclosure of arrangements in which the entity has committed resources to supply goods or services to a customer. May include identificati",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Lack of transparency in the payment schedules and future minimum payments",
+        "Unclear and complex financial structures, such as operating leases and derivative instruments",
+        "Inconsistencies in the presentation of financial information, including the use of multiple tables and abstracts"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The payment schedules and future minimum payments are not clearly presented, making it difficult to understand the financial obligations of the company.",
+          "The use of operating leases and derivative instruments may indicate a lack of transparency in the company's financial dealings.",
+          "The multiple tables and abstracts used to present financial information may indicate a lack of clarity and consistency in the company's financial reporting."
+        ],
+        "recommendations": [
+          "Request additional information and clarification on the payment schedules and future minimum payments",
+          "Conduct a thorough review of the company's financial structures, including operating leases and derivative instruments",
+          "Request that the company provide a clear and concise presentation of their financial information, including a single, unified table or report"
+        ]
+      }
+    },
+    {
+      "query": "Detect sudden changes in accounting policies",
+      "answer": "The context suggests that the company has made significant changes to its accounting policies, particularly in regards to the Allowance for Loan and Lease Losses (ALLL) and the accounting for Acquired Loans and the FDIC Indemnification Asset. These changes may indicate a potential shift in the company's risk profile or a change in management's judgment regarding the value of its assets.",
+      "sources": [
+        {
+          "text": "Item 9. Changes in and Disagreements with Accountants on Accounting and Financial Disclosure 87",
+          "section": null
+        },
+        {
+          "text": "income over the remaining life of the asset or a lower sale value. Demand for and the valuation of the leased equipment is sensitive to shifts in general and industry specific economic and market tren",
+          "section": null
+        },
+        {
+          "text": "are prepared in accordance with GAAP and follow general practices within the banking industry. Application of these principles requires management to make complex and subjective estimates and judgment",
+          "section": null
+        },
+        {
+          "text": "design and operating effectiveness of internal control based on the assessed risk. Our audit also included performing such other procedures as we considered necessary in the circumstances. We believe ",
+          "section": null
+        },
+        {
+          "text": "to express an opinion on these consolidated financial statements based on our audits. We conducted our audits in accordance with the standards of the Public Company Accounting Oversight Board (United ",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Sudden changes in accounting policies, particularly in regards to the ALLL and the accounting for Acquired Loans and the FDIC Indemnification Asset",
+        "Management's subjective estimates and judgments regarding the value of assets and liabilities",
+        "Lack of transparency regarding the methodology used to determine the ALLL",
+        "Dependence on proxy data and qualitative factors in determining the ALLL",
+        "Potential for restatement of prior period financial statements due to changes in accounting standards"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The company has made significant changes to its accounting policies, particularly in regards to the ALLL and the accounting for Acquired Loans and the FDIC Indemnification Asset.",
+          "Management's estimates and judgments regarding the value of assets and liabilities are complex and subjective.",
+          "The company relies on proxy data and qualitative factors in determining the ALLL, which may lead to inconsistent results.",
+          "The company may be required to restate prior period financial statements due to changes in accounting standards."
+        ],
+        "recommendations": [
+          "Request additional information regarding the methodology used to determine the ALLL and the accounting for Acquired Loans and the FDIC Indemnification Asset.",
+          "Obtain an explanation for the sudden changes in accounting policies and the potential impact on the company's risk profile.",
+          "Review the company's internal controls over financial reporting to ensure that they are effective in preventing or detecting material misstatements.",
+          "Consider conducting a more in-depth analysis of the company's financial statements and accounting policies to identify any potential red flags or concerns."
+        ]
+      }
+    },
+    {
+      "query": "Identify executives with undisclosed business interests",
+      "answer": "Based on the provided context, there is no direct mention of executives with undisclosed business interests. However, there are some red flags and concerns that need to be addressed.",
+      "sources": [
+        {
+          "text": "will depend in large part on the skills of our senior management team. We believe our senior management team possesses valuable knowledge about and experience in the banking industry and that their kn",
+          "section": null
+        },
+        {
+          "text": "Relationships and Related Transactions, and Director Independence Information regarding certain related transactions appearing under the captions \"Certain Related Party Relationships\" and information ",
+          "section": null
+        },
+        {
+          "text": "officers or key personnel; competition; dependence on information technology and third party service providers and the risk of systems failures, interruptions or breaches of security; failure to compl",
+          "section": null
+        },
+        {
+          "text": "Item 1. Business 1",
+          "section": null
+        },
+        {
+          "text": "conduct in any number of activities, including lending practices, corporate governance and acquisitions and from actions taken by government regulators and community organizations in response to those",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Lack of transparency regarding senior management team composition and changes",
+        "No disclosure of potential conflicts of interest or business relationships",
+        "Dependence on key personnel and their relationships with customers and communities",
+        "High level of competition in the financial services industry",
+        "Potential for increased competition due to legislative, regulatory, and technological changes"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "Although certain key members of our senior management team have entered into employment agreements with us, they may not complete the terms of their employment agreements or renew them upon expiration.",
+          "Our success also depends on the experience of other key personnel and on their relationships with the customers and communities they serve.",
+          "We face significant competition from other financial institutions and financial services providers, which may adversely impact our growth or profitability."
+        ],
+        "recommendations": [
+          "Conduct a thorough review of senior management team composition and changes to ensure transparency and disclosure",
+          "Disclose potential conflicts of interest or business relationships of key personnel",
+          "Develop a plan to mitigate the risks associated with dependence on key personnel and their relationships with customers and communities",
+          "Monitor the competitive landscape and potential changes in the financial services industry"
+        ]
+      }
+    },
+    {
+      "query": "Find shell companies or special purpose entities",
+      "answer": "Based on the provided context, there are no explicit mentions of shell companies or special purpose entities. However, the presence of numerous 'bku_' prefixed elements, such as 'bku_NumberOfBranches' and 'bku_NumberOfSubsidiaries', suggests the existence of subsidiary entities. The lack of clear definitions and references for these elements raises concerns about transparency and potential misrepresentation.",
+      "sources": [
+        {
+          "text": "The number of BankUnited branches + References No definition available. + Details Name: bku_NumberOfBranches Namespace Prefix: bku_ Data Type: xbrli:integerItemType Balance Type: na Period Type: insta",
+          "section": null
+        },
+        {
+          "text": "information, including the financial position, cash flows, and the results of operations of the registrant (parent company) as of the same dates or for the same periods for which audited consolidated ",
+          "section": null
+        },
+        {
+          "text": "Item 9A. Controls and Procedures 87 Item 9B. Other Information 87 PART III Item 10. Directors, Executive Officers and Corporate Governance 87 Item 11. Executive Compensation 87 Item 12. Security Owner",
+          "section": null
+        },
+        {
+          "text": "buildings, machinery and equipment, office equipment, and furniture and fixtures. + References Reference 1: http://www.xbrl.org/2003/role/presentationRef -Publisher FASB -Name Accounting Standards Cod",
+          "section": null
+        },
+        {
+          "text": "2014-12-31 0001504008 bku:NonAciLoansMember us-gaap:MultifamilyMember 2016-01-01 2016-12-31 0001504008 bku:AciLoansMember bku:CommercialIndustrialMember 2014-01-01 2014-12-31 0001504008 bku:NonAciLoan",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Lack of clear definitions for subsidiary-related elements",
+        "Insufficient references for subsidiary-related elements",
+        "Presence of numerous subsidiary-related elements without clear context",
+        "Potential misrepresentation of subsidiary-related information"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The context mentions 'bku_NumberOfSubsidiaries' without providing a clear definition or reference.",
+          "The 'bku_' prefixed elements are not explicitly defined or referenced, raising concerns about transparency.",
+          "The presence of numerous subsidiary-related elements without clear context suggests potential misrepresentation."
+        ],
+        "recommendations": [
+          "Request clarification on the definitions and references for subsidiary-related elements",
+          "Verify the accuracy and completeness of subsidiary-related information",
+          "Consider conducting further investigation into the subsidiary entities mentioned in the context"
+        ]
+      }
+    },
+    {
+      "query": "Detect auditor changes or qualified opinions",
+      "answer": "Based on the provided context, there are no direct auditor changes or qualified opinions mentioned. However, there are some red flags and concerns that need to be addressed.",
+      "sources": [
+        {
+          "text": "design and operating effectiveness of internal control based on the assessed risk. Our audit also included performing such other procedures as we considered necessary in the circumstances. We believe ",
+          "section": null
+        },
+        {
+          "text": "Item 9. Changes in and Disagreements with Accountants on Accounting and Financial Disclosure 87",
+          "section": null
+        },
+        {
+          "text": "to express an opinion on these consolidated financial statements based on our audits. We conducted our audits in accordance with the standards of the Public Company Accounting Oversight Board (United ",
+          "section": null
+        },
+        {
+          "text": "The registrant s other certifying officer and I are responsible for establishing and maintaining disclosure controls and procedures (as defined in Exchange Act Rules 13a-15(e) and 15d-15(e)) and inter",
+          "section": null
+        },
+        {
+          "text": "to increase our ALLL. In addition, regulatory authorities periodically review our ALLL and may require us to increase our provision for loan losses or recognize further loan charge-offs, based on judg",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Lack of transparency in auditor changes or qualified opinions",
+        "Inconsistent reporting of internal control over financial reporting",
+        "Unclear disclosure of management's responsibility for maintaining effective internal control over financial reporting",
+        "Potential misstatement of financial information due to inadequate internal control over financial reporting"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The context does not explicitly mention any auditor changes or qualified opinions, which could indicate a lack of transparency.",
+          "The report on internal control over financial reporting is dated February 27, 2017, but the context does not provide a clear explanation of the audit process or any potential issues that may have arisen during the audit.",
+          "Management's responsibility for maintaining effective internal control over financial reporting is mentioned, but the context does not provide sufficient information to assess the effectiveness of this responsibility.",
+          "The report on internal control over financial reporting states that the company's internal control over financial reporting may not prevent or detect misstatements, which could indicate a potential risk of misstatement."
+        ],
+        "recommendations": [
+          "Request additional information on auditor changes or qualified opinions, if any, and the reasons for any changes.",
+          "Review the audit process and procedures to ensure that they are adequate and effective in detecting potential misstatements.",
+          "Assess the effectiveness of management's responsibility for maintaining effective internal control over financial reporting and provide recommendations for improvement, if necessary.",
+          "Consider conducting additional testing or procedures to verify the accuracy of financial information and the effectiveness of internal control over financial reporting."
+        ]
+      }
+    },
+    {
+      "query": "Identify hidden liabilities or contingencies",
+      "answer": "The analysis reveals potential hidden liabilities or contingencies related to credit risk, fair value measurements, and loan and lease losses.",
+      "sources": [
+        {
+          "text": "exposure to such risks, and employ a broad and diversified set of risk monitoring and mitigation techniques in the process, those techniques are inherently limited in their ability to anticipate the e",
+          "section": null
+        },
+        {
+          "text": "unobservable inputs. Fair value measurements related to collateral dependent impaired loans, OREO and other repossessed assets are classified within level 3 of the fair value hierarchy. Equipment unde",
+          "section": null
+        },
+        {
+          "text": "-SubTopic 10 -Section 50 -Paragraph 2 -URI http://asc.fasb.org/extlink oid=6371337 loc=d3e3630-109257 Reference 4: http://www.xbrl.org/2003/role/presentationRef -Publisher FASB -Name Accounting Standa",
+          "section": null
+        },
+        {
+          "text": "issues where there has been diversity in practice. The guidance in the ASU that is expected to be most applicable to the Company requires: (1) cash payments for debt prepayment or extinguishment costs",
+          "section": null
+        },
+        {
+          "text": "Warrants [Abstract] Noncash or Part Noncash Acquisition, Noncash Financial or Equity Instrument Consideration, Warrants Issued Noncash or Part Noncash Acquisition, Noncash Financial or Equity Instrume",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Inadequate allowance for loan and lease losses (ALLL) that may not cover actual credit losses",
+        "Uncertainty in determining the many ways in which a decline in economic or market conditions may impact the credit quality of assets",
+        "Limited effectiveness of the enterprise risk management framework in mitigating the impact of known risks or the emergence of previously unknown or unanticipated risks",
+        "Fair value measurements classified within level 3 of the fair value hierarchy, which are inherently subjective and may be subject to manipulation",
+        "Unclear disclosure of accounting policy for fair value measurements of financial and non-financial assets, liabilities, and instruments classified in shareholders' equity"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The ineffectiveness of our enterprise risk management framework in mitigating the impact of known risks or the emergence of previously unknown or unanticipated risks may result in our incurring losses in the future that could adversely impact our financial condition and results of operations.",
+          "Our credit standards, procedures, and policies may not prevent us from incurring substantial credit losses, particularly if economic or market conditions deteriorate.",
+          "The Loss Sharing Agreements only cover a small percentage of assets, and credit losses on assets not covered by the Loss Sharing Agreements could have a material adverse effect on our operating results.",
+          "Fair value measurements related to collateral-dependent impaired loans, OREO, and other repossessed assets are classified within level 3 of the fair value hierarchy."
+        ],
+        "recommendations": [
+          "Conduct a thorough review of the ALLL to ensure it is adequate to cover actual credit losses",
+          "Enhance the enterprise risk management framework to better mitigate the impact of known risks and the emergence of previously unknown or unanticipated risks",
+          "Provide clearer disclosure of accounting policy for fair value measurements of financial and non-financial assets, liabilities, and instruments classified in shareholders' equity",
+          "Consider conducting an independent review of the fair value measurements to ensure their accuracy and reliability"
+        ]
+      }
+    },
+    {
+      "query": "Find inconsistencies between MD&A and financial statements",
+      "answer": "Based on the provided context, there are inconsistencies between the MD&A and financial statements regarding the accounting treatment of investment securities. The MD&A mentions that the company has a significant unrealized loss position in its investment securities, but the financial statements do not provide sufficient disclosure on this matter. Additionally, the MD&A mentions that the company has acquired certain assets and liabilities, but the financial statements do not provide a clear schedule of these assets and liabilities.",
+      "sources": [
+        {
+          "text": "to express an opinion on these consolidated financial statements based on our audits. We conducted our audits in accordance with the standards of the Public Company Accounting Oversight Board (United ",
+          "section": null
+        },
+        {
+          "text": "Tables http://www.bankunited.com/role/CondensedFinancialStatementsOfBankunitedInc 45 false false R46.htm 2320301 - Disclosure - Quarterly Financial Information (Unaudited) (Tables) Sheet http://www.ba",
+          "section": null
+        },
+        {
+          "text": "false false R3.htm 1001501 - Statement - CONSOLIDATED BALANCE SHEETS (Parenthetical) Sheet http://www.bankunited.com/role/ConsolidatedBalanceSheetsParenthetical CONSOLIDATED BALANCE SHEETS (Parentheti",
+          "section": null
+        },
+        {
+          "text": "Item 9. Changes in and Disagreements with Accountants on Accounting and Financial Disclosure 87",
+          "section": null
+        },
+        {
+          "text": "information, including the financial position, cash flows, and the results of operations of the registrant (parent company) as of the same dates or for the same periods for which audited consolidated ",
+          "section": null
+        }
+      ],
+      "confidence": 0.8,
+      "fraud_indicators": [
+        "Inconsistencies between MD&A and financial statements",
+        "Lack of disclosure on unrealized loss positions in investment securities",
+        "Incomplete disclosure on acquisition activity"
+      ],
+      "metadata": {
+        "risk_level": "MEDIUM",
+        "evidence": [
+          "The MD&A mentions that the company has a significant unrealized loss position in its investment securities, but the financial statements do not provide sufficient disclosure on this matter. (Source: MD&A, Acquisition Activity section)",
+          "The MD&A mentions that the company has acquired certain assets and liabilities, but the financial statements do not provide a clear schedule of these assets and liabilities. (Source: MD&A, Acquisition Activity section)",
+          "The financial statements do not provide sufficient disclosure on the accounting treatment of investment securities. (Source: Financial Statements, Investment Securities section)"
+        ],
+        "recommendations": [
+          "Request additional disclosure on unrealized loss positions in investment securities",
+          "Request a clear schedule of assets and liabilities acquired in the acquisition activity",
+          "Review the accounting treatment of investment securities to ensure compliance with GAAP"
+        ]
+      }
+    }
+  ],
+  "timestamp": "2026-01-30T13:56:16.878797",
+  "success": true,
+  "error_message": null
+}

@@ -1,0 +1,51 @@
+# Core dependencies
+python-dotenv>=1.0.0
+pyyaml>=6.0
+
+# NLP & ML
+spacy>=3.7.0
+transformers>=4.36.0
+torch>=2.1.0
+sentence-transformers>=2.2.2
+
+# Groq API
+groq>=0.4.0
+
+# Vector Database
+chromadb>=0.4.22
+
+# Graph Database
+neo4j>=5.15.0
+networkx>=3.2
+python-louvain>=0.16  # Community detection
+
+# Document Processing
+pypdf>=3.17.0
+pdfplumber>=0.10.0
+python-docx>=1.1.0
+
+# Data Processing
+pandas>=2.1.0
+numpy>=1.26.0
+
+# Visualization
+plotly>=5.18.0
+pyvis>=0.3.2
+kaleido>=0.2.1  # For static image export
+
+# Web framework (for API)
+fastapi>=0.109.0
+uvicorn>=0.25.0
+
+# Utilities
+tqdm>=4.66.0
+python-dateutil>=2.8.2
+regex>=2023.12.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.23.0
+
+# Typing
+typing-extensions>=4.9.0

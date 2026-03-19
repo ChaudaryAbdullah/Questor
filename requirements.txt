@@ -48,7 +48,7 @@ black
 flake8
 requests
 PyYAML
-
+groq
 # Optional: Use lightweight models
 # --extra-index-url https://download.pytorch.org/whl/cpu
 # torch-cpu  # CPU-only version saves memory

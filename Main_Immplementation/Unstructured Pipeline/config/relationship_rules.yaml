@@ -1,0 +1,551 @@
+# Relationship Rules Configuration for Fraud Detection
+# Defines relationship types, fraud patterns, and detection logic
+
+# ===========================================================================
+# Relationship Type Definitions
+# ===========================================================================
+relationship_types:
+  # ---------------------------------------------------------------------------
+  # Control & Ownership Relationships
+  # ---------------------------------------------------------------------------
+  control:
+    OWNS:
+      description: "Ownership stake in another entity"
+      source_types: [COMPANY, PERSON, PARENT_COMPANY]
+      target_types: [SUBSIDIARY, COMPANY, ASSET]
+      properties:
+        - ownership_percentage
+        - acquisition_date
+        - consideration_paid
+      fraud_relevance: high
+
+    CONTROLS:
+      description: "Effective control without majority ownership"
+      source_types: [COMPANY, PERSON]
+      target_types: [SUBSIDIARY, SHELL_COMPANY, JOINT_VENTURE]
+      properties:
+        - control_mechanism
+        - voting_rights
+      fraud_relevance: critical
+
+    SUBSIDIARY_OF:
+      description: "Entity is a subsidiary of parent"
+      source_types: [SUBSIDIARY, COMPANY]
+      target_types: [PARENT_COMPANY, COMPANY]
+      properties:
+        - ownership_percentage
+        - consolidation_status
+      fraud_relevance: high
+
+    PARENT_OF:
+      description: "Entity is parent of subsidiary"
+      source_types: [PARENT_COMPANY, COMPANY]
+      target_types: [SUBSIDIARY, COMPANY]
+      properties:
+        - ownership_percentage
+      fraud_relevance: high
+
+  # ---------------------------------------------------------------------------
+  # Employment & Governance Relationships
+  # ---------------------------------------------------------------------------
+  governance:
+    EMPLOYS:
+      description: "Employment relationship"
+      source_types: [COMPANY]
+      target_types: [PERSON, EXECUTIVE, KEY_EMPLOYEE]
+      properties:
+        - start_date
+        - compensation
+        - title
+      fraud_relevance: medium
+
+    WORKS_FOR:
+      description: "Person works for company"
+      source_types: [PERSON, EXECUTIVE]
+      target_types: [COMPANY]
+      properties:
+        - role
+        - tenure
+      fraud_relevance: medium
+
+    BOARD_MEMBER_OF:
+      description: "Board membership"
+      source_types: [PERSON, BOARD_MEMBER]
+      target_types: [COMPANY]
+      properties:
+        - independence
+        - committee_roles
+      fraud_relevance: high
+
+    OVERSEES:
+      description: "Oversight responsibility"
+      source_types: [BOARD_MEMBER, EXECUTIVE]
+      target_types: [COMPANY, SUBSIDIARY, ACCOUNTING_POLICY]
+      properties:
+        - oversight_type
+      fraud_relevance: high
+
+    REPORTS_TO:
+      description: "Reporting structure"
+      source_types: [EXECUTIVE, KEY_EMPLOYEE]
+      target_types: [EXECUTIVE, BOARD_MEMBER]
+      properties:
+        - reporting_type
+      fraud_relevance: low
+
+  # ---------------------------------------------------------------------------
+  # Transaction Relationships
+  # ---------------------------------------------------------------------------
+  transactions:
+    HAS_TRANSACTION_WITH:
+      description: "Business transaction between entities"
+      source_types: [COMPANY, SUBSIDIARY]
+      target_types: [COMPANY, RELATED_PARTY, PERSON]
+      properties:
+        - transaction_type
+        - amount
+        - date
+        - terms
+      fraud_relevance: critical
+
+    PAYS:
+      description: "Payment from one entity to another"
+      source_types: [COMPANY, SUBSIDIARY]
+      target_types: [COMPANY, PERSON, RELATED_PARTY]
+      properties:
+        - amount
+        - purpose
+        - frequency
+      fraud_relevance: high
+
+    RECEIVES_FROM:
+      description: "Receipt of payment or assets"
+      source_types: [COMPANY, PERSON, RELATED_PARTY]
+      target_types: [COMPANY, SUBSIDIARY]
+      properties:
+        - amount
+        - source
+      fraud_relevance: high
+
+    OWES:
+      description: "Outstanding obligation"
+      source_types: [COMPANY, SUBSIDIARY]
+      target_types: [COMPANY, PERSON, LIABILITY]
+      properties:
+        - amount
+        - due_date
+        - terms
+      fraud_relevance: high
+
+    LOANS_TO:
+      description: "Loan extended to entity"
+      source_types: [COMPANY, SUBSIDIARY]
+      target_types: [COMPANY, SUBSIDIARY, RELATED_PARTY, PERSON]
+      properties:
+        - principal
+        - interest_rate
+        - maturity
+        - collateral
+      fraud_relevance: critical
+
+    GUARANTEES:
+      description: "Guarantee provided for obligation"
+      source_types: [COMPANY, PERSON]
+      target_types: [LIABILITY, COMPANY]
+      properties:
+        - guarantee_amount
+        - conditions
+      fraud_relevance: high
+
+  # ---------------------------------------------------------------------------
+  # Disclosure Relationships
+  # ---------------------------------------------------------------------------
+  disclosure:
+    DISCLOSED_IN:
+      description: "Entity disclosed in document section"
+      source_types: [ALL]
+      target_types: [DOCUMENT_SECTION]
+      properties:
+        - section_name
+        - page_number
+        - disclosure_completeness
+      fraud_relevance: medium
+
+    NOT_DISCLOSED_IN:
+      description: "Entity NOT disclosed where expected"
+      source_types: [SUBSIDIARY, RELATED_PARTY]
+      target_types: [DOCUMENT_SECTION]
+      properties:
+        - expected_section
+        - sec_requirement
+      fraud_relevance: critical
+
+    OMITTED_FROM:
+      description: "Information omitted from disclosure"
+      source_types: [RELATED_PARTY, TRANSACTION]
+      target_types: [DOCUMENT_SECTION]
+      properties:
+        - omitted_detail
+        - materiality
+      fraud_relevance: critical
+
+    REFERENCES:
+      description: "Cross-reference to another section"
+      source_types: [DOCUMENT_SECTION]
+      target_types: [DOCUMENT_SECTION]
+      properties:
+        - reference_type
+      fraud_relevance: low
+
+    CONTRADICTS:
+      description: "Statement contradicts another"
+      source_types: [DOCUMENT_SECTION, STATEMENT]
+      target_types: [DOCUMENT_SECTION, STATEMENT]
+      properties:
+        - contradiction_type
+        - severity
+      fraud_relevance: critical
+
+    SUPPORTS:
+      description: "Statement supports another"
+      source_types: [DOCUMENT_SECTION]
+      target_types: [DOCUMENT_SECTION]
+      properties:
+        - support_type
+      fraud_relevance: low
+
+  # ---------------------------------------------------------------------------
+  # Compliance Relationships
+  # ---------------------------------------------------------------------------
+  compliance:
+    VIOLATES:
+      description: "Entity violates regulation"
+      source_types: [COMPANY, PRACTICE]
+      target_types: [REGULATION]
+      properties:
+        - violation_type
+        - severity
+        - disclosure_status
+      fraud_relevance: critical
+
+    COMPLIES_WITH:
+      description: "Entity complies with regulation"
+      source_types: [COMPANY, PRACTICE]
+      target_types: [REGULATION]
+      properties:
+        - compliance_method
+      fraud_relevance: low
+
+    AUDITS:
+      description: "Auditor audits entity"
+      source_types: [AUDITOR]
+      target_types: [COMPANY]
+      properties:
+        - audit_period
+        - opinion_type
+        - fees
+      fraud_relevance: high
+
+    QUALIFIES:
+      description: "Auditor qualifies opinion"
+      source_types: [AUDITOR]
+      target_types: [FINANCIAL_STATEMENT, COMPANY]
+      properties:
+        - qualification_reason
+        - severity
+      fraud_relevance: critical
+
+  # ---------------------------------------------------------------------------
+  # Family & Personal Relationships
+  # ---------------------------------------------------------------------------
+  personal:
+    RELATED_TO:
+      description: "Personal or family relationship"
+      source_types: [PERSON]
+      target_types: [PERSON, COMPANY]
+      properties:
+        - relationship_type
+        - proximity
+      fraud_relevance: high
+
+    FAMILY_OF:
+      description: "Family member relationship"
+      source_types: [PERSON, FAMILY_RELATION]
+      target_types: [EXECUTIVE, BOARD_MEMBER]
+      properties:
+        - relationship_type
+      fraud_relevance: critical
+
+    SPOUSE_OF:
+      description: "Spousal relationship"
+      source_types: [PERSON]
+      target_types: [PERSON, EXECUTIVE]
+      properties: []
+      fraud_relevance: critical
+
+  # ---------------------------------------------------------------------------
+  # Document Relationships
+  # ---------------------------------------------------------------------------
+  document:
+    MENTIONED_IN:
+      description: "Entity mentioned in section"
+      source_types: [ALL]
+      target_types: [DOCUMENT_SECTION]
+      properties:
+        - mention_count
+        - context
+      fraud_relevance: low
+
+    SIGNS:
+      description: "Person signs document"
+      source_types: [EXECUTIVE, BOARD_MEMBER]
+      target_types: [FINANCIAL_STATEMENT, SEC_FILING]
+      properties:
+        - signature_type
+        - date
+      fraud_relevance: high
+
+    AUTHORS:
+      description: "Person authors section"
+      source_types: [EXECUTIVE]
+      target_types: [DOCUMENT_SECTION]
+      properties:
+        - section_type
+      fraud_relevance: medium
+
+# ===========================================================================
+# Fraud Pattern Definitions
+# ===========================================================================
+fraud_patterns:
+  # ---------------------------------------------------------------------------
+  # Pattern 1: Undisclosed Relationships
+  # ---------------------------------------------------------------------------
+  undisclosed_relationship:
+    name: "Undisclosed Related Party Transaction"
+    description: "Hidden relationships between executives and business partners"
+    severity: critical
+    entities_required:
+      - type: EXECUTIVE
+        role: source
+      - type: COMPANY
+        role: transaction_partner
+      - type: FAMILY_RELATION
+        role: connection
+    relationships_required:
+      - FAMILY_OF
+      - HAS_TRANSACTION_WITH
+    detection_logic: |
+      1. Find EXECUTIVE E
+      2. Find FAMILY_RELATION F where F.FAMILY_OF(E)
+      3. Find COMPANY C where C.HAS_TRANSACTION_WITH(Company)
+      4. Check if F.RELATED_TO(C) or F.OWNS(C)
+      5. Verify if relationship disclosed in related party footnotes
+    sec_rule: "S-K Item 404"
+    example: "CEO's spouse owns supplier company with $5M in transactions"
+
+  # ---------------------------------------------------------------------------
+  # Pattern 2: Subsidiary Hiding
+  # ---------------------------------------------------------------------------
+  subsidiary_hiding:
+    name: "Off-Balance Sheet Subsidiary"
+    description: "Subsidiary mentioned but not properly consolidated"
+    severity: critical
+    entities_required:
+      - type: SUBSIDIARY
+        role: hidden_entity
+      - type: PARENT_COMPANY
+        role: concealer
+    relationships_required:
+      - SUBSIDIARY_OF
+      - MENTIONED_IN
+      - NOT_DISCLOSED_IN
+    detection_logic: |
+      1. Find SUBSIDIARY S mentioned in business description
+      2. Check if S appears in consolidation footnotes
+      3. If NOT in consolidation, flag as potential hiding
+      4. Check for SPE/VIE characteristics
+    sec_rule: "S-X 4-08(g)"
+    example: "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+
+  # ---------------------------------------------------------------------------
+  # Pattern 3: MD&A vs Footnote Contradiction
+  # ---------------------------------------------------------------------------
+  contradiction_detection:
+    name: "MD&A vs Footnote Contradiction"
+    description: "Statements in MD&A contradict footnote disclosures"
+    severity: high
+    entities_required:
+      - type: FINANCIAL_TERM
+        role: subject
+      - type: DOCUMENT_SECTION
+        role: mda_section
+      - type: DOCUMENT_SECTION
+        role: footnote_section
+    relationships_required:
+      - MENTIONED_IN
+      - CONTRADICTS
+    detection_logic: |
+      1. Extract numerical claims from MD&A
+      2. Extract corresponding numbers from Footnotes
+      3. Compare for semantic consistency
+      4. Flag contradictions with materiality threshold
+    sec_rule: "Reg S-K Item 303"
+    example: "MD&A claims growth but footnotes show declining metrics"
+
+  # ---------------------------------------------------------------------------
+  # Pattern 4: Circular Transactions
+  # ---------------------------------------------------------------------------
+  circular_transactions:
+    name: "Circular Transaction Pattern"
+    description: "Money flowing in circles between related entities"
+    severity: critical
+    entities_required:
+      - type: COMPANY
+        role: hub
+      - type: SUBSIDIARY
+        role: intermediary
+      - type: RELATED_PARTY
+        role: destination
+    relationships_required:
+      - PAYS
+      - RECEIVES_FROM
+      - LOANS_TO
+    detection_logic: |
+      1. Build transaction graph
+      2. Detect cycles with length > 2
+      3. Sum transaction amounts in cycle
+      4. Flag if cycle involves related parties
+    sec_rule: "Multiple"
+    example: "Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+
+  # ---------------------------------------------------------------------------
+  # Pattern 5: Revenue Manipulation
+  # ---------------------------------------------------------------------------
+  revenue_manipulation:
+    name: "Revenue Recognition Irregularity"
+    description: "Unusual revenue recognition patterns or policy changes"
+    severity: critical
+    entities_required:
+      - type: REVENUE_SOURCE
+        role: revenue
+      - type: ACCOUNTING_POLICY
+        role: policy
+      - type: FISCAL_PERIOD
+        role: timing
+    relationships_required:
+      - REFERENCES
+      - MENTIONED_IN
+    detection_logic: |
+      1. Identify revenue recognition policy
+      2. Detect policy changes from prior year
+      3. Analyze timing of revenue spikes
+      4. Compare to industry norms
+    sec_rule: "ASC 606"
+    example: "Revenue recognition policy change in Q4 with spike in bookings"
+
+  # ---------------------------------------------------------------------------
+  # Pattern 6: Executive Self-Dealing
+  # ---------------------------------------------------------------------------
+  executive_self_dealing:
+    name: "Executive Self-Dealing"
+    description: "Executives transacting with entities they control"
+    severity: critical
+    entities_required:
+      - type: EXECUTIVE
+        role: beneficiary
+      - type: COMPANY
+        role: counterparty
+    relationships_required:
+      - CONTROLS
+      - HAS_TRANSACTION_WITH
+      - OWNS
+    detection_logic: |
+      1. Find transactions with related companies
+      2. Trace ownership to executives
+      3. Check for proper arm's length terms
+      4. Verify board approval documented
+    sec_rule: "S-K Item 404"
+    example: "CFO owns 40% of consulting firm paid $2M annually"
+
+  # ---------------------------------------------------------------------------
+  # Pattern 7: Auditor Red Flags
+  # ---------------------------------------------------------------------------
+  auditor_concerns:
+    name: "Auditor Red Flags"
+    description: "Qualified opinions, going concern, or auditor changes"
+    severity: critical
+    entities_required:
+      - type: AUDITOR
+        role: auditor
+      - type: COMPANY
+        role: auditee
+    relationships_required:
+      - AUDITS
+      - QUALIFIES
+    detection_logic: |
+      1. Extract auditor opinion type
+      2. Check for going concern language
+      3. Detect auditor changes mid-year
+      4. Compare audit fees to peers
+    sec_rule: "AU-C 570"
+    example: "Auditor issues qualified opinion citing revenue recognition"
+
+  # ---------------------------------------------------------------------------
+  # Pattern 8: Shell Company Structure
+  # ---------------------------------------------------------------------------
+  shell_company_pattern:
+    name: "Shell Company Structure"
+    description: "Entities with minimal operations used for transactions"
+    severity: high
+    entities_required:
+      - type: SHELL_COMPANY
+        role: shell
+      - type: COMPANY
+        role: user
+      - type: MONETARY_VALUE
+        role: transaction_amount
+    relationships_required:
+      - HAS_TRANSACTION_WITH
+      - OWNS
+      - CONTROLS
+    detection_logic: |
+      1. Identify SPE/VIE entities
+      2. Check for minimal disclosure
+      3. Trace significant transactions through shell
+      4. Verify proper consolidation
+    sec_rule: "FIN 46R"
+    example: "SPE with no employees receives $50M in assets"
+
+# ===========================================================================
+# Detection Rules
+# ===========================================================================
+detection_rules:
+  minimum_confidence: 0.6
+  require_evidence: true
+  max_hops_in_graph: 4
+  
+  risk_scoring:
+    critical_pattern_weight: 1.0
+    high_pattern_weight: 0.7
+    medium_pattern_weight: 0.4
+    evidence_bonus: 0.1
+    multiple_pattern_multiplier: 1.5
+
+# ===========================================================================
+# Graph Query Templates
+# ===========================================================================
+graph_queries:
+  find_related_parties: |
+    MATCH (c:Company)-[:HAS_TRANSACTION_WITH]->(rp:RelatedParty)
+    WHERE NOT (rp)-[:DISCLOSED_IN]->(:Footnote)
+    RETURN c, rp, relationships(c, rp)
+  
+  find_circular_transactions: |
+    MATCH path = (c:Company)-[:PAYS|LOANS_TO*2..5]->(c)
+    RETURN path, nodes(path), relationships(path)
+  
+  find_undisclosed_subsidiaries: |
+    MATCH (s:Subsidiary)-[:MENTIONED_IN]->(sec:Section)
+    WHERE sec.type = 'BUSINESS_DESCRIPTION'
+    AND NOT (s)-[:DISCLOSED_IN]->(:Footnote {type: 'CONSOLIDATION'})
+    RETURN s, sec

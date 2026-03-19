@@ -1,0 +1,342 @@
+# Entity Type Configuration for Financial Fraud Detection
+# Defines entity categories, priority levels, and extraction rules
+
+entity_categories:
+  # ===========================================================================
+  # Corporate Structure Entities
+  # ===========================================================================
+  corporate:
+    parent_company:
+      priority: high
+      patterns:
+        - "\\b(?:parent|holding)\\s+company\\b"
+        - "\\b(?:we|the company|registrant)\\s+(?:is|are)\\b"
+      attributes:
+        - name
+        - ticker
+        - jurisdiction
+        - industry
+
+    subsidiary:
+      priority: high
+      patterns:
+        - "\\bsubsidiar(?:y|ies)\\b"
+        - "\\bwholly[- ]owned\\b"
+        - "\\bconsolidated\\s+(?:entity|entities)\\b"
+      attributes:
+        - name
+        - ownership_percentage
+        - jurisdiction
+        - consolidation_status
+      fraud_indicators:
+        - undisclosed_subsidiary
+        - off_balance_sheet
+
+    joint_venture:
+      priority: medium
+      patterns:
+        - "\\bjoint\\s+venture\\b"
+        - "\\bpartnership\\b"
+        - "\\balliance\\b"
+      attributes:
+        - name
+        - partners
+        - ownership_share
+        - purpose
+
+    related_party:
+      priority: critical
+      patterns:
+        - "\\brelated\\s+part(?:y|ies)\\b"
+        - "\\baffiliat(?:e|ed)\\b"
+        - "\\bunder\\s+common\\s+control\\b"
+      attributes:
+        - name
+        - relationship_type
+        - transaction_details
+      fraud_indicators:
+        - hidden_relationship
+        - self_dealing
+
+    shell_company:
+      priority: critical
+      patterns:
+        - "\\bspecial\\s+purpose\\s+(?:entity|vehicle)\\b"
+        - "\\bSPE\\b"
+        - "\\bSPV\\b"
+        - "\\bvariable\\s+interest\\s+entity\\b"
+        - "\\bVIE\\b"
+      attributes:
+        - name
+        - purpose
+        - assets_held
+        - liabilities_hidden
+      fraud_indicators:
+        - off_balance_sheet_hiding
+        - enron_pattern
+
+  # ===========================================================================
+  # People Entities
+  # ===========================================================================
+  people:
+    executive:
+      priority: high
+      patterns:
+        - "\\b(?:CEO|CFO|COO|CTO|CIO)\\b"
+        - "\\bChief\\s+(?:Executive|Financial|Operating|Technology|Information)\\s+Officer\\b"
+        - "\\bPresident\\b"
+        - "\\bVice\\s+President\\b"
+      attributes:
+        - name
+        - title
+        - tenure_start
+        - tenure_end
+        - compensation
+      fraud_indicators:
+        - undisclosed_interests
+        - compensation_manipulation
+
+    board_member:
+      priority: high
+      patterns:
+        - "\\b(?:Director|Board\\s+Member)\\b"
+        - "\\bChairman\\b"
+        - "\\bAudit\\s+Committee\\b"
+        - "\\bCompensation\\s+Committee\\b"
+      attributes:
+        - name
+        - role
+        - independence_status
+        - committee_memberships
+
+    key_employee:
+      priority: medium
+      patterns:
+        - "\\b(?:Controller|Treasurer)\\b"
+        - "\\bHead\\s+of\\b"
+        - "\\bSenior\\s+Vice\\s+President\\b"
+      attributes:
+        - name
+        - title
+        - department
+
+    family_relation:
+      priority: critical
+      patterns:
+        - "\\b(?:spouse|wife|husband)\\b"
+        - "\\b(?:son|daughter|child|children)\\b"
+        - "\\b(?:brother|sister|sibling)\\b"
+        - "\\bfamily\\s+member\\b"
+        - "\\bimmediate\\s+family\\b"
+      attributes:
+        - related_to
+        - relationship_type
+      fraud_indicators:
+        - nepotism
+        - hidden_family_transactions
+
+    auditor:
+      priority: critical
+      patterns:
+        - "\\bindependent\\s+(?:auditor|accountant)\\b"
+        - "\\b(?:Deloitte|EY|Ernst & Young|KPMG|PwC|PricewaterhouseCoopers)\\b"
+        - "\\bregistered\\s+public\\s+accounting\\s+firm\\b"
+      attributes:
+        - firm_name
+        - opinion_type
+        - tenure
+        - fees_paid
+      fraud_indicators:
+        - qualified_opinion
+        - going_concern
+        - auditor_change
+
+  # ===========================================================================
+  # Financial Entities
+  # ===========================================================================
+  financial:
+    revenue_source:
+      priority: high
+      patterns:
+        - "\\brevenue\\b"
+        - "\\bsales\\b"
+        - "\\bincome\\s+from\\b"
+        - "\\bcontract\\s+(?:revenue|income)\\b"
+      attributes:
+        - source_name
+        - amount
+        - percentage_of_total
+        - customer_concentration
+      fraud_indicators:
+        - revenue_manipulation
+        - channel_stuffing
+
+    expense:
+      priority: medium
+      patterns:
+        - "\\b(?:cost|expense)s?\\b"
+        - "\\boperating\\s+expenses\\b"
+        - "\\bSG&A\\b"
+        - "\\bR&D\\b"
+      attributes:
+        - type
+        - amount
+        - related_party
+
+    asset:
+      priority: high
+      patterns:
+        - "\\bassets?\\b"
+        - "\\bproperty\\s+and\\s+equipment\\b"
+        - "\\bgoodwill\\b"
+        - "\\bintangible\\s+assets\\b"
+      attributes:
+        - type
+        - carrying_value
+        - impairment_risk
+
+    liability:
+      priority: high
+      patterns:
+        - "\\bliabilit(?:y|ies)\\b"
+        - "\\bdebt\\b"
+        - "\\bobligations?\\b"
+        - "\\bcontingent\\b"
+      attributes:
+        - type
+        - amount
+        - maturity
+        - contingent
+      fraud_indicators:
+        - hidden_liabilities
+        - off_balance_sheet
+
+    accounting_policy:
+      priority: critical
+      patterns:
+        - "\\baccounting\\s+polic(?:y|ies)\\b"
+        - "\\brevenue\\s+recognition\\b"
+        - "\\bdepreciation\\b"
+        - "\\bsignificant\\s+accounting\\b"
+        - "\\bcritical\\s+accounting\\b"
+      attributes:
+        - policy_name
+        - description
+        - change_from_prior
+      fraud_indicators:
+        - policy_change
+        - aggressive_accounting
+
+    monetary_value:
+      priority: medium
+      patterns:
+        - "\\$[\\d,]+(?:\\.\\d{2})?(?:\\s*(?:million|billion|thousand|M|B|K))?"
+        - "\\b\\d+(?:\\.\\d+)?\\s*(?:million|billion|thousand)\\b"
+      attributes:
+        - amount
+        - currency
+        - context
+
+  # ===========================================================================
+  # Temporal Entities
+  # ===========================================================================
+  temporal:
+    fiscal_period:
+      priority: medium
+      patterns:
+        - "\\bfiscal\\s+(?:year|quarter)\\b"
+        - "\\bFY\\s*\\d{2,4}\\b"
+        - "\\bQ[1-4]\\s*\\d{4}\\b"
+        - "\\b(?:first|second|third|fourth)\\s+quarter\\b"
+      attributes:
+        - period_type
+        - start_date
+        - end_date
+
+    transaction_date:
+      priority: medium
+      patterns:
+        - "\\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\\s+\\d{1,2},?\\s+\\d{4}\\b"
+        - "\\b\\d{1,2}/\\d{1,2}/\\d{2,4}\\b"
+      attributes:
+        - date
+        - event_type
+
+    policy_change_date:
+      priority: high
+      patterns:
+        - "\\beffective\\s+(?:as of|on)\\b"
+        - "\\bbeginning\\s+(?:in|on)\\b"
+        - "\\badopted\\s+(?:in|on)\\b"
+      attributes:
+        - date
+        - what_changed
+      fraud_indicators:
+        - sudden_policy_change
+
+    event_timeline:
+      priority: medium
+      patterns:
+        - "\\b(?:announced|completed|entered into|signed)\\s+(?:on|in)\\b"
+        - "\\bIPO\\b"
+        - "\\bacquisition\\b"
+        - "\\bmerger\\b"
+      attributes:
+        - event_type
+        - date
+        - parties_involved
+
+# ===========================================================================
+# Extraction Priority Levels
+# ===========================================================================
+priority_levels:
+  critical:
+    description: "Must extract 100% - direct fraud indicators"
+    entities:
+      - related_party
+      - shell_company
+      - family_relation
+      - auditor
+      - accounting_policy
+    min_confidence: 0.8
+
+  high:
+    description: "Extract with high confidence - significant for fraud detection"
+    entities:
+      - parent_company
+      - subsidiary
+      - executive
+      - board_member
+      - revenue_source
+      - liability
+      - policy_change_date
+    min_confidence: 0.7
+
+  medium:
+    description: "Extract if present - adds context"
+    entities:
+      - joint_venture
+      - key_employee
+      - expense
+      - asset
+      - monetary_value
+      - fiscal_period
+      - transaction_date
+      - event_timeline
+    min_confidence: 0.6
+
+  low:
+    description: "Extract opportunistically - supporting context"
+    entities: []
+    min_confidence: 0.5
+
+# ===========================================================================
+# Extraction Settings
+# ===========================================================================
+extraction_settings:
+  batch_size: 10
+  max_entities_per_chunk: 50
+  use_llm: true
+  use_spacy_fallback: true
+  merge_similar_entities: true
+  similarity_threshold: 0.85

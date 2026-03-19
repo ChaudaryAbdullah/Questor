@@ -1,0 +1,30 @@
+{
+  "timestamp": "20260319_151818",
+  "document_id": "full-submission",
+  "document_path": "/media/cypher/8028336A28335DFA/sibtainV2/Questor/Main_Immplementation/Input/full-submission.txt",
+  "company_name": null,
+  "fiscal_year": null,
+  "success": false,
+  "entities_extracted": 0,
+  "fraud_findings_count": 0,
+  "fraud_findings": [],
+  "rag_analysis": [],
+  "risk_assessment": {
+    "overall_risk_score": 0.0,
+    "risk_level": "MINIMAL",
+    "component_scores": {
+      "fraud_findings_count": 0,
+      "entities_extracted": 0,
+      "rag_queries_run": 0
+    },
+    "risk_factors": [],
+    "confidence": 0.5
+  },
+  "timing": {
+    "preprocessing_time": 0,
+    "entity_extraction_time": 0,
+    "embedding_time": 0,
+    "fraud_analysis_time": 0,
+    "total_time": 39.92270112037659
+  }
+}

@@ -1,0 +1,199 @@
+# Unstructured Data Pipeline Configuration
+# Financial Fraud Detection System
+
+# =============================================================================
+# Pipeline Settings
+# =============================================================================
+pipeline:
+  name: "fraud_detection_pipeline"
+  version: "1.0.0"
+  use_api: true
+  batch_size: 32
+  max_workers: 4
+  confidence_threshold: 0.75
+
+# =============================================================================
+# LLM API Configuration (Groq)
+# =============================================================================
+llm:
+  provider: "groq"
+  api_key_env: "GROQ_API_KEY"  # Environment variable name
+  model: "llama-3.1-8b-instant"  # Faster model, uses fewer tokens
+  fallback_model: "llama-3.1-8b-instant"  # Same fast model
+  temperature: 0.1
+  max_tokens: 2048  # Reduced from 4096 to use fewer tokens
+  timeout: 60
+  retry_attempts: 3
+  retry_delay: 2
+  # Rate limiting to avoid exceeding API limits
+  rate_limit:
+    requests_per_minute: 30  # Conservative limit
+    tokens_per_minute: 6000  # Half of the 12000 limit for safety
+    delay_between_requests: 2.5  # Minimum 2.5 seconds between calls
+
+# =============================================================================
+# Embedding Configuration
+# =============================================================================
+embeddings:
+  primary_model: "sentence-transformers/all-MiniLM-L6-v2"
+  financial_model: "ProsusAI/finbert"
+  embedding_dim: 384
+  batch_size: 32
+  cache_enabled: true
+  cache_dir: "data/vectors/cache"
+
+# =============================================================================
+# Vector Database Configuration (ChromaDB)
+# =============================================================================
+vector_db:
+  provider: "chromadb"
+  persist_directory: "data/vectors/chromadb"
+  collection_name: "sec_filings"
+  distance_metric: "cosine"
+  similarity_threshold: 0.7
+  top_k_default: 10
+
+# =============================================================================
+# Graph Database Configuration (Neo4j)
+# =============================================================================
+graph_db:
+  provider: "neo4j"
+  uri: "bolt://localhost:7687"
+  username: "neo4j"
+  password_env: "NEO4J_PASSWORD"  # Environment variable name
+  database: "fraud_detection"
+  max_connection_pool_size: 50
+  connection_timeout: 30
+  
+  # Fallback to NetworkX if Neo4j unavailable
+  fallback:
+    enabled: true
+    provider: "networkx"
+    export_dir: "data/graphs"
+
+# =============================================================================
+# Document Processing
+# =============================================================================
+preprocessing:
+  supported_formats:
+    - ".txt"
+    - ".pdf"
+  
+  # Chunking settings
+  chunk_size: 500  # tokens
+  chunk_overlap: 50  # tokens
+  
+  # Section extraction
+  target_sections:
+    - "ITEM 1. BUSINESS"
+    - "ITEM 1A. RISK FACTORS"
+    - "ITEM 7. MANAGEMENT'S DISCUSSION AND ANALYSIS"
+    - "ITEM 8. FINANCIAL STATEMENTS"
+    - "NOTES TO CONSOLIDATED FINANCIAL STATEMENTS"
+  
+  # Text cleaning
+  remove_headers_footers: true
+  normalize_unicode: true
+  remove_excessive_whitespace: true
+
+# =============================================================================
+# Entity Extraction
+# =============================================================================
+entity_extraction:
+  use_llm: false  # Disabled - using spaCy only (no API calls)
+  use_spacy_fallback: true
+  spacy_model: "en_core_web_lg"
+  
+  # Entity confidence thresholds
+  confidence_thresholds:
+    high_priority: 0.8
+    medium_priority: 0.6
+    low_priority: 0.4
+  
+  # Batch processing - reduced to avoid rate limits
+  batch_size: 5  # Process 5 chunks at a time
+  max_entities_per_chunk: 50
+  chunk_delay: 3.0  # 3 second delay between chunk processing
+
+# =============================================================================
+# RAG Configuration
+# =============================================================================
+rag:
+  retrieval_strategy: "hybrid"  # vector, graph, or hybrid
+  vector_weight: 0.6
+  graph_weight: 0.4
+  context_window: 5  # number of chunks
+  rerank_results: true
+  max_context_tokens: 8000
+
+# =============================================================================
+# Fraud Detection
+# =============================================================================
+fraud_detection:
+  enabled_patterns:
+    - "undisclosed_relationships"
+    - "subsidiary_hiding"
+    - "contradiction_detection"
+    - "related_party_transactions"
+    - "revenue_manipulation"
+    - "circular_references"
+  
+  risk_thresholds:
+    high: 0.8
+    medium: 0.5
+    low: 0.3
+  
+  # Anomaly detection
+  anomaly_detection:
+    enabled: true
+    z_score_threshold: 3.0
+    isolation_forest_contamination: 0.1
+
+# =============================================================================
+# Visualization & Reporting
+# =============================================================================
+visualization:
+  graph_library: "plotly"  # plotly or pyvis
+  max_nodes_display: 500
+  node_size_scale: 10
+  edge_width_scale: 2
+  
+  # Color schemes
+  colors:
+    high_risk: "#FF4136"
+    medium_risk: "#FF851B"
+    low_risk: "#2ECC40"
+    entity_company: "#0074D9"
+    entity_person: "#B10DC9"
+    entity_financial: "#01FF70"
+
+reporting:
+  output_formats:
+    - "html"
+    - "json"
+    - "pdf"
+  output_directory: "data/reports"
+  include_evidence: true
+  include_confidence_scores: true
+
+# =============================================================================
+# Logging
+# =============================================================================
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_logging: true
+  log_directory: "logs"
+  max_log_size: 10485760  # 10 MB
+  backup_count: 5
+
+# =============================================================================
+# Data Directories
+# =============================================================================
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  vectors_dir: "data/vectors"
+  graphs_dir: "data/graphs"
+  reports_dir: "data/reports"
+  cache_dir: "data/cache"
