@@ -251,6 +251,9 @@ class UnifiedPipelineRunner:
                 cik_list=cik_list
             )
             
+            # Export the standalone unstructured results json
+            self.unstructured_pipeline.export_formatted_outputs(batch_name="existing_data_risk_analysis")
+            
             # Get formatted outputs
             if result.get('success') and self.unstructured_pipeline.formatted_outputs:
                 result['formatted_output'] = self.unstructured_pipeline.formatted_outputs[0]
@@ -361,10 +364,12 @@ class UnifiedPipelineRunner:
             )
         
         unstructured_risk = None
+        rag_analysis = None
         if unstructured_result and unstructured_result.get('formatted_output'):
             unstructured_risk = self.score_combiner._extract_risk_assessment(
                 unstructured_result['formatted_output'], 'unstructured'
             )
+            rag_analysis = unstructured_result['formatted_output'].get('rag_analysis', [])
         
         # Combine with agents
         combined_risk = self.score_combiner.combine_with_agents(
@@ -379,7 +384,8 @@ class UnifiedPipelineRunner:
             'structured_risk': structured_risk.to_dict() if structured_risk else None,
             'unstructured_risk': unstructured_risk.to_dict() if unstructured_risk else None,
             'agent_results': agent_results,
-            'combined_risk': combined_risk.to_dict()
+            'combined_risk': combined_risk.to_dict(),
+            'rag_analysis': rag_analysis
         }
     
     def _save_results(self, results: List[Dict[str, Any]]) -> Path:

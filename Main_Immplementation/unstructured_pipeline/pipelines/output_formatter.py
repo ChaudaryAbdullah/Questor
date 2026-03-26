@@ -93,6 +93,9 @@ class OutputFormatter:
                 'entity_summary': self._create_entity_summary(entities)
             },
             
+            # RAG Analysis Details
+            'rag_analysis': document.get('rag_analysis', []),
+            
             # References for retrieval
             'retrieval_references': {
                 'vector_db_chunks': [chunk.get('chunk_id') for chunk in chunks] if chunks else [],

@@ -1,0 +1,136 @@
+============================================================
+FRAUD DETECTION ANALYSIS SUMMARY
+============================================================
+
+Input File: 0000104938-3.json
+Risk Score: 0.645083
+Risk Level: HIGH
+Overall Prediction: FRAUD
+
+Models Predicting FRAUD (12):
+  - Catboost
+  - Cnn
+  - Dbscan
+  - Decision Tree
+  - Dnn
+  - Isolation Forest
+  - Lightgbm
+  - Logistic Regression
+  - Oneclass Svm
+  - Random Forest
+  - Svm
+  - Xgboost
+
+Models Predicting NORMAL (4):
+  - Autoencoder
+  - Gmm
+  - Kmeans
+  - Pca Anomaly
+
+============================================================
+INDIVIDUAL MODEL DETAILS
+============================================================
+
+Autoencoder:
+  Prediction: NORMAL
+  Fraud Probability: 0.0
+  Weight: 0.8
+  Training AUC: 0.9208
+
+Catboost:
+  Prediction: FRAUD
+  Fraud Probability: 0.9808
+  Weight: 0.94
+  Training AUC: 0.9999
+
+Cnn:
+  Prediction: FRAUD
+  Fraud Probability: 1.0
+  Weight: 0.86
+  Training AUC: 0.9994
+
+Dbscan:
+  Prediction: FRAUD
+  Fraud Probability: 0.0
+  Weight: 0.7
+  Training AUC: 0.5766
+
+Decision Tree:
+  Prediction: FRAUD
+  Fraud Probability: 0.9412
+  Weight: 0.78
+  Training AUC: 0.9989
+
+Dnn:
+  Prediction: FRAUD
+  Fraud Probability: 1.0
+  Weight: 0.88
+  Training AUC: 0.9995
+
+Gmm:
+  Prediction: NORMAL
+  Fraud Probability: 1.0
+  Weight: 0.74
+  Training AUC: 0.9528
+
+Isolation Forest:
+  Prediction: FRAUD
+  Fraud Probability: 0.0
+  Weight: 0.75
+  Training AUC: 0.8967
+
+Kmeans:
+  Prediction: NORMAL
+  Fraud Probability: 0.073
+  Weight: 0.72
+  Training AUC: 0.6438
+
+Lightgbm:
+  Prediction: FRAUD
+  Fraud Probability: 0.9893
+  Weight: 0.93
+  Training AUC: 0.9999
+
+Lof:
+  Prediction: ERROR
+  Fraud Probability: None
+  Weight: 0.76
+  Training AUC: N/A
+  Error: Expected n_neighbors < n_samples_fit, but n_neighbors = 1, n_samples_fit = 1, n_samples = 1
+
+Logistic Regression:
+  Prediction: FRAUD
+  Fraud Probability: 1.0
+  Weight: 0.82
+  Training AUC: 0.994
+
+Oneclass Svm:
+  Prediction: FRAUD
+  Fraud Probability: -0.0
+  Weight: 0.77
+  Training AUC: 0.7798
+
+Pca Anomaly:
+  Prediction: NORMAL
+  Fraud Probability: 0.0
+  Weight: 0.73
+  Training AUC: 0.5426
+
+Random Forest:
+  Prediction: FRAUD
+  Fraud Probability: 0.945
+  Weight: 0.92
+  Training AUC: 0.9999
+
+Svm:
+  Prediction: FRAUD
+  Fraud Probability: 0.9421
+  Weight: 0.84
+  Training AUC: 0.9985
+
+Xgboost:
+  Prediction: FRAUD
+  Fraud Probability: 0.9269
+  Weight: 0.95
+  Training AUC: 0.9998
+

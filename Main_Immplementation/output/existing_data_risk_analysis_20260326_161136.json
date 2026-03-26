@@ -1,0 +1,114 @@
+{
+  "batch_metadata": {
+    "timestamp": "2026-03-26T16:11:36.428606",
+    "total_documents": 1,
+    "processing_pipeline": "unstructured_pipeline",
+    "version": "1.0.0"
+  },
+  "summary_statistics": {
+    "total_documents": 1,
+    "average_risk_score": 0.0,
+    "max_risk_score": 0.0,
+    "min_risk_score": 0.0,
+    "risk_level_distribution": {
+      "CRITICAL": 1,
+      "HIGH": 0,
+      "MEDIUM": 0,
+      "LOW": 0,
+      "MINIMAL": 0
+    },
+    "high_risk_count": 1
+  },
+  "documents": [
+    {
+      "document_id": "Unknown_full-submission_144",
+      "timestamp": "2026-03-26T16:11:36.425861",
+      "source_file": "",
+      "metadata": {
+        "label": "fraud",
+        "company_id": "104938",
+        "date": "19970101",
+        "content_length": 472853,
+        "chunk_count": 0
+      },
+      "risk_assessment": {
+        "overall_score": 100.0,
+        "risk_level": "CRITICAL",
+        "component_scores": {
+          "fraud_indicators": 39.09,
+          "entity_risk": 0.0,
+          "financial_anomalies": 15.0,
+          "relationship_risk": 0.0,
+          "rag_score": 100.0
+        },
+        "risk_factors": [
+          "No significant risk factors detected",
+          "RAG [HIGH] - Undisclosed Related Party Transaction: CEO's spouse owns supplier company with $5M in transactions",
+          "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5"
+        ],
+        "requires_investigation": true
+      },
+      "extracted_data": {
+        "entities": {},
+        "relationships": [],
+        "entity_summary": {
+          "total_entities": 0,
+          "entity_types": {},
+          "key_entities": []
+        }
+      },
+      "rag_analysis": [
+        {
+          "query": "Overall Assessment",
+          "fraud_indicators": [],
+          "metadata": {
+            "risk_level": "MINIMAL"
+          }
+        },
+        {
+          "query": "Undisclosed Related Party Transaction",
+          "fraud_indicators": [
+            "CEO's spouse owns supplier company with $5M in transactions"
+          ],
+          "metadata": {
+            "risk_level": "HIGH",
+            "sec_rule": "S-K Item 404"
+          }
+        },
+        {
+          "query": "Off-Balance Sheet Subsidiary",
+          "fraud_indicators": [
+            "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+          ],
+          "metadata": {
+            "risk_level": "CRITICAL",
+            "sec_rule": "S-X 4-08(g)"
+          }
+        },
+        {
+          "query": "Circular Transaction Pattern",
+          "fraud_indicators": [],
+          "metadata": {
+            "risk_level": "MINIMAL"
+          }
+        }
+      ],
+      "retrieval_references": {
+        "vector_db_chunks": [],
+        "knowledge_graph_nodes": [],
+        "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+      },
+      "agent_routing": {
+        "recommended_agents": [
+          "fraud_investigation_agent"
+        ],
+        "priority": "critical",
+        "processing_hints": []
+      },
+      "cik": "104938",
+      "documents_analyzed": 1,
+      "average_risk_score": 100.0
+    }
+  ],
+  "high_risk_documents": []
+}

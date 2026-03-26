@@ -1,0 +1,799 @@
+{
+  "timestamp": "20260319_143401",
+  "total_files": 1,
+  "results": [
+    {
+      "success": true,
+      "cik": "56873",
+      "filename": "0000056873-1.json",
+      "structured": {
+        "input_file": "0000056873-1.json",
+        "risk_score": 0.64005,
+        "risk_level": "HIGH",
+        "overall_prediction": "FRAUD",
+        "models_predicting_fraud": [
+          "Catboost",
+          "Cnn",
+          "Dbscan",
+          "Decision Tree",
+          "Dnn",
+          "Isolation Forest",
+          "Lightgbm",
+          "Logistic Regression",
+          "Random Forest",
+          "Svm",
+          "Xgboost"
+        ],
+        "models_predicting_normal": [
+          "Autoencoder",
+          "Gmm",
+          "Kmeans",
+          "Oneclass Svm",
+          "Pca Anomaly"
+        ],
+        "fraud_model_count": 11,
+        "normal_model_count": 5,
+        "total_models": 17,
+        "individual_model_results": {
+          "autoencoder": {
+            "display_name": "Autoencoder",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.8,
+            "training_auc": 0.9208
+          },
+          "catboost": {
+            "display_name": "Catboost",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.9666,
+            "weight": 0.94,
+            "training_auc": 0.9999
+          },
+          "cnn": {
+            "display_name": "Cnn",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.9767,
+            "weight": 0.86,
+            "training_auc": 0.9994
+          },
+          "dbscan": {
+            "display_name": "Dbscan",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.0,
+            "weight": 0.7,
+            "training_auc": 0.5766
+          },
+          "decision_tree": {
+            "display_name": "Decision Tree",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.9412,
+            "weight": 0.78,
+            "training_auc": 0.9989
+          },
+          "dnn": {
+            "display_name": "Dnn",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.977,
+            "weight": 0.88,
+            "training_auc": 0.9995
+          },
+          "gmm": {
+            "display_name": "Gmm",
+            "prediction": "NORMAL",
+            "fraud_probability": 1.0,
+            "weight": 0.74,
+            "training_auc": 0.9528
+          },
+          "isolation_forest": {
+            "display_name": "Isolation Forest",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.0,
+            "weight": 0.75,
+            "training_auc": 0.8967
+          },
+          "kmeans": {
+            "display_name": "Kmeans",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0042,
+            "weight": 0.72,
+            "training_auc": 0.6438
+          },
+          "lightgbm": {
+            "display_name": "Lightgbm",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.9765,
+            "weight": 0.93,
+            "training_auc": 0.9999
+          },
+          "lof": {
+            "display_name": "Lof",
+            "prediction": "ERROR",
+            "fraud_probability": null,
+            "weight": 0.76,
+            "error": "Expected n_neighbors < n_samples_fit, but n_neighbors = 1, n_samples_fit = 1, n_samples = 1"
+          },
+          "logistic_regression": {
+            "display_name": "Logistic Regression",
+            "prediction": "FRAUD",
+            "fraud_probability": 1.0,
+            "weight": 0.82,
+            "training_auc": 0.994
+          },
+          "oneclass_svm": {
+            "display_name": "Oneclass Svm",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.77,
+            "training_auc": 0.7798
+          },
+          "pca_anomaly": {
+            "display_name": "Pca Anomaly",
+            "prediction": "NORMAL",
+            "fraud_probability": 0.0,
+            "weight": 0.73,
+            "training_auc": 0.5426
+          },
+          "random_forest": {
+            "display_name": "Random Forest",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.99,
+            "weight": 0.92,
+            "training_auc": 0.9999
+          },
+          "svm": {
+            "display_name": "Svm",
+            "prediction": "FRAUD",
+            "fraud_probability": 1.0,
+            "weight": 0.84,
+            "training_auc": 0.9985
+          },
+          "xgboost": {
+            "display_name": "Xgboost",
+            "prediction": "FRAUD",
+            "fraud_probability": 0.8836,
+            "weight": 0.95,
+            "training_auc": 0.9998
+          }
+        },
+        "success": true
+      },
+      "unstructured": null,
+      "agents": {
+        "combined_score": 37.39,
+        "confidence": 0.95,
+        "weights_used": {
+          "benfords_law": 0.074,
+          "altman_zscore": 0.148,
+          "cashflow_earnings": 0.148,
+          "debt_anomaly": 0.111,
+          "expense_padding": 0.074,
+          "tax_rate_anomaly": 0.059,
+          "financing_red_flags": 0.059,
+          "asset_quality": 0.059,
+          "eps_consistency": 0.044,
+          "negative_equity": 0.059,
+          "liquidity_crunch": 0.059,
+          "depreciation_anomaly": 0.044,
+          "cashflow_composition": 0.059
+        },
+        "agents_succeeded": 13,
+        "agents_failed": 2,
+        "individual_results": {
+          "benfords_law": {
+            "success": true,
+            "score": 100.0,
+            "confidence": 0.79,
+            "findings": [
+              "Digit 1: under-represented (observed: 13.9%, expected: 30.1%)",
+              "Digit 2: under-represented (observed: 8.9%, expected: 17.6%)",
+              "Digit 3: under-represented (observed: 6.3%, expected: 12.5%)",
+              "Digit 4: under-represented (observed: 5.1%, expected: 9.7%)",
+              "Digit 5: under-represented (observed: 5.1%, expected: 7.9%)",
+              "Digit 7: over-represented (observed: 16.5%, expected: 5.8%)",
+              "Digit 8: over-represented (observed: 8.9%, expected: 5.1%)",
+              "Digit 9: over-represented (observed: 27.8%, expected: 4.6%)"
+            ],
+            "metrics": {
+              "chi_square": 125.829,
+              "sample_count": 79,
+              "observed_frequencies": {
+                "1": 0.139,
+                "2": 0.089,
+                "3": 0.063,
+                "4": 0.051,
+                "5": 0.051,
+                "6": 0.076,
+                "7": 0.165,
+                "8": 0.089,
+                "9": 0.278
+              },
+              "expected_frequencies": {
+                "1": 0.301,
+                "2": 0.176,
+                "3": 0.125,
+                "4": 0.097,
+                "5": 0.079,
+                "6": 0.067,
+                "7": 0.058,
+                "8": 0.051,
+                "9": 0.046
+              },
+              "passes_test": false
+            }
+          },
+          "beneish_mscore": {
+            "success": false,
+            "score": 0.0,
+            "confidence": 0.0,
+            "findings": [
+              "Data not applicable for this agent"
+            ],
+            "metrics": {}
+          },
+          "altman_zscore": {
+            "success": true,
+            "score": 12.08527212462062,
+            "confidence": 1.0,
+            "findings": [
+              "Z-Score (4.57) is in SAFE zone (> 2.99) \u2014 low distress risk",
+              "Negative retained earnings: accumulated deficit detected",
+              "Low equity-to-liabilities ratio: highly leveraged balance sheet"
+            ],
+            "metrics": {
+              "z_score": 4.573,
+              "safe_zone_threshold": 2.99,
+              "grey_zone_threshold": 1.81,
+              "zone": "SAFE",
+              "components": {
+                "X1_working_capital_to_assets": 0.1363,
+                "X2_retained_earnings_to_assets": -0.188,
+                "X3_ebit_to_assets": 0.1584,
+                "X4_equity_to_liabilities": -0.1108,
+                "X5_revenue_to_assets": 4.2161
+              },
+              "ratios_available": 5
+            }
+          },
+          "cashflow_earnings": {
+            "success": true,
+            "score": 19.754969616784745,
+            "confidence": 1.0,
+            "findings": [
+              "Net income ($411,656) and operating cash flow ($722,863) are broadly consistent"
+            ],
+            "metrics": {
+              "net_income": 411656.0,
+              "operating_cash_flow": 722863.0,
+              "accruals": -311207.0,
+              "accrual_ratio": -0.0494,
+              "quality_of_earnings": 1.756,
+              "total_assets": 6301341.0,
+              "cash_backing_income": true,
+              "income_cfo_divergence": false
+            }
+          },
+          "debt_anomaly": {
+            "success": true,
+            "score": 85.0,
+            "confidence": 1.0,
+            "findings": [
+              "NEGATIVE equity (D/E = -9.03): company is technically insolvent",
+              "CRITICAL debt ratio (112.46%): > 90% of assets are liabilities"
+            ],
+            "metrics": {
+              "debt_to_equity": -9.029,
+              "debt_ratio": 1.1246,
+              "interest_coverage_ratio": 2.492,
+              "short_term_debt_concentration": 0.0041,
+              "debt_to_revenue": 0.267,
+              "total_liabilities": 7086189.0,
+              "total_assets": 6301341.0,
+              "equity": -784848.0,
+              "checks_performed": 5
+            }
+          },
+          "related_party": {
+            "success": false,
+            "score": 0.0,
+            "confidence": 0.0,
+            "findings": [
+              "Data not applicable for this agent"
+            ],
+            "metrics": {}
+          },
+          "expense_padding": {
+            "success": true,
+            "score": 15.0,
+            "confidence": 0.75,
+            "findings": [
+              "Watch: expense ratio (97.3%) approaching breakeven \u2014 tightly controlled margins",
+              "Very thin gross margin (2.7%) \u2014 vulnerable to expense manipulation"
+            ],
+            "metrics": {
+              "total_revenues": 26567348.0,
+              "total_operating_expenses": 25854985.0,
+              "expense_to_revenue_ratio": 0.9732,
+              "gross_profit_margin": 0.0268,
+              "gross_profit": 712363.0,
+              "operating_income": 998308.0,
+              "salary_to_expense_ratio": "N/A",
+              "expenses_exceed_revenue": false,
+              "is_deep_loss": false
+            }
+          },
+          "tax_rate_anomaly": {
+            "success": true,
+            "score": 0.0,
+            "confidence": 1.0,
+            "findings": [
+              "Effective tax rate (37.7%) is within a plausible range"
+            ],
+            "metrics": {
+              "income_tax_expense": 268331.0,
+              "pre_tax_income": 712363.0,
+              "effective_tax_rate": 0.3767,
+              "profitable": true,
+              "tax_benefit_on_profit": false,
+              "suspicion_level": "NORMAL"
+            }
+          },
+          "financing_red_flags": {
+            "success": true,
+            "score": 0.0,
+            "confidence": 0.75,
+            "findings": [
+              "Operating cash flow is positive ($722,863) \u2014 no dependency on external funding detected"
+            ],
+            "metrics": {
+              "net_cash_operating": 722863.0,
+              "proceeds_stock_sales": 0.0,
+              "notes_payable_change": 0.0,
+              "net_cash_financing": -228174.0,
+              "net_change_cash": -1568.0,
+              "cfo_negative": false,
+              "equity_funded_ops": false,
+              "flags_triggered": 0
+            }
+          },
+          "asset_quality": {
+            "success": true,
+            "score": 20.0,
+            "confidence": 1.0,
+            "findings": [
+              "Very low cash backing (1.0% of assets, $65,484) \u2014 potential liquidity concealment"
+            ],
+            "metrics": {
+              "total_assets": 6301341.0,
+              "other_assets": 364191.0,
+              "accounts_receivable": 400529.0,
+              "cash": 65484.0,
+              "fixed_assets_net": 3296599.0,
+              "other_assets_ratio": 0.0578,
+              "receivables_ratio": 0.0636,
+              "combined_opaque_ratio": 0.1214,
+              "hard_asset_ratio": 0.5232,
+              "cash_ratio_to_assets": 0.0104
+            }
+          },
+          "eps_consistency": {
+            "success": true,
+            "score": 85.0,
+            "confidence": 1.0,
+            "findings": [
+              "CRITICAL: EPS discrepancy of 99.9% \u2014 reported $1.5700 vs computed $0.0016 (net income: $411,656 / shares: 262,201,291)"
+            ],
+            "metrics": {
+              "reported_eps": 1.57,
+              "computed_eps": 0.00157,
+              "net_income_loss": 411656.0,
+              "shares_outstanding": 262201291.0,
+              "discrepancy_pct": 0.999,
+              "sign_consistent": true
+            }
+          },
+          "negative_equity": {
+            "success": true,
+            "score": 75.53787092046232,
+            "confidence": 1.0,
+            "findings": [
+              "CRITICAL: Negative shareholders equity ($-784,848) \u2014 company is technically insolvent (liabilities exceed assets)",
+              "Accumulated deficit ($-1,184,394) exceeds ALL paid-in capital ($728,644) \u2014 1.6\u00d7 capital destroyed"
+            ],
+            "metrics": {
+              "total_shareholders_equity": -784848.0,
+              "retained_earnings": -1184394.0,
+              "paid_in_capital": 728644.0,
+              "total_liabilities": 7086189.0,
+              "is_technically_insolvent": true,
+              "erosion_ratio": 1.625,
+              "equity_pct_of_capital": null
+            }
+          },
+          "liquidity_crunch": {
+            "success": true,
+            "score": 88.97283061104322,
+            "confidence": 1.0,
+            "findings": [
+              "CRITICAL: Cash ratio (0.04) \u2014 only 3.7\u00a2 per $1 owed ($65,484 vs $1,781,527 current liabilities)",
+              "Low quick ratio (0.26) \u2014 tight short-term liquidity"
+            ],
+            "metrics": {
+              "cash": 65484.0,
+              "current_liabilities": 1781527.0,
+              "cash_ratio": 0.0368,
+              "quick_ratio": 0.2616,
+              "current_ratio": 1.4822
+            }
+          },
+          "depreciation_anomaly": {
+            "success": true,
+            "score": 0.0,
+            "confidence": 1.0,
+            "findings": [
+              "Depreciation rate (11.5%) is within normal range"
+            ],
+            "metrics": {
+              "depreciation_amortization": 380200.0,
+              "fixed_assets_net": 3296599.0,
+              "depreciation_rate": 0.1153,
+              "implied_useful_life_years": 8.7,
+              "da_to_total_assets": 0.0603
+            }
+          },
+          "cashflow_composition": {
+            "success": true,
+            "score": 0.0,
+            "confidence": 1.0,
+            "findings": [
+              "Cash flow composition healthy: operating ($722,863) is primary source"
+            ],
+            "metrics": {
+              "net_cash_operating": 722863.0,
+              "net_cash_investing": -496257.0,
+              "net_cash_financing": -228174.0,
+              "net_change_cash": -1568.0,
+              "cfo_share_of_inflows": 1.0,
+              "cash_flow_structure": "healthy"
+            }
+          }
+        }
+      },
+      "combined": {
+        "cik": "56873",
+        "filename": "0000056873-1.json",
+        "structured_risk": {
+          "overall_risk_score": 64.0,
+          "risk_level": "HIGH",
+          "component_scores": {
+            "fraud_model_count": 11,
+            "total_models": 17
+          },
+          "risk_factors": [
+            "11 models flagged fraud: Catboost, Cnn, Dbscan",
+            "Overall prediction: FRAUD"
+          ],
+          "confidence": 1.0
+        },
+        "unstructured_risk": null,
+        "agent_results": {
+          "combined_score": 37.39,
+          "confidence": 0.95,
+          "weights_used": {
+            "benfords_law": 0.074,
+            "altman_zscore": 0.148,
+            "cashflow_earnings": 0.148,
+            "debt_anomaly": 0.111,
+            "expense_padding": 0.074,
+            "tax_rate_anomaly": 0.059,
+            "financing_red_flags": 0.059,
+            "asset_quality": 0.059,
+            "eps_consistency": 0.044,
+            "negative_equity": 0.059,
+            "liquidity_crunch": 0.059,
+            "depreciation_anomaly": 0.044,
+            "cashflow_composition": 0.059
+          },
+          "agents_succeeded": 13,
+          "agents_failed": 2,
+          "individual_results": {
+            "benfords_law": {
+              "success": true,
+              "score": 100.0,
+              "confidence": 0.79,
+              "findings": [
+                "Digit 1: under-represented (observed: 13.9%, expected: 30.1%)",
+                "Digit 2: under-represented (observed: 8.9%, expected: 17.6%)",
+                "Digit 3: under-represented (observed: 6.3%, expected: 12.5%)",
+                "Digit 4: under-represented (observed: 5.1%, expected: 9.7%)",
+                "Digit 5: under-represented (observed: 5.1%, expected: 7.9%)",
+                "Digit 7: over-represented (observed: 16.5%, expected: 5.8%)",
+                "Digit 8: over-represented (observed: 8.9%, expected: 5.1%)",
+                "Digit 9: over-represented (observed: 27.8%, expected: 4.6%)"
+              ],
+              "metrics": {
+                "chi_square": 125.829,
+                "sample_count": 79,
+                "observed_frequencies": {
+                  "1": 0.139,
+                  "2": 0.089,
+                  "3": 0.063,
+                  "4": 0.051,
+                  "5": 0.051,
+                  "6": 0.076,
+                  "7": 0.165,
+                  "8": 0.089,
+                  "9": 0.278
+                },
+                "expected_frequencies": {
+                  "1": 0.301,
+                  "2": 0.176,
+                  "3": 0.125,
+                  "4": 0.097,
+                  "5": 0.079,
+                  "6": 0.067,
+                  "7": 0.058,
+                  "8": 0.051,
+                  "9": 0.046
+                },
+                "passes_test": false
+              }
+            },
+            "beneish_mscore": {
+              "success": false,
+              "score": 0.0,
+              "confidence": 0.0,
+              "findings": [
+                "Data not applicable for this agent"
+              ],
+              "metrics": {}
+            },
+            "altman_zscore": {
+              "success": true,
+              "score": 12.08527212462062,
+              "confidence": 1.0,
+              "findings": [
+                "Z-Score (4.57) is in SAFE zone (> 2.99) \u2014 low distress risk",
+                "Negative retained earnings: accumulated deficit detected",
+                "Low equity-to-liabilities ratio: highly leveraged balance sheet"
+              ],
+              "metrics": {
+                "z_score": 4.573,
+                "safe_zone_threshold": 2.99,
+                "grey_zone_threshold": 1.81,
+                "zone": "SAFE",
+                "components": {
+                  "X1_working_capital_to_assets": 0.1363,
+                  "X2_retained_earnings_to_assets": -0.188,
+                  "X3_ebit_to_assets": 0.1584,
+                  "X4_equity_to_liabilities": -0.1108,
+                  "X5_revenue_to_assets": 4.2161
+                },
+                "ratios_available": 5
+              }
+            },
+            "cashflow_earnings": {
+              "success": true,
+              "score": 19.754969616784745,
+              "confidence": 1.0,
+              "findings": [
+                "Net income ($411,656) and operating cash flow ($722,863) are broadly consistent"
+              ],
+              "metrics": {
+                "net_income": 411656.0,
+                "operating_cash_flow": 722863.0,
+                "accruals": -311207.0,
+                "accrual_ratio": -0.0494,
+                "quality_of_earnings": 1.756,
+                "total_assets": 6301341.0,
+                "cash_backing_income": true,
+                "income_cfo_divergence": false
+              }
+            },
+            "debt_anomaly": {
+              "success": true,
+              "score": 85.0,
+              "confidence": 1.0,
+              "findings": [
+                "NEGATIVE equity (D/E = -9.03): company is technically insolvent",
+                "CRITICAL debt ratio (112.46%): > 90% of assets are liabilities"
+              ],
+              "metrics": {
+                "debt_to_equity": -9.029,
+                "debt_ratio": 1.1246,
+                "interest_coverage_ratio": 2.492,
+                "short_term_debt_concentration": 0.0041,
+                "debt_to_revenue": 0.267,
+                "total_liabilities": 7086189.0,
+                "total_assets": 6301341.0,
+                "equity": -784848.0,
+                "checks_performed": 5
+              }
+            },
+            "related_party": {
+              "success": false,
+              "score": 0.0,
+              "confidence": 0.0,
+              "findings": [
+                "Data not applicable for this agent"
+              ],
+              "metrics": {}
+            },
+            "expense_padding": {
+              "success": true,
+              "score": 15.0,
+              "confidence": 0.75,
+              "findings": [
+                "Watch: expense ratio (97.3%) approaching breakeven \u2014 tightly controlled margins",
+                "Very thin gross margin (2.7%) \u2014 vulnerable to expense manipulation"
+              ],
+              "metrics": {
+                "total_revenues": 26567348.0,
+                "total_operating_expenses": 25854985.0,
+                "expense_to_revenue_ratio": 0.9732,
+                "gross_profit_margin": 0.0268,
+                "gross_profit": 712363.0,
+                "operating_income": 998308.0,
+                "salary_to_expense_ratio": "N/A",
+                "expenses_exceed_revenue": false,
+                "is_deep_loss": false
+              }
+            },
+            "tax_rate_anomaly": {
+              "success": true,
+              "score": 0.0,
+              "confidence": 1.0,
+              "findings": [
+                "Effective tax rate (37.7%) is within a plausible range"
+              ],
+              "metrics": {
+                "income_tax_expense": 268331.0,
+                "pre_tax_income": 712363.0,
+                "effective_tax_rate": 0.3767,
+                "profitable": true,
+                "tax_benefit_on_profit": false,
+                "suspicion_level": "NORMAL"
+              }
+            },
+            "financing_red_flags": {
+              "success": true,
+              "score": 0.0,
+              "confidence": 0.75,
+              "findings": [
+                "Operating cash flow is positive ($722,863) \u2014 no dependency on external funding detected"
+              ],
+              "metrics": {
+                "net_cash_operating": 722863.0,
+                "proceeds_stock_sales": 0.0,
+                "notes_payable_change": 0.0,
+                "net_cash_financing": -228174.0,
+                "net_change_cash": -1568.0,
+                "cfo_negative": false,
+                "equity_funded_ops": false,
+                "flags_triggered": 0
+              }
+            },
+            "asset_quality": {
+              "success": true,
+              "score": 20.0,
+              "confidence": 1.0,
+              "findings": [
+                "Very low cash backing (1.0% of assets, $65,484) \u2014 potential liquidity concealment"
+              ],
+              "metrics": {
+                "total_assets": 6301341.0,
+                "other_assets": 364191.0,
+                "accounts_receivable": 400529.0,
+                "cash": 65484.0,
+                "fixed_assets_net": 3296599.0,
+                "other_assets_ratio": 0.0578,
+                "receivables_ratio": 0.0636,
+                "combined_opaque_ratio": 0.1214,
+                "hard_asset_ratio": 0.5232,
+                "cash_ratio_to_assets": 0.0104
+              }
+            },
+            "eps_consistency": {
+              "success": true,
+              "score": 85.0,
+              "confidence": 1.0,
+              "findings": [
+                "CRITICAL: EPS discrepancy of 99.9% \u2014 reported $1.5700 vs computed $0.0016 (net income: $411,656 / shares: 262,201,291)"
+              ],
+              "metrics": {
+                "reported_eps": 1.57,
+                "computed_eps": 0.00157,
+                "net_income_loss": 411656.0,
+                "shares_outstanding": 262201291.0,
+                "discrepancy_pct": 0.999,
+                "sign_consistent": true
+              }
+            },
+            "negative_equity": {
+              "success": true,
+              "score": 75.53787092046232,
+              "confidence": 1.0,
+              "findings": [
+                "CRITICAL: Negative shareholders equity ($-784,848) \u2014 company is technically insolvent (liabilities exceed assets)",
+                "Accumulated deficit ($-1,184,394) exceeds ALL paid-in capital ($728,644) \u2014 1.6\u00d7 capital destroyed"
+              ],
+              "metrics": {
+                "total_shareholders_equity": -784848.0,
+                "retained_earnings": -1184394.0,
+                "paid_in_capital": 728644.0,
+                "total_liabilities": 7086189.0,
+                "is_technically_insolvent": true,
+                "erosion_ratio": 1.625,
+                "equity_pct_of_capital": null
+              }
+            },
+            "liquidity_crunch": {
+              "success": true,
+              "score": 88.97283061104322,
+              "confidence": 1.0,
+              "findings": [
+                "CRITICAL: Cash ratio (0.04) \u2014 only 3.7\u00a2 per $1 owed ($65,484 vs $1,781,527 current liabilities)",
+                "Low quick ratio (0.26) \u2014 tight short-term liquidity"
+              ],
+              "metrics": {
+                "cash": 65484.0,
+                "current_liabilities": 1781527.0,
+                "cash_ratio": 0.0368,
+                "quick_ratio": 0.2616,
+                "current_ratio": 1.4822
+              }
+            },
+            "depreciation_anomaly": {
+              "success": true,
+              "score": 0.0,
+              "confidence": 1.0,
+              "findings": [
+                "Depreciation rate (11.5%) is within normal range"
+              ],
+              "metrics": {
+                "depreciation_amortization": 380200.0,
+                "fixed_assets_net": 3296599.0,
+                "depreciation_rate": 0.1153,
+                "implied_useful_life_years": 8.7,
+                "da_to_total_assets": 0.0603
+              }
+            },
+            "cashflow_composition": {
+              "success": true,
+              "score": 0.0,
+              "confidence": 1.0,
+              "findings": [
+                "Cash flow composition healthy: operating ($722,863) is primary source"
+              ],
+              "metrics": {
+                "net_cash_operating": 722863.0,
+                "net_cash_investing": -496257.0,
+                "net_cash_financing": -228174.0,
+                "net_change_cash": -1568.0,
+                "cfo_share_of_inflows": 1.0,
+                "cash_flow_structure": "healthy"
+              }
+            }
+          }
+        },
+        "combined_risk": {
+          "overall_risk_score": 44.31,
+          "risk_level": "MEDIUM",
+          "component_scores": {
+            "structured_score": 64.0,
+            "agent_score": 37.39,
+            "agent_confidence": 0.95,
+            "agents_succeeded": 13,
+            "final_combined_score": 44.31
+          },
+          "risk_factors": [
+            "\u2713 13 additional agents analyzed",
+            "\u26a0\ufe0f Only structured pipeline data available",
+            "11 models flagged fraud: Catboost, Cnn, Dbscan",
+            "Overall prediction: FRAUD"
+          ],
+          "confidence": 0.87
+        }
+      }
+    }
+  ]
+}

@@ -25,6 +25,7 @@ from pipelines.graph_builder import GraphBuilder
 from pipelines.risk_scorer import RiskScorer
 from pipelines.output_formatter import OutputFormatter
 from pipelines.risk_retriever import RiskRetriever
+from pipelines.rag_analyzer import RagAnalyzer
 
 try:
     from utils.config_optimized import ConfigOptimized as Config
@@ -74,6 +75,7 @@ class UnstructuredPipelineOptimized:
         
         # Initialize risk scoring and output formatting
         self.risk_scorer = RiskScorer() if enable_risk_scoring else None
+        self.rag_analyzer = RagAnalyzer() if enable_risk_scoring else None
         self.output_formatter = OutputFormatter() if enable_output_formatting else None
         
         # Initialize databases
@@ -323,6 +325,11 @@ class UnstructuredPipelineOptimized:
                     self.logger.info("Calculating risk scores...")
                     for doc in tqdm(documents_with_entities, desc="Calculating risk scores", leave=False):
                         try:
+                            if self.rag_analyzer:
+                                doc['rag_analysis'] = self.rag_analyzer.analyze_document(doc.get('content', ''))
+                            else:
+                                doc['rag_analysis'] = []
+                                
                             risk_data = self.risk_scorer.calculate_document_risk(
                                 document=doc,
                                 entities=doc.get('entities'),
@@ -337,6 +344,7 @@ class UnstructuredPipelineOptimized:
                                 'risk_level': 'UNKNOWN',
                                 'error': str(e)
                             }
+                            doc['rag_analysis'] = []
                 
                 # Step 7: Format output for multiagent system (if enabled)
                 if self.enable_output_formatting and self.output_formatter:
