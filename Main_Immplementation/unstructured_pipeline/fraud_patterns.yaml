@@ -1,0 +1,98 @@
+# Relationship Rules Configuration for Fraud Detection
+# Defines relationship types, fraud patterns, and detection logic
+# Trimmed for Groq API Token Limits
+
+# ===========================================================================
+# Fraud Pattern Definitions
+# ===========================================================================
+fraud_patterns:
+  # ---------------------------------------------------------------------------
+  # Pattern 1: Undisclosed Relationships
+  # ---------------------------------------------------------------------------
+  undisclosed_relationship:
+    name: "Undisclosed Related Party Transaction"
+    description: "Hidden relationships between executives and business partners"
+    severity: critical
+    entities_required:
+      - type: EXECUTIVE
+        role: source
+      - type: COMPANY
+        role: transaction_partner
+      - type: FAMILY_RELATION
+        role: connection
+    relationships_required:
+      - FAMILY_OF
+      - HAS_TRANSACTION_WITH
+    detection_logic: |
+      1. Find EXECUTIVE E
+      2. Find FAMILY_RELATION F where F.FAMILY_OF(E)
+      3. Find COMPANY C where C.HAS_TRANSACTION_WITH(Company)
+      4. Check if F.RELATED_TO(C) or F.OWNS(C)
+      5. Verify if relationship disclosed in related party footnotes
+    sec_rule: "S-K Item 404"
+    example: "CEO's spouse owns supplier company with $5M in transactions"
+
+  # ---------------------------------------------------------------------------
+  # Pattern 2: Subsidiary Hiding
+  # ---------------------------------------------------------------------------
+  subsidiary_hiding:
+    name: "Off-Balance Sheet Subsidiary"
+    description: "Subsidiary mentioned but not properly consolidated"
+    severity: critical
+    entities_required:
+      - type: SUBSIDIARY
+        role: hidden_entity
+      - type: PARENT_COMPANY
+        role: concealer
+    relationships_required:
+      - SUBSIDIARY_OF
+      - MENTIONED_IN
+      - NOT_DISCLOSED_IN
+    detection_logic: |
+      1. Find SUBSIDIARY S mentioned in business description
+      2. Check if S appears in consolidation footnotes
+      3. If NOT in consolidation, flag as potential hiding
+      4. Check for SPE/VIE characteristics
+    sec_rule: "S-X 4-08(g)"
+    example: "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+
+  # ---------------------------------------------------------------------------
+  # Pattern 4: Circular Transactions
+  # ---------------------------------------------------------------------------
+  circular_transactions:
+    name: "Circular Transaction Pattern"
+    description: "Money flowing in circles between related entities"
+    severity: critical
+    entities_required:
+      - type: COMPANY
+        role: hub
+      - type: SUBSIDIARY
+        role: intermediary
+      - type: RELATED_PARTY
+        role: destination
+    relationships_required:
+      - PAYS
+      - RECEIVES_FROM
+      - LOANS_TO
+    detection_logic: |
+      1. Build transaction graph
+      2. Detect cycles with length > 2
+      3. Sum transaction amounts in cycle
+      4. Flag if cycle involves related parties
+    sec_rule: "Multiple"
+    example: "Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+
+# ===========================================================================
+# Detection Rules
+# ===========================================================================
+detection_rules:
+  minimum_confidence: 0.6
+  require_evidence: true
+  max_hops_in_graph: 4
+  
+  risk_scoring:
+    critical_pattern_weight: 1.0
+    high_pattern_weight: 0.7
+    medium_pattern_weight: 0.4
+    evidence_bonus: 0.1
+    multiple_pattern_multiplier: 1.5

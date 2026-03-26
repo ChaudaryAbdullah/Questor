@@ -16,6 +16,7 @@ from databases.vector_db import VectorDatabase
 from databases.graph_db import GraphDatabase
 from pipelines.risk_scorer import RiskScorer
 from pipelines.output_formatter import OutputFormatter
+from pipelines.rag_analyzer import RagAnalyzer
 from utils import Config, Logger
 
 
@@ -34,6 +35,7 @@ class RiskRetriever:
         
         # Initialize risk scorer and output formatter
         self.risk_scorer = RiskScorer()
+        self.rag_analyzer = RagAnalyzer()
         self.output_formatter = OutputFormatter()
         
         self.logger.info("Risk Retriever initialized")
@@ -275,6 +277,11 @@ class RiskRetriever:
         
         for doc in tqdm(documents, desc=f"Calculating risk for CIK {cik}", leave=False):
             try:
+                if hasattr(self, 'rag_analyzer') and self.rag_analyzer:
+                    doc['rag_analysis'] = self.rag_analyzer.analyze_document(doc.get('content', ''))
+                else:
+                    doc['rag_analysis'] = []
+                    
                 risk_data = self.risk_scorer.calculate_document_risk(
                     document=doc,
                     entities=doc.get('entities'),

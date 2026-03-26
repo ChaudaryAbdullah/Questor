@@ -14,28 +14,38 @@ def extract_cik_status():
         vector_db = VectorDatabase()
         collection = vector_db.collection
         
-        result = collection.get(include=['metadatas'])
-        
         cik_status = {}
+        offset = 0
+        limit = 500
         
-        for metadata in result.get('metadatas', []):
-            cik = metadata.get('company_id')
-            label = metadata.get('label')
+        while True:
+            result = collection.get(include=['metadatas'], limit=limit, offset=offset)
+            metadatas = result.get('metadatas', [])
             
-            # Use doc_id to try to infer label if it's missing or unknown
-            # Frequently the label is part of the path or doc_id
-            
-            if cik and cik != 'unknown':
-                # If label is present, record it
-                if str(label) == "1" or "fraud" in str(label).lower() and "non" not in str(label).lower():
-                    parsed_label = "Fraudulent"
-                elif str(label) == "0" or "non" in str(label).lower() or str(label).lower() == "normal":
-                    parsed_label = "Non-Fraudulent"
-                else:
-                    parsed_label = str(label)
+            if not metadatas:
+                break
                 
-                if cik not in cik_status or cik_status[cik] == "unknown":
-                    cik_status[cik] = parsed_label
+            for metadata in metadatas:
+                # In ChromaDB, metadata might be None for some entries
+                if not metadata:
+                    continue
+                    
+                cik = metadata.get('company_id')
+                label = metadata.get('label')
+                
+                if cik and str(cik).lower() != 'unknown':
+                    # If label is present, record it
+                    if str(label) == "1" or "fraud" in str(label).lower() and "non" not in str(label).lower():
+                        parsed_label = "Fraudulent"
+                    elif str(label) == "0" or "non" in str(label).lower() or str(label).lower() == "normal":
+                        parsed_label = "Non-Fraudulent"
+                    else:
+                        parsed_label = str(label)
+                    
+                    if cik not in cik_status or cik_status.get(cik) == "unknown":
+                        cik_status[cik] = parsed_label
+            
+            offset += limit
         
         with open(output_file, 'w') as f:
             f.write("CIK\tStatus\n")

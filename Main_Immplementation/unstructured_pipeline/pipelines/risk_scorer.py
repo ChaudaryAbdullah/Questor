@@ -100,20 +100,37 @@ class RiskScorer:
         """
         content = document.get('content', '')
         doc_id = document.get('doc_id', 'unknown')
+        rag_analysis = document.get('rag_analysis', [])
         
         # Calculate individual risk components
         fraud_indicator_score = self._calculate_fraud_indicator_score(content, entities)
         entity_risk_score = self._calculate_entity_risk_score(entities)
         financial_anomaly_score = self._calculate_financial_anomaly_score(content, entities)
         relationship_risk_score = self._calculate_relationship_risk_score(relationships)
+
+        # Process RAG analysis score
+        rag_score = 0.0
+        rag_level_weights = {"CRITICAL": 1.0, "HIGH": 0.8, "MEDIUM": 0.5, "LOW": 0.2, "MINIMAL": 0.0}
+        rag_severity = 0.0
+        if rag_analysis:
+            levels = [rag_level_weights.get(r.get('metadata', {}).get('risk_level', 'MINIMAL'), 0) for r in rag_analysis]
+            if levels:
+                rag_severity = max(levels)
+                rag_score = rag_severity * 100
         
         # Calculate weighted overall risk score (0-100)
-        overall_risk = (
+        heuristic_risk = (
             fraud_indicator_score * self.WEIGHTS['fraud_indicators'] +
             entity_risk_score * self.WEIGHTS['entity_risk'] +
             financial_anomaly_score * self.WEIGHTS['financial_anomalies'] +
             relationship_risk_score * self.WEIGHTS['relationship_risk']
         ) * 100
+
+        # Blend heuristic risk with RAG risk (take the max of both)
+        if rag_analysis and rag_score > 0:
+            overall_risk = max(heuristic_risk, rag_score)
+        else:
+            overall_risk = heuristic_risk
         
         # Determine risk level
         risk_level = self._determine_risk_level(overall_risk)
@@ -125,6 +142,16 @@ class RiskScorer:
             financial_anomaly_score, relationship_risk_score
         )
         
+        # Add RAG findings to risk factors
+        if rag_analysis:
+            for rag in rag_analysis:
+                level = rag.get('metadata', {}).get('risk_level', '')
+                if level in ['CRITICAL', 'HIGH']:
+                    query_name = rag.get('query', 'Unknown Pattern')
+                    inds = rag.get('fraud_indicators', [])
+                    if inds:
+                        risk_factors.append(f"RAG [{level}] - {query_name}: {inds[0]}")
+                        
         risk_data = {
             'doc_id': doc_id,
             'overall_risk_score': round(overall_risk, 2),
@@ -133,7 +160,8 @@ class RiskScorer:
                 'fraud_indicators': round(fraud_indicator_score * 100, 2),
                 'entity_risk': round(entity_risk_score * 100, 2),
                 'financial_anomalies': round(financial_anomaly_score * 100, 2),
-                'relationship_risk': round(relationship_risk_score * 100, 2)
+                'relationship_risk': round(relationship_risk_score * 100, 2),
+                'rag_score': round(rag_score, 2) if rag_analysis else 0.0
             },
             'risk_factors': risk_factors,
             'timestamp': datetime.now().isoformat()

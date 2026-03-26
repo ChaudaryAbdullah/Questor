@@ -40,4 +40,15 @@ CIK	Status
 1040765	Non-Fraudulent
 1042187	Non-Fraudulent
 1042776	Non-Fraudulent
+104938	Fraudulent
+108772	Fraudulent
+109156	Fraudulent
+109471	Fraudulent
+109831	Fraudulent
+215219	Fraudulent
+216228	Fraudulent
+277809	Fraudulent
+278352	Fraudulent
+319815	Fraudulent
+6284	Fraudulent
 None	unknown

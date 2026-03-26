@@ -1,0 +1,27 @@
+
+========================================
+FRAUD DETECTION PIPELINE - SUMMARY REPORT
+========================================
+Generated: 2026-03-26 16:11:36
+
+OVERALL STATISTICS
+------------------
+Total Documents Processed: 1
+Average Risk Score: 0.00
+Maximum Risk Score: 0.00
+Minimum Risk Score: 0.00
+
+RISK DISTRIBUTION
+-----------------
+CRITICAL    :    1 documents
+HIGH        :    0 documents
+MEDIUM      :    0 documents
+LOW         :    0 documents
+MINIMAL     :    0 documents
+
+HIGH-RISK DOCUMENTS: 0
+========================================
+
+========================================
+END OF REPORT
+========================================
