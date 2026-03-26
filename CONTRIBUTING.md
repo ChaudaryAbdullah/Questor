@@ -19,7 +19,7 @@ Thank you for your interest in contributing to Questor! 🎉
 
 #### 1. Fork and Clone
 ```bash
-git clone https://github.com/YourUsername/Questor.git
+git clone https://github.com/ChaudaryAbdullah/Questor.git
 cd Questor
 ```
 

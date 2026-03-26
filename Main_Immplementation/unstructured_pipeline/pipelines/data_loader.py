@@ -22,16 +22,14 @@ class DataLoader:
     def load_documents(
         self,
         file_pattern: str = "*.txt",
-        limit: Optional[int] = None,
-        specific_file: Optional[str] = None
+        limit: Optional[int] = None
     ) -> List[Dict[str, Any]]:
         """
-        Load all documents from the data directory or a specific file
+        Load all documents from the data directory
         
         Args:
-            file_pattern: Glob pattern for files to load (ignored if specific_file is provided)
+            file_pattern: Glob pattern for files to load
             limit: Maximum number of files to load (None for all)
-            specific_file: Specific filename to load (e.g., "full-submission.txt")
             
         Returns:
             List of document dictionaries
@@ -40,19 +38,12 @@ class DataLoader:
             self.logger.info(f"Loading documents from {self.data_dir}")
             
             # Get all matching files
-            if specific_file:
-                # Load only the specific file
-                file_path = self.data_dir / specific_file
-                if not file_path.exists():
-                    self.logger.error(f"Specific file not found: {file_path}")
-                    raise DataIngestionError(f"File not found: {specific_file}")
-                files = [file_path]
-                self.logger.info(f"Loading specific file: {specific_file}")
-            else:
-                files = list(self.data_dir.glob(file_pattern))
-                if limit:
-                    files = files[:limit]
-                self.logger.info(f"Found {len(files)} documents to process")
+            files = list(self.data_dir.glob(file_pattern))
+            
+            if limit:
+                files = files[:limit]
+            
+            self.logger.info(f"Found {len(files)} documents to process")
             
             documents = []
             
@@ -74,8 +65,8 @@ class DataLoader:
             with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
             
-            # Parse filename to extract metadata
-            metadata = self._parse_filename(file_path.stem)
+            # Parse filename to extract metadata; pass content for fallback extraction
+            metadata = self._parse_filename(file_path.stem, content)
             
             return {
                 'doc_id': file_path.stem,
@@ -89,21 +80,24 @@ class DataLoader:
             self.logger.warning(f"Failed to load {file_path.name}: {str(e)}")
             return None
     
-    def _parse_filename(self, filename: str) -> Dict[str, Any]:
+    def _parse_filename(self, filename: str, content: str = '') -> Dict[str, Any]:
         """
         Parse metadata from filename
         Examples: 
         - NonFraud_1961_20200330_1376.txt
         - Unknown_full-submission_163
+        
+        For Unknown_full documents, CIK and date are extracted from the
+        embedded "Source File:" header in the file content.
         """
         metadata = {
-            'label': 'unknown',
+            'label': 'fraud',
             'company_id': None,
             'date': None,
             'submission_id': None
         }
         
-        # Pattern for fraud label files
+        # Pattern for labeled files: NonFraud or Fraud
         fraud_pattern = r'(NonFraud|Fraud)_(\d+)_(\d{8})_(\d+)'
         match = re.match(fraud_pattern, filename)
         
@@ -118,6 +112,31 @@ class DataLoader:
             match = re.match(unknown_pattern, filename)
             if match:
                 metadata['submission_id'] = match.group(1)
+            
+            # Try to extract CIK and date from the embedded file header
+            # Expected header line:
+            # Source File: .../sec-edgar-filings/<CIK>/<form>/<accession>/full-submission.txt
+            # Accession number format: XXXXXXXXXX-YY-NNNNNN  (YY = 2-digit year)
+            if content:
+                # Extract CIK from the EDGAR path
+                cik_match = re.search(
+                    r'sec-edgar-filings[/\\](\d+)[/\\]',
+                    content[:500]  # Only scan the header
+                )
+                if cik_match:
+                    metadata['company_id'] = cik_match.group(1).lstrip('0') or cik_match.group(1)
+                
+                # Extract date from accession number (XXXXXXXXXX-YY-NNNNNN)
+                # YY is the 2-digit filing year; we map it to a full 8-digit date YYYYMMDD
+                accession_match = re.search(
+                    r'(\d{10})-(\d{2})-(\d{6})',
+                    content[:500]
+                )
+                if accession_match:
+                    year_short = int(accession_match.group(2))
+                    # SEC EDGAR 2-digit years: <=30 -> 2000s, else 1900s
+                    year_full = 2000 + year_short if year_short <= 30 else 1900 + year_short
+                    metadata['date'] = f"{year_full}0101"  # Use Jan 1 as approximate date
         
         return metadata
     
