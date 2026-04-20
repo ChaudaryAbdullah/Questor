@@ -1,0 +1,1765 @@
+{
+  "timestamp": "20260420_151124",
+  "total_files": 12,
+  "results": [
+    {
+      "success": true,
+      "cik": "104938",
+      "filename": "0000104938-3.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 3.541008472442627,
+        "formatted_outputs_count": 1,
+        "formatted_output": {
+          "document_id": "Unknown_full-submission_144",
+          "timestamp": "2026-04-20T14:58:50.032019",
+          "source_file": "",
+          "metadata": {
+            "label": "fraud",
+            "company_id": "104938",
+            "date": "19970101",
+            "content_length": 472853,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 100.0,
+            "risk_level": "CRITICAL",
+            "component_scores": {
+              "fraud_indicators": 39.09,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 100.0
+            },
+            "risk_factors": [
+              "No significant risk factors detected",
+              "RAG [CRITICAL] - Undisclosed Related Party Transaction: CEO's spouse owns supplier company with $5M in transactions",
+              "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5"
+            ],
+            "requires_investigation": true
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            },
+            {
+              "query": "Undisclosed Related Party Transaction",
+              "fraud_indicators": [
+                "CEO's spouse owns supplier company with $5M in transactions"
+              ],
+              "metadata": {
+                "risk_level": "CRITICAL",
+                "sec_rule": "S-K Item 404"
+              }
+            },
+            {
+              "query": "Off-Balance Sheet Subsidiary",
+              "fraud_indicators": [
+                "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+              ],
+              "metadata": {
+                "risk_level": "CRITICAL",
+                "sec_rule": "S-X 4-08(g)"
+              }
+            },
+            {
+              "query": "Circular Transaction Pattern",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "fraud_investigation_agent"
+            ],
+            "priority": "critical",
+            "processing_hints": []
+          },
+          "cik": "104938",
+          "documents_analyzed": 1,
+          "average_risk_score": 100.0
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "104938",
+        "filename": "0000104938-3.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "CRITICAL",
+          "component_scores": {
+            "fraud_indicators": 39.09,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 100.0
+          },
+          "risk_factors": [
+            "No significant risk factors detected",
+            "RAG [CRITICAL] - Undisclosed Related Party Transaction: CEO's spouse owns supplier company with $5M in transactions",
+            "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "No significant risk factors detected",
+            "RAG [CRITICAL] - Undisclosed Related Party Transaction: CEO's spouse owns supplier company with $5M in transactions",
+            "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          },
+          {
+            "query": "Undisclosed Related Party Transaction",
+            "fraud_indicators": [
+              "CEO's spouse owns supplier company with $5M in transactions"
+            ],
+            "metadata": {
+              "risk_level": "CRITICAL",
+              "sec_rule": "S-K Item 404"
+            }
+          },
+          {
+            "query": "Off-Balance Sheet Subsidiary",
+            "fraud_indicators": [
+              "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+            ],
+            "metadata": {
+              "risk_level": "CRITICAL",
+              "sec_rule": "S-X 4-08(g)"
+            }
+          },
+          {
+            "query": "Circular Transaction Pattern",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "108772",
+      "filename": "0000108772-5.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 5,
+        "elapsed_time": 182.13016057014465,
+        "formatted_outputs_count": 2,
+        "formatted_output": {
+          "document_id": "Unknown_full-submission_147",
+          "timestamp": "2026-04-20T15:01:52.169117",
+          "source_file": "",
+          "metadata": {
+            "label": "fraud",
+            "company_id": "108772",
+            "date": "19980101",
+            "content_length": 383225,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 100.0,
+            "risk_level": "CRITICAL",
+            "component_scores": {
+              "fraud_indicators": 45.69,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 100.0
+            },
+            "risk_factors": [
+              "No significant risk factors detected",
+              "RAG [CRITICAL] - Undisclosed Related Party Transaction: CEO's spouse owns supplier company with $5M in transactions",
+              "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5"
+            ],
+            "requires_investigation": true
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            },
+            {
+              "query": "Undisclosed Related Party Transaction",
+              "fraud_indicators": [
+                "CEO's spouse owns supplier company with $5M in transactions"
+              ],
+              "metadata": {
+                "risk_level": "CRITICAL",
+                "sec_rule": "S-K Item 404"
+              }
+            },
+            {
+              "query": "Off-Balance Sheet Subsidiary",
+              "fraud_indicators": [
+                "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+              ],
+              "metadata": {
+                "risk_level": "CRITICAL",
+                "sec_rule": "S-X 4-08(g)"
+              }
+            },
+            {
+              "query": "Circular Transaction Pattern",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "fraud_investigation_agent"
+            ],
+            "priority": "critical",
+            "processing_hints": []
+          },
+          "cik": "108772",
+          "documents_analyzed": 5,
+          "average_risk_score": 42.91
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "108772",
+        "filename": "0000108772-5.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "CRITICAL",
+          "component_scores": {
+            "fraud_indicators": 45.69,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 100.0
+          },
+          "risk_factors": [
+            "No significant risk factors detected",
+            "RAG [CRITICAL] - Undisclosed Related Party Transaction: CEO's spouse owns supplier company with $5M in transactions",
+            "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "No significant risk factors detected",
+            "RAG [CRITICAL] - Undisclosed Related Party Transaction: CEO's spouse owns supplier company with $5M in transactions",
+            "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          },
+          {
+            "query": "Undisclosed Related Party Transaction",
+            "fraud_indicators": [
+              "CEO's spouse owns supplier company with $5M in transactions"
+            ],
+            "metadata": {
+              "risk_level": "CRITICAL",
+              "sec_rule": "S-K Item 404"
+            }
+          },
+          {
+            "query": "Off-Balance Sheet Subsidiary",
+            "fraud_indicators": [
+              "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+            ],
+            "metadata": {
+              "risk_level": "CRITICAL",
+              "sec_rule": "S-X 4-08(g)"
+            }
+          },
+          {
+            "query": "Circular Transaction Pattern",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "109831",
+      "filename": "0000109831.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 32.04732394218445,
+        "formatted_outputs_count": 3,
+        "formatted_output": {
+          "document_id": "Unknown_full-submission_161",
+          "timestamp": "2026-04-20T15:02:24.229812",
+          "source_file": "",
+          "metadata": {
+            "label": "fraud",
+            "company_id": "109831",
+            "date": "19970101",
+            "content_length": 403444,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 80.0,
+            "risk_level": "CRITICAL",
+            "component_scores": {
+              "fraud_indicators": 40.07,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 80.0
+            },
+            "risk_factors": [
+              "No significant risk factors detected",
+              "RAG [HIGH] - Circular Transaction Pattern: Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+            ],
+            "requires_investigation": true
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Undisclosed Related Party Transaction",
+              "fraud_indicators": [
+                "CEO's spouse owns supplier company with $5M in transactions"
+              ],
+              "metadata": {
+                "risk_level": "MINIMAL",
+                "sec_rule": "S-K Item 404"
+              }
+            },
+            {
+              "query": "Off-Balance Sheet Subsidiary",
+              "fraud_indicators": [
+                "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+              ],
+              "metadata": {
+                "risk_level": "MEDIUM",
+                "sec_rule": "S-X 4-08(g)"
+              }
+            },
+            {
+              "query": "Circular Transaction Pattern",
+              "fraud_indicators": [
+                "Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+              ],
+              "metadata": {
+                "risk_level": "HIGH",
+                "sec_rule": "Multiple"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "fraud_investigation_agent"
+            ],
+            "priority": "critical",
+            "processing_hints": []
+          },
+          "cik": "109831",
+          "documents_analyzed": 1,
+          "average_risk_score": 80.0
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "109831",
+        "filename": "0000109831.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "CRITICAL",
+          "component_scores": {
+            "fraud_indicators": 40.07,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 80.0
+          },
+          "risk_factors": [
+            "No significant risk factors detected",
+            "RAG [HIGH] - Circular Transaction Pattern: Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "No significant risk factors detected",
+            "RAG [HIGH] - Circular Transaction Pattern: Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Undisclosed Related Party Transaction",
+            "fraud_indicators": [
+              "CEO's spouse owns supplier company with $5M in transactions"
+            ],
+            "metadata": {
+              "risk_level": "MINIMAL",
+              "sec_rule": "S-K Item 404"
+            }
+          },
+          {
+            "query": "Off-Balance Sheet Subsidiary",
+            "fraud_indicators": [
+              "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+            ],
+            "metadata": {
+              "risk_level": "MEDIUM",
+              "sec_rule": "S-X 4-08(g)"
+            }
+          },
+          {
+            "query": "Circular Transaction Pattern",
+            "fraud_indicators": [
+              "Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+            ],
+            "metadata": {
+              "risk_level": "HIGH",
+              "sec_rule": "Multiple"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "277809",
+      "filename": "0000277809.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 33.09129333496094,
+        "formatted_outputs_count": 4,
+        "formatted_output": {
+          "document_id": "Unknown_full-submission_170",
+          "timestamp": "2026-04-20T15:02:57.331627",
+          "source_file": "",
+          "metadata": {
+            "label": "fraud",
+            "company_id": "277809",
+            "date": "19950101",
+            "content_length": 91503,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 100.0,
+            "risk_level": "CRITICAL",
+            "component_scores": {
+              "fraud_indicators": 27.13,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 100.0
+            },
+            "risk_factors": [
+              "No significant risk factors detected",
+              "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5",
+              "RAG [HIGH] - Circular Transaction Pattern: Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+            ],
+            "requires_investigation": true
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            },
+            {
+              "query": "Undisclosed Related Party Transaction",
+              "fraud_indicators": [
+                "CEO's spouse owns supplier company with $5M in transactions"
+              ],
+              "metadata": {
+                "risk_level": "MEDIUM",
+                "sec_rule": "S-K Item 404"
+              }
+            },
+            {
+              "query": "Off-Balance Sheet Subsidiary",
+              "fraud_indicators": [
+                "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+              ],
+              "metadata": {
+                "risk_level": "CRITICAL",
+                "sec_rule": "S-X 4-08(g)"
+              }
+            },
+            {
+              "query": "Circular Transaction Pattern",
+              "fraud_indicators": [
+                "Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+              ],
+              "metadata": {
+                "risk_level": "HIGH",
+                "sec_rule": "Multiple"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "fraud_investigation_agent"
+            ],
+            "priority": "critical",
+            "processing_hints": []
+          },
+          "cik": "277809",
+          "documents_analyzed": 1,
+          "average_risk_score": 100.0
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "277809",
+        "filename": "0000277809.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "CRITICAL",
+          "component_scores": {
+            "fraud_indicators": 27.13,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 100.0
+          },
+          "risk_factors": [
+            "No significant risk factors detected",
+            "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5",
+            "RAG [HIGH] - Circular Transaction Pattern: Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "No significant risk factors detected",
+            "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5",
+            "RAG [HIGH] - Circular Transaction Pattern: Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          },
+          {
+            "query": "Undisclosed Related Party Transaction",
+            "fraud_indicators": [
+              "CEO's spouse owns supplier company with $5M in transactions"
+            ],
+            "metadata": {
+              "risk_level": "MEDIUM",
+              "sec_rule": "S-K Item 404"
+            }
+          },
+          {
+            "query": "Off-Balance Sheet Subsidiary",
+            "fraud_indicators": [
+              "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+            ],
+            "metadata": {
+              "risk_level": "CRITICAL",
+              "sec_rule": "S-X 4-08(g)"
+            }
+          },
+          {
+            "query": "Circular Transaction Pattern",
+            "fraud_indicators": [
+              "Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+            ],
+            "metadata": {
+              "risk_level": "HIGH",
+              "sec_rule": "Multiple"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "278352",
+      "filename": "0000278352-2.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 6,
+        "elapsed_time": 204.4464032649994,
+        "formatted_outputs_count": 5,
+        "formatted_output": {
+          "document_id": "Unknown_full-submission_175",
+          "timestamp": "2026-04-20T15:06:21.784805",
+          "source_file": "",
+          "metadata": {
+            "label": "fraud",
+            "company_id": "278352",
+            "date": "19990101",
+            "content_length": 565297,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 100.0,
+            "risk_level": "CRITICAL",
+            "component_scores": {
+              "fraud_indicators": 32.0,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 100.0
+            },
+            "risk_factors": [
+              "No significant risk factors detected",
+              "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5",
+              "RAG [CRITICAL] - Circular Transaction Pattern: Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+            ],
+            "requires_investigation": true
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            },
+            {
+              "query": "Undisclosed Related Party Transaction",
+              "fraud_indicators": [
+                "Kenneth V. Jaeggi, Senior Vice President- Finance and Chief Financial Officer, KVJ:lac"
+              ],
+              "metadata": {
+                "risk_level": "MEDIUM",
+                "sec_rule": "S-K Item 404"
+              }
+            },
+            {
+              "query": "Off-Balance Sheet Subsidiary",
+              "fraud_indicators": [
+                "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+              ],
+              "metadata": {
+                "risk_level": "CRITICAL",
+                "sec_rule": "S-X 4-08(g)"
+              }
+            },
+            {
+              "query": "Circular Transaction Pattern",
+              "fraud_indicators": [
+                "Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+              ],
+              "metadata": {
+                "risk_level": "CRITICAL",
+                "sec_rule": "Multiple"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "fraud_investigation_agent"
+            ],
+            "priority": "critical",
+            "processing_hints": []
+          },
+          "cik": "278352",
+          "documents_analyzed": 6,
+          "average_risk_score": 52.0
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "278352",
+        "filename": "0000278352-2.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "CRITICAL",
+          "component_scores": {
+            "fraud_indicators": 32.0,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 100.0
+          },
+          "risk_factors": [
+            "No significant risk factors detected",
+            "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5",
+            "RAG [CRITICAL] - Circular Transaction Pattern: Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "No significant risk factors detected",
+            "RAG [CRITICAL] - Off-Balance Sheet Subsidiary: Subsidiary ITC Ventures mentioned in text but not in Note 5",
+            "RAG [CRITICAL] - Circular Transaction Pattern: Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          },
+          {
+            "query": "Undisclosed Related Party Transaction",
+            "fraud_indicators": [
+              "Kenneth V. Jaeggi, Senior Vice President- Finance and Chief Financial Officer, KVJ:lac"
+            ],
+            "metadata": {
+              "risk_level": "MEDIUM",
+              "sec_rule": "S-K Item 404"
+            }
+          },
+          {
+            "query": "Off-Balance Sheet Subsidiary",
+            "fraud_indicators": [
+              "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+            ],
+            "metadata": {
+              "risk_level": "CRITICAL",
+              "sec_rule": "S-X 4-08(g)"
+            }
+          },
+          {
+            "query": "Circular Transaction Pattern",
+            "fraud_indicators": [
+              "Company pays Subsidiary, Subsidiary loans to Related Party, Related Party pays Company"
+            ],
+            "metadata": {
+              "risk_level": "CRITICAL",
+              "sec_rule": "Multiple"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "319815",
+      "filename": "0000319815-3.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 36.234270334243774,
+        "formatted_outputs_count": 6,
+        "formatted_output": {
+          "document_id": "Unknown_full-submission_177",
+          "timestamp": "2026-04-20T15:06:58.024435",
+          "source_file": "",
+          "metadata": {
+            "label": "fraud",
+            "company_id": "319815",
+            "date": "20130101",
+            "content_length": 5096753,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 50.0,
+            "risk_level": "MEDIUM",
+            "component_scores": {
+              "fraud_indicators": 61.67,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 50.0
+            },
+            "risk_factors": [
+              "High-risk keywords detected: fabricated, material weakness, restatement"
+            ],
+            "requires_investigation": false
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Undisclosed Related Party Transaction",
+              "fraud_indicators": [
+                "CEO's spouse owns supplier company with $5M in transactions"
+              ],
+              "metadata": {
+                "risk_level": "MINIMAL",
+                "sec_rule": "S-K Item 404"
+              }
+            },
+            {
+              "query": "Off-Balance Sheet Subsidiary",
+              "fraud_indicators": [
+                "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+              ],
+              "metadata": {
+                "risk_level": "MEDIUM",
+                "sec_rule": "S-X 4-08(g)"
+              }
+            },
+            {
+              "query": "Circular Transaction Pattern",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            },
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "general_analysis_agent"
+            ],
+            "priority": "normal",
+            "processing_hints": []
+          },
+          "cik": "319815",
+          "documents_analyzed": 1,
+          "average_risk_score": 50.0
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "319815",
+        "filename": "0000319815-3.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MEDIUM",
+          "component_scores": {
+            "fraud_indicators": 61.67,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 50.0
+          },
+          "risk_factors": [
+            "High-risk keywords detected: fabricated, material weakness, restatement"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "High-risk keywords detected: fabricated, material weakness, restatement"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Undisclosed Related Party Transaction",
+            "fraud_indicators": [
+              "CEO's spouse owns supplier company with $5M in transactions"
+            ],
+            "metadata": {
+              "risk_level": "MINIMAL",
+              "sec_rule": "S-K Item 404"
+            }
+          },
+          {
+            "query": "Off-Balance Sheet Subsidiary",
+            "fraud_indicators": [
+              "Subsidiary ITC Ventures mentioned in text but not in Note 5"
+            ],
+            "metadata": {
+              "risk_level": "MEDIUM",
+              "sec_rule": "S-X 4-08(g)"
+            }
+          },
+          {
+            "query": "Circular Transaction Pattern",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          },
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "1037131",
+      "filename": "0001037131.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 51.32024788856506,
+        "formatted_outputs_count": 7,
+        "formatted_output": {
+          "document_id": "NonFraud_1037131_20140408_710",
+          "timestamp": "2026-04-20T15:07:49.351684",
+          "source_file": "",
+          "metadata": {
+            "label": "nonfraud",
+            "company_id": "1037131",
+            "date": "20140408",
+            "content_length": 1475065,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 21.94,
+            "risk_level": "LOW",
+            "component_scores": {
+              "fraud_indicators": 51.97,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 0.0
+            },
+            "risk_factors": [
+              "High-risk keywords detected: material weakness, restatement, misstatement"
+            ],
+            "requires_investigation": false
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "general_analysis_agent"
+            ],
+            "priority": "normal",
+            "processing_hints": []
+          },
+          "cik": "1037131",
+          "documents_analyzed": 1,
+          "average_risk_score": 21.94
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "1037131",
+        "filename": "0001037131.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "LOW",
+          "component_scores": {
+            "fraud_indicators": 51.97,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 0.0
+          },
+          "risk_factors": [
+            "High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "1039399",
+      "filename": "0001039399.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 37.93305206298828,
+        "formatted_outputs_count": 8,
+        "formatted_output": {
+          "document_id": "NonFraud_1039399_20180227_1104",
+          "timestamp": "2026-04-20T15:08:27.293111",
+          "source_file": "",
+          "metadata": {
+            "label": "nonfraud",
+            "company_id": "1039399",
+            "date": "20180227",
+            "content_length": 1933489,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 23.07,
+            "risk_level": "LOW",
+            "component_scores": {
+              "fraud_indicators": 55.19,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 0.0
+            },
+            "risk_factors": [
+              "High-risk keywords detected: material weakness, misstatement, off-balance sheet"
+            ],
+            "requires_investigation": false
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "general_analysis_agent"
+            ],
+            "priority": "normal",
+            "processing_hints": []
+          },
+          "cik": "1039399",
+          "documents_analyzed": 1,
+          "average_risk_score": 23.07
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "1039399",
+        "filename": "0001039399.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "LOW",
+          "component_scores": {
+            "fraud_indicators": 55.19,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 0.0
+          },
+          "risk_factors": [
+            "High-risk keywords detected: material weakness, misstatement, off-balance sheet"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "High-risk keywords detected: material weakness, misstatement, off-balance sheet"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "1040719",
+      "filename": "0001040719.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 33.29168248176575,
+        "formatted_outputs_count": 9,
+        "formatted_output": {
+          "document_id": "NonFraud_1040719_20140227_711",
+          "timestamp": "2026-04-20T15:09:00.593604",
+          "source_file": "",
+          "metadata": {
+            "label": "nonfraud",
+            "company_id": "1040719",
+            "date": "20140227",
+            "content_length": 5200284,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 24.91,
+            "risk_level": "LOW",
+            "component_scores": {
+              "fraud_indicators": 60.45,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 0.0
+            },
+            "risk_factors": [
+              "High-risk keywords detected: material weakness, restatement, misstatement"
+            ],
+            "requires_investigation": false
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "general_analysis_agent"
+            ],
+            "priority": "normal",
+            "processing_hints": []
+          },
+          "cik": "1040719",
+          "documents_analyzed": 1,
+          "average_risk_score": 24.91
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "1040719",
+        "filename": "0001040719.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "LOW",
+          "component_scores": {
+            "fraud_indicators": 60.45,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 0.0
+          },
+          "risk_factors": [
+            "High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "1040765",
+      "filename": "0001040765.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 53.85283303260803,
+        "formatted_outputs_count": 10,
+        "formatted_output": {
+          "document_id": "NonFraud_1040765_20210216_1409",
+          "timestamp": "2026-04-20T15:09:54.454086",
+          "source_file": "",
+          "metadata": {
+            "label": "nonfraud",
+            "company_id": "1040765",
+            "date": "20210216",
+            "content_length": 4820375,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 25.28,
+            "risk_level": "LOW",
+            "component_scores": {
+              "fraud_indicators": 61.52,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 0.0
+            },
+            "risk_factors": [
+              "High-risk keywords detected: material weakness, restatement, misstatement"
+            ],
+            "requires_investigation": false
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "general_analysis_agent"
+            ],
+            "priority": "normal",
+            "processing_hints": []
+          },
+          "cik": "1040765",
+          "documents_analyzed": 1,
+          "average_risk_score": 25.28
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "1040765",
+        "filename": "0001040765.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "LOW",
+          "component_scores": {
+            "fraud_indicators": 61.52,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 0.0
+          },
+          "risk_factors": [
+            "High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "1042187",
+      "filename": "0001042187.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 56.28948092460632,
+        "formatted_outputs_count": 11,
+        "formatted_output": {
+          "document_id": "NonFraud_1042187_20230412_1610",
+          "timestamp": "2026-04-20T15:10:50.751093",
+          "source_file": "",
+          "metadata": {
+            "label": "nonfraud",
+            "company_id": "1042187",
+            "date": "20230412",
+            "content_length": 2054398,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 22.58,
+            "risk_level": "LOW",
+            "component_scores": {
+              "fraud_indicators": 53.8,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 0.0
+            },
+            "risk_factors": [
+              "High-risk keywords detected: material weakness, misstatement, related party"
+            ],
+            "requires_investigation": false
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "general_analysis_agent"
+            ],
+            "priority": "normal",
+            "processing_hints": []
+          },
+          "cik": "1042187",
+          "documents_analyzed": 1,
+          "average_risk_score": 22.58
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "1042187",
+        "filename": "0001042187.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "LOW",
+          "component_scores": {
+            "fraud_indicators": 53.8,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 0.0
+          },
+          "risk_factors": [
+            "High-risk keywords detected: material weakness, misstatement, related party"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "High-risk keywords detected: material weakness, misstatement, related party"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "success": true,
+      "cik": "1042776",
+      "filename": "0001042776.json",
+      "structured": null,
+      "unstructured": {
+        "success": true,
+        "mode": "retrieval",
+        "ciks_processed": 1,
+        "documents_retrieved": 1,
+        "elapsed_time": 33.679747343063354,
+        "formatted_outputs_count": 12,
+        "formatted_output": {
+          "document_id": "NonFraud_1042776_20160217_905",
+          "timestamp": "2026-04-20T15:11:24.452056",
+          "source_file": "",
+          "metadata": {
+            "label": "nonfraud",
+            "company_id": "1042776",
+            "date": "20160217",
+            "content_length": 1547776,
+            "chunk_count": 0
+          },
+          "risk_assessment": {
+            "overall_score": 23.04,
+            "risk_level": "LOW",
+            "component_scores": {
+              "fraud_indicators": 55.12,
+              "entity_risk": 0.0,
+              "financial_anomalies": 15.0,
+              "relationship_risk": 0.0,
+              "rag_score": 0.0
+            },
+            "risk_factors": [
+              "High-risk keywords detected: material weakness, restatement, misstatement"
+            ],
+            "requires_investigation": false
+          },
+          "extracted_data": {
+            "entities": {},
+            "relationships": [],
+            "entity_summary": {
+              "total_entities": 0,
+              "entity_types": {},
+              "key_entities": []
+            }
+          },
+          "rag_analysis": [
+            {
+              "query": "Overall Assessment",
+              "fraud_indicators": [],
+              "metadata": {
+                "risk_level": "MINIMAL"
+              }
+            }
+          ],
+          "retrieval_references": {
+            "vector_db_chunks": [],
+            "knowledge_graph_nodes": [],
+            "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+          },
+          "agent_routing": {
+            "recommended_agents": [
+              "general_analysis_agent"
+            ],
+            "priority": "normal",
+            "processing_hints": []
+          },
+          "cik": "1042776",
+          "documents_analyzed": 1,
+          "average_risk_score": 23.04
+        }
+      },
+      "agents": null,
+      "combined": {
+        "cik": "1042776",
+        "filename": "0001042776.json",
+        "structured_risk": null,
+        "unstructured_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "LOW",
+          "component_scores": {
+            "fraud_indicators": 55.12,
+            "entity_risk": 0.0,
+            "financial_anomalies": 15.0,
+            "relationship_risk": 0.0,
+            "rag_score": 0.0
+          },
+          "risk_factors": [
+            "High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 1.0
+        },
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "MINIMAL",
+          "component_scores": {
+            "unstructured_score": 0.0
+          },
+          "risk_factors": [
+            "\u26a0\ufe0f Only unstructured pipeline data available",
+            "High-risk keywords detected: material weakness, restatement, misstatement"
+          ],
+          "confidence": 0.8
+        },
+        "rag_analysis": [
+          {
+            "query": "Overall Assessment",
+            "fraud_indicators": [],
+            "metadata": {
+              "risk_level": "MINIMAL"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

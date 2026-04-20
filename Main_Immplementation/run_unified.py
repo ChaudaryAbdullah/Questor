@@ -54,6 +54,8 @@ class UnifiedPipelineRunner:
         self,
         input_directory: Optional[Path] = None,
         enable_agents: bool = True,
+        enable_structured: bool = True,
+        enable_unstructured: bool = True,
         save_output: bool = True
     ) -> Dict[str, Any]:
         """
@@ -62,6 +64,8 @@ class UnifiedPipelineRunner:
         Args:
             input_directory: Directory containing input files (uses default if None)
             enable_agents: Whether to run agent orchestrator
+            enable_structured: Whether to run structured pipeline
+            enable_unstructured: Whether to run unstructured pipeline
             save_output: Whether to save combined output
             
         Returns:
@@ -95,7 +99,9 @@ class UnifiedPipelineRunner:
                 self.logger.info(f"{'=' * 80}")
                 
                 file_path = input_dir / filename
-                result = self._process_single_file(file_path, cik, enable_agents)
+                result = self._process_single_file(
+                    file_path, cik, enable_agents, enable_structured, enable_unstructured
+                )
                 
                 if result.get('success'):
                     all_results.append(result)
@@ -133,7 +139,9 @@ class UnifiedPipelineRunner:
         self,
         file_path: Path,
         cik: str,
-        enable_agents: bool
+        enable_agents: bool,
+        enable_structured: bool = True,
+        enable_unstructured: bool = True
     ) -> Dict[str, Any]:
         """
         Process a single input file through all pipelines
@@ -142,30 +150,40 @@ class UnifiedPipelineRunner:
             file_path: Path to input JSON file
             cik: CIK number for this file
             enable_agents: Whether to run agents
+            enable_structured: Whether to run structured pipeline
+            enable_unstructured: Whether to run unstructured pipeline
             
         Returns:
             Combined results for this file
         """
         try:
-            # Step 2: Run structured pipeline
-            self.logger.info("\n[2/5] Running structured pipeline...")
-            structured_result = self._run_structured_pipeline(file_path)
-            
-            if not structured_result.get('success'):
-                self.logger.warning(f"Structured pipeline failed: {structured_result.get('error')}")
-                structured_result = None
+            structured_result = None
+            if enable_structured:
+                # Step 2: Run structured pipeline
+                self.logger.info("\n[2/5] Running structured pipeline...")
+                structured_result = self._run_structured_pipeline(file_path)
+                
+                if not structured_result.get('success'):
+                    self.logger.warning(f"Structured pipeline failed: {structured_result.get('error')}")
+                    structured_result = None
+                else:
+                    self.logger.info(f"✓ Structured risk score: {structured_result.get('risk_score', 0):.4f}")
             else:
-                self.logger.info(f"✓ Structured risk score: {structured_result.get('risk_score', 0):.4f}")
+                self.logger.info("\n[2/5] Skipping structured pipeline...")
             
-            # Step 3: Run unstructured pipeline in retrieval mode
-            self.logger.info("\n[3/5] Running unstructured pipeline (retrieval mode)...")
-            unstructured_result = self._run_unstructured_pipeline([cik])
-            
-            if not unstructured_result.get('success'):
-                self.logger.warning(f"Unstructured pipeline failed: {unstructured_result.get('error')}")
-                unstructured_result = None
+            unstructured_result = None
+            if enable_unstructured:
+                # Step 3: Run unstructured pipeline in retrieval mode
+                self.logger.info("\n[3/5] Running unstructured pipeline (retrieval mode)...")
+                unstructured_result = self._run_unstructured_pipeline([cik])
+                
+                if not unstructured_result.get('success'):
+                    self.logger.warning(f"Unstructured pipeline failed: {unstructured_result.get('error')}")
+                    unstructured_result = None
+                else:
+                    self.logger.info(f"✓ Retrieved {unstructured_result.get('documents_retrieved', 0)} documents")
             else:
-                self.logger.info(f"✓ Retrieved {unstructured_result.get('documents_retrieved', 0)} documents")
+                self.logger.info("\n[3/5] Skipping unstructured pipeline...")
             
             # Step 4: Run agents (if enabled)
             agent_results = None
@@ -256,7 +274,7 @@ class UnifiedPipelineRunner:
             
             # Get formatted outputs
             if result.get('success') and self.unstructured_pipeline.formatted_outputs:
-                result['formatted_output'] = self.unstructured_pipeline.formatted_outputs[0]
+                result['formatted_output'] = self.unstructured_pipeline.formatted_outputs[-1]
             
             return result
             
@@ -425,6 +443,16 @@ def main():
         help='Disable agent orchestrator'
     )
     parser.add_argument(
+        '--no-structured',
+        action='store_true',
+        help='Disable structured pipeline'
+    )
+    parser.add_argument(
+        '--no-unstructured',
+        action='store_true',
+        help='Disable unstructured pipeline'
+    )
+    parser.add_argument(
         '--no-save',
         action='store_true',
         help='Do not save output file'
@@ -440,6 +468,8 @@ def main():
         result = runner.run(
             input_directory=Path(args.input_dir) if args.input_dir else None,
             enable_agents=not args.no_agents,
+            enable_structured=not args.no_structured,
+            enable_unstructured=not args.no_unstructured,
             save_output=not args.no_save
         )
         

@@ -1,0 +1,306 @@
+{
+  "timestamp": "20260420_145703",
+  "total_files": 12,
+  "results": [
+    {
+      "success": true,
+      "cik": "104938",
+      "filename": "0000104938-3.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "104938",
+        "filename": "0000104938-3.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "108772",
+      "filename": "0000108772-5.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "108772",
+        "filename": "0000108772-5.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "109831",
+      "filename": "0000109831.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "109831",
+        "filename": "0000109831.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "277809",
+      "filename": "0000277809.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "277809",
+        "filename": "0000277809.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "278352",
+      "filename": "0000278352-2.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "278352",
+        "filename": "0000278352-2.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "319815",
+      "filename": "0000319815-3.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "319815",
+        "filename": "0000319815-3.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "1037131",
+      "filename": "0001037131.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "1037131",
+        "filename": "0001037131.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "1039399",
+      "filename": "0001039399.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "1039399",
+        "filename": "0001039399.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "1040719",
+      "filename": "0001040719.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "1040719",
+        "filename": "0001040719.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "1040765",
+      "filename": "0001040765.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "1040765",
+        "filename": "0001040765.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "1042187",
+      "filename": "0001042187.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "1042187",
+        "filename": "0001042187.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    },
+    {
+      "success": true,
+      "cik": "1042776",
+      "filename": "0001042776.json",
+      "structured": null,
+      "unstructured": null,
+      "agents": null,
+      "combined": {
+        "cik": "1042776",
+        "filename": "0001042776.json",
+        "structured_risk": null,
+        "unstructured_risk": null,
+        "agent_results": null,
+        "combined_risk": {
+          "overall_risk_score": 0.0,
+          "risk_level": "UNKNOWN",
+          "component_scores": {},
+          "risk_factors": [
+            "No risk data available"
+          ],
+          "confidence": 0.0
+        },
+        "rag_analysis": null
+      }
+    }
+  ]
+}
